@@ -1095,7 +1095,10 @@ img { max-width: 100%; display: block; }
 .lang-content a:hover {
   background-color: #f1f1f1;
 }
-.lang-dropdown:hover .lang-content {
+.lang-dropdown:hover .lang-content,
+.nav-lang-dropdown:hover .lang-content,
+.lang-dropdown:focus-within .lang-content,
+.nav-lang-dropdown:focus-within .lang-content {
   display: block;
 }
 /* RTL support for Arabic */
