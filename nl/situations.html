@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Situatiekaarten | Dierenpersoonlijkheidstest</title>
-  <meta name="description" content="Zie hoe verschillende typen reageren" />
+  <title>성격 유형 상황 카드 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="이 상황에서 성격 유형별 반응은? 웃음보장 성격 유형 상황 카드를 넘겨보세요!" />
+  <meta name="keywords" content="성격 유형 상황, 성격 유형 반응, 성격 유형 짤, 성격 유형 공감, 성격 유형 이야기" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="성격 유형 상황 카드 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="이 상황에서 성격 유형별 반응은? 공감 100% 성격 유형 상황 카드!" />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
   <!-- AdSense -->
@@ -17,43 +23,317 @@
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
+  <script src="js/auto-lang.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 Dierenpersoonlijkheidstest</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="quiz.html">Test Starten</a></li>
-        <li><a href="about.html">Over</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="about.html">소개</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
-      <div class="compat-header">
-        <h1 class="compat-main-title">🃏 Situatiekaarten</h1>
-        <p class="compat-main-desc">Hoe reageert elk type? 100% herkenbaar!</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: situations-top | responsive --></div>
+
+      <!-- 헤더 -->
+      <div style="text-align:center; padding:1.5rem 0 1rem;">
+        <div style="font-size:2.5rem; margin-bottom:.5rem;">🃏</div>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">성격 유형 상황 카드</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;">이 상황에서 성격 유형별 반응은? 👉 카드를 넘겨보세요!</p>
+        <div style="font-size:.85rem; color:var(--text-mute); margin-top:.3rem;">
+          <span id="situationCounter">1 / 12</span>
+        </div>
       </div>
+
+      <!-- 카드 영역 -->
+      <div class="situations-deck" id="situationsDeck">
+        <div class="situations-card-wrap" id="situationsCardWrap">
+          <!-- JS로 렌더링 -->
+        </div>
+      </div>
+
+      <!-- 네비게이션 -->
+      <div class="situations-nav">
+        <button class="situations-nav-btn" id="situationsPrev" onclick="prevSituation()">◀ 이전</button>
+        <div class="situations-dots" id="situationsDots"></div>
+        <button class="situations-nav-btn" id="situationsNext" onclick="nextSituation()">다음 ▶</button>
+      </div>
+
+      <!-- 스와이프 힌트 -->
+      <p style="text-align:center; color:var(--text-mute); font-size:.82rem; margin:0.5rem 0 1rem;">← 스와이프 또는 버튼으로 넘기세요</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: situations-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Dierenpersoonlijkheidstest. Alle rechten voorbehouden.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">Over</a>
-        <a href="privacy.html">Privacybeleid</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  var SITUATIONS = [
+    {
+      emoji: '📱',
+      title: '카톡 읽씹 발생!',
+      desc: '친구에게 카톡을 보냈는데 읽고 답장이 없다...',
+      reactions: [
+        { types:['INTJ','ISTJ','ISTP'], emoji:'😐', text:'"바쁜가보지. 나중에 답장 오겠지." 다음 할 일 한다.' },
+        { types:['INFP','INFJ','ISFP'], emoji:'😟', text:'"내가 뭘 잘못했나... 기분 나쁜 말 했나?" 혼자 10번 되짚어 봄.' },
+        { types:['ENFP','ENFJ','ESFJ'], emoji:'😩', text:'"아니 왜 읽씹이야?? 잠깐 온라인 됐는데 왜 안 답해" 불안 폭발.' },
+        { types:['ENTP','ENTJ','ESTP'], emoji:'😤', text:'"이거 확인해봐야겠는데?" 바로 전화해버림.' },
+        { types:['INTP','ISFJ','ESFP'], emoji:'😅', text:'"뭐 중요한 일 생긴 건 아니겠지... 좀 기다려보자." 알림 다시 확인.' }
+      ]
+    },
+    {
+      emoji: '🏖️',
+      title: '갑자기 내일 여행 제안!',
+      desc: '친구: "야 내일 갑자기 바다 가자! 지금 예약할게!"',
+      reactions: [
+        { types:['ISTJ','INTJ','ISFJ'], emoji:'😱', text:'"내일?? 일정 있잖아. 미리 말했어야지. 다음에 가자."' },
+        { types:['ENFP','ESFP','ESTP'], emoji:'🤩', text:'"오 진짜? 가자! 챙겨야 할 거 없는데 가즈아!" 5분 만에 준비 완료.' },
+        { types:['INTP','INFP'], emoji:'🤔', text:'"음... 갑자기네. 근데 뭐 딱히 약속 없으니까... 가도 되나?" 1시간 고민 후 OK.' },
+        { types:['ENTJ','ESTJ'], emoji:'📋', text:'"어디? 숙소는? 교통은? 예산은? 잠깐 계획부터 짜고 가자."' },
+        { types:['INFJ','ISFP','ENFJ'], emoji:'😊', text:'"좋아! 근데 나 이것만 정리하고 가도 돼? 30분만 줘."' }
+      ]
+    },
+    {
+      emoji: '💸',
+      title: '마트 장보기 미션',
+      desc: '엄마한테 장 봐오라는 미션을 받았다. 필요한 것: 우유, 달걀, 빵',
+      reactions: [
+        { types:['ISTJ','ESTJ','ISFJ'], emoji:'🛒', text:'"우유. 달걀. 빵. 확인. 계산. 끝." 리스트 그대로만 사고 나옴.' },
+        { types:['ENFP','ESFP','ENTP'], emoji:'🛍️', text:'우유 달걀 빵 + 1+1 과자 + 한정판 아이스크림 + 없어도 되는 것들 15개 더 사옴.' },
+        { types:['INFP','ISFP','ESFJ'], emoji:'😊', text:'"어, 이거 맛있겠다. 이것도 좋겠다." 기분 좋게 조금 더 삼. 영수증 보고 후회.' },
+        { types:['INTJ','INTP','ENTJ'], emoji:'📊', text:'가기 전에 가격 비교 앱으로 최저가 확인. 세일하는 것만 골라 삼.' },
+        { types:['ESTP','ISTP'], emoji:'💨', text:'빠른 속도로 리스트 품목만 집고 최단 경로로 계산대 직행.' }
+      ]
+    },
+    {
+      emoji: '😴',
+      title: '약속 시간 1시간 전',
+      desc: '오후 3시 약속인데 지금 오전 11시다. 나의 상태는?',
+      reactions: [
+        { types:['ISTJ','INTJ','ISFJ'], emoji:'🚿', text:'벌써 씻고 옷 입고 가방 싸고 준비 완료. "나 너무 일찍 준비했나?"' },
+        { types:['ENFP','ESFP','ENTP'], emoji:'😴', text:'소파에 누워 유튜브 보다가 2시 50분에 벌떡 일어남. "어?! 나 10분 만에 씻을 수 있어!"' },
+        { types:['INFP','ISFP'], emoji:'🎵', text:'음악 들으면서 천천히 준비 중... 시간 가는 줄 모름. "어? 지금 2시 40분?!"' },
+        { types:['ENTJ','ESTJ'], emoji:'📝', text:'오전 11시에 이미 예상 이동시간, 날씨, 주차 상황 다 체크 완료.' },
+        { types:['INTP','ISTP','ESTP'], emoji:'🕐', text:'"1시간 충분하지." 30분 전까지 게임하다가 30분 만에 준비. 5분 늦게 도착.' }
+      ]
+    },
+    {
+      emoji: '🍕',
+      title: '단체 메뉴 고르기',
+      desc: '"우리 뭐 먹을까?" 단체 회식 메뉴 정하는 상황.',
+      reactions: [
+        { types:['ESFJ','ENFJ','ISFJ'], emoji:'😊', text:'"다들 뭐 먹고 싶어요? 저는 아무거나 다 좋아요!" (진짜로 다 좋아함)' },
+        { types:['ENTJ','ESTJ'], emoji:'🍖', text:'"삼겹살로 합시다. 반대하는 분?" 이미 메뉴 정해옴.' },
+        { types:['INTP','ENTP','INTJ'], emoji:'🔍', text:'네이버 맵 켜서 주변 맛집 별점순으로 검색 시작. "이 집 3.8점인데 여기가 낫겠어."' },
+        { types:['INFP','ISFP'], emoji:'🤐', text:'"저는 뭐든 괜찮아요." (속으로: 제발 피자 안 됐으면... 어제도 피자 먹었는데...)' },
+        { types:['ENFP','ESFP','ESTP'], emoji:'🍜', text:'"저 마라탕 먹고 싶어요!! 아니면 양꼬치? 아니면 초밥?" 5개 후보 제시.' }
+      ]
+    },
+    {
+      emoji: '😤',
+      title: '억울한 일을 당했다',
+      desc: '명백히 내 잘못이 아닌데 혼났다. 나의 대처는?',
+      reactions: [
+        { types:['ENTJ','ESTJ','ESTP'], emoji:'🔥', text:'"이건 제 잘못이 아닙니다." 바로 반박. 논리적 근거 제시. 끝까지 싸움.' },
+        { types:['INFJ','INFP'], emoji:'💔', text:'속으로 엄청 억울하지만 겉으로는 말 못 함. 집에 가서 이불 킥. 3일 동안 생각함.' },
+        { types:['INTJ','INTP'], emoji:'🤐', text:'반박할 논리 머릿속으로 다 준비해두고... 그냥 참음. "이 사람이랑 싸워서 뭐하나."' },
+        { types:['ESFJ','ENFJ','ISFJ'], emoji:'😢', text:'억울하지만 분위기 망칠까봐 "죄송합니다" 해버림. 나중에 혼자 엄청 섭섭해함.' },
+        { types:['ENFP','ENTP','ISTP'], emoji:'😏', text:'"아 그래요? 제가 언제 그랬죠?" 차분하게 팩트 확인 요청. 의외로 침착.' }
+      ]
+    },
+    {
+      emoji: '🎮',
+      title: '게임에서 졌다',
+      desc: '친구들과 게임을 했는데 내가 꼴찌가 됐다.',
+      reactions: [
+        { types:['ENTJ','ESTJ','ESTP'], emoji:'😤', text:'"한 판 더. 내가 질 리 없어." 밤새도록 설욕전 요구.' },
+        { types:['INFP','ISFP','INFJ'], emoji:'😅', text:'"ㅋㅋㅋ 나 진짜 못하네" 쿨하게 웃어넘김. 속으로는 살짝 아쉬움.' },
+        { types:['INTP','INTJ'], emoji:'🔎', text:'"왜 진 거지? 전략 분석 필요." 뇌내 복기 시작. 패배 원인 도출.' },
+        { types:['ESFP','ENFP'], emoji:'🎉', text:'"꼴찌면 어때 ㅋㅋㅋ 재밌으면 됐지!" 오히려 제일 신나있음.' },
+        { types:['ISTJ','ISFJ'], emoji:'😐', text:'"그래, 오늘은 졌네. 다음에 더 잘 하면 되지." 담담하게 인정.' }
+      ]
+    },
+    {
+      emoji: '📞',
+      title: '모르는 번호로 전화가 왔다',
+      desc: '저장 안 된 번호로 전화가 왔다. 나의 반응은?',
+      reactions: [
+        { types:['INTJ','INTP','ISTP'], emoji:'📵', text:'"누구지?" 일단 안 받음. 문자 남기면 봐줌. 안 남기면 차단 후보.' },
+        { types:['ESFJ','ISFJ','ENFJ'], emoji:'😰', text:'"어떡하지... 중요한 전화면 어떡해." 떨리는 손으로 받음. "여보세요...?"' },
+        { types:['ENTJ','ESTJ','ESTP'], emoji:'📞', text:'"응. 받지 뭐." 바로 받고 "어디세요?"로 시작.' },
+        { types:['INFP','ISFP','ENFP'], emoji:'😬', text:'"전화 받기 싫다... 그냥 끊어질 때까지 기다릴까..." 결국 안 받음. 보이스피싱이었길 바람.' },
+        { types:['ENTP','ENFP'], emoji:'🤙', text:'"오 뭐야 누구지?" 호기심에 바로 받음. "안녕하세요! 누구세요?"' }
+      ]
+    },
+    {
+      emoji: '🌧️',
+      title: '갑자기 비가 쏟아진다',
+      desc: '우산 없이 나왔는데 갑자기 폭우가 쏟아진다!',
+      reactions: [
+        { types:['ISTJ','ISFJ'], emoji:'☂️', text:'"나는 항상 우산 가지고 다니는데..." 가방에서 접이식 우산 꺼냄.' },
+        { types:['ENFP','ESFP','ESTP'], emoji:'🌊', text:'그냥 뛰어다님. "어차피 다 젖었으니까 ㅋㅋ" 빗속에서 오히려 즐김.' },
+        { types:['INTJ','ENTJ'], emoji:'📱', text:'비 예보 확인 안 한 자신에게 실망. 즉시 스마트폰으로 편의점 우산 최저가 검색.' },
+        { types:['INFP','INFJ'], emoji:'☔', text:'처마 밑에 서서 비 소리 들음. "비 냄새 좋다..." 감성에 젖어버림.' },
+        { types:['INTP','ISTP'], emoji:'🏃', text:'"가장 가까운 건물이 어디지?" 최단 경로 계산해서 전력 질주.' }
+      ]
+    },
+    {
+      emoji: '😴',
+      title: '시험 전날 밤',
+      desc: '내일 중요한 시험이 있다. 나의 오늘 밤 상태는?',
+      reactions: [
+        { types:['ISTJ','INTJ','ISFJ'], emoji:'📚', text:'2주 전부터 계획적으로 공부해서 오늘은 마지막 점검 후 일찍 잠. "준비됐다."' },
+        { types:['ENFP','ESFP','ENTP'], emoji:'📖', text:'시험 전날 밤 11시부터 공부 시작. 새벽 4시까지 벼락치기. 의외로 잘 봄.' },
+        { types:['INTP','INFP'], emoji:'🔮', text:'시험보다 관련된 흥미로운 지식 탐구하다가 정작 시험 범위를 못 다 봄.' },
+        { types:['ENTJ','ESTJ'], emoji:'✅', text:'완벽한 요약 노트 만들어 두고 전날은 7시간 수면으로 컨디션 최적화.' },
+        { types:['INFJ','ISFP'], emoji:'😰', text:'"충분히 했나?" 복습하다가 불안해짐. 다 아는데도 자꾸 다시 봄.' }
+      ]
+    },
+    {
+      emoji: '🍽️',
+      title: '식당 주문하는 시간',
+      desc: '점심시간. 뭐 먹을지 정해야 한다.',
+      reactions: [
+        { types:['ENTJ','ESTJ','ISTP'], emoji:'⚡', text:'메뉴판 5초 훑고 바로 주문. "어 저는 됐어요."' },
+        { types:['INTP','INFP','INFJ'], emoji:'🤔', text:'메뉴판을 3번 읽음. 옆 테이블 음식 봄. 또 메뉴판 봄. 10분째 고민 중.' },
+        { types:['ESFJ','ENFJ','ISFJ'], emoji:'🧐', text:'"오빠는 뭐 먹어? 언니는?" 남이 고른 다음에 비슷한 거 시킴.' },
+        { types:['ENFP','ESFP'], emoji:'😍', text:'"이것도 맛있을 것 같고 저것도 맛있을 것 같고! 두 개 시킬까?"' },
+        { types:['INTJ','ISTJ'], emoji:'📱', text:'오기 전에 이미 메뉴 앱으로 사전 조사 완료. 도착하자마자 바로 주문.' }
+      ]
+    },
+    {
+      emoji: '🎁',
+      title: '선물을 받았다!',
+      desc: '생일도 아닌데 친구에게 선물을 받았다.',
+      reactions: [
+        { types:['ESFP','ENFP','ESFJ'], emoji:'🥰', text:'"어머!! 이게 뭐야!! 어떡해!!" 호들갑스럽게 감동 표현. SNS 바로 올림.' },
+        { types:['INTJ','INTP','ISTP'], emoji:'😊', text:'"고마워." 표정은 무덤덤하지만 속으로는 엄청 기쁨. 혼자 있을 때 다시 꺼내봄.' },
+        { types:['INFP','INFJ','ISFP'], emoji:'💝', text:'"이걸 왜... 고마워 진짜 감동이야." 눈물 글썽. 의미를 깊게 생각함.' },
+        { types:['ENTJ','ESTJ'], emoji:'🤔', text:'"왜 줬지? 뭔가 부탁이 있는 건 아니겠지?" 이유 분석. (아니라는 걸 알면서도)' },
+        { types:['ENFJ','ISFJ'], emoji:'🥺', text:'선물보다 주는 사람의 마음에 감동. "나도 뭔가 해줘야 되는데." 바로 보답 계획 시작.' }
+      ]
+    }
+  ];
+
+  var currentSituationIdx = 0;
+  var touchStartX = 0;
+
+  function renderSituation(idx) {
+    var sit = SITUATIONS[idx];
+    var wrap = document.getElementById('situationsCardWrap');
+
+    wrap.innerHTML = '<div class="situations-card" id="situationCard">'
+      + '<div class="situations-card-header">'
+      + '<div class="situations-card-emoji">' + sit.emoji + '</div>'
+      + '<h2 class="situations-card-title">' + sit.title + '</h2>'
+      + '<p class="situations-card-desc">' + sit.desc + '</p>'
+      + '</div>'
+      + '<div class="situations-reactions">'
+      + sit.reactions.map(function(r) {
+          return '<div class="situations-reaction-item">'
+            + '<div class="situations-reaction-header">'
+            + '<span class="situations-reaction-emoji">' + r.emoji + '</span>'
+            + '<span class="situations-reaction-types">' + r.types.join(' · ') + '</span>'
+            + '</div>'
+            + '<p class="situations-reaction-text">' + r.text + '</p>'
+            + '</div>';
+        }).join('')
+      + '</div>'
+      + '<div class="situations-card-actions">'
+      + '<a href="quiz.html" class="btn-start" style="font-size:.9rem; padding:.7rem 1.8rem; border:none;">내 유형 알아보기 →</a>'
+      + '</div>'
+      + '</div>';
+
+    // 카운터 업데이트
+    document.getElementById('situationCounter').textContent = (idx + 1) + ' / ' + SITUATIONS.length;
+
+    // 도트 업데이트
+    var dots = document.getElementById('situationsDots');
+    dots.innerHTML = '';
+    SITUATIONS.forEach(function(_, i) {
+      var dot = document.createElement('span');
+      dot.className = 'situations-dot' + (i === idx ? ' active' : '');
+      dot.onclick = (function(i) { return function() { goToSituation(i); }; })(i);
+      dots.appendChild(dot);
+    });
+
+    // 버튼 상태
+    document.getElementById('situationsPrev').disabled = idx === 0;
+    document.getElementById('situationsNext').disabled = idx === SITUATIONS.length - 1;
+    document.getElementById('situationsNext').textContent = idx === SITUATIONS.length - 1 ? '처음으로' : '다음 ▶';
+
+    // 애니메이션
+    var card = document.getElementById('situationCard');
+    card.style.animation = 'none';
+    card.offsetHeight;
+    card.style.animation = 'slideIn .3s ease';
+  }
+
+  function goToSituation(idx) {
+    currentSituationIdx = idx;
+    renderSituation(currentSituationIdx);
+  }
+
+  function prevSituation() {
+    if (currentSituationIdx > 0) {
+      currentSituationIdx--;
+      renderSituation(currentSituationIdx);
+    }
+  }
+
+  function nextSituation() {
+    if (currentSituationIdx < SITUATIONS.length - 1) {
+      currentSituationIdx++;
+    } else {
+      currentSituationIdx = 0;
+    }
+    renderSituation(currentSituationIdx);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderSituation(0);
+
+    // 터치 스와이프 지원
+    document.getElementById('situationsDeck').addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    document.getElementById('situationsDeck').addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) { nextSituation(); } else { prevSituation(); }
+      }
+    }, { passive: true });
+  });
+  </script>
 </body>
 </html>

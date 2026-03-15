@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pencocokan Kompatibilitas 성격 유형 | Test Kepribadian Hewan</title>
-  <meta name="description" content="Cek kompatibilitas dua tipe 성격 유형 dengan skor dan penjelasan detail!" />
+  <title>성격 유형 궁합 매칭 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="두 성격 유형 유형의 궁합을 알아보세요! 점수와 함께 상세한 궁합 설명을 확인할 수 있습니다." />
+  <meta name="keywords" content="성격 유형 궁합, 성격 유형 매칭, 성격 유형 연애, 성격 유형 친구 궁합" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="성격 유형 궁합 매칭 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="두 성격 유형 유형의 궁합 점수와 상세 설명을 확인해보세요!" />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
   <!-- AdSense -->
@@ -17,42 +23,397 @@
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
+  <script src="js/auto-lang.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 Test Kepribadian Hewan</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="quiz.html">Mulai Test</a></li>
-        <li><a href="about.html">Tentang</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="compat-chart.html">궁합표</a></li>
+        <li><a href="about.html">소개</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: compat-top | responsive --></div>
+
+      <!-- 헤더 -->
       <div class="compat-header" id="compatHeader">
-        <h1 class="compat-main-title">💕 Pencocokan Kompatibilitas 성격 유형</h1>
-        <p class="compat-main-desc">Cek skor kompatibilitas dan penjelasan detail antara dua tipe</p>
+        <h1 class="compat-main-title">💕 성격 유형 궁합 매칭</h1>
+        <p class="compat-main-desc">두 유형의 궁합 점수와 상세 설명을 확인해보세요</p>
       </div>
+
+      <!-- 친구 링크 공유 배너 (me만 있을 때) -->
+      <div class="compat-share-banner" id="compatShareBanner" style="display:none;">
+        <div class="compat-share-inner">
+          <div class="compat-share-me" id="compatShareMe"></div>
+          <p>친구에게 링크를 공유하면 자동으로 궁합 결과가 나와요!</p>
+          <button class="btn-compat-share" id="copyCompatLink">🔗 친구 링크 공유하기</button>
+        </div>
+      </div>
+
+      <!-- 궁합 결과 카드 (둘 다 있을 때) -->
+      <div class="compat-result-card" id="compatResultCard" style="display:none;">
+        <div class="compat-pair">
+          <div class="compat-person" id="compatPersonA"></div>
+          <div class="compat-heart">💕</div>
+          <div class="compat-person" id="compatPersonB"></div>
+        </div>
+        <div class="compat-score-wrap">
+          <div class="compat-score-circle" id="compatScoreCircle">
+            <span class="compat-score-num" id="compatScoreNum">0</span>
+            <span class="compat-score-label">궁합 점수</span>
+          </div>
+        </div>
+        <div class="compat-grade" id="compatGrade"></div>
+        <p class="compat-desc" id="compatDesc"></p>
+        <div class="compat-advice-box" id="compatAdviceBox">
+          <h3>💡 관계 조언</h3>
+          <p id="compatAdvice"></p>
+        </div>
+        <div class="compat-actions">
+          <a href="quiz.html" class="btn-retest">테스트 다시 하기 🔄</a>
+          <a href="compat-chart.html" class="btn-home">전체 궁합표 보기</a>
+        </div>
+      </div>
+
+      <!-- 드롭다운 선택기 -->
+      <div class="result-card compat-selector" id="compatSelector">
+        <h2 class="section-title" style="margin-bottom:1.5rem;">직접 유형 선택하기</h2>
+        <div class="compat-dropdowns">
+          <div class="compat-dropdown-wrap">
+            <label>나의 유형</label>
+            <select id="selectA" class="compat-select">
+              <option value="">-- 선택 --</option>
+            </select>
+          </div>
+          <div class="compat-dropdown-vs">VS</div>
+          <div class="compat-dropdown-wrap">
+            <label>상대방 유형</label>
+            <select id="selectB" class="compat-select">
+              <option value="">-- 선택 --</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-start btn-compat-check" id="checkCompatBtn" onclick="checkCompatFromDropdown()">궁합 확인하기 💕</button>
+      </div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: compat-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Test Kepribadian Hewan. All rights reserved.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">Tentang Situs</a>
-        <a href="privacy.html">Kebijakan Privasi</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
+  <script src="js/storage.js"></script>
+  <script>
+  /* ===== 궁합 데이터 16x16 ===== */
+  var TYPES = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+
+  var ANIMAL = {
+    INTJ:'호랑이 🐯', INTP:'올빼미 🦉', ENTJ:'사자 🦁', ENTP:'앵무새 🦜',
+    INFJ:'판다 🐼', INFP:'해마 🦭', ENFJ:'골든리트리버 🐕', ENFP:'돌고래 🐬',
+    ISTJ:'비버 🦫', ISFJ:'사슴 🦌', ESTJ:'늑대 🐺', ESFJ:'코끼리 🐘',
+    ISTP:'고양이 🐱', ISFP:'나무늘보 🦥', ESTP:'치타 🐆', ESFP:'공작새 🦚'
+  };
+
+  /* score: 0-100, desc: 한줄설명, advice: 조언 */
+  var COMPAT_DATA = {
+    'INTJ-INTJ': { score:72, desc:'서로의 독립심을 존중하는 냉철한 동맹. 함께 있어도 불필요한 말이 없습니다.', advice:'감정 표현을 가끔씩 시도해보세요. 상대도 당신의 따뜻한 면을 원합니다.' },
+    'INTJ-INTP': { score:80, desc:'지적 탐구를 함께 즐기는 완벽한 연구 파트너. 끝없는 토론이 매력입니다.', advice:'계획을 세울 때 INTP의 유연함을 인정해주세요. 함께 더 좋은 결과를 만들 수 있습니다.' },
+    'INTJ-ENTJ': { score:76, desc:'전략과 실행력이 만나는 최강 듀오. 함께라면 무엇이든 이룰 수 있습니다.', advice:'주도권 다툼에 주의하세요. 각자의 강점을 살리면 환상의 팀이 됩니다.' },
+    'INTJ-ENTP': { score:85, desc:'아이디어 제조기와 전략가의 만남. 서로의 지적 자극이 끊이지 않습니다.', advice:'ENTP의 즉흥성을 틀렸다고 보지 마세요. 거기서 의외의 혁신이 나옵니다.' },
+    'INTJ-INFJ': { score:78, desc:'깊은 내면을 이해하는 희귀한 연결. 말하지 않아도 통하는 부분이 있습니다.', advice:'INFJ의 감정적 필요를 외면하지 마세요. 당신의 논리가 때론 상처가 됩니다.' },
+    'INTJ-INFP': { score:68, desc:'가치관은 다르지만 서로의 진정성에 매력을 느낍니다.', advice:'INFP의 감정 세계를 논리로 재단하지 마세요. 다름을 인정하면 깊어집니다.' },
+    'INTJ-ENFJ': { score:72, desc:'사람을 보는 시각이 달라 서로에게 새로운 관점을 줍니다.', advice:'ENFJ의 사교성에 참여해보세요. 생각보다 즐거울 수 있습니다.' },
+    'INTJ-ENFP': { score:92, desc:'완벽한 상호보완! 자유로운 돌고래가 고독한 호랑이를 세상 밖으로 이끕니다. 성격 유형 최고 궁합 중 하나!', advice:'서로의 다름이 최대 장점입니다. ENFP는 자유를, INTJ는 방향을 줍니다.' },
+    'INTJ-ISTJ': { score:70, desc:'규칙과 전략이 맞닿는 안정적인 관계. 신뢰를 쌓으면 오래갑니다.', advice:'세부 계획에서 의견 차이가 날 수 있어요. 큰 목표를 공유하면 해결됩니다.' },
+    'INTJ-ISFJ': { score:58, desc:'가치관 차이가 크지만 서로의 헌신에 존경심을 느낍니다.', advice:'ISFJ의 전통적 방식을 존중해주세요. 변화를 강요하면 관계가 멀어집니다.' },
+    'INTJ-ESTJ': { score:65, desc:'목표 지향이라는 공통점이 있지만 접근 방식이 달라 충돌이 생깁니다.', advice:'ESTJ의 경험 기반 판단을 인정해주세요. 이론과 실전을 합치면 강해집니다.' },
+    'INTJ-ESFJ': { score:48, desc:'가장 달라 보이는 조합. 하지만 서로에게 없는 것을 배울 수 있습니다.', advice:'ESFJ의 감성적 배려를 냉정하게 대하지 마세요. 진심을 알아줘야 합니다.' },
+    'INTJ-ISTP': { score:74, desc:'효율과 논리라는 공통 언어로 통하는 실용적인 파트너.', advice:'감정 교류 없이 일만 하다 보면 관계가 메말라요. 가끔 잡담도 필요합니다.' },
+    'INTJ-ISFP': { score:55, desc:'조용하지만 서로의 독립성을 침해하지 않는 평화로운 관계.', advice:'ISFP의 감수성 세계에 가끔 발을 들여보세요. 새로운 시각이 열립니다.' },
+    'INTJ-ESTP': { score:60, desc:'단기 목표에서는 힘을 합치지만 장기 비전에서 의견이 갈립니다.', advice:'ESTP의 즉각적 행동력에서 배울 점이 있습니다. 생각보다 실행을 먼저 해보세요.' },
+    'INTJ-ESFP': { score:44, desc:'정반대의 조합. 처음엔 신선하지만 지속적인 노력이 필요합니다.', advice:'ESFP의 현재 집중 에너지가 당신의 미래 계획에 균형을 줄 수 있습니다.' },
+
+    'INTP-INTP': { score:73, desc:'지적 거인들의 조용한 공존. 서로의 이론 세계를 탐험합니다.', advice:'결정을 미루는 경향이 둘 다 있어요. 누군가는 실행 역할을 맡아야 합니다.' },
+    'INTP-ENTJ': { score:87, desc:'이론가와 실행가의 황금 콤비. ENTJ가 INTP의 아이디어를 현실로 만듭니다.', advice:'ENTJ의 직설적 피드백을 비난으로 받아들이지 마세요. 발전을 원하는 마음입니다.' },
+    'INTP-ENTP': { score:82, desc:'아이디어 폭격의 향연. 둘이 만나면 새벽 3시까지 토론이 멈추지 않습니다.', advice:'토론을 넘어 실행까지 이어지도록 노력해보세요. 아이디어는 충분합니다.' },
+    'INTP-INFJ': { score:84, desc:'논리와 직관이 만나는 심오한 연결. 서로의 세계를 넓혀줍니다.', advice:'INFJ의 감정적 필요를 이해하려 노력하세요. 논리로 위로할 수 없는 것들이 있습니다.' },
+    'INTP-INFP': { score:76, desc:'이상을 추구하는 두 내향인. 깊고 조용한 유대감을 형성합니다.', advice:'서로 너무 배려하다 정작 중요한 말을 못 할 수 있어요. 솔직하게 말해보세요.' },
+    'INTP-ENFJ': { score:88, desc:'INTP의 완벽한 천적이자 최고의 파트너. ENFJ가 INTP를 세상 밖으로 이끕니다.', advice:'ENFJ의 사교적 활동에 가끔 동참해보세요. 당신도 즐길 수 있습니다.' },
+    'INTP-ENFP': { score:83, desc:'호기심과 상상력이 폭발하는 최고의 궁합 중 하나.', advice:'ENFP의 감정 표현에 당황하지 마세요. 그것이 ENFP의 언어입니다.' },
+    'INTP-ISTJ': { score:62, desc:'안정과 혁신의 대조. 서로의 방식을 이해하는 데 시간이 필요합니다.', advice:'ISTJ의 경험 기반 방식을 무시하지 마세요. 검증된 방법에도 지혜가 있습니다.' },
+    'INTP-ISFJ': { score:57, desc:'배려형과 분석형의 조심스러운 만남. 시간이 쌓이면 안정적입니다.', advice:'ISFJ가 INTP를 위해 하는 작은 배려들을 놓치지 말고 감사를 표현하세요.' },
+    'INTP-ESTJ': { score:60, desc:'이론 vs 실용, 두 가지 접근법이 충돌하지만 서로를 보완할 수 있습니다.', advice:'ESTJ의 실용적 판단을 인정하면 INTP의 이론이 훨씬 강해집니다.' },
+    'INTP-ESFJ': { score:50, desc:'다른 언어로 말하는 두 사람. 노력이 필요하지만 성장이 큽니다.', advice:'ESFJ의 하모니 추구를 약점이 아닌 강점으로 봐주세요.' },
+    'INTP-ISTP': { score:77, desc:'말이 필요 없는 효율주의자들의 만남. 같이 있어도 편안합니다.', advice:'감정 대화를 불편해하지 말고 조금씩 시도해보세요.' },
+    'INTP-ISFP': { score:68, desc:'조용하고 평화로운 조합. 서로의 공간을 존중합니다.', advice:'ISFP의 감각적 즐거움에 동참해보세요. 책상 밖 세계도 흥미롭습니다.' },
+    'INTP-ESTP': { score:65, desc:'이론가와 행동가의 만남. 서로의 속도가 달라 조율이 필요합니다.', advice:'ESTP의 현장 감각에서 배울 점이 많습니다. 함께 실험해보세요.' },
+    'INTP-ESFP': { score:52, desc:'조용한 분석가와 화려한 연예인. 서로의 세계가 신기하게 느껴집니다.', advice:'ESFP의 에너지가 당신을 지치게 할 수 있어요. 적절한 개인 시간을 확보하세요.' },
+
+    'ENTJ-ENTJ': { score:70, desc:'두 리더의 만남. 협력하면 최강이지만 주도권 경쟁에 주의하세요.', advice:'한 팀에 두 대장이 있을 때는 역할 분담이 핵심입니다.' },
+    'ENTJ-ENTP': { score:81, desc:'목표와 아이디어가 만나는 강력한 조합. 불가능을 가능으로 만듭니다.', advice:'ENTP가 방향을 바꾸려 할 때 이유를 들어보세요. 의외로 좋은 아이디어일 수 있습니다.' },
+    'ENTJ-INFJ': { score:82, desc:'비전과 통찰이 만나는 강력한 파트너십. 세상을 바꿀 수 있는 조합.', advice:'INFJ의 속도를 존중하세요. 밀어붙이면 번아웃됩니다.' },
+    'ENTJ-INFP': { score:78, desc:'사자와 해마의 의외의 매력. 서로에게 없는 것을 채워줍니다.', advice:'INFP의 감수성을 약점으로 보지 마세요. 그 깊이가 ENTJ를 더 인간적으로 만듭니다.' },
+    'ENTJ-ENFJ': { score:74, desc:'리더십이 겹치지만 방향이 달라 보완이 됩니다.', advice:'ENFJ의 감성적 리더십과 ENTJ의 전략적 리더십을 결합해보세요.' },
+    'ENTJ-ENFP': { score:79, desc:'열정과 실행력의 폭발적 조합. 함께하면 에너지가 넘칩니다.', advice:'ENFP의 자유로운 방식을 통제하려 하지 마세요. 그 자유에서 혁신이 나옵니다.' },
+    'ENTJ-ISTJ': { score:73, desc:'실행력과 안정성이 만나는 믿을 수 있는 조합.', advice:'ISTJ의 신중함을 느림으로 보지 마세요. 실수 없는 실행력의 원천입니다.' },
+    'ENTJ-ISFJ': { score:60, desc:'큰 그림과 세부 배려가 만나는 관계. 각자의 역할이 명확합니다.', advice:'ISFJ의 조용한 기여를 크게 인정해주세요. 보이지 않는 곳에서 많은 일을 합니다.' },
+    'ENTJ-ESTJ': { score:68, desc:'유사한 가치관을 가진 강력한 팀. 함께하면 조직을 이끌 수 있습니다.', advice:'서로의 고집이 부딪힐 수 있어요. 큰 목표 앞에선 유연해지세요.' },
+    'ENTJ-ESFJ': { score:62, desc:'사람과 조직 모두를 다루는 균형 잡힌 파트너십.', advice:'ESFJ의 감정 조율 능력을 ENTJ의 비전과 결합하면 강력한 팀이 됩니다.' },
+    'ENTJ-ISTP': { score:71, desc:'전략과 기술이 만나는 실용적 관계.', advice:'ISTP의 조용한 실행력을 믿어주세요. 말 없이 이미 해결하고 있습니다.' },
+    'ENTJ-ISFP': { score:55, desc:'목표 지향과 자유로움이 충돌하는 관계. 이해와 조율이 필요합니다.', advice:'ISFP의 현재 집중 방식에서 삶의 여유를 배워보세요.' },
+    'ENTJ-ESTP': { score:72, desc:'행동력과 전략의 만남. 빠르게 목표를 달성하는 드림팀.', advice:'너무 앞만 보다가 관계를 놓치지 마세요. 과정도 즐길 줄 알아야 합니다.' },
+    'ENTJ-ESFP': { score:58, desc:'에너지는 넘치지만 방향이 달라 조율이 필요한 관계.', advice:'ESFP의 즉흥적 즐거움이 ENTJ에게 새로운 경험을 줄 수 있습니다.' },
+
+    'ENTP-ENTP': { score:75, desc:'아이디어 배틀의 연속. 지루할 틈이 없지만 실행이 문제입니다.', advice:'토론 끝에 한 가지라도 실행하는 규칙을 만들어보세요.' },
+    'ENTP-INFJ': { score:90, desc:'최고의 지적 파트너! ENTP의 아이디어를 INFJ의 통찰이 완성합니다.', advice:'INFJ의 에너지를 소진시키지 않도록 조용한 시간도 배려해주세요.' },
+    'ENTP-INFP': { score:79, desc:'창의성과 이상이 만나는 풍성한 관계.', advice:'INFP의 감정 세계를 논쟁 대상으로 보지 마세요. 그냥 들어주는 것도 중요합니다.' },
+    'ENTP-ENFJ': { score:77, desc:'말 잘하는 두 사람의 시너지 폭발 조합.', advice:'ENFJ가 조화를 위해 자신의 의견을 숨길 때 적극적으로 물어봐주세요.' },
+    'ENTP-ENFP': { score:85, desc:'창의성이 두 배! 세상에서 가장 재밌는 콤비가 될 수 있습니다.', advice:'둘 다 P 성향이라 결정을 미루는 경향이 있어요. 번갈아 결정권을 가져보세요.' },
+    'ENTP-ISTJ': { score:52, desc:'규칙 vs 혁신의 충돌. 서로를 이해하는 데 많은 노력이 필요합니다.', advice:'ISTJ가 안정을 추구하는 이유를 이해하면 관계가 훨씬 편해집니다.' },
+    'ENTP-ISFJ': { score:48, desc:'정반대의 조합. 각자의 장점이 상대의 약점을 보완합니다.', advice:'ISFJ의 세심한 배려를 당연하게 여기지 마세요. 큰 감사를 표현해주세요.' },
+    'ENTP-ESTJ': { score:58, desc:'빠른 실행과 창의적 접근이 부딪히는 관계.', advice:'ESTJ의 체계를 존중하면 ENTP의 아이디어가 더 잘 실현됩니다.' },
+    'ENTP-ESFJ': { score:50, desc:'서로의 세계가 달라 이해에 시간이 필요한 관계.', advice:'ESFJ의 감정적 배려에 감사하고 표현해보세요. 관계가 달라집니다.' },
+    'ENTP-ISTP': { score:74, desc:'논리와 기술이 만나는 흥미로운 파트너십.', advice:'ISTP의 침묵을 거부로 해석하지 마세요. 생각하는 중일 뿐입니다.' },
+    'ENTP-ISFP': { score:60, desc:'자유로운 두 P 성향의 만남. 일상이 즐거워집니다.', advice:'ISFP의 감수성 세계에 관심을 보여주세요. 깊은 연결이 만들어집니다.' },
+    'ENTP-ESTP': { score:76, desc:'에너지와 행동력이 넘치는 활기찬 조합.', advice:'함께 있으면 너무 흥분해서 중요한 것을 놓칠 수 있어요. 가끔 멈추고 돌아보세요.' },
+    'ENTP-ESFP': { score:70, desc:'세상에서 가장 재밌고 에너제틱한 콤비 후보.', advice:'즉흥적인 결정이 나중에 문제가 될 수 있어요. 최소한의 계획은 세워보세요.' },
+
+    'INFJ-INFJ': { score:78, desc:'희귀한 영혼들의 만남. 서로를 완전히 이해하는 깊은 유대.', advice:'둘 다 자기 희생 경향이 있어요. 서로에게 "괜찮아?"를 자주 물어보세요.' },
+    'INFJ-INFP': { score:82, desc:'이상과 가치관이 공명하는 아름다운 관계.', advice:'현실적인 문제 앞에서 서로 기대기만 하지 말고 실행력을 키워보세요.' },
+    'INFJ-ENFJ': { score:80, desc:'사람을 위한 두 영혼의 만남. 함께라면 세상을 더 따뜻하게 만들 수 있습니다.', advice:'서로를 너무 챙기다가 정작 자신을 돌보지 못할 수 있어요.' },
+    'INFJ-ENFP': { score:88, desc:'통찰과 열정의 만남! 서로에게 영감을 주는 최상의 궁합.', advice:'ENFP의 에너지에 INFJ가 지칠 수 있어요. 재충전 시간을 함께 존중하세요.' },
+    'INFJ-ISTJ': { score:60, desc:'내면 세계와 현실 세계의 만남. 서로의 다름이 배움이 됩니다.', advice:'ISTJ의 구체적인 언어로 소통해보세요. 추상적인 말은 오해를 낳을 수 있습니다.' },
+    'INFJ-ISFJ': { score:72, desc:'따뜻한 마음을 가진 두 내향인의 조용한 유대.', advice:'서로 너무 배려하다 자신의 진짜 필요를 표현 못 할 수 있어요.' },
+    'INFJ-ESTJ': { score:58, desc:'비전과 실용의 충돌. 서로의 장점을 인정하면 강해집니다.', advice:'ESTJ에게 추상적 비전을 구체적인 말로 설명해주세요. 이해하면 최고의 실행자가 됩니다.' },
+    'INFJ-ESFJ': { score:68, desc:'따뜻함이라는 공통점을 가진 조합. 하지만 추구하는 방향이 다릅니다.', advice:'ESFJ의 현실적 배려를 깊이 감사하세요. 말로 표현하는 것이 중요합니다.' },
+    'INFJ-ISTP': { score:62, desc:'신비로운 만남. 서로의 다름이 매력이 됩니다.', advice:'ISTP에게 감정적 기대를 너무 많이 하지 마세요. 다른 방식으로 사랑을 표현합니다.' },
+    'INFJ-ISFP': { score:75, desc:'조용하고 진실한 두 사람의 따뜻한 관계.', advice:'ISFP에게 미래 비전을 너무 강요하지 마세요. 현재를 함께 즐기는 것도 소중합니다.' },
+    'INFJ-ESTP': { score:54, desc:'다른 세계의 만남. 서로에게서 배울 것이 많지만 노력이 필요합니다.', advice:'ESTP의 현실적 행동에서 INFJ의 이상이 실현되는 방법을 배울 수 있습니다.' },
+    'INFJ-ESFP': { score:50, desc:'정반대지만 서로에게 없는 것을 배울 수 있는 관계.', advice:'ESFP의 현재 집중 방식이 INFJ의 과도한 걱정을 줄여줄 수 있습니다.' },
+
+    'INFP-INFP': { score:76, desc:'이상향을 꿈꾸는 두 몽상가의 아름다운 만남.', advice:'현실을 함께 마주하는 연습이 필요해요. 꿈만 꾸다 현실 문제를 놓치지 마세요.' },
+    'INFP-ENFJ': { score:87, desc:'INFP의 완벽한 짝! ENFJ가 INFP를 세상에 연결해줍니다.', advice:'ENFJ에게 당신의 내면 세계를 천천히 열어보여 주세요. 소중히 다뤄줄 것입니다.' },
+    'INFP-ENFP': { score:84, desc:'감성과 열정이 만나는 환상적인 조합.', advice:'둘 다 감정 기복이 있을 수 있어요. 서로의 다운타임을 이해해주세요.' },
+    'INFP-ISTJ': { score:55, desc:'현실과 이상의 만남. 서로를 이해하는 시간이 필요합니다.', advice:'ISTJ의 안정성이 INFP에게 든든한 기반이 될 수 있습니다.' },
+    'INFP-ISFJ': { score:73, desc:'두 F 성향의 따뜻하고 배려 넘치는 관계.', advice:'갈등 상황에서 둘 다 회피하려 할 수 있어요. 용기를 내어 대화해보세요.' },
+    'INFP-ESTJ': { score:52, desc:'정반대에 가까운 조합. 노력하면 서로의 장점을 배울 수 있습니다.', advice:'ESTJ의 직설적인 말이 비난이 아닌 피드백임을 이해하면 관계가 편해집니다.' },
+    'INFP-ESFJ': { score:67, desc:'감성적인 두 사람의 따뜻한 연결.', advice:'ESFJ의 사교적 필요에 가끔 동참해주세요. 그것이 ESFJ의 에너지원입니다.' },
+    'INFP-ISTP': { score:58, desc:'조용하지만 서로의 공간을 침해하지 않는 평화로운 관계.', advice:'ISTP에게 감정적 지원을 기대하기보다 실질적 도움을 요청해보세요.' },
+    'INFP-ISFP': { score:80, desc:'예술적 감수성을 공유하는 아름다운 관계.', advice:'행동력을 서로 밀어주는 역할이 필요해요. 누군가는 실행해야 합니다.' },
+    'INFP-ESTP': { score:50, desc:'다른 세계의 만남. 서로의 에너지가 신선하게 느껴집니다.', advice:'ESTP의 현실 감각을 당신의 이상에 접목해보세요. 꿈이 현실이 됩니다.' },
+    'INFP-ESFP': { score:65, desc:'감성과 즐거움이 만나는 유쾌한 관계.', advice:'ESFP와 함께 있으면 당신의 내면이 더 쉽게 열릴 수 있습니다.' },
+
+    'ENFJ-ENFJ': { score:74, desc:'세상을 위한 두 리더의 만남. 같이라면 더 많은 사람을 도울 수 있습니다.', advice:'서로를 챙기는 것도 잊지 마세요. 자신을 돌봐야 다른 사람도 돌볼 수 있습니다.' },
+    'ENFJ-ENFP': { score:85, desc:'열정과 에너지가 폭발하는 최고의 궁합!', advice:'에너지가 너무 넘쳐 중요한 것을 놓칠 수 있어요. 가끔 깊게 들어가는 시간을 가지세요.' },
+    'ENFJ-ISTJ': { score:65, desc:'헌신과 안정이 만나는 균형 잡힌 관계.', advice:'ISTJ의 감정 표현이 서툴더라도 행동으로 사랑을 표현한다는 것을 알아주세요.' },
+    'ENFJ-ISFJ': { score:78, desc:'사람을 위하는 두 F의 따뜻한 동행.', advice:'경쟁하듯 배려하기보다 역할을 나누어 서로에게 집중해주세요.' },
+    'ENFJ-ESTJ': { score:66, desc:'조직과 사람을 모두 챙기는 균형 잡힌 파트너십.', advice:'ESTJ의 직접적 방식과 ENFJ의 배려적 방식을 조화시켜보세요.' },
+    'ENFJ-ESFJ': { score:76, desc:'사교적인 두 사람의 활기찬 관계. 어디서든 분위기 메이커.', advice:'너무 외부에 집중하다 둘만의 시간을 놓치지 마세요.' },
+    'ENFJ-ISTP': { score:60, desc:'다정함과 시크함의 의외의 만남.', advice:'ISTP의 표현 방식이 달라도 신뢰를 쌓으면 깊은 관계가 됩니다.' },
+    'ENFJ-ISFP': { score:80, desc:'다정한 리더와 자유로운 예술가의 따뜻한 만남.', advice:'ISFP의 속도에 맞춰주세요. 서두르면 멀어집니다.' },
+    'ENFJ-ESTP': { score:62, desc:'사람과 행동이 만나는 활동적인 관계.', advice:'ESTP의 직설적인 말에 상처받지 마세요. 악의 없이 솔직한 것뿐입니다.' },
+    'ENFJ-ESFP': { score:73, desc:'에너지와 따뜻함이 넘치는 활기찬 조합.', advice:'둘 다 깊은 내면 대화를 시도해보세요. 그럴 때 더 깊어집니다.' },
+
+    'ENFP-ENFP': { score:80, desc:'세상에서 가장 에너제틱하고 즐거운 콤비!', advice:'서로를 더 흥분시키다 보면 지쳐요. 조용한 시간도 필요합니다.' },
+    'ENFP-ISTJ': { score:58, desc:'자유와 규칙의 충돌. 하지만 서로에게 필요한 것을 배울 수 있습니다.', advice:'ISTJ의 안정성이 당신의 아이디어를 실현하는 기반이 됩니다.' },
+    'ENFP-ISFJ': { score:68, desc:'자유로운 돌고래와 따뜻한 사슴의 의외의 케미.', advice:'ISFJ의 헌신을 당연하게 여기지 마세요. 크게 감사를 표현해주세요.' },
+    'ENFP-ESTJ': { score:55, desc:'정반대에 가까운 조합. 노력하면 최고의 팀이 될 수 있습니다.', advice:'ESTJ의 실행력이 ENFP의 아이디어를 현실로 만들어줄 수 있습니다.' },
+    'ENFP-ESFJ': { score:72, desc:'따뜻하고 사교적인 두 사람의 즐거운 만남.', advice:'ESFJ의 현실적인 걱정을 무시하지 마세요. 때론 옳은 걱정입니다.' },
+    'ENFP-ISTP': { score:63, desc:'자유와 독립이 공명하는 의외의 케미.', advice:'ISTP의 침묵이 무관심이 아님을 이해하면 관계가 안정됩니다.' },
+    'ENFP-ISFP': { score:78, desc:'자유로운 두 영혼의 아름다운 만남.', advice:'서로를 지지하는 것도 좋지만 현실적인 피드백도 해줄 수 있어야 합니다.' },
+    'ENFP-ESTP': { score:72, desc:'에너지와 즉흥성이 만나는 활기찬 조합.', advice:'즉흥적인 결정들이 쌓이면 나중에 문제가 될 수 있어요. 가끔 계획을 세워보세요.' },
+    'ENFP-ESFP': { score:75, desc:'세상에서 가장 즐겁고 활기찬 콤비 후보!', advice:'즐거움만 추구하다 중요한 것들을 놓칠 수 있어요. 함께 진지한 대화도 나눠보세요.' },
+
+    'ISTJ-ISTJ': { score:80, desc:'신뢰와 안정의 최강 조합. 말이 없어도 서로를 믿습니다.', advice:'새로운 것을 함께 시도해보세요. 변화가 두렵더라도 성장이 필요합니다.' },
+    'ISTJ-ISFJ': { score:82, desc:'책임감과 배려가 만나는 안정적인 장기 관계.', advice:'서로 너무 당연하게 여기지 말고 감사를 자주 표현해주세요.' },
+    'ISTJ-ESTJ': { score:78, desc:'같은 방향을 보는 강력한 파트너십.', advice:'효율만 추구하다 관계의 온기를 잃지 않도록 감정 교류를 늘려보세요.' },
+    'ISTJ-ESFJ': { score:75, desc:'안정과 조화를 추구하는 든든한 팀.', advice:'ESFJ의 감정적 필요에 더 귀 기울여보세요. 논리보다 공감이 필요할 때가 있습니다.' },
+    'ISTJ-ISTP': { score:74, desc:'말 대신 행동으로 통하는 실용주의자들의 만남.', advice:'감정을 나누는 시간을 가져보세요. 신뢰가 더 깊어집니다.' },
+    'ISTJ-ISFP': { score:65, desc:'안정과 자유의 균형을 찾아가는 관계.', advice:'ISFP의 즉흥적인 면을 완전히 통제하려 하지 마세요. 그것이 삶에 활력을 줍니다.' },
+    'ISTJ-ESTP': { score:62, desc:'규칙과 즉흥성이 부딪히는 관계. 서로의 장점을 인정하면 강해집니다.', advice:'ESTP의 현장 대처 능력이 당신의 계획을 더 강하게 만들 수 있습니다.' },
+    'ISTJ-ESFP': { score:45, desc:'가장 다른 조합 중 하나. 하지만 ESFP가 ISTJ에게 즐거움을 가져다줍니다.', advice:'ESFP의 즐거움 추구 방식을 이해하고 함께 즐겨보세요. 생각보다 재밌습니다.' },
+
+    'ISFJ-ISFJ': { score:82, desc:'따뜻하고 배려 넘치는 최고의 조합. 서로를 아끼는 마음이 가득합니다.', advice:'자신의 필요도 표현하는 연습을 해보세요. 상대도 당신을 챙기고 싶어합니다.' },
+    'ISFJ-ESTJ': { score:72, desc:'안정을 추구하는 두 SJ의 든든한 만남.', advice:'ESTJ의 직설적 표현을 비판이 아닌 배려로 받아들여보세요.' },
+    'ISFJ-ESFJ': { score:80, desc:'배려와 사교성이 만나는 따뜻한 관계.', advice:'서로를 너무 챙기다 정작 자신을 돌보지 못하지 않도록 주의하세요.' },
+    'ISFJ-ISTP': { score:63, desc:'조용하지만 서로의 방식을 존중하는 관계.', advice:'ISTP에게 구체적인 도움을 요청해보세요. 말로 표현해야 알 수 있습니다.' },
+    'ISFJ-ISFP': { score:76, desc:'배려와 자유가 공존하는 따뜻한 관계.', advice:'ISFP에게 미래 계획을 강요하지 마세요. 현재를 함께 즐기는 것도 행복입니다.' },
+    'ISFJ-ESTP': { score:70, desc:'안정과 즉흥성이 만나는 의외의 케미.', advice:'ESTP의 에너지가 당신의 일상에 활력을 줄 수 있습니다.' },
+    'ISFJ-ESFP': { score:73, desc:'따뜻한 수호자와 화려한 연예인의 의외의 조화.', advice:'ESFP의 즉흥성을 즐기되 당신만의 안정도 지켜나가세요.' },
+
+    'ESTJ-ESTJ': { score:75, desc:'강력한 조직력을 가진 두 관리자의 만남.', advice:'서로의 고집이 부딪힐 수 있어요. 큰 그림에서 타협점을 찾아보세요.' },
+    'ESTJ-ESFJ': { score:78, desc:'규칙과 배려가 만나는 안정적인 파트너십.', advice:'너무 효율만 추구하다 관계의 감성적 측면을 놓치지 마세요.' },
+    'ESTJ-ISTP': { score:72, desc:'실용주의자들의 효율적인 파트너십.', advice:'ISTP의 자율성을 보장해주세요. 통제하려 하면 멀어집니다.' },
+    'ESTJ-ISFP': { score:58, desc:'다른 속도와 방식이 충돌하지만 배울 점이 많은 관계.', advice:'ISFP의 예술적 감수성을 인정해주세요. 삶이 더 풍요로워집니다.' },
+    'ESTJ-ESTP': { score:70, desc:'행동력 넘치는 두 ST의 에너지 넘치는 만남.', advice:'계획과 즉흥성의 균형을 맞춰보세요. 함께라면 무엇이든 해결됩니다.' },
+    'ESTJ-ESFP': { score:55, desc:'규칙과 자유가 충돌하는 관계. 서로의 다름을 인정하면 성장합니다.', advice:'ESFP의 유연성을 당신의 체계에 접목해보세요. 더 인간적인 리더가 됩니다.' },
+
+    'ESFJ-ESFJ': { score:78, desc:'사교성 MAX! 어디서든 분위기 메이커인 두 사람의 밝은 만남.', advice:'외부에 집중하다 둘만의 깊은 내면 대화를 놓치지 마세요.' },
+    'ESFJ-ISTP': { score:60, desc:'따뜻함과 시크함의 대조적인 만남. 서로에게 묘한 매력을 느낍니다.', advice:'ISTP의 독립적 공간을 존중해주세요. 그것이 신뢰의 표시입니다.' },
+    'ESFJ-ISFP': { score:74, desc:'따뜻한 두 F성향의 포근한 관계.', advice:'서로의 의견 차이를 갈등으로 보지 말고 다양성으로 받아들여보세요.' },
+    'ESFJ-ESTP': { score:65, desc:'사교적인 두 E성향이지만 가치관이 달라 조율이 필요합니다.', advice:'ESTP의 도전적인 면이 ESFJ의 일상에 활력을 줄 수 있습니다.' },
+    'ESFJ-ESFP': { score:72, desc:'에너지와 사교성이 넘치는 활기찬 조합!', advice:'즐거움을 추구하되 서로의 감정적 필요도 챙겨주세요.' },
+
+    'ISTP-ISTP': { score:74, desc:'말이 필요 없는 두 장인의 효율적인 만남.', advice:'감정 표현을 조금씩 연습해보세요. 상대도 당신의 마음을 알고 싶어합니다.' },
+    'ISTP-ISFP': { score:76, desc:'조용하지만 깊이 있는 두 SP의 편안한 관계.', advice:'서로의 내면 세계를 조금씩 열어 공유해보세요. 더 깊어집니다.' },
+    'ISTP-ESTP': { score:78, desc:'기술과 행동력이 만나는 실용적이고 활기찬 파트너십.', advice:'목표를 공유하면 더욱 강력한 팀이 됩니다.' },
+    'ISTP-ESFP': { score:68, desc:'시크함과 화려함의 의외의 매력적인 만남.', advice:'ESFP의 에너지가 당신에게 새로운 경험을 선사해줄 것입니다.' },
+
+    'ISFP-ISFP': { score:78, desc:'감수성이 공명하는 아름다운 두 예술가의 만남.', advice:'서로 너무 배려하다 정작 자신의 필요를 표현하지 못할 수 있어요.' },
+    'ISFP-ESTP': { score:72, desc:'자유로운 두 SP의 즉흥적이고 재밌는 만남.', advice:'즉흥성이 때로는 책임감을 약화시킬 수 있어요. 서로 균형을 잡아주세요.' },
+    'ISFP-ESFP': { score:74, desc:'현재를 즐기는 두 자유로운 영혼의 유쾌한 만남!', advice:'미래 계획도 함께 세워보세요. 현재도 중요하지만 내일을 준비하는 것도 필요합니다.' },
+
+    'ESTP-ESTP': { score:75, desc:'스릴과 행동이 두 배! 세상에서 가장 활기찬 콤비.', advice:'경쟁 대신 협력을 선택하면 더 큰 것을 이룰 수 있습니다.' },
+    'ESTP-ESFP': { score:78, desc:'에너지와 즉흥성의 폭발! 함께라면 매일이 축제입니다.', advice:'즐거움 뒤에 책임도 따른다는 것을 잊지 마세요.' },
+
+    'ESFP-ESFP': { score:80, desc:'세상에서 가장 밝고 즐거운 조합! 함께라면 어디든 파티장이 됩니다.', advice:'진지한 대화도 가끔 나눠보세요. 깊이가 생기면 더 특별한 관계가 됩니다.' }
+  };
+
+  function getCompatData(typeA, typeB) {
+    var key1 = typeA + '-' + typeB;
+    var key2 = typeB + '-' + typeA;
+    return COMPAT_DATA[key1] || COMPAT_DATA[key2] || {
+      score: 65,
+      desc: typeA + '와 ' + typeB + '의 조합. 서로의 다름을 이해하고 존중하면 좋은 관계가 됩니다.',
+      advice: '서로의 차이점을 장점으로 활용해보세요. 다름이 강점이 됩니다.'
+    };
+  }
+
+  function getScoreGrade(score) {
+    if (score >= 90) return { text: '천생연분 💯', color: '#FF6584' };
+    if (score >= 80) return { text: '환상의 궁합 ✨', color: '#6C63FF' };
+    if (score >= 70) return { text: '좋은 인연 💚', color: '#43B89C' };
+    if (score >= 60) return { text: '보통 궁합 👍', color: '#F9A826' };
+    if (score >= 50) return { text: '노력이 필요해요 🌱', color: '#F97316' };
+    return { text: '도전적인 관계 🔥', color: '#EF4444' };
+  }
+
+  function fillDropdowns() {
+    var selA = document.getElementById('selectA');
+    var selB = document.getElementById('selectB');
+    TYPES.forEach(function(t) {
+      var optA = document.createElement('option');
+      optA.value = t; optA.textContent = t + ' ' + ANIMAL[t];
+      selA.appendChild(optA);
+      var optB = document.createElement('option');
+      optB.value = t; optB.textContent = t + ' ' + ANIMAL[t];
+      selB.appendChild(optB);
+    });
+  }
+
+  function renderCompatResult(typeA, typeB) {
+    var data = getCompatData(typeA, typeB);
+    var infoA = ANIMAL[typeA] || typeA;
+    var infoB = ANIMAL[typeB] || typeB;
+    var grade = getScoreGrade(data.score);
+
+    document.getElementById('compatPersonA').innerHTML =
+      '<div class="compat-type-badge">' + typeA + '</div><div class="compat-animal">' + infoA + '</div>';
+    document.getElementById('compatPersonB').innerHTML =
+      '<div class="compat-type-badge">' + typeB + '</div><div class="compat-animal">' + infoB + '</div>';
+
+    var circle = document.getElementById('compatScoreCircle');
+    circle.style.background = 'conic-gradient(' + grade.color + ' ' + (data.score * 3.6) + 'deg, #E5E7EB 0deg)';
+
+    var num = document.getElementById('compatScoreNum');
+    num.textContent = '0';
+    var target = data.score;
+    var current = 0;
+    var timer = setInterval(function() {
+      current += 2;
+      if (current >= target) { current = target; clearInterval(timer); }
+      num.textContent = current;
+    }, 20);
+
+    document.getElementById('compatGrade').innerHTML = '<span style="color:' + grade.color + ';font-size:1.4rem;font-weight:900;">' + grade.text + '</span>';
+    document.getElementById('compatDesc').textContent = data.desc;
+    document.getElementById('compatAdvice').textContent = data.advice;
+
+    document.getElementById('compatResultCard').style.display = 'block';
+    document.getElementById('compatResultCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function checkCompatFromDropdown() {
+    var typeA = document.getElementById('selectA').value;
+    var typeB = document.getElementById('selectB').value;
+    if (!typeA || !typeB) { showToast('두 유형을 모두 선택해주세요!'); return; }
+    renderCompatResult(typeA, typeB);
+  }
+
+  function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fillDropdowns();
+
+    var params = new URLSearchParams(location.search);
+    var me = params.get('me');
+    var friend = params.get('friend');
+
+    // 내 유형 pre-select
+    var storedData = getMBTIData();
+    if (!me && storedData.currentResult) {
+      me = storedData.currentResult.type;
+    }
+
+    if (me && ANIMAL[me]) {
+      document.getElementById('selectA').value = me;
+    }
+
+    if (me && friend && ANIMAL[me] && ANIMAL[friend]) {
+      // 둘 다 있음 → 궁합 결과 표시
+      document.getElementById('selectB').value = friend;
+      renderCompatResult(me, friend);
+    } else if (me && !friend && ANIMAL[me]) {
+      // 나만 있음 → 친구 링크 공유 배너
+      var banner = document.getElementById('compatShareBanner');
+      banner.style.display = 'block';
+      document.getElementById('compatShareMe').innerHTML =
+        '<strong>' + me + ' ' + ANIMAL[me] + '</strong> 로 친구와 궁합을 확인해보세요!';
+
+      document.getElementById('copyCompatLink').onclick = function() {
+        var shareUrl = location.origin + location.pathname + '?me=' + me + '&friend=ENFP';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(location.origin + location.pathname + '?me=ENFP&friend=' + me)
+            .then(function() { showToast('친구에게 보낼 링크가 복사됐어요! 📋'); });
+        } else {
+          showToast('링크: ' + location.origin + location.pathname + '?me=ENFP&friend=' + me);
+        }
+      };
+    }
+  });
+  </script>
 </body>
 </html>

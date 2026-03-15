@@ -1,59 +1,295 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grafico Compatibilità 16×16 | Test Personalità Animale</title>
-  <meta name="description" content="Visualizza la compatibilità di tutti i tipi" />
+  <title>성격 유형 16×16 궁합표 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="성격 유형 16가지 유형의 모든 궁합을 한눈에! 16×16 전체 궁합표를 확인하세요." />
+  <meta name="keywords" content="성격 유형 궁합표, 성격 유형 전체 궁합, 성격 유형 매트릭스, 성격 유형 호환성" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="성격 유형 16×16 궁합표 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="성격 유형 모든 유형의 궁합을 한눈에 확인하는 16×16 궁합표!" />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
+  <!-- ADSENSE_CODE_HERE -->
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .compat-chart-wrap { overflow-x: auto; margin: 1rem 0; }
+    .compat-table { border-collapse: collapse; min-width: 600px; width: 100%; }
+    .compat-table th, .compat-table td {
+      border: 1px solid var(--border);
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 0;
+    }
+    .compat-table .corner-cell { background: var(--bg); }
+    .compat-table .header-row th { background: var(--bg); padding: .4rem .2rem; font-size: .72rem; }
+    .compat-table .row-header { background: var(--bg); padding: .4rem .3rem; white-space: nowrap; }
+    .compat-table td.compat-cell {
+      width: 42px; height: 42px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      position: relative;
+    }
+    .compat-table td.compat-cell:hover { transform: scale(1.15); z-index:10; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+    .compat-table td.compat-cell .cell-score { font-size: .72rem; font-weight: 900; color: #fff; line-height: 42px; display: block; }
+    .compat-table td.compat-cell.highlight-row, .compat-table td.compat-cell.highlight-col {
+      outline: 2px solid var(--primary);
+      outline-offset: -2px;
+    }
+    .compat-table th.highlight-header { background: var(--primary) !important; color: #fff !important; }
+    .compat-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; align-items: center; font-size: .85rem; }
+    .legend-item { display: flex; align-items: center; gap: .4rem; }
+    .legend-dot { width: 16px; height: 16px; border-radius: 4px; }
+    .chart-my-type-hint { font-size: .85rem; color: var(--text-mute); margin-bottom: .8rem; }
+  </style>
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
-
-  <link rel="stylesheet" href="../css/style.css" />
+  <script src="js/auto-lang.js"></script>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 Test Personalità Animale</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="quiz.html">Inizia il Test</a></li>
-        <li><a href="about.html">Chi Siamo</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="compat.html">궁합 매칭</a></li>
+        <li><a href="quiz.html">테스트</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
-      <div class="compat-header">
-        <h1 class="compat-main-title">🗓️ Grafico Compatibilità 16×16</h1>
-        <p class="compat-main-desc">Visualizza la compatibilità di tutti i tipi a colpo d'occhio</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: compat-chart-top | responsive --></div>
+
+      <!-- 헤더 -->
+      <div style="text-align:center; padding:1.5rem 0 1rem;">
+        <div style="font-size:2.5rem; margin-bottom:.5rem;">🗓️</div>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">성격 유형 16×16 전체 궁합표</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;">셀을 클릭하면 상세 궁합을 확인할 수 있어요!</p>
       </div>
+
+      <!-- 내 유형 선택 (하이라이트용) -->
+      <div style="display:flex; align-items:center; gap:.8rem; margin-bottom:1rem; flex-wrap:wrap;">
+        <span style="font-size:.9rem; font-weight:700;">내 유형 하이라이트:</span>
+        <select id="highlightSelect" class="compat-select" onchange="setHighlight(this.value)" style="max-width:200px;">
+          <option value="">-- 선택 없음 --</option>
+        </select>
+      </div>
+
+      <!-- 범례 -->
+      <div class="compat-legend">
+        <span style="font-weight:700; font-size:.85rem;">궁합 점수:</span>
+        <div class="legend-item"><div class="legend-dot" style="background:#FF6584;"></div>90+ 천생연분</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6C63FF;"></div>80-89 환상 궁합</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#43B89C;"></div>70-79 좋은 인연</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F9A826;"></div>60-69 보통</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F97316;"></div>50-59 노력 필요</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#EF4444;"></div>50 미만 도전적</div>
+      </div>
+
+      <!-- 궁합표 -->
+      <div class="compat-chart-wrap">
+        <table class="compat-table" id="compatTable">
+          <!-- JS로 렌더링 -->
+        </table>
+      </div>
+
+      <p style="font-size:.8rem; color:var(--text-mute); margin-top:.5rem; text-align:center;">* 셀 클릭 시 상세 궁합 페이지로 이동합니다.</p>
+
+      <div class="result-actions" style="display:flex; justify-content:center; flex-wrap:wrap; gap:.8rem; margin:1.5rem 0;">
+        <a href="compat.html" class="btn-retest">1:1 궁합 보기 💕</a>
+        <a href="quiz.html" class="btn-home">테스트 시작하기</a>
+      </div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: compat-chart-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Test Personalità Animale. Tutti i diritti riservati.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">Chi Siamo</a>
-        <a href="privacy.html">Politica sulla Privacy</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  var TYPES = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+
+  /* 점수 데이터 (compat.html과 동일 소스) */
+  var SCORES = {
+    'INTJ-INTJ':72,'INTJ-INTP':80,'INTJ-ENTJ':76,'INTJ-ENTP':85,'INTJ-INFJ':78,'INTJ-INFP':68,'INTJ-ENFJ':72,'INTJ-ENFP':92,
+    'INTJ-ISTJ':70,'INTJ-ISFJ':58,'INTJ-ESTJ':65,'INTJ-ESFJ':48,'INTJ-ISTP':74,'INTJ-ISFP':55,'INTJ-ESTP':60,'INTJ-ESFP':44,
+    'INTP-INTP':73,'INTP-ENTJ':87,'INTP-ENTP':82,'INTP-INFJ':84,'INTP-INFP':76,'INTP-ENFJ':88,'INTP-ENFP':83,
+    'INTP-ISTJ':62,'INTP-ISFJ':57,'INTP-ESTJ':60,'INTP-ESFJ':50,'INTP-ISTP':77,'INTP-ISFP':68,'INTP-ESTP':65,'INTP-ESFP':52,
+    'ENTJ-ENTJ':70,'ENTJ-ENTP':81,'ENTJ-INFJ':82,'ENTJ-INFP':78,'ENTJ-ENFJ':74,'ENTJ-ENFP':79,
+    'ENTJ-ISTJ':73,'ENTJ-ISFJ':60,'ENTJ-ESTJ':68,'ENTJ-ESFJ':62,'ENTJ-ISTP':71,'ENTJ-ISFP':55,'ENTJ-ESTP':72,'ENTJ-ESFP':58,
+    'ENTP-ENTP':75,'ENTP-INFJ':90,'ENTP-INFP':79,'ENTP-ENFJ':77,'ENTP-ENFP':85,
+    'ENTP-ISTJ':52,'ENTP-ISFJ':48,'ENTP-ESTJ':58,'ENTP-ESFJ':50,'ENTP-ISTP':74,'ENTP-ISFP':60,'ENTP-ESTP':76,'ENTP-ESFP':70,
+    'INFJ-INFJ':78,'INFJ-INFP':82,'INFJ-ENFJ':80,'INFJ-ENFP':88,
+    'INFJ-ISTJ':60,'INFJ-ISFJ':72,'INFJ-ESTJ':58,'INFJ-ESFJ':68,'INFJ-ISTP':62,'INFJ-ISFP':75,'INFJ-ESTP':54,'INFJ-ESFP':50,
+    'INFP-INFP':76,'INFP-ENFJ':87,'INFP-ENFP':84,
+    'INFP-ISTJ':55,'INFP-ISFJ':73,'INFP-ESTJ':52,'INFP-ESFJ':67,'INFP-ISTP':58,'INFP-ISFP':80,'INFP-ESTP':50,'INFP-ESFP':65,
+    'ENFJ-ENFJ':74,'ENFJ-ENFP':85,
+    'ENFJ-ISTJ':65,'ENFJ-ISFJ':78,'ENFJ-ESTJ':66,'ENFJ-ESFJ':76,'ENFJ-ISTP':60,'ENFJ-ISFP':80,'ENFJ-ESTP':62,'ENFJ-ESFP':73,
+    'ENFP-ENFP':80,
+    'ENFP-ISTJ':58,'ENFP-ISFJ':68,'ENFP-ESTJ':55,'ENFP-ESFJ':72,'ENFP-ISTP':63,'ENFP-ISFP':78,'ENFP-ESTP':72,'ENFP-ESFP':75,
+    'ISTJ-ISTJ':80,'ISTJ-ISFJ':82,'ISTJ-ESTJ':78,'ISTJ-ESFJ':75,'ISTJ-ISTP':74,'ISTJ-ISFP':65,'ISTJ-ESTP':62,'ISTJ-ESFP':45,
+    'ISFJ-ISFJ':82,'ISFJ-ESTJ':72,'ISFJ-ESFJ':80,'ISFJ-ISTP':63,'ISFJ-ISFP':76,'ISFJ-ESTP':70,'ISFJ-ESFP':73,
+    'ESTJ-ESTJ':75,'ESTJ-ESFJ':78,'ESTJ-ISTP':72,'ESTJ-ISFP':58,'ESTJ-ESTP':70,'ESTJ-ESFP':55,
+    'ESFJ-ESFJ':78,'ESFJ-ISTP':60,'ESFJ-ISFP':74,'ESFJ-ESTP':65,'ESFJ-ESFP':72,
+    'ISTP-ISTP':74,'ISTP-ISFP':76,'ISTP-ESTP':78,'ISTP-ESFP':68,
+    'ISFP-ISFP':78,'ISFP-ESTP':72,'ISFP-ESFP':74,
+    'ESTP-ESTP':75,'ESTP-ESFP':78,
+    'ESFP-ESFP':80
+  };
+
+  function getScore(a, b) {
+    return SCORES[a+'-'+b] || SCORES[b+'-'+a] || 65;
+  }
+
+  function scoreToColor(score) {
+    if (score >= 90) return '#FF6584';
+    if (score >= 80) return '#6C63FF';
+    if (score >= 70) return '#43B89C';
+    if (score >= 60) return '#F9A826';
+    if (score >= 50) return '#F97316';
+    return '#EF4444';
+  }
+
+  var highlightType = null;
+
+  function buildTable() {
+    var table = document.getElementById('compatTable');
+    table.innerHTML = '';
+
+    // 헤더 행
+    var thead = document.createElement('thead');
+    var headerRow = document.createElement('tr');
+    headerRow.className = 'header-row';
+    // 코너 셀
+    var corner = document.createElement('th');
+    corner.className = 'corner-cell';
+    corner.style.minWidth = '48px';
+    headerRow.appendChild(corner);
+    TYPES.forEach(function(t) {
+      var th = document.createElement('th');
+      th.textContent = t;
+      th.id = 'col-header-' + t;
+      th.style.minWidth = '42px';
+      if (highlightType === t) th.style.background = 'var(--primary)', th.style.color = '#fff';
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // 바디
+    var tbody = document.createElement('tbody');
+    TYPES.forEach(function(rowType) {
+      var tr = document.createElement('tr');
+
+      // 행 헤더
+      var rowTh = document.createElement('th');
+      rowTh.className = 'row-header';
+      rowTh.textContent = rowType;
+      rowTh.id = 'row-header-' + rowType;
+      if (highlightType === rowType) rowTh.style.background = 'var(--primary)', rowTh.style.color = '#fff';
+      tr.appendChild(rowTh);
+
+      TYPES.forEach(function(colType) {
+        var td = document.createElement('td');
+        td.className = 'compat-cell';
+        var score = getScore(rowType, colType);
+        var color = scoreToColor(score);
+        td.style.background = color;
+
+        if (highlightType && (rowType === highlightType || colType === highlightType)) {
+          td.style.outline = '2px solid #1A1A2E';
+          td.style.outlineOffset = '-2px';
+          td.style.opacity = '1';
+        } else if (highlightType) {
+          td.style.opacity = '0.4';
+        }
+
+        var scoreSpan = document.createElement('span');
+        scoreSpan.className = 'cell-score';
+        scoreSpan.textContent = score;
+        td.appendChild(scoreSpan);
+
+        td.title = rowType + ' + ' + colType + ': ' + score + '점';
+        td.onclick = (function(rT, cT) {
+          return function() {
+            window.location.href = 'compat.html?me=' + rT + '&friend=' + cT;
+          };
+        })(rowType, colType);
+
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+  }
+
+  function setHighlight(type) {
+    highlightType = type || null;
+    buildTable();
+  }
+
+  function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // 드롭다운
+    var sel = document.getElementById('highlightSelect');
+    TYPES.forEach(function(t) {
+      var opt = document.createElement('option');
+      opt.value = t; opt.textContent = t;
+      sel.appendChild(opt);
+    });
+
+    // 저장된 유형 자동 설정
+    var stored = getMBTIData();
+    if (stored.currentResult && stored.currentResult.type) {
+      var myType = stored.currentResult.type;
+      sel.value = myType;
+      highlightType = myType;
+    }
+
+    buildTable();
+  });
+  </script>
 </body>
 </html>

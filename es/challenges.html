@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>일일 도전 - 성격 유형 동물 테스트</title>
+  <meta name="description" content="당신의 성격에 맞는 일일 도전 미션을 완료하고 배지를 수집하세요!" />
+  <meta property="og:title" content="일일 도전 - 성격 유형 동물 테스트">
+  <meta property="og:description" content="매일 새로운 도전을 완료하고 포인트를 얻으세요">
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="js/auto-lang.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .challenges-main {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+
+    .challenges-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .challenges-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: slideDown 0.6s ease;
+    }
+
+    .challenges-header h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .challenges-header p {
+      font-size: 1rem;
+      color: var(--text-mute);
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      animation: scaleUp 0.6s ease backwards;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-card:nth-child(1) { animation-delay: 0.1s; }
+    .stat-card:nth-child(2) { animation-delay: 0.2s; }
+    .stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .challenges-filter {
+      display: flex;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      animation: slideUp 0.6s ease 0.2s both;
+    }
+
+    .filter-btn {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .challenge-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      animation: slideUp 0.5s ease backwards;
+      border-left: 4px solid var(--primary);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .challenges-grid > :nth-child(1) { animation-delay: 0.1s; }
+    .challenges-grid > :nth-child(2) { animation-delay: 0.2s; }
+    .challenges-grid > :nth-child(3) { animation-delay: 0.3s; }
+    .challenges-grid > :nth-child(4) { animation-delay: 0.4s; }
+    .challenges-grid > :nth-child(5) { animation-delay: 0.5s; }
+    .challenges-grid > :nth-child(6) { animation-delay: 0.6s; }
+
+    .challenge-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .challenge-card.completed {
+      background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+      border-left-color: #10b981;
+    }
+
+    .challenge-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.8rem;
+    }
+
+    .challenge-badge.social { background: #ec4899; }
+    .challenge-badge.creativity { background: #f59e0b; }
+    .challenge-badge.logic { background: #3b82f6; }
+    .challenge-badge.emotional { background: #8b5cf6; }
+    .challenge-badge.adventure { background: #ef4444; }
+
+    .challenge-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .challenge-desc {
+      font-size: 0.9rem;
+      color: var(--text-mute);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .challenge-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .challenge-points {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .challenge-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .challenge-btn:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    .challenge-btn.completed {
+      background: #10b981;
+    }
+
+    .challenge-btn:disabled {
+      background: #d1d5db;
+      cursor: not-allowed;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-mute);
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .weekly-leaderboard {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      animation: slideUp 0.6s ease 0.3s both;
+    }
+
+    .leaderboard-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .leaderboard-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      animation: slideUp 0.4s ease backwards;
+    }
+
+    .leaderboard-item:nth-child(1) { animation-delay: 0s; }
+    .leaderboard-item:nth-child(2) { animation-delay: 0.1s; }
+    .leaderboard-item:nth-child(3) { animation-delay: 0.2s; }
+
+    .leaderboard-rank {
+      min-width: 30px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .leaderboard-rank.rank1 { color: #fbbf24; }
+    .leaderboard-rank.rank2 { color: #c0cfe0; }
+    .leaderboard-rank.rank3 { color: #d97706; }
+
+    .leaderboard-name {
+      flex: 1;
+      margin-left: 1rem;
+      font-weight: 600;
+    }
+
+    .leaderboard-points {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 80px;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .challenges-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="compare.html">비교</a></li>
+        <li><a href="challenges.html" class="active">도전</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="challenges-main">
+    <div class="challenges-container">
+      <div class="challenges-header">
+        <h1>🎯 일일 도전</h1>
+        <p>당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!</p>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value" id="totalPoints">0</div>
+          <div class="stat-label">총 포인트</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="todayPoints">0</div>
+          <div class="stat-label">오늘의 포인트</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="completedCount">0</div>
+          <div class="stat-label">완료한 도전</div>
+        </div>
+      </div>
+
+      <div class="challenges-filter">
+        <button class="filter-btn active" onclick="filterChallenges('all')">모두</button>
+        <button class="filter-btn" onclick="filterChallenges('social')">사교 🤝</button>
+        <button class="filter-btn" onclick="filterChallenges('creativity')">창의 ✨</button>
+        <button class="filter-btn" onclick="filterChallenges('logic')">논리 🧠</button>
+        <button class="filter-btn" onclick="filterChallenges('emotional')">감정 💝</button>
+        <button class="filter-btn" onclick="filterChallenges('adventure')">모험 🚀</button>
+      </div>
+
+      <div class="challenges-grid" id="challengesGrid">
+        <!-- Challenges injected by JS -->
+      </div>
+
+      <div class="weekly-leaderboard">
+        <div class="leaderboard-title">
+          🏆 주간 랭킹
+        </div>
+        <div class="leaderboard-list" id="leaderboardList">
+          <!-- Leaderboard items injected by JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/result.js"></script>
+  <script src="js/challenges.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      initChallenges();
+    });
+  </script>
+</body>
+</html>

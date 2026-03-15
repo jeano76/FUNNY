@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test di Gruppo | Test Personalità Animale</title>
-  <meta name="description" content="Condividi con gli amici e confronta" />
+  <title>그룹 성격 유형 테스트 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="친구들과 함께 성격 유형를 공유하세요! 그룹 코드를 생성하고 결과 분포를 함께 확인해보세요." />
+  <meta name="keywords" content="그룹 성격 유형, 친구 성격 유형, 성격 유형 분포, 팀 성격 유형, 성격 유형 공유" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="그룹 성격 유형 테스트 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="그룹 코드를 생성하고 친구들과 성격 유형 결과를 공유해보세요!" />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
   <!-- AdSense -->
@@ -17,43 +23,376 @@
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
+  <script src="js/auto-lang.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 Test Personalità Animale</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="quiz.html">Inizia il Test</a></li>
-        <li><a href="about.html">Chi Siamo</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="about.html">소개</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
-      <div class="compat-header">
-        <h1 class="compat-main-title">👥 Test di Gruppo</h1>
-        <p class="compat-main-desc">Condividi i risultati con gli amici e controlla la distribuzione</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: group-top | responsive --></div>
+
+      <!-- 헤더 -->
+      <div style="text-align:center; padding:1.5rem 0 1rem;">
+        <div style="font-size:2.5rem; margin-bottom:.5rem;">👥</div>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">그룹 성격 유형 테스트</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;">그룹 코드를 만들고 친구들과 성격 유형를 공유하세요!</p>
       </div>
+
+      <!-- 그룹 생성/입력 -->
+      <div class="result-card" id="groupSetupCard" style="margin-bottom:1.5rem;">
+        <div class="group-tabs">
+          <button class="group-tab-btn active" id="tabCreate" onclick="switchTab('create')">그룹 만들기</button>
+          <button class="group-tab-btn" id="tabJoin" onclick="switchTab('join')">그룹 참여하기</button>
+        </div>
+
+        <!-- 그룹 만들기 -->
+        <div id="panelCreate">
+          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;">그룹 이름을 입력하고 코드를 생성하세요.</p>
+          <input type="text" id="groupNameInput" class="group-input" placeholder="그룹 이름 (예: 우리반, 회사팀)" maxlength="20" />
+          <button class="btn-start" onclick="createGroup()" style="width:100%; margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; font-size:1rem; padding:.8rem;">
+            그룹 코드 생성 🎲
+          </button>
+        </div>
+
+        <!-- 그룹 참여하기 -->
+        <div id="panelJoin" style="display:none;">
+          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;">친구에게 받은 그룹 코드를 입력하세요.</p>
+          <input type="text" id="groupCodeInput" class="group-input" placeholder="그룹 코드 입력 (예: ABC123)" maxlength="8" style="text-transform:uppercase;" />
+          <button class="btn-start" onclick="joinGroup()" style="width:100%; margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; font-size:1rem; padding:.8rem;">
+            그룹 참여하기 →
+          </button>
+        </div>
+      </div>
+
+      <!-- 그룹 정보 및 공유 -->
+      <div class="result-card" id="groupInfoCard" style="display:none; margin-bottom:1.5rem;">
+        <div class="group-info-header">
+          <div>
+            <h2 class="group-info-name" id="groupInfoName"></h2>
+            <div class="group-info-code-wrap">
+              <span style="font-size:.85rem; color:var(--text-mute);">그룹 코드: </span>
+              <span class="group-code-display" id="groupCodeDisplay"></span>
+            </div>
+          </div>
+          <button class="group-share-btn" id="copyGroupLinkBtn" onclick="copyGroupLink()">링크 복사 🔗</button>
+        </div>
+
+        <!-- 내 유형 등록 -->
+        <div class="group-my-type-wrap" id="groupMyTypeWrap">
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:.8rem;">내 성격 유형 등록하기</h3>
+          <div style="display:flex; gap:.8rem; align-items:center; flex-wrap:wrap;">
+            <select id="groupMyTypeSelect" class="compat-select" style="flex:1; min-width:160px;">
+              <option value="">-- 내 성격 유형 선택 --</option>
+            </select>
+            <input type="text" id="groupNicknameInput" class="group-input" placeholder="닉네임" maxlength="10" style="flex:1; min-width:120px;" />
+          </div>
+          <button class="btn-retest" onclick="addMyResult()" style="margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; width:100%;">
+            결과 등록하기 ✅
+          </button>
+        </div>
+      </div>
+
+      <!-- 그룹 결과 -->
+      <div id="groupResultSection" style="display:none;">
+        <div class="result-card" style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📊 그룹 성격 유형 분포</h2>
+          <div id="groupMemberList"></div>
+        </div>
+
+        <div class="result-card" style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📈 유형별 분포 차트</h2>
+          <div id="groupChart"></div>
+        </div>
+
+        <div class="result-card" style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1rem;">🏷️ 그룹 특성 분석</h2>
+          <div id="groupAnalysis"></div>
+        </div>
+
+        <div style="display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <button class="btn-retest" onclick="copyGroupLink()" style="border:none; cursor:pointer; font-family:inherit; flex:1;">친구 초대 링크 📤</button>
+          <button class="btn-home" onclick="clearGroup()" style="border:none; cursor:pointer; font-family:inherit; flex:1;">그룹 초기화 🗑️</button>
+        </div>
+      </div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: group-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Test Personalità Animale. Tutti i diritti riservati.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">Chi Siamo</a>
-        <a href="privacy.html">Politica sulla Privacy</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  var TYPES = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+  var ANIMAL_MAP = {
+    INTJ:'호랑이 🐯', INTP:'올빼미 🦉', ENTJ:'사자 🦁', ENTP:'앵무새 🦜',
+    INFJ:'판다 🐼', INFP:'해마 🦭', ENFJ:'골든리트리버 🐕', ENFP:'돌고래 🐬',
+    ISTJ:'비버 🦫', ISFJ:'사슴 🦌', ESTJ:'늑대 🐺', ESFJ:'코끼리 🐘',
+    ISTP:'고양이 🐱', ISFP:'나무늘보 🦥', ESTP:'치타 🐆', ESFP:'공작새 🦚'
+  };
+  var GROUP_COLORS = {
+    INTJ:'#7C3AED', INTP:'#7C3AED', ENTJ:'#7C3AED', ENTP:'#7C3AED',
+    INFJ:'#DB2777', INFP:'#DB2777', ENFJ:'#DB2777', ENFP:'#DB2777',
+    ISTJ:'#2563EB', ISFJ:'#2563EB', ESTJ:'#2563EB', ESFJ:'#2563EB',
+    ISTP:'#D97706', ISFP:'#D97706', ESTP:'#D97706', ESFP:'#D97706'
+  };
+
+  var currentGroupCode = null;
+  var currentGroupName = null;
+
+  function generateCode() {
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    var code = '';
+    for (var i = 0; i < 6; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return code;
+  }
+
+  function getGroupStorage(code) {
+    try {
+      var raw = localStorage.getItem('group_' + code);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch(e) { return null; }
+  }
+
+  function saveGroupStorage(code, data) {
+    try {
+      localStorage.setItem('group_' + code, JSON.stringify(data));
+    } catch(e) {}
+  }
+
+  function switchTab(tab) {
+    document.getElementById('tabCreate').classList.toggle('active', tab === 'create');
+    document.getElementById('tabJoin').classList.toggle('active', tab === 'join');
+    document.getElementById('panelCreate').style.display = tab === 'create' ? 'block' : 'none';
+    document.getElementById('panelJoin').style.display = tab === 'join' ? 'block' : 'none';
+  }
+
+  function createGroup() {
+    var name = document.getElementById('groupNameInput').value.trim() || '우리 그룹';
+    var code = generateCode();
+    var groupData = { name: name, code: code, members: [], createdAt: new Date().toISOString() };
+    saveGroupStorage(code, groupData);
+    openGroup(code, name);
+  }
+
+  function joinGroup() {
+    var code = document.getElementById('groupCodeInput').value.trim().toUpperCase();
+    if (!code || code.length < 4) { showToast('올바른 코드를 입력해주세요'); return; }
+    var groupData = getGroupStorage(code);
+    if (!groupData) {
+      // 코드가 없으면 새로 생성
+      groupData = { name: '공유 그룹', code: code, members: [], createdAt: new Date().toISOString() };
+      saveGroupStorage(code, groupData);
+    }
+    openGroup(code, groupData.name);
+  }
+
+  function openGroup(code, name) {
+    currentGroupCode = code;
+    currentGroupName = name;
+
+    document.getElementById('groupInfoName').textContent = name;
+    document.getElementById('groupCodeDisplay').textContent = code;
+    document.getElementById('groupSetupCard').style.display = 'none';
+    document.getElementById('groupInfoCard').style.display = 'block';
+
+    // 드롭다운 채우기
+    var sel = document.getElementById('groupMyTypeSelect');
+    if (sel.options.length <= 1) {
+      TYPES.forEach(function(t) {
+        var opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t + ' ' + ANIMAL_MAP[t];
+        sel.appendChild(opt);
+      });
+    }
+
+    // 저장된 내 유형 자동 입력
+    var stored = getMBTIData();
+    if (stored.currentResult) {
+      sel.value = stored.currentResult.type;
+    }
+
+    // URL에서 데이터 불러오기
+    loadFromURL();
+
+    renderGroupResults();
+  }
+
+  function addMyResult() {
+    var type = document.getElementById('groupMyTypeSelect').value;
+    var nickname = document.getElementById('groupNicknameInput').value.trim() || ('익명' + Math.floor(Math.random()*100));
+    if (!type) { showToast('성격 유형을 선택해주세요'); return; }
+
+    var groupData = getGroupStorage(currentGroupCode);
+    if (!groupData) return;
+
+    // 중복 닉네임 처리
+    var isDup = groupData.members.some(function(m) { return m.nickname === nickname; });
+    if (isDup) { showToast('이미 같은 닉네임이 있어요. 다른 닉네임을 사용해주세요.'); return; }
+
+    groupData.members.push({ nickname: nickname, type: type, addedAt: new Date().toISOString() });
+    saveGroupStorage(currentGroupCode, groupData);
+
+    document.getElementById('groupNicknameInput').value = '';
+    showToast(nickname + '(' + type + ') 등록 완료! ✅');
+    renderGroupResults();
+  }
+
+  function renderGroupResults() {
+    var groupData = getGroupStorage(currentGroupCode);
+    if (!groupData || groupData.members.length === 0) {
+      document.getElementById('groupResultSection').style.display = 'none';
+      return;
+    }
+
+    document.getElementById('groupResultSection').style.display = 'block';
+
+    // 멤버 목록
+    var memberHtml = groupData.members.map(function(m, i) {
+      return '<div class="group-member-item">'
+        + '<div class="group-member-info">'
+        + '<span class="group-member-nickname">' + m.nickname + '</span>'
+        + '<span class="group-member-type" style="color:' + (GROUP_COLORS[m.type]||'var(--primary)') + ';">' + m.type + ' ' + (ANIMAL_MAP[m.type]||'') + '</span>'
+        + '</div>'
+        + '<button class="group-remove-btn" onclick="removeMember(' + i + ')">✕</button>'
+        + '</div>';
+    }).join('');
+    document.getElementById('groupMemberList').innerHTML = memberHtml;
+
+    // 분포 계산
+    var counts = {};
+    TYPES.forEach(function(t) { counts[t] = 0; });
+    groupData.members.forEach(function(m) { if (counts[m.type] !== undefined) counts[m.type]++; });
+
+    var maxCount = Math.max.apply(null, Object.values(counts));
+    var total = groupData.members.length;
+
+    // 차트 (CSS 막대)
+    var chartHtml = TYPES.filter(function(t) { return counts[t] > 0; }).map(function(t) {
+      var pct = maxCount > 0 ? Math.round((counts[t] / maxCount) * 100) : 0;
+      var ratio = total > 0 ? Math.round((counts[t] / total) * 100) : 0;
+      return '<div class="group-chart-row">'
+        + '<span class="group-chart-label" style="color:' + (GROUP_COLORS[t]||'var(--primary)') + ';">' + t + '</span>'
+        + '<div class="group-chart-bar-wrap">'
+        + '<div class="group-chart-bar" style="width:' + pct + '%; background:' + (GROUP_COLORS[t]||'var(--primary)') + ';"></div>'
+        + '</div>'
+        + '<span class="group-chart-count">' + counts[t] + '명 (' + ratio + '%)</span>'
+        + '</div>';
+    }).join('');
+    document.getElementById('groupChart').innerHTML = chartHtml || '<p style="color:var(--text-mute); text-align:center;">아직 등록된 멤버가 없어요.</p>';
+
+    // 그룹 분석
+    var dominated = TYPES.filter(function(t) { return counts[t] === maxCount && maxCount > 0; });
+    var eCount = groupData.members.filter(function(m) { return m.type[0]==='E'; }).length;
+    var iCount = total - eCount;
+    var nCount = groupData.members.filter(function(m) { return m.type[1]==='N'; }).length;
+    var sCount = total - nCount;
+    var tCount = groupData.members.filter(function(m) { return m.type[2]==='T'; }).length;
+    var fCount = total - tCount;
+    var jCount = groupData.members.filter(function(m) { return m.type[3]==='J'; }).length;
+    var pCount = total - jCount;
+
+    var analysisHtml = '<div class="group-analysis-grid">'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">E (외향)</span><span class="group-analysis-val">' + eCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(eCount/total*100):0) + '%; height:8px; background:var(--e); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">I (내향)</span><span class="group-analysis-val">' + iCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(iCount/total*100):0) + '%; height:8px; background:var(--i); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">N (직관)</span><span class="group-analysis-val">' + nCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(nCount/total*100):0) + '%; height:8px; background:var(--n); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">S (감각)</span><span class="group-analysis-val">' + sCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(sCount/total*100):0) + '%; height:8px; background:var(--s); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">T (사고)</span><span class="group-analysis-val">' + tCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(tCount/total*100):0) + '%; height:8px; background:var(--t); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">F (감정)</span><span class="group-analysis-val">' + fCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(fCount/total*100):0) + '%; height:8px; background:var(--f); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">J (판단)</span><span class="group-analysis-val">' + jCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(jCount/total*100):0) + '%; height:8px; background:var(--j); border-radius:4px;"></div></div></div>'
+      + '<div class="group-analysis-item"><span class="group-analysis-label">P (인식)</span><span class="group-analysis-val">' + pCount + '명</span><div class="group-mini-bar"><div style="width:' + (total>0?Math.round(pCount/total*100):0) + '%; height:8px; background:var(--p); border-radius:4px;"></div></div></div>'
+      + '</div>';
+
+    if (dominated.length > 0 && maxCount > 0) {
+      analysisHtml += '<p style="margin-top:1rem; font-size:.9rem;"><strong>가장 많은 유형:</strong> ' + dominated.map(function(t){return t+' '+ANIMAL_MAP[t];}).join(', ') + ' (' + maxCount + '명)</p>';
+    }
+
+    document.getElementById('groupAnalysis').innerHTML = analysisHtml;
+  }
+
+  function removeMember(idx) {
+    var groupData = getGroupStorage(currentGroupCode);
+    if (!groupData) return;
+    var removed = groupData.members.splice(idx, 1);
+    saveGroupStorage(currentGroupCode, groupData);
+    showToast(removed[0].nickname + ' 제거됨');
+    renderGroupResults();
+  }
+
+  function copyGroupLink() {
+    var url = location.origin + location.pathname + '?code=' + currentGroupCode;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function() { showToast('그룹 링크 복사됨! 📋'); });
+    } else {
+      showToast('링크: ' + url);
+    }
+  }
+
+  function clearGroup() {
+    if (!confirm('그룹 데이터를 모두 삭제할까요?')) return;
+    localStorage.removeItem('group_' + currentGroupCode);
+    currentGroupCode = null;
+    document.getElementById('groupInfoCard').style.display = 'none';
+    document.getElementById('groupResultSection').style.display = 'none';
+    document.getElementById('groupSetupCard').style.display = 'block';
+    showToast('그룹이 초기화됐습니다.');
+  }
+
+  function loadFromURL() {
+    // URL에 인코딩된 멤버 데이터 없음 - localStorage 기반
+  }
+
+  function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(location.search);
+    var code = params.get('code');
+    if (code) {
+      document.getElementById('groupCodeInput').value = code;
+      switchTab('join');
+      joinGroup();
+    }
+  });
+  </script>
 </body>
 </html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="두 성격 유형을 비교하고 궁합을 확인하세요. 당신과 상대방의 성격이 얼마나 잘 맞는지 알아봅시다.">
+  <meta name="keywords" content="성격유형비교, 궁합테스트, 성격분석">
+  <meta property="og:title" content="성격 유형 비교 - 궁합 테스트">
+  <meta property="og:description" content="두 성격 유형을 비교하고 궁합을 확인하세요">
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>성격 유형 비교 - 궁합 테스트 🐾</title>
+  <meta name="description" content="두 성격 유형을 비교하고 궁합을 확인하세요. 당신과 상대방의 성격이 얼마나 잘 맞는지 알아봅시다.">
+  <meta property="og:title" content="성격 유형 비교 - 궁합 테스트">
+  <meta property="og:description" content="두 성격 유형을 비교하고 궁합을 확인하세요">
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .compare-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .compare-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .type-selector {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      padding: 2rem;
+      color: white;
+      animation: slideIn 0.5s ease;
+    }
+
+    .type-selector h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .type-selector select {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .type-selector select:hover {
+      background: #f5f5f5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .type-selector select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .compatibility-score {
+      background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+      animation: fadeIn 0.6s ease 0.3s both;
+    }
+
+    .score-value {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 1rem 0;
+      animation: scaleUp 0.5s ease 0.5s both;
+    }
+
+    .score-label {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .compare-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .personality-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid #667eea;
+      animation: slideUp 0.5s ease;
+      transition: all 0.3s ease;
+    }
+
+    .personality-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .personality-card h4 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .personality-badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .personality-emoji {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      animation: bounce 0.6s ease infinite;
+    }
+
+    .traits-list {
+      margin-top: 1rem;
+    }
+
+    .traits-list h5 {
+      margin: 1rem 0 0.5rem 0;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .traits-list .tag {
+      display: inline-block;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 0.4rem 0.8rem;
+      margin: 0.3rem 0.3rem 0.3rem 0;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .traits-list .tag:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: scale(1.05);
+    }
+
+    .compatibility-details {
+      background: #f0f4ff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid #4f46e5;
+      animation: fadeIn 0.6s ease 0.4s both;
+    }
+
+    .compatibility-section {
+      margin-bottom: 2rem;
+    }
+
+    .compatibility-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .compatibility-section h4 {
+      margin-top: 0;
+      color: #4f46e5;
+      font-size: 1.1rem;
+    }
+
+    .compatibility-indicator {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.8rem 0;
+    }
+
+    .indicator-bar {
+      flex: 1;
+      height: 20px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .indicator-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6b6b, #ff8c42);
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
+
+    .indicator-label {
+      min-width: 60px;
+      text-align: right;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .action-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn {
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-share {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .btn-share:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-reset {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .btn-reset:hover {
+      background: #e0e0e0;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .empty-state-emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state h2 {
+      margin: 1rem 0;
+      color: #666;
+    }
+
+    .empty-state p {
+      color: #999;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="compare.html">비교</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="compare-container">
+    <h1 style="text-align: center; margin-bottom: 0.5rem;">성격 유형 비교</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 2rem;">두 성격 유형을 선택하면 궁합과 특징을 비교할 수 있습니다</p>
+
+    <div class="compare-selector">
+      <div class="type-selector" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+        <h3>😊 당신의 성격</h3>
+        <select id="typeMe">
+          <option value="">선택하세요...</option>
+        </select>
+      </div>
+      <div class="type-selector" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+        <h3>👥 상대방의 성격</h3>
+        <select id="typeOther">
+          <option value="">선택하세요...</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="resultArea"></div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 성격 유형 동물 테스트 | <a href="privacy.html">개인정보처리방침</a></p>
+  </footer>
+
+  <script src="js/result.js"></script>
+  <script src="js/compare.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Populate selects
+      const types = Object.keys(resultData);
+      const meSelect = document.getElementById('typeMe');
+      const otherSelect = document.getElementById('typeOther');
+
+      types.forEach(function (type) {
+        const data = resultData[type];
+        const option1 = document.createElement('option');
+        option1.value = type;
+        option1.textContent = type + ' - ' + data.name + ' ' + data.emoji;
+        meSelect.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = type;
+        option2.textContent = type + ' - ' + data.name + ' ' + data.emoji;
+        otherSelect.appendChild(option2);
+      });
+
+      // Check URL params
+      const params = new URLSearchParams(location.search);
+      const me = params.get('me');
+      const other = params.get('other');
+
+      if (me && types.includes(me)) {
+        meSelect.value = me;
+      }
+      if (other && types.includes(other)) {
+        otherSelect.value = other;
+      }
+
+      // Event listeners
+      meSelect.addEventListener('change', showComparison);
+      otherSelect.addEventListener('change', showComparison);
+
+      // Initial check
+      if (me && other) {
+        showComparison();
+      }
+    });
+
+    function showComparison() {
+      const me = document.getElementById('typeMe').value;
+      const other = document.getElementById('typeOther').value;
+      const resultArea = document.getElementById('resultArea');
+
+      if (!me || !other) {
+        resultArea.innerHTML = '';
+        return;
+      }
+
+      if (me === other) {
+        resultArea.innerHTML = '<div class="empty-state"><div class="empty-state-emoji">😄</div><h2>동일한 성격입니다</h2><p>자신과 다른 성격을 선택하여 궁합을 확인해보세요!</p></div>';
+        return;
+      }
+
+      const html = createComparisonHTML(me, other);
+      resultArea.innerHTML = html;
+      updateComparisonData(me, other);
+
+      // Update URL
+      window.history.pushState({}, '', '?me=' + me + '&other=' + other);
+    }
+  </script>
+</body>
+</html>

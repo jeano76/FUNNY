@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Istinto Veloce | Test Personalità Animale</title>
-  <meta name="description" content="Rispondi velocemente in 3 secondi!" />
+  <title>속도 본능 모드 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="3초 안에 선택하세요! 본능으로 선택한 결과가 진짜 성격 유형입니다. 속도 본능 성격 유형 테스트." />
+  <meta name="keywords" content="성격 유형 빠른 테스트, 본능 성격 유형, 속도 성격 유형, 3초 선택 성격 유형" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="속도 본능 모드 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="3초 안에 선택하세요! 본능이 진짜 당신의 성격 유형를 알고 있습니다." />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
   <!-- AdSense -->
@@ -17,43 +23,364 @@
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
+  <script src="js/auto-lang.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 Test Personalità Animale</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="quiz.html">Inizia il Test</a></li>
-        <li><a href="about.html">Chi Siamo</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">일반 테스트</a></li>
+        <li><a href="about.html">소개</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
-      <div class="compat-header">
-        <h1 class="compat-main-title">⚡ Test Istinto Veloce</h1>
-        <p class="compat-main-desc">Timer di 3 secondi! Scegli per istinto</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: speed-top | responsive --></div>
+
+      <!-- 인트로 화면 -->
+      <div class="speed-intro" id="speedIntro">
+        <div class="result-card" style="text-align:center; padding:2.5rem 1.5rem;">
+          <div style="font-size:3rem; margin-bottom:1rem;">⚡</div>
+          <h1 style="font-size:1.8rem; font-weight:900; margin-bottom:.8rem; color:var(--primary);">속도 본능 모드</h1>
+          <p style="color:var(--text-mute); margin-bottom:.5rem; font-size:1rem;">"본능으로 선택한 결과가 진짜 성격 유형!"</p>
+          <p style="color:var(--text); margin-bottom:1.5rem; line-height:1.8;">각 문항마다 <strong>3초</strong> 안에 선택해야 합니다.<br>시간이 초과되면 자동으로 중립 처리됩니다.<br>생각하지 말고 <strong>본능대로</strong> 선택하세요!</p>
+          <div class="speed-intro-rules">
+            <div class="speed-rule-item">⏱ 문항당 3초 타이머</div>
+            <div class="speed-rule-item">🎯 총 20문항</div>
+            <div class="speed-rule-item">⚡ 시간 초과 = 중립</div>
+          </div>
+          <button class="btn-start" onclick="startSpeedQuiz()" style="margin-top:1.5rem; border:none; cursor:pointer; font-family:inherit;">
+            본능 테스트 시작 ⚡
+          </button>
+        </div>
       </div>
+
+      <!-- 퀴즈 화면 -->
+      <div class="speed-quiz-wrap" id="speedQuizWrap" style="display:none;">
+        <div class="quiz-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="speedProgressFill" style="width:5%"></div>
+          </div>
+          <span class="progress-text" id="speedProgressText">1 / 20</span>
+        </div>
+
+        <div class="question-card speed-question-card" id="speedQuestionCard">
+          <!-- 타이머 -->
+          <div class="speed-timer-wrap">
+            <svg class="speed-timer-svg" viewBox="0 0 100 100" width="80" height="80">
+              <circle class="speed-timer-bg" cx="50" cy="50" r="44" fill="none" stroke="#E5E7EB" stroke-width="8"/>
+              <circle class="speed-timer-fill" id="speedTimerFill" cx="50" cy="50" r="44" fill="none"
+                stroke="#6C63FF" stroke-width="8"
+                stroke-dasharray="276.46"
+                stroke-dashoffset="0"
+                stroke-linecap="round"
+                transform="rotate(-90 50 50)"/>
+            </svg>
+            <span class="speed-timer-num" id="speedTimerNum">3</span>
+          </div>
+
+          <div class="question-emoji" id="speedQuestionEmoji">🎉</div>
+          <p class="question-text" id="speedQuestionText"></p>
+
+          <div class="options-grid" id="speedOptionsGrid"></div>
+
+          <div class="speed-status" id="speedStatus"></div>
+        </div>
+      </div>
+
+      <!-- 결과 화면 -->
+      <div class="speed-result-wrap" id="speedResultWrap" style="display:none;">
+        <div class="result-card" style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:.5rem;">⚡ 본능 결과</div>
+          <div class="result-type-badge" id="speedResultType" style="margin-bottom:1rem;"></div>
+          <div class="result-animal-emoji" id="speedResultEmoji"></div>
+          <h2 class="result-animal-name" id="speedResultName"></h2>
+          <p class="result-title" id="speedResultTitle"></p>
+          <p style="color:var(--text-mute); font-size:.9rem; margin:1rem 0;">
+            ⚡ 응답 시간: 평균 <strong id="speedAvgTime"></strong>초<br>
+            🎯 즉시 선택: <strong id="speedInstantCount"></strong>문항
+          </p>
+          <div class="speed-answer-summary" id="speedAnswerSummary"></div>
+          <div class="result-actions" style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center;">
+            <a href="result.html" id="speedViewFullResult" class="btn-retest">상세 결과 보기 📊</a>
+            <button onclick="resetSpeedQuiz()" class="btn-home" style="border:none; cursor:pointer; font-family:inherit;">다시 하기 ⚡</button>
+            <a href="quiz.html" class="btn-home">일반 테스트</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: speed-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Test Personalità Animale. Tutti i diritti riservati.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">Chi Siamo</a>
-        <a href="privacy.html">Politica sulla Privacy</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  /* quiz.js와 동일한 quizData */
+  var quizData = [
+    { id:1, axis:"EI", emoji:"🎉", text:"오랜만에 주말이 생겼다! 나는 주로...",
+      options:[{text:"친구들에게 연락해서 약속을 잡는다",score:"E"},{text:"아무 계획 없이 집에서 충전하는 시간을 즐긴다",score:"I"}] },
+    { id:2, axis:"EI", emoji:"🎤", text:"처음 만나는 모임에서 나는...",
+      options:[{text:"먼저 말을 걸고 금방 친해진다",score:"E"},{text:"자리를 파악하며 천천히 대화에 참여한다",score:"I"}] },
+    { id:3, axis:"EI", emoji:"😪", text:"긴 하루를 보낸 후 에너지를 충전하는 방법은?",
+      options:[{text:"친구나 가족과 수다를 떨며 스트레스를 푼다",score:"E"},{text:"혼자만의 공간에서 조용히 쉰다",score:"I"}] },
+    { id:4, axis:"EI", emoji:"📞", text:"카카오톡에 메시지가 쌓여있다. 나의 반응은?",
+      options:[{text:"바로바로 답장하면서 대화를 이어간다",score:"E"},{text:"나중에 한꺼번에 확인하고 간결하게 답한다",score:"I"}] },
+    { id:5, axis:"EI", emoji:"🎓", text:"새로운 것을 배울 때 효율이 높은 방법은?",
+      options:[{text:"친구들과 함께 토론하며 배운다",score:"E"},{text:"혼자 조용히 집중해서 공부한다",score:"I"}] },
+    { id:6, axis:"SN", emoji:"✈️", text:"여행 계획을 세울 때 나는...",
+      options:[{text:"맛집, 명소 등 구체적인 일정을 꼼꼼히 짠다",score:"S"},{text:"큰 방향만 정하고 현장에서 즉흥적으로 결정한다",score:"N"}] },
+    { id:7, axis:"SN", emoji:"📱", text:"새 스마트폰을 살 때 가장 중요하게 보는 것은?",
+      options:[{text:"배터리, 카메라 화소 등 구체적인 스펙",score:"S"},{text:"'이 폰으로 어떤 생활을 하게 될까' 하는 전체적인 느낌",score:"N"}] },
+    { id:8, axis:"SN", emoji:"💭", text:"멍 때릴 때 내 머릿속은 주로...",
+      options:[{text:"오늘 먹은 것, 해야 할 일 등 현실적인 생각들",score:"S"},{text:"전혀 엉뚱한 상상이나 아이디어들이 떠오른다",score:"N"}] },
+    { id:9, axis:"SN", emoji:"📖", text:"소설책을 읽을 때 나는...",
+      options:[{text:"이야기 줄거리와 사건 전개에 집중한다",score:"S"},{text:"행간의 의미, 상징, 작가의 의도를 생각한다",score:"N"}] },
+    { id:10, axis:"SN", emoji:"🔧", text:"새 가전제품을 구입했다. 나는...",
+      options:[{text:"설명서를 꼼꼼히 읽고 순서대로 따른다",score:"S"},{text:"일단 켜보고 직접 사용하면서 익힌다",score:"N"}] },
+    { id:11, axis:"TF", emoji:"😢", text:"친구가 힘들다고 고민을 털어놓는다. 나는...",
+      options:[{text:"문제의 원인을 파악하고 해결책을 제시한다",score:"T"},{text:"일단 충분히 공감하고 감정을 받아준다",score:"F"}] },
+    { id:12, axis:"TF", emoji:"⚖️", text:"팀 프로젝트에서 의견 충돌이 생겼다. 나는...",
+      options:[{text:"데이터와 논리로 옳고 그름을 따진다",score:"T"},{text:"모두가 납득하고 화합할 수 있는 방향을 찾는다",score:"F"}] },
+    { id:13, axis:"TF", emoji:"🎬", text:"영화를 보고 나서 친구와 대화할 때 나는...",
+      options:[{text:"스토리의 허점이나 논리적 오류를 지적한다",score:"T"},{text:"인물의 감정선과 감동 포인트를 이야기한다",score:"F"}] },
+    { id:14, axis:"TF", emoji:"📝", text:"후배나 친구에게 피드백을 줄 때 나는...",
+      options:[{text:"감정보다 객관적인 사실과 개선점을 말한다",score:"T"},{text:"기분이 상하지 않도록 장점을 먼저 말한다",score:"F"}] },
+    { id:15, axis:"TF", emoji:"🚗", text:"운전 중 앞차가 너무 느리게 달린다. 나는...",
+      options:[{text:"'앞에 사고가 났나? 초보운전인가?' 하며 이유를 추론한다",score:"T"},{text:"답답한 마음에 짜증이 올라오거나 앞차 운전자가 걱정된다",score:"F"}] },
+    { id:16, axis:"JP", emoji:"🗓️", text:"친구들과 여행을 계획할 때 나는...",
+      options:[{text:"숙소, 이동수단, 식당을 미리 예약해야 마음이 편하다",score:"J"},{text:"대략적인 방향만 잡고 가서 결정하는 게 더 재밌다",score:"P"}] },
+    { id:17, axis:"JP", emoji:"📚", text:"과제나 업무 마감일이 2주 뒤다. 나는...",
+      options:[{text:"지금 바로 계획을 세우고 조금씩 진행한다",score:"J"},{text:"마감이 다가올수록 집중력이 올라간다 (벼락치기형)",score:"P"}] },
+    { id:18, axis:"JP", emoji:"🛒", text:"마트에서 쇼핑할 때 나는...",
+      options:[{text:"미리 적어온 리스트대로만 사고 나온다",score:"J"},{text:"'1+1', '한정수량' 문구를 보면 일단 담고 본다",score:"P"}] },
+    { id:19, axis:"JP", emoji:"🍽️", text:"1시간 이상 웨이팅이 있는 맛집 앞에서 나는...",
+      options:[{text:"기다렸다가 먹는다. 왔으니까 먹어야지",score:"J"},{text:"근처 다른 맛있는 곳을 찾아보자",score:"P"}] },
+    { id:20, axis:"JP", emoji:"🗃️", text:"내 방(책상)의 상태는?",
+      options:[{text:"물건마다 자리가 있고 대체로 정돈되어 있다",score:"J"},{text:"어디 뭐가 있는지 나는 알지만 남이 보면 복잡해 보일 수 있다",score:"P"}] }
+  ];
+
+  var ANIMAL_MAP = {
+    INTJ:'호랑이 🐯', INTP:'올빼미 🦉', ENTJ:'사자 🦁', ENTP:'앵무새 🦜',
+    INFJ:'판다 🐼', INFP:'해마 🦭', ENFJ:'골든리트리버 🐕', ENFP:'돌고래 🐬',
+    ISTJ:'비버 🦫', ISFJ:'사슴 🦌', ESTJ:'늑대 🐺', ESFJ:'코끼리 🐘',
+    ISTP:'고양이 🐱', ISFP:'나무늘보 🦥', ESTP:'치타 🐆', ESFP:'공작새 🦚'
+  };
+  var TITLE_MAP = {
+    INTJ:'고독한 전략가', INTP:'논리적 탐구자', ENTJ:'타고난 리더', ENTP:'발명가형 토론러',
+    INFJ:'신비로운 통찰자', INFP:'이상적인 몽상가', ENFJ:'다정한 리더', ENFP:'자유로운 영감가',
+    ISTJ:'성실의 아이콘', ISFJ:'따뜻한 수호자', ESTJ:'엄격한 관리자', ESFJ:'사교적인 돌봄이',
+    ISTP:'시크한 장인', ISFP:'자유로운 예술가', ESTP:'스릴 추구자', ESFP:'화려한 연예인'
+  };
+
+  var TIMER_DURATION = 3;
+  var CIRCUMFERENCE = 276.46;
+
+  var currentIdx = 0;
+  var answers = [];
+  var timerInterval = null;
+  var timeLeft = TIMER_DURATION;
+  var questionStartTime = 0;
+  var responseTimes = [];
+  var instantCount = 0;
+
+  function startSpeedQuiz() {
+    currentIdx = 0;
+    answers = [];
+    responseTimes = [];
+    instantCount = 0;
+    document.getElementById('speedIntro').style.display = 'none';
+    document.getElementById('speedQuizWrap').style.display = 'block';
+    renderSpeedQuestion();
+  }
+
+  function resetSpeedQuiz() {
+    clearInterval(timerInterval);
+    document.getElementById('speedResultWrap').style.display = 'none';
+    document.getElementById('speedIntro').style.display = 'block';
+  }
+
+  function renderSpeedQuestion() {
+    var q = quizData[currentIdx];
+    var total = quizData.length;
+
+    var pct = Math.round(((currentIdx) / total) * 100) + 5;
+    document.getElementById('speedProgressFill').style.width = pct + '%';
+    document.getElementById('speedProgressText').textContent = (currentIdx + 1) + ' / ' + total;
+
+    document.getElementById('speedQuestionEmoji').textContent = q.emoji;
+    document.getElementById('speedQuestionText').textContent = q.text;
+    document.getElementById('speedStatus').textContent = '';
+
+    var grid = document.getElementById('speedOptionsGrid');
+    grid.innerHTML = '';
+    q.options.forEach(function(opt) {
+      var btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.textContent = opt.text;
+      btn.onclick = function() { selectSpeedOption(opt.score, btn); };
+      grid.appendChild(btn);
+    });
+
+    // 카드 애니메이션
+    var card = document.getElementById('speedQuestionCard');
+    card.style.animation = 'none';
+    card.offsetHeight;
+    card.style.animation = 'slideIn .3s ease';
+
+    startTimer();
+  }
+
+  function startTimer() {
+    clearInterval(timerInterval);
+    timeLeft = TIMER_DURATION;
+    questionStartTime = Date.now();
+    updateTimerUI(TIMER_DURATION);
+
+    timerInterval = setInterval(function() {
+      timeLeft -= 0.05;
+      updateTimerUI(timeLeft);
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        handleTimeout();
+      }
+    }, 50);
+  }
+
+  function updateTimerUI(t) {
+    var ratio = Math.max(0, t / TIMER_DURATION);
+    var offset = CIRCUMFERENCE * (1 - ratio);
+    var fill = document.getElementById('speedTimerFill');
+    fill.style.strokeDashoffset = offset;
+
+    var num = document.getElementById('speedTimerNum');
+    var display = Math.ceil(t);
+    num.textContent = display <= 0 ? '0' : display;
+
+    // 색상 변화
+    if (ratio > 0.6) { fill.style.stroke = '#6C63FF'; num.style.color = '#6C63FF'; }
+    else if (ratio > 0.3) { fill.style.stroke = '#F9A826'; num.style.color = '#F9A826'; }
+    else { fill.style.stroke = '#EF4444'; num.style.color = '#EF4444'; }
+  }
+
+  function handleTimeout() {
+    document.getElementById('speedStatus').textContent = '⏰ 시간 초과! 중립 처리됩니다.';
+    document.getElementById('speedStatus').style.color = '#EF4444';
+    answers.push({ axis: quizData[currentIdx].axis, score: null, time: TIMER_DURATION });
+    responseTimes.push(TIMER_DURATION);
+
+    setTimeout(function() {
+      nextSpeedQuestion();
+    }, 800);
+  }
+
+  function selectSpeedOption(score, btn) {
+    clearInterval(timerInterval);
+    var elapsed = (Date.now() - questionStartTime) / 1000;
+    responseTimes.push(elapsed);
+    if (elapsed < 1.5) instantCount++;
+
+    document.querySelectorAll('#speedOptionsGrid .option-btn').forEach(function(b) {
+      b.disabled = true;
+      b.classList.remove('selected');
+    });
+    btn.classList.add('selected');
+    answers.push({ axis: quizData[currentIdx].axis, score: score, time: elapsed });
+
+    document.getElementById('speedStatus').textContent = elapsed < 1.0 ? '⚡ 초고속 응답!' : elapsed < 2.0 ? '✅ 빠른 응답!' : '👍 선택 완료!';
+    document.getElementById('speedStatus').style.color = 'var(--success)';
+
+    setTimeout(function() {
+      nextSpeedQuestion();
+    }, 400);
+  }
+
+  function nextSpeedQuestion() {
+    currentIdx++;
+    if (currentIdx < quizData.length) {
+      renderSpeedQuestion();
+    } else {
+      finishSpeedQuiz();
+    }
+  }
+
+  function finishSpeedQuiz() {
+    var scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+    answers.forEach(function(a) {
+      if (a.score) scores[a.score]++;
+    });
+
+    var type =
+      (scores.E >= scores.I ? 'E' : 'I') +
+      (scores.S >= scores.N ? 'S' : 'N') +
+      (scores.T >= scores.F ? 'T' : 'F') +
+      (scores.J >= scores.P ? 'J' : 'P');
+
+    saveMBTIResult(type, scores);
+
+    var animal = ANIMAL_MAP[type] || type;
+    var parts = animal.split(' ');
+    var animalName = parts[0];
+    var animalEmoji = parts[1] || '';
+
+    document.getElementById('speedResultType').textContent = type;
+    document.getElementById('speedResultEmoji').textContent = animalEmoji;
+    document.getElementById('speedResultName').textContent = animalName;
+    document.getElementById('speedResultTitle').textContent = TITLE_MAP[type] || '';
+
+    var avgTime = responseTimes.reduce(function(a,b){return a+b;},0) / responseTimes.length;
+    document.getElementById('speedAvgTime').textContent = avgTime.toFixed(1);
+    document.getElementById('speedInstantCount').textContent = instantCount;
+
+    // 답변 요약
+    var summary = document.getElementById('speedAnswerSummary');
+    var axisScores = [
+      { label:'E vs I', plus: scores.E, minus: scores.I, pKey:'E', mKey:'I' },
+      { label:'S vs N', plus: scores.S, minus: scores.N, pKey:'S', mKey:'N' },
+      { label:'T vs F', plus: scores.T, minus: scores.F, pKey:'T', mKey:'F' },
+      { label:'J vs P', plus: scores.J, minus: scores.P, pKey:'J', mKey:'P' }
+    ];
+    summary.innerHTML = axisScores.map(function(ax) {
+      var total = ax.plus + ax.minus || 1;
+      var pct = Math.round((ax.plus / total) * 100);
+      var winner = ax.plus >= ax.minus ? ax.pKey : ax.mKey;
+      return '<div class="speed-axis-bar"><span class="speed-axis-label">' + ax.pKey + '</span>'
+        + '<div class="speed-bar-track"><div class="speed-bar-fill" style="width:' + pct + '%;"></div></div>'
+        + '<span class="speed-axis-label">' + ax.mKey + '</span>'
+        + '<strong style="margin-left:.5rem;color:var(--primary);">' + winner + '</strong></div>';
+    }).join('');
+
+    document.getElementById('speedViewFullResult').href = 'result.html?type=' + type;
+    document.getElementById('speedQuizWrap').style.display = 'none';
+    document.getElementById('speedResultWrap').style.display = 'block';
+    document.getElementById('speedResultWrap').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+  </script>
 </body>
 </html>

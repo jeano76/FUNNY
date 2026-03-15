@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>โชคลาภรายวัน | การทดสอบบุคลิกภาพสัตว์</title>
-  <meta name="description" content="ตรวจสอบโชคลาภของคุณวันนี้" />
+  <title>오늘의 성격 유형 운세 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="오늘의 성격 유형 운세를 확인하세요! 총운, 대인운, 업무운, 재물운을 매일 새롭게 알려드립니다." />
+  <meta name="keywords" content="성격 유형 운세, 성격 유형 오늘의 운세, 성격 유형 별점, 성격 유형 점성술" />
   <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="오늘의 성격 유형 운세 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="내 성격 유형의 오늘 운세를 확인해보세요! 매일 바뀌는 운세." />
+  <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
 
   <!-- GA_CODE_HERE -->
   <!-- AdSense -->
@@ -17,43 +23,282 @@
      crossorigin="anonymous"></script>
 
   <!-- Auto Language Detection -->
-  <script src="../js/auto-lang.js"></script>
+  <script src="js/auto-lang.js"></script>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 การทดสอบบุคลิกภาพสัตว์</a>
+      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">หน้าแรก</a></li>
-        <li><a href="quiz.html">เริ่มทดสอบ</a></li>
-        <li><a href="about.html">เกี่ยวกับ</a></li>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트 시작</a></li>
+        <li><a href="about.html">소개</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="result-main">
     <div class="container">
-      <div class="ad-container"></div>
-      <div class="compat-header">
-        <h1 class="compat-main-title">🔮 โชคลาภรายวัน</h1>
-        <p class="compat-main-desc">โชคลาภโดยรวม สังคม อาชีพ และความมั่งคั่งได้รับการอัปเดตทุกวัน</p>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: fortune-top | responsive --></div>
+
+      <!-- 날짜 헤더 -->
+      <div class="fortune-header result-card" style="text-align:center; margin-bottom:1.5rem;">
+        <div style="font-size:2.5rem; margin-bottom:.5rem;">🔮</div>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">오늘의 성격 유형 운세</h1>
+        <p class="fortune-date" id="fortuneDate" style="color:var(--text-mute); font-size:.9rem;"></p>
+        <p style="color:var(--text-mute); font-size:.85rem; margin-top:.3rem;">* 재미로 보는 운세입니다. 매일 자정에 업데이트됩니다.</p>
       </div>
+
+      <!-- 유형 선택 -->
+      <div class="result-card" style="margin-bottom:1.5rem; text-align:center;">
+        <p style="margin-bottom:.8rem; font-weight:700;">내 성격 유형 유형 선택</p>
+        <select id="fortuneTypeSelect" class="compat-select" onchange="renderFortune(this.value)" style="width:100%; max-width:300px; margin:0 auto; display:block;">
+          <option value="">-- 유형 선택 --</option>
+        </select>
+        <p style="font-size:.82rem; color:var(--text-mute); margin-top:.6rem;" id="savedTypeHint"></p>
+      </div>
+
+      <!-- 운세 카드 -->
+      <div id="fortuneResult" style="display:none;">
+        <div class="result-card fortune-main-card" style="margin-bottom:1.5rem;">
+          <div class="fortune-type-wrap">
+            <span class="result-type-badge" id="fortuneTypeBadge"></span>
+            <span class="fortune-animal" id="fortuneAnimal" style="font-size:2rem; margin-left:.8rem;"></span>
+          </div>
+
+          <div class="fortune-scores-grid">
+            <div class="fortune-score-item">
+              <span class="fortune-score-icon">⭐</span>
+              <span class="fortune-score-label">총운</span>
+              <div class="fortune-stars" id="fortuneTotal"></div>
+              <p class="fortune-score-desc" id="fortuneTotalDesc"></p>
+            </div>
+            <div class="fortune-score-item">
+              <span class="fortune-score-icon">💞</span>
+              <span class="fortune-score-label">대인운</span>
+              <div class="fortune-stars" id="fortunePeople"></div>
+              <p class="fortune-score-desc" id="fortunePeopleDesc"></p>
+            </div>
+            <div class="fortune-score-item">
+              <span class="fortune-score-icon">💼</span>
+              <span class="fortune-score-label">업무운</span>
+              <div class="fortune-stars" id="fortuneWork"></div>
+              <p class="fortune-score-desc" id="fortuneWorkDesc"></p>
+            </div>
+            <div class="fortune-score-item">
+              <span class="fortune-score-icon">💰</span>
+              <span class="fortune-score-label">재물운</span>
+              <div class="fortune-stars" id="fortuneMoney"></div>
+              <p class="fortune-score-desc" id="fortuneMoneyDesc"></p>
+            </div>
+          </div>
+
+          <div class="fortune-word-box" id="fortuneWordBox">
+            <h3 style="font-size:1rem; font-weight:900; margin-bottom:.5rem;">💬 오늘의 한마디</h3>
+            <p id="fortuneWord" style="font-size:1.05rem; line-height:1.8;"></p>
+          </div>
+
+          <div class="fortune-lucky" id="fortuneLucky">
+            <span class="fortune-lucky-item" id="fortuneLuckyColor"></span>
+            <span class="fortune-lucky-item" id="fortuneLuckyNum"></span>
+            <span class="fortune-lucky-item" id="fortuneLuckyFood"></span>
+          </div>
+        </div>
+
+        <div class="result-actions" style="display:flex; justify-content:center; flex-wrap:wrap; gap:.8rem; margin-bottom:2rem;">
+          <a href="quiz.html" class="btn-retest">테스트 시작하기 🎯</a>
+          <a href="compat.html" class="btn-home">궁합 보기 💕</a>
+        </div>
+      </div>
+
+      <div class="ad-container"><!-- ADSENSE_UNIT: fortune-bottom | responsive --></div>
+
     </div>
   </main>
 
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 การทดสอบบุคลิกภาพสัตว์. All rights reserved.</p>
+      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+      </div>
       <nav class="footer-nav">
-        <a href="about.html">เกี่ยวกับ</a>
-        <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
 
-  <script src="../js/storage.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  var TYPES = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+  var ANIMAL_MAP = {
+    INTJ:'호랑이 🐯', INTP:'올빼미 🦉', ENTJ:'사자 🦁', ENTP:'앵무새 🦜',
+    INFJ:'판다 🐼', INFP:'해마 🦭', ENFJ:'골든리트리버 🐕', ENFP:'돌고래 🐬',
+    ISTJ:'비버 🦫', ISFJ:'사슴 🦌', ESTJ:'늑대 🐺', ESFJ:'코끼리 🐘',
+    ISTP:'고양이 🐱', ISFP:'나무늘보 🦥', ESTP:'치타 🐆', ESFP:'공작새 🦚'
+  };
+
+  /* 운세 텍스트 풀 */
+  var FORTUNE_POOL = {
+    totalDesc: [
+      '오늘은 하는 일마다 술술 풀리는 행운의 날입니다!',
+      '작은 노력이 큰 결실을 맺는 하루가 될 것입니다.',
+      '평범해 보이지만 중요한 연결이 이루어지는 날입니다.',
+      '내면의 목소리에 귀 기울이면 좋은 결과가 따릅니다.',
+      '준비한 것이 빛을 발하는 날입니다. 자신감을 가지세요!'
+    ],
+    peopleDesc: [
+      '오래된 인연이 뜻밖의 도움을 줄 것입니다.',
+      '새로운 만남에서 특별한 에너지를 받는 하루입니다.',
+      '가까운 사람에게 솔직한 마음을 전해보세요.',
+      '혼자보다 함께할 때 더 빛나는 하루입니다.',
+      '오해가 풀리고 관계가 깊어지는 좋은 날입니다.'
+    ],
+    workDesc: [
+      '집중력이 최고조에 달하는 하루! 어려운 일도 척척 해냅니다.',
+      '창의적인 아이디어가 샘솟는 날입니다. 메모해두세요.',
+      '꼼꼼한 검토가 빛나는 날. 완성도 높은 결과물이 나옵니다.',
+      '팀워크로 시너지를 발휘할 수 있는 좋은 날입니다.',
+      '한 걸음씩 착실히 나아가면 큰 성과를 얻습니다.'
+    ],
+    moneyDesc: [
+      '예상치 못한 수입이 생길 수 있습니다. 지갑을 확인하세요!',
+      '과소비를 주의하되 필요한 투자는 망설이지 마세요.',
+      '재물운이 상승 중! 소액 투자나 저축을 시작해보세요.',
+      '오늘은 큰 지출보다 저축에 집중하는 것이 좋습니다.',
+      '뜻밖의 행운으로 재물이 들어오는 날입니다.'
+    ],
+    words: {
+      INTJ: ['오늘은 계획을 한 단계 앞당길 기회입니다. 직관을 믿으세요.', '혼자만의 시간이 가장 큰 힘이 됩니다. 집중하세요.', '비효율적인 것을 과감히 버리면 새로운 길이 열립니다.'],
+      INTP: ['오늘의 질문에 대한 답은 이미 당신 안에 있습니다.', '연구하고 분석하되 결론을 내는 용기도 필요합니다.', '아이디어를 실행으로 옮기는 첫 걸음을 내딛어보세요.'],
+      ENTJ: ['리더십을 발휘할 절호의 기회가 찾아옵니다.', '큰 그림을 보되 사람의 감정도 놓치지 마세요.', '결단의 순간, 당신의 판단을 믿으세요.'],
+      ENTP: ['기상천외한 아이디어가 오늘의 문제를 해결합니다.', '토론보다 행동이 필요한 날입니다. 실행하세요!', '새로운 시각이 주변 사람들에게 영감을 줍니다.'],
+      INFJ: ['당신의 통찰이 오늘 누군가에게 큰 힘이 됩니다.', '자신을 위한 시간을 만들어 충전하세요.', '보이지 않는 것을 보는 당신의 능력이 빛납니다.'],
+      INFP: ['오늘 느끼는 감정이 창의적 영감의 원천입니다.', '자신의 가치관을 지키는 것이 가장 중요합니다.', '작은 친절이 세상을 바꿀 수 있습니다.'],
+      ENFJ: ['오늘 당신의 따뜻한 말 한마디가 누군가의 하루를 바꿉니다.', '사람들을 도우면서도 자신도 챙기는 균형을 찾아보세요.', '리더십이 빛나는 하루! 주저 없이 앞장서세요.'],
+      ENFP: ['오늘의 만남에서 특별한 인연을 발견할 수 있습니다.', '열정을 한 곳에 집중하면 놀라운 결과가 나옵니다.', '당신의 에너지가 주변 모두를 빛나게 합니다.'],
+      ISTJ: ['꾸준함이 결실을 맺는 날입니다. 오늘도 한 걸음씩.', '믿음직한 당신에게 중요한 임무가 주어집니다.', '원칙을 지키는 것이 오늘의 최선입니다.'],
+      ISFJ: ['당신의 배려가 오늘 특히 빛납니다.', '도움을 받는 것도 용기입니다. 혼자 짊어지지 마세요.', '세심한 관찰이 중요한 것을 발견하게 해줍니다.'],
+      ESTJ: ['조직을 이끄는 당신의 역할이 오늘 중요합니다.', '효율을 추구하되 유연함도 발휘해보세요.', '책임감이 신뢰로 돌아오는 하루입니다.'],
+      ESFJ: ['오늘 당신의 따뜻함이 많은 사람들을 연결합니다.', '자신의 행복도 중요합니다. 오늘은 나를 위한 하루.', '사람들 사이의 다리 역할이 빛나는 날입니다.'],
+      ISTP: ['문제를 다른 각도로 접근하면 해결책이 보입니다.', '말보다 행동이 설득력 있는 날입니다.', '차분한 분석이 가장 빠른 해결책을 제시합니다.'],
+      ISFP: ['오늘은 아름다운 것들을 느끼며 자신을 충전하세요.', '당신만의 방식이 최고의 방식입니다.', '현재에 충실한 당신의 태도가 주변을 평화롭게 합니다.'],
+      ESTP: ['오늘은 기회가 빠르게 지나갑니다. 즉각 행동하세요!', '현장에서 쌓인 경험이 최고의 무기입니다.', '스릴을 즐기되 안전에도 주의하세요.'],
+      ESFP: ['오늘 당신이 있는 곳이 가장 밝은 곳입니다.', '즉흥적인 선택이 특별한 추억을 만듭니다.', '당신의 웃음이 오늘의 최고 선물입니다.']
+    },
+    luckyColors: ['빨간색 🔴', '파란색 🔵', '초록색 🟢', '노란색 🟡', '보라색 🟣', '주황색 🟠', '흰색 ⬜', '검정색 ⬛', '핑크 🩷', '하늘색 🩵'],
+    luckyNums: [1,2,3,4,5,6,7,8,9,10,11,12,13,21,22,33,42,77,88,99],
+    luckyFoods: ['커피 ☕', '초콜릿 🍫', '라면 🍜', '치킨 🍗', '피자 🍕', '샐러드 🥗', '과일 🍓', '아이스크림 🍦', '떡볶이 🌶️', '스시 🍣', '파스타 🍝', '빵 🥐']
+  };
+
+  /* 날짜+타입을 시드로 하는 간단한 해시 */
+  function seededRandom(seed) {
+    var x = Math.sin(seed + 1) * 10000;
+    return x - Math.floor(x);
+  }
+
+  function getSeed(type) {
+    var now = new Date();
+    var dateStr = now.getFullYear() + '' + (now.getMonth()+1) + '' + now.getDate();
+    var typeNum = type.split('').reduce(function(a,c){ return a + c.charCodeAt(0); }, 0);
+    return parseInt(dateStr) + typeNum;
+  }
+
+  function pickFromPool(pool, seed, offset) {
+    var idx = Math.floor(seededRandom(seed + offset) * pool.length);
+    return pool[idx];
+  }
+
+  function getStarScore(seed, offset, min, max) {
+    return min + Math.floor(seededRandom(seed + offset) * (max - min + 1));
+  }
+
+  function renderStars(score) {
+    var html = '';
+    for (var i = 1; i <= 5; i++) {
+      html += '<span style="color:' + (i <= score ? '#F9A826' : '#D1D5DB') + '; font-size:1.3rem;">★</span>';
+    }
+    return html;
+  }
+
+  function renderFortune(type) {
+    if (!type || !ANIMAL_MAP[type]) {
+      document.getElementById('fortuneResult').style.display = 'none';
+      return;
+    }
+
+    var seed = getSeed(type);
+    var animal = ANIMAL_MAP[type];
+    var parts = animal.split(' ');
+
+    document.getElementById('fortuneTypeBadge').textContent = type;
+    document.getElementById('fortuneAnimal').textContent = animal;
+
+    var totalScore = getStarScore(seed, 10, 2, 5);
+    var peopleScore = getStarScore(seed, 20, 1, 5);
+    var workScore = getStarScore(seed, 30, 2, 5);
+    var moneyScore = getStarScore(seed, 40, 1, 5);
+
+    document.getElementById('fortuneTotal').innerHTML = renderStars(totalScore);
+    document.getElementById('fortunePeople').innerHTML = renderStars(peopleScore);
+    document.getElementById('fortuneWork').innerHTML = renderStars(workScore);
+    document.getElementById('fortuneMoney').innerHTML = renderStars(moneyScore);
+
+    document.getElementById('fortuneTotalDesc').textContent = pickFromPool(FORTUNE_POOL.totalDesc, seed, 11);
+    document.getElementById('fortunePeopleDesc').textContent = pickFromPool(FORTUNE_POOL.peopleDesc, seed, 21);
+    document.getElementById('fortuneWorkDesc').textContent = pickFromPool(FORTUNE_POOL.workDesc, seed, 31);
+    document.getElementById('fortuneMoneyDesc').textContent = pickFromPool(FORTUNE_POOL.moneyDesc, seed, 41);
+
+    var words = FORTUNE_POOL.words[type] || ['오늘도 당신답게 빛나는 하루 보내세요!'];
+    document.getElementById('fortuneWord').textContent = pickFromPool(words, seed, 50);
+
+    var luckyColor = pickFromPool(FORTUNE_POOL.luckyColors, seed, 60);
+    var luckyNum = FORTUNE_POOL.luckyNums[Math.floor(seededRandom(seed + 70) * FORTUNE_POOL.luckyNums.length)];
+    var luckyFood = pickFromPool(FORTUNE_POOL.luckyFoods, seed, 80);
+
+    document.getElementById('fortuneLuckyColor').textContent = '행운의 색: ' + luckyColor;
+    document.getElementById('fortuneLuckyNum').textContent = '행운의 숫자: ' + luckyNum;
+    document.getElementById('fortuneLuckyFood').textContent = '행운의 음식: ' + luckyFood;
+
+    document.getElementById('fortuneResult').style.display = 'block';
+    document.getElementById('fortuneResult').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // 날짜 표시
+    var now = new Date();
+    var dayNames = ['일','월','화','수','목','금','토'];
+    document.getElementById('fortuneDate').textContent =
+      now.getFullYear() + '년 ' + (now.getMonth()+1) + '월 ' + now.getDate() + '일 (' + dayNames[now.getDay()] + ')';
+
+    // 드롭다운 채우기
+    var sel = document.getElementById('fortuneTypeSelect');
+    TYPES.forEach(function(t) {
+      var opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t + ' ' + ANIMAL_MAP[t];
+      sel.appendChild(opt);
+    });
+
+    // localStorage에서 내 성격 유형 읽기
+    var stored = getMBTIData();
+    if (stored.currentResult && stored.currentResult.type) {
+      var myType = stored.currentResult.type;
+      sel.value = myType;
+      document.getElementById('savedTypeHint').textContent = '저장된 내 유형: ' + myType + ' ' + (ANIMAL_MAP[myType] || '');
+      renderFortune(myType);
+    }
+  });
+  </script>
 </body>
 </html>
