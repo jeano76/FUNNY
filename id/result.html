@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Hasil 성격 유형 | Test Kepribadian Hewan</title>
+  <meta name="description" id="pageDesc" content="Cek hasil 성격 유형 Anda dan bagikan dengan teman!" />
+
+  <!-- OG tags - dynamically updated by result.js -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="ogTitle" content="Hasil 성격 유형 Saya!" />
+  <meta property="og:description" id="ogDesc" content="Cek hasil 성격 유형 saya." />
+  <meta property="og:image" id="ogImage" content="assets/og-image.png" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twTitle" content="Hasil 성격 유형 Saya!" />
+  <meta name="twitter:image" id="twImage" content="assets/og-image.png" />
+
+  <!-- Kakao SDK -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="../js/auto-lang.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 Test Kepribadian Hewan</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="quiz.html">Test</a></li>
+        <li><a href="about.html">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="result-main">
+    <div class="container">
+      <div class="ad-container ad-result-top"></div>
+
+      <div class="result-card" id="resultCard">
+        <div class="result-loading" id="resultLoading">
+          <div class="loading-spinner"></div>
+          <p>Menganalisis hasil...</p>
+        </div>
+        <div class="result-content" id="resultContent" style="display:none;">
+          <div class="result-type-badge" id="resultTypeBadge"></div>
+          <div class="result-animal-emoji" id="resultAnimalEmoji"></div>
+          <h1 class="result-animal-name" id="resultAnimalName"></h1>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <p class="result-group" id="resultGroup"></p>
+          <p class="result-description" id="resultDescription"></p>
+
+          <div class="result-stats">
+            <div class="stat-item">
+              <span class="stat-label">Persentase</span>
+              <span class="stat-value" id="statKorean"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Kelangkaan</span>
+              <span class="stat-value" id="statRarity"></span>
+            </div>
+          </div>
+
+          <div class="result-tags">
+            <h3>Kekuatan</h3>
+            <div class="tags-list" id="strengthsList"></div>
+          </div>
+
+          <div class="result-compat">
+            <h3>Tipe yang Cocok</h3>
+            <div class="compat-list" id="compatList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="share-section" id="shareSection" style="display:none;">
+        <h3>Bagikan dengan Teman 🎉</h3>
+        <p class="share-desc">Bagikan hasil saya dan ketahui tipe teman!</p>
+        <div class="share-buttons">
+          <button class="share-btn kakao" id="kakaoShareBtn">
+            💬 KakaoTalk
+          </button>
+          <button class="share-btn twitter" id="twitterShareBtn">
+            🐦 Twitter
+          </button>
+          <button class="share-btn facebook" id="facebookShareBtn">
+            👍 Facebook
+          </button>
+          <button class="share-btn whatsapp" id="whatsappShareBtn">
+            💚 WhatsApp
+          </button>
+          <button class="share-btn copy" id="copyShareBtn">
+            🔗 Salin Tautan
+          </button>
+        </div>
+      </div>
+
+      <div class="ad-container ad-result-bottom"></div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Test Kepribadian Hewan. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="about.html">Tentang Situs</a>
+        <a href="privacy.html">Kebijakan Privasi</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/result.js"></script>
+  <script src="../js/storage.js"></script>
+</body>
+</html>

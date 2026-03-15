@@ -747,3 +747,59 @@ img { max-width: 100%; display: block; }
   .careers-tab-group { display: flex; gap: .8rem; align-items: center; }
   .careers-tab-group-label { min-width: 110px; margin-bottom: 0; }
 }
+
+/* Language Switcher */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+.lang-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.lang-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+.lang-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  margin-top: 5px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.lang-content a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.lang-content a:hover {
+  background-color: #f1f1f1;
+}
+.lang-dropdown:hover .lang-content {
+  display: block;
+}
+/* RTL support for Arabic */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .nav-inner {
+  flex-direction: row-reverse;
+}

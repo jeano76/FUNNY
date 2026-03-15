@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cuál es tu tipo de personalidad? Divertido test de 16 animales 🐾</title>
+  <meta name="description" content="Compras, viajes, respuestas en el chat... ¡Descubre tu tipo de personalidad a través de tus acciones diarias! Consulta tus resultados con 16 personajes de animales y compártelos con tus amigos." />
+  <meta name="keywords" content="Test de personalidad, 16 personalidades, Evaluación de personalidad, MBTI Animal, Compatibilidad de personalidad, Test gratuito" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="¿Cuál es tu tipo de personalidad? Divertido test de 16 animales 🐾" />
+  <meta property="og:description" content="¡Descubre tu tipo de personalidad a través de tus acciones diarias! Comparte tus resultados de 16 personajes de animales con tus amigos." />
+  <meta property="og:image" content="../assets/og-image.png" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="Test de Personalidad de 16 Animales" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="¿Cuál es tu tipo de personalidad? Divertido test de 16 animales" />
+  <meta name="twitter:description" content="¡Descubre tu tipo de personalidad a través de tus acciones diarias! Consulta tus resultados con 16 personajes de animales." />
+  <meta name="twitter:image" content="../assets/og-image.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 Test de Animales</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quiz.html">Empezar Test</a></li>
+        <li><a href="about.html">Sobre nosotros</a></li>
+      </ul>
+      <div class="lang-dropdown">
+        <button class="lang-btn">🌐 Language ▾</button>
+        <div class="lang-content">
+          <a href="../index.html">한국어 (KO)</a>
+          <a href="../en/index.html">English (EN)</a>
+          <a href="../jp/index.html">日本語 (JP)</a>
+          <a href="../zh/index.html">简体中文 (ZH)</a>
+          <a href="index.html">Español (ES)</a>
+          <a href="../de/index.html">Deutsch (DE)</a>
+          <a href="../fr/index.html">Français (FR)</a>
+          <a href="../ru/index.html">Русский (RU)</a>
+          <a href="../ar/index.html">العربية (AR)</a>
+          <a href="../pt/index.html">Português (PT)</a>
+          <a href="../mn/index.html">Монгол (MN)</a>
+          <a href="../la/index.html">Latina (LA)</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-animals">🐯 🦁 🐬 🦋 🦁 🐘 🐱 🦅</div>
+      <h1 class="hero-title">¿Qué animal soy?</h1>
+      <p class="hero-subtitle">
+        Compras, planes de viaje, velocidad de respuesta al chat...<br />
+        ¡Descubre tu tipo de personalidad (MBTI) a través de tus <strong>acciones diarias</strong>!
+      </p>
+      <div class="hero-badges">
+        <span class="badge">⏱ ~3 min</span>
+        <span class="badge">📱 Optimizado para móviles</span>
+        <span class="badge">🆓 Gratis</span>
+      </div>
+      <a href="quiz.html" class="btn-start" id="startBtn">
+        Empezar Test →
+      </a>
+    </div>
+  </section>
+
+  <!-- Returning User Banner (hidden by default) -->
+  <div class="returning-banner" id="returningBanner" style="display:none;">
+    <div class="banner-inner">
+      <span id="returningMsg"></span>
+      <div class="banner-btns">
+        <a href="quiz.html" class="btn-retest">Repetir Test</a>
+        <a href="result.html" class="btn-viewresult" id="viewResultBtn">Ver mi resultado</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Features Section -->
+  <section class="popular-features">
+    <div class="container">
+      <h2 class="section-title">🔥 Funciones populares</h2>
+      <div class="popular-grid">
+        <a href="compat.html" class="popular-card">
+          <div class="popular-card-icon">💕</div>
+          <h3>Compatibilidad</h3>
+          <p>¡Consulta la puntuación de compatibilidad de dos tipos de personalidad!</p>
+          <span class="popular-badge">Popular</span>
+        </a>
+        <a href="speed.html" class="popular-card">
+          <div class="popular-card-icon">⚡</div>
+          <h3>Instinto de velocidad</h3>
+          <p>¡Temporizador de 3 segundos! Elige por instinto</p>
+          <span class="popular-badge popular-badge-new">Nuevo</span>
+        </a>
+        <a href="fortune.html" class="popular-card">
+          <div class="popular-card-icon">🔮</div>
+          <h3>Horóscopo diario</h3>
+          <p>Suerte general, social, laboral y económica actualizada a diario</p>
+          <span class="popular-badge">Diario</span>
+        </a>
+        <a href="careers.html" class="popular-card">
+          <div class="popular-card-icon">💼</div>
+          <h3>Ajuste de carrera</h3>
+          <p>Los 5 mejores trabajos recomendados para tu tipo de personalidad</p>
+          <span class="popular-badge">Recomendado</span>
+        </a>
+        <a href="situations.html" class="popular-card">
+          <div class="popular-card-icon">🃏</div>
+          <h3>Tarjetas de situación</h3>
+          <p>¿Cómo reacciona cada tipo? ¡100% identificable!</p>
+          <span class="popular-badge popular-badge-fun">Diversión</span>
+        </a>
+        <a href="compat-chart.html" class="popular-card">
+          <div class="popular-card-icon">🗓️</div>
+          <h3>Gráfico 16×16</h3>
+          <p>¡Consulta la compatibilidad de todas las combinaciones de un vistazo!</p>
+          <span class="popular-badge">Completo</span>
+        </a>
+        <a href="group.html" class="popular-card">
+          <div class="popular-card-icon">👥</div>
+          <h3>Test de grupo</h3>
+          <p>¡Comparte resultados con amigos y comprueba la distribución!</p>
+          <span class="popular-badge popular-badge-new">Nuevo</span>
+        </a>
+        <a href="quiz.html" class="popular-card popular-card-highlight">
+          <div class="popular-card-icon">🐾</div>
+          <h3>Empezar Test</h3>
+          <p>¿Qué animal eres? ¡Descúbrelo ahora!</p>
+          <span class="popular-badge popular-badge-go">Empezar →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">¿Tienes curiosidad por esto?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛒</div>
+          <h3>En el supermercado</h3>
+          <p>Hacedor de listas vs. Comprador impulsivo, ¿cuál eres tú?</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✈️</div>
+          <h3>Estilo de viaje</h3>
+          <p>Planificador minucioso vs. Viajero espontáneo, ¿cuál es tu tipo?</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Estilo de respuesta</h3>
+          <p>Respuesta instantánea vs. Leer e ignorar, comunicación por tipo</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🐾</div>
+          <h3>16 resultados de animales</h3>
+          <p>Tigre, delfín, golden retriever... ¿cuál eres tú?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MBTI Types Preview -->
+  <section class="types-preview">
+    <div class="container">
+      <h2 class="section-title">16 tipos de personalidad animal</h2>
+      <div class="types-grid">
+        <div class="type-item" data-group="nt"><span>🐯</span><small>INTJ</small></div>
+        <div class="type-item" data-group="nt"><span>🦉</span><small>INTP</small></div>
+        <div class="type-item" data-group="nt"><span>🦁</span><small>ENTJ</small></div>
+        <div class="type-item" data-group="nt"><span>🦜</span><small>ENTP</small></div>
+        <div class="type-item" data-group="nf"><span>🐼</span><small>INFJ</small></div>
+        <div class="type-item" data-group="nf"><span>🦭</span><small>INFP</small></div>
+        <div class="type-item" data-group="nf"><span>🐕</span><small>ENFJ</small></div>
+        <div class="type-item" data-group="nf"><span>🐬</span><small>ENFP</small></div>
+        <div class="type-item" data-group="sj"><span>🦫</span><small>ISTJ</small></div>
+        <div class="type-item" data-group="sj"><span>🦌</span><small>ISFJ</small></div>
+        <div class="type-item" data-group="sj"><span>🐺</span><small>ESTJ</small></div>
+        <div class="type-item" data-group="sj"><span>🐘</span><small>ESFJ</small></div>
+        <div class="type-item" data-group="sp"><span>🐱</span><small>ISTP</small></div>
+        <div class="type-item" data-group="sp"><span>🦥</span><small>ISFP</small></div>
+        <div class="type-item" data-group="sp"><span>🐆</span><small>ESTP</small></div>
+        <div class="type-item" data-group="sp"><span>🦚</span><small>ESFP</small></div>
+      </div>
+      <a href="quiz.html" class="btn-start btn-center">Descubrir mi tipo →</a>
+    </div>
+  </section>
+
+  <!-- Ad Slot 1 -->
+  <div class="ad-container">
+    <!-- ADSENSE_UNIT: index-bottom | responsive -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Test de Personalidad Animal. Todos los derechos reservados.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        Este servicio no está afiliado con la evaluación oficial MBTI, y los resultados son solo para fines de entretenimiento.<br>
+        MBTI® es una marca registrada de The Myers & Briggs Foundation, y este servicio no está asociado con la fundación.
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">Sobre nosotros</a>
+        <a href="privacy.html">Política de privacidad</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/storage.js"></script>
+  <script>
+    // Detectar usuario que regresa
+    document.addEventListener('DOMContentLoaded', function () {
+      const data = getMBTIData();
+      if (data.currentResult) {
+        const banner = document.getElementById('returningBanner');
+        const msg = document.getElementById('returningMsg');
+        const viewBtn = document.getElementById('viewResultBtn');
+        msg.textContent = `¡Bienvenido de nuevo como ${data.currentResult.animal}(${data.currentResult.type})! 👋`;
+        viewBtn.href = `result.html?type=${data.currentResult.type}`;
+        banner.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

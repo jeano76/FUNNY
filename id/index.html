@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apa Tipe Kepribadian Anda? Test Kepribadian 16 Hewan 🐾</title>
+  <meta name="description" content="Belanja groceries, bepergian, kecepatan balas chat... Temukan tipe kepribadian Anda melalui tindakan sehari-hari! Periksa hasil dengan 16 karakter hewan dan bagikan dengan teman." />
+  <meta name="keywords" content="Test Kepribadian, 16 Kepribadian, Penilaian Kepribadian, 성격 유형 Hewan, Kompatibilitas Kepribadian, Test Gratis" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Apa Tipe Kepribadian Anda? Test Kepribadian 16 Hewan 🐾" />
+  <meta property="og:description" content="Temukan tipe kepribadian Anda melalui tindakan sehari-hari! Bagikan hasil Anda dari 16 karakter hewan dengan teman." />
+  <meta property="og:image" content="../assets/og-image.png" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="Test Kepribadian 16 Hewan" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apa Tipe Kepribadian Anda? Test Kepribadian 16 Hewan" />
+  <meta name="twitter:description" content="Temukan tipe kepribadian Anda melalui tindakan sehari-hari! Periksa hasil dengan 16 karakter hewan." />
+  <meta name="twitter:image" content="../assets/og-image.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="../js/auto-lang.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 Test Kepribadian Hewan</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="quiz.html">Mulai Test</a></li>
+        <li><a href="about.html">Tentang</a></li>
+      </ul>
+      <div class="lang-dropdown">
+        <button class="lang-btn">🌐 Language ▾</button>
+        <div class="lang-content">
+          <a href="../index.html">한국어 (KO)</a>
+          <a href="../en/index.html">English (EN)</a>
+          <a href="../jp/index.html">日本語 (JP)</a>
+          <a href="../zh/index.html">简体中文 (ZH)</a>
+          <a href="../es/index.html">Español (ES)</a>
+          <a href="../de/index.html">Deutsch (DE)</a>
+          <a href="../fr/index.html">Français (FR)</a>
+          <a href="../ru/index.html">Русский (RU)</a>
+          <a href="../pt/index.html">Português (PT)</a>
+          <a href="index.html">Indonesia (ID)</a>
+          <a href="../hi/index.html">हिन्दी (HI)</a>
+          <a href="../vi/index.html">Tiếng Việt (VI)</a>
+          <a href="../th/index.html">ภาษาไทย (TH)</a>
+          <a href="../tr/index.html">Türkçe (TR)</a>
+          <a href="../it/index.html">Italiano (IT)</a>
+          <a href="../nl/index.html">Nederlands (NL)</a>
+          <a href="../ar/index.html">العربية (AR)</a>
+          <a href="../mn/index.html">Монгол (MN)</a>
+          <a href="../la/index.html">Latina (LA)</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-animals">🐯 🦁 🐬 🦋 🦁 🐘 🐱 🦅</div>
+      <h1 class="hero-title">Hewan Apa Saya?</h1>
+      <p class="hero-subtitle">
+        Belanja groceries, perencanaan perjalanan, kecepatan balas chat...<br />
+        Temukan tipe kepribadian  Anda melalui <strong>tindakan sehari-hari</strong>!
+      </p>
+      <div class="hero-badges">
+        <span class="badge">⏱ ~3 menit</span>
+        <span class="badge">📱 Dioptimalkan Seluler</span>
+        <span class="badge">🆓 Gratis</span>
+      </div>
+      <a href="quiz.html" class="btn-start" id="startBtn">
+        Mulai Test →
+      </a>
+    </div>
+  </section>
+
+  <!-- Returning User Banner (hidden by default) -->
+  <div class="returning-banner" id="returningBanner" style="display:none;">
+    <div class="banner-inner">
+      <span id="returningMsg"></span>
+      <div class="banner-btns">
+        <a href="quiz.html" class="btn-retest">Uji Ulang</a>
+        <a href="result.html" class="btn-viewresult" id="viewResultBtn">Lihat Hasil Saya</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Features Section -->
+  <section class="popular-features">
+    <div class="container">
+      <h2 class="section-title">🔥 Fitur Populer</h2>
+      <div class="popular-grid">
+        <a href="compat.html" class="popular-card">
+          <div class="popular-card-icon">💕</div>
+          <h3>Kompatibilitas</h3>
+          <p>Periksa skor kompatibilitas dua tipe kepribadian!</p>
+          <span class="popular-badge">Populer</span>
+        </a>
+        <a href="speed.html" class="popular-card">
+          <div class="popular-card-icon">⚡</div>
+          <h3>Insting Cepat</h3>
+          <p>Timer 3 detik! Pilih menurut insting</p>
+          <span class="popular-badge popular-badge-new">Baru</span>
+        </a>
+        <a href="fortune.html" class="popular-card">
+          <div class="popular-card-icon">🔮</div>
+          <h3>Keberuntungan Harian</h3>
+          <p>Keberuntungan keseluruhan, sosial, kerja, dan kekayaan diperbarui setiap hari</p>
+          <span class="popular-badge">Harian</span>
+        </a>
+        <a href="careers.html" class="popular-card">
+          <div class="popular-card-icon">💼</div>
+          <h3>Keselarasan Karir</h3>
+          <p>5 pekerjaan teratas yang direkomendasikan untuk tipe kepribadian Anda</p>
+          <span class="popular-badge">Direkomendasikan</span>
+        </a>
+        <a href="situations.html" class="popular-card">
+          <div class="popular-card-icon">🃏</div>
+          <h3>Kartu Situasi</h3>
+          <p>Bagaimana setiap tipe bereaksi? 100% relatable!</p>
+          <span class="popular-badge popular-badge-fun">Seru</span>
+        </a>
+        <a href="compat-chart.html" class="popular-card">
+          <div class="popular-card-icon">🗓️</div>
+          <h3>Bagan 16×16</h3>
+          <p>Periksa kompatibilitas untuk semua kombinasi sekilas!</p>
+          <span class="popular-badge">Lengkap</span>
+        </a>
+        <a href="group.html" class="popular-card">
+          <div class="popular-card-icon">👥</div>
+          <h3>Tes Grup</h3>
+          <p>Bagikan hasil dengan teman dan periksa distribusinya!</p>
+          <span class="popular-badge popular-badge-new">Baru</span>
+        </a>
+        <a href="quiz.html" class="popular-card popular-card-highlight">
+          <div class="popular-card-icon">🐾</div>
+          <h3>Mulai Test</h3>
+          <p>Hewan apa Anda? Cari tahu sekarang!</p>
+          <span class="popular-badge popular-badge-go">Mulai →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Penasaran Tentang Ini?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛒</div>
+          <h3>Di Toko Groceries</h3>
+          <p>Pembuat daftar vs. pembeli impulsif, Anda yang mana?</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✈️</div>
+          <h3>Gaya Perjalanan</h3>
+          <p>Perencana menyeluruh vs. pejalan yang spontan, apa tipe Anda?</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Gaya Balas Chat</h3>
+          <p>Penjawab instan vs. baca dan abaikan, komunikasi berdasarkan tipe</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🐾</div>
+          <h3>16 Hasil Hewan</h3>
+          <p>Harimau, Lumba-lumba, Golden Retriever... Yang mana Anda?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 성격 유형 Types Preview -->
+  <section class="types-preview">
+    <div class="container">
+      <h2 class="section-title">16 Tipe Kepribadian Hewan</h2>
+      <div class="types-grid">
+        <div class="type-item" data-group="nt"><span>🐯</span><small>INTJ</small></div>
+        <div class="type-item" data-group="nt"><span>🦉</span><small>INTP</small></div>
+        <div class="type-item" data-group="nt"><span>🦁</span><small>ENTJ</small></div>
+        <div class="type-item" data-group="nt"><span>🦜</span><small>ENTP</small></div>
+        <div class="type-item" data-group="nf"><span>🐼</span><small>INFJ</small></div>
+        <div class="type-item" data-group="nf"><span>🦭</span><small>INFP</small></div>
+        <div class="type-item" data-group="nf"><span>🐕</span><small>ENFJ</small></div>
+        <div class="type-item" data-group="nf"><span>🐬</span><small>ENFP</small></div>
+        <div class="type-item" data-group="sj"><span>🦫</span><small>ISTJ</small></div>
+        <div class="type-item" data-group="sj"><span>🦌</span><small>ISFJ</small></div>
+        <div class="type-item" data-group="sj"><span>🐺</span><small>ESTJ</small></div>
+        <div class="type-item" data-group="sj"><span>🐘</span><small>ESFJ</small></div>
+        <div class="type-item" data-group="sp"><span>🐱</span><small>ISTP</small></div>
+        <div class="type-item" data-group="sp"><span>🦥</span><small>ISFP</small></div>
+        <div class="type-item" data-group="sp"><span>🐆</span><small>ESTP</small></div>
+        <div class="type-item" data-group="sp"><span>🦚</span><small>ESFP</small></div>
+      </div>
+      <a href="quiz.html" class="btn-start btn-center">Temukan Tipe Saya →</a>
+    </div>
+  </section>
+
+  <!-- Ad Slot 1 -->
+  <div class="ad-container">
+    <!-- ADSENSE_UNIT: index-bottom | responsive -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Test Kepribadian Hewan. All rights reserved.</p>
+      <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
+        Layanan ini tidak berafiliasi dengan penilaian MBTI resmi, dan hasilnya hanya untuk tujuan hiburan.<br>
+        MBTI® adalah merek dagang terdaftar dari The Myers & Briggs Foundation, dan layanan ini tidak terkait dengan yayasan tersebut.
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">Tentang</a>
+        <a href="privacy.html">Kebijakan Privasi</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/storage.js"></script>
+  <script>
+    // Detecting returning user
+    document.addEventListener('DOMContentLoaded', function () {
+      const data = getMBTIData();
+      if (data.currentResult) {
+        const banner = document.getElementById('returningBanner');
+        const msg = document.getElementById('returningMsg');
+        const viewBtn = document.getElementById('viewResultBtn');
+        msg.textContent = `Selamat datang kembali sebagai ${data.currentResult.animal}(${data.currentResult.type})! 👋`;
+        viewBtn.href = `result.html?type=${data.currentResult.type}`;
+        banner.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

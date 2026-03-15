@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>그룹 MBTI 테스트 | 성격 유형 동물 테스트</title>
-  <meta name="description" content="친구들과 함께 MBTI를 공유하세요! 그룹 코드를 생성하고 결과 분포를 함께 확인해보세요." />
-  <meta name="keywords" content="그룹 MBTI, 친구 MBTI, MBTI 분포, 팀 MBTI, MBTI 공유" />
+  <title>그룹 성격 유형 테스트 | 성격 유형 동물 테스트</title>
+  <meta name="description" content="친구들과 함께 성격 유형를 공유하세요! 그룹 코드를 생성하고 결과 분포를 함께 확인해보세요." />
+  <meta name="keywords" content="그룹 성격 유형, 친구 성격 유형, 성격 유형 분포, 팀 성격 유형, 성격 유형 공유" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="그룹 MBTI 테스트 | 성격 유형 동물 테스트" />
-  <meta property="og:description" content="그룹 코드를 생성하고 친구들과 MBTI 결과를 공유해보세요!" />
+  <meta property="og:title" content="그룹 성격 유형 테스트 | 성격 유형 동물 테스트" />
+  <meta property="og:description" content="그룹 코드를 생성하고 친구들과 성격 유형 결과를 공유해보세요!" />
   <meta property="og:image" content="assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +21,9 @@
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
      crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="js/auto-lang.js"></script>
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -46,8 +49,8 @@
       <!-- 헤더 -->
       <div style="text-align:center; padding:1.5rem 0 1rem;">
         <div style="font-size:2.5rem; margin-bottom:.5rem;">👥</div>
-        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">그룹 MBTI 테스트</h1>
-        <p style="color:var(--text-mute); font-size:.9rem;">그룹 코드를 만들고 친구들과 MBTI를 공유하세요!</p>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">그룹 성격 유형 테스트</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;">그룹 코드를 만들고 친구들과 성격 유형를 공유하세요!</p>
       </div>
 
       <!-- 그룹 생성/입력 -->
@@ -91,10 +94,10 @@
 
         <!-- 내 유형 등록 -->
         <div class="group-my-type-wrap" id="groupMyTypeWrap">
-          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:.8rem;">내 MBTI 등록하기</h3>
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:.8rem;">내 성격 유형 등록하기</h3>
           <div style="display:flex; gap:.8rem; align-items:center; flex-wrap:wrap;">
             <select id="groupMyTypeSelect" class="compat-select" style="flex:1; min-width:160px;">
-              <option value="">-- 내 MBTI 선택 --</option>
+              <option value="">-- 내 성격 유형 선택 --</option>
             </select>
             <input type="text" id="groupNicknameInput" class="group-input" placeholder="닉네임" maxlength="10" style="flex:1; min-width:120px;" />
           </div>
@@ -107,7 +110,7 @@
       <!-- 그룹 결과 -->
       <div id="groupResultSection" style="display:none;">
         <div class="result-card" style="margin-bottom:1.5rem;">
-          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📊 그룹 MBTI 분포</h2>
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📊 그룹 성격 유형 분포</h2>
           <div id="groupMemberList"></div>
         </div>
 

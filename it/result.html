@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">I Tuoi Risultati | Test Personalità Animale</title>
+  <meta name="description" id="pageDesc" content="Visualizza i dettagli del tuo tipo di personalità" />
+
+  <!-- OG tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="ogTitle" content="I Miei Risultati!" />
+  <meta property="og:description" id="ogDesc" content="Visualizza i miei risultati" />
+  <meta property="og:image" id="ogImage" content="assets/og-image.png" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twTitle" content="I Miei Risultati!" />
+  <meta name="twitter:image" id="twImage" content="assets/og-image.png" />
+
+  <!-- Kakao SDK -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="../js/auto-lang.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 Test Personalità Animale</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Test</a></li>
+        <li><a href="about.html">Chi Siamo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="result-main">
+    <div class="container">
+      <div class="ad-container ad-result-top"></div>
+
+      <div class="result-card" id="resultCard">
+        <div class="result-loading" id="resultLoading">
+          <div class="loading-spinner"></div>
+          <p>Analizzando i risultati...</p>
+        </div>
+        <div class="result-content" id="resultContent" style="display:none;">
+          <div class="result-type-badge" id="resultTypeBadge"></div>
+          <div class="result-animal-emoji" id="resultAnimalEmoji"></div>
+          <h1 class="result-animal-name" id="resultAnimalName"></h1>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <p class="result-group" id="resultGroup"></p>
+          <p class="result-description" id="resultDescription"></p>
+
+          <div class="result-stats">
+            <div class="stat-item">
+              <span class="stat-label">Percentuale</span>
+              <span class="stat-value" id="statKorean"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Rarità</span>
+              <span class="stat-value" id="statRarity"></span>
+            </div>
+          </div>
+
+          <div class="result-tags">
+            <h3>Punti di Forza</h3>
+            <div class="tags-list" id="strengthsList"></div>
+          </div>
+
+          <div class="result-compat">
+            <h3>Tipi Compatibili</h3>
+            <div class="compat-types" id="compatTypes"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-save" id="saveBtn" onclick="saveResult()">💾 Salva Risultati</button>
+            <button class="btn-share-group" id="groupBtn" onclick="shareGroup()">👥 Condividi Gruppo</button>
+            <a href="compat.html" class="btn-compat">💕 Controlla Compatibilità</a>
+            <a href="index.html" class="btn-home">🏠 Home</a>
+          </div>
+
+          <div id="shareButtons" class="share-buttons" style="display:none;">
+            <a href="#" id="shareKakao" class="share-btn kakao" title="Condividi Kakao">카카오</a>
+            <a href="#" id="shareTwitter" class="share-btn twitter" title="Condividi Twitter">𝕏</a>
+            <a href="#" id="shareLinkedIn" class="share-btn linkedin" title="Condividi LinkedIn">in</a>
+            <a href="#" id="shareWhatsApp" class="share-btn whatsapp" title="Condividi WhatsApp">W</a>
+            <a href="#" id="shareFacebook" class="share-btn facebook" title="Condividi Facebook">f</a>
+            <button class="share-btn copy" id="copyBtn" title="Copia Link">📋</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Test Personalità Animale. Tutti i diritti riservati.</p>
+      <nav class="footer-nav">
+        <a href="about.html">Chi Siamo</a>
+        <a href="privacy.html">Politica sulla Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/result.js"></script>
+</body>
+</html>

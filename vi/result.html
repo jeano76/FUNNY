@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Kết Quả 성격 유형 | Kiểm Tra Tính Cách Động Vật</title>
+  <meta name="description" id="pageDesc" content="Xem kết quả 성격 유형 của bạn và chia sẻ với bạn bè!" />
+
+  <!-- OG tags - dynamically updated by result.js -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="ogTitle" content="Kết Quả 성격 유형 Của Tôi!" />
+  <meta property="og:description" id="ogDesc" content="Xem kết quả 성격 유형 của tôi." />
+  <meta property="og:image" id="ogImage" content="assets/og-image.png" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twTitle" content="Kết Quả 성격 유형 Của Tôi!" />
+  <meta name="twitter:image" id="twImage" content="assets/og-image.png" />
+
+  <!-- Kakao SDK -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9698578259562384"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto Language Detection -->
+  <script src="../js/auto-lang.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 Kiểm Tra Tính Cách Động Vật</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="quiz.html">Kiểm tra</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="result-main">
+    <div class="container">
+      <div class="ad-container ad-result-top"></div>
+
+      <div class="result-card" id="resultCard">
+        <div class="result-loading" id="resultLoading">
+          <div class="loading-spinner"></div>
+          <p>Đang phân tích kết quả...</p>
+        </div>
+        <div class="result-content" id="resultContent" style="display:none;">
+          <div class="result-type-badge" id="resultTypeBadge"></div>
+          <div class="result-animal-emoji" id="resultAnimalEmoji"></div>
+          <h1 class="result-animal-name" id="resultAnimalName"></h1>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <p class="result-group" id="resultGroup"></p>
+          <p class="result-description" id="resultDescription"></p>
+
+          <div class="result-stats">
+            <div class="stat-item">
+              <span class="stat-label">Phần trăm</span>
+              <span class="stat-value" id="statKorean"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Độ hiếm</span>
+              <span class="stat-value" id="statRarity"></span>
+            </div>
+          </div>
+
+          <div class="result-tags">
+            <h3>Điểm Mạnh</h3>
+            <div class="tags-list" id="strengthsList"></div>
+          </div>
+
+          <div class="result-compat">
+            <h3>Loại Tương Thích</h3>
+            <div class="compat-types" id="compatTypes"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-save" id="saveBtn" onclick="saveResult()">💾 Lưu Kết Quả</button>
+            <button class="btn-share-group" id="groupBtn" onclick="shareGroup()">👥 Chia Sẻ Nhóm</button>
+            <a href="compat.html" class="btn-compat">💕 Kiểm Tra Tương Thích</a>
+            <a href="index.html" class="btn-home">🏠 Về Trang Chủ</a>
+          </div>
+
+          <div id="shareButtons" class="share-buttons" style="display:none;">
+            <a href="#" id="shareKakao" class="share-btn kakao" title="Chia Sẻ Kakao">카카오</a>
+            <a href="#" id="shareTwitter" class="share-btn twitter" title="Chia Sẻ Twitter">𝕏</a>
+            <a href="#" id="shareLinkedIn" class="share-btn linkedin" title="Chia Sẻ LinkedIn">in</a>
+            <a href="#" id="shareWhatsApp" class="share-btn whatsapp" title="Chia Sẻ WhatsApp">W</a>
+            <a href="#" id="shareFacebook" class="share-btn facebook" title="Chia Sẻ Facebook">f</a>
+            <button class="share-btn copy" id="copyBtn" title="Sao Chép Liên Kết">📋</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Kiểm Tra Tính Cách Động Vật. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="about.html">Giới thiệu</a>
+        <a href="privacy.html">Chính sách bảo mật</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/result.js"></script>
+</body>
+</html>
