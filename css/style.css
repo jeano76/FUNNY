@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
   height: 56px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo { font-weight: 900; font-size: 1rem; color: var(--primary); }
+.nav-logo { font-weight: 900; font-size: clamp(0.85rem, 3vw, 1rem); color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .nav-links { display: flex; gap: 1.2rem; }
 .nav-links a {
   font-size: .9rem; color: var(--text-mute);
