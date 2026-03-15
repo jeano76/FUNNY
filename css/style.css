@@ -654,6 +654,28 @@ img { max-width: 100%; display: block; }
     padding: 0.3rem 0.5rem;
     font-size: 0.75rem;
   }
+
+  .lang-dropdown {
+    margin-left: 6px;
+    display: inline-flex;
+  }
+
+  .lang-btn {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+    border-radius: 15px;
+    gap: 3px;
+  }
+
+  .lang-content {
+    min-width: 120px;
+    font-size: 0.8rem;
+  }
+
+  .lang-content a {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
 }
 
 /* ============================================================
