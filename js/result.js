@@ -256,6 +256,8 @@ function displayResult(type) {
   document.getElementById('ogTitle').content = '나는 ' + type + ' ' + r.name + r.emoji + '! 당신의 MBTI는?';
   document.getElementById('ogDesc').content = r.description.slice(0, 100) + '...';
   document.getElementById('ogUrl').content = location.href;
+  document.getElementById('ogImage').content = location.origin + '/assets/og-image.png';
+  document.getElementById('twImage').content = location.origin + '/assets/og-image.png';
 
   // Show share, history, actions
   document.getElementById('shareSection').style.display = 'block';
