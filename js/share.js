@@ -2,7 +2,7 @@
    share.js - SNS 공유 기능
    =========================== */
 
-var SITE_URL = location.origin + location.pathname.replace('result.html', '');
+var SITE_URL = 'https://stockinvestonline.com/';
 
 function getShareText(type, r) {
   return '나는 성격 유형 ' + type + ' - ' + r.name + ' ' + r.emoji + '!\n'
@@ -25,8 +25,8 @@ function shareKakao(type, r) {
         description: r.description.slice(0, 100) + '...',
         imageUrl: SITE_URL + 'assets/og-image.png',
         link: {
-          mobileWebUrl: location.href,
-          webUrl: location.href
+          mobileWebUrl: SITE_URL + 'result.html?type=' + type,
+          webUrl: SITE_URL + 'result.html?type=' + type
         }
       },
       buttons: [{
@@ -60,7 +60,7 @@ function shareFacebook() {
 
 // 링크 복사
 function copyLink(type) {
-  var url = location.origin + '/result.html?type=' + type;
+  var url = SITE_URL + 'result.html?type=' + type;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function () {
       showToast('링크가 복사되었습니다! 📋');
