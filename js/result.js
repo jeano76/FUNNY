@@ -14,7 +14,7 @@ const resultData = {
     worldRarityRank: "★★★★★ 최희귀",
     compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"],
     famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"],
-    shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 MBTI는?"
+    shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"
   },
   INTP: {
     name: "올빼미", emoji: "🦉", title: "논리적 탐구자",
@@ -26,7 +26,7 @@ const resultData = {
     worldRarityRank: "★★★★ 희귀",
     compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"],
     famousExamples: ["알버트 아인슈타인", "빌 게이츠"],
-    shareText: "나는 INTP 올빼미! 논리적 탐구자 🦉 당신의 MBTI는?"
+    shareText: "나는 INTP 올빼미! 논리적 탐구자 🦉 당신의 성격 유형은?"
   },
   ENTJ: {
     name: "사자", emoji: "🦁", title: "타고난 리더",
@@ -38,7 +38,7 @@ const resultData = {
     worldRarityRank: "★★★★★ 최희귀",
     compatibleTypes: ["INTP 올빼미 🦉", "INFP 해마 🦭"],
     famousExamples: ["스티브 잡스", "마가렛 대처"],
-    shareText: "나는 ENTJ 사자! 타고난 리더 🦁 당신의 MBTI는?"
+    shareText: "나는 ENTJ 사자! 타고난 리더 🦁 당신의 성격 유형은?"
   },
   ENTP: {
     name: "앵무새", emoji: "🦜", title: "발명가형 토론러",
@@ -50,7 +50,7 @@ const resultData = {
     worldRarityRank: "★★★ 보통",
     compatibleTypes: ["INTJ 호랑이 🐯", "INFJ 판다 🐼"],
     famousExamples: ["레오나르도 다빈치", "벤자민 프랭클린"],
-    shareText: "나는 ENTP 앵무새! 발명가형 토론러 🦜 당신의 MBTI는?"
+    shareText: "나는 ENTP 앵무새! 발명가형 토론러 🦜 당신의 성격 유형은?"
   },
   // ---- 외교형 NF ----
   INFJ: {
@@ -63,7 +63,7 @@ const resultData = {
     worldRarityRank: "★★★★★ 전 세계 최희귀",
     compatibleTypes: ["ENTP 앵무새 🦜", "ENFP 돌고래 🐬"],
     famousExamples: ["마틴 루서 킹", "넬슨 만델라"],
-    shareText: "나는 INFJ 판다! 전 세계 가장 희귀한 유형 🐼 당신의 MBTI는?"
+    shareText: "나는 INFJ 판다! 전 세계 가장 희귀한 유형 🐼 당신의 성격 유형은?"
   },
   INFP: {
     name: "해마", emoji: "🦭", title: "이상적인 몽상가",
@@ -75,7 +75,7 @@ const resultData = {
     worldRarityRank: "★★★ 보통",
     compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"],
     famousExamples: ["윌리엄 셰익스피어", "J.K. 롤링"],
-    shareText: "나는 INFP 해마! 이상적인 몽상가 🦭 당신의 MBTI는?"
+    shareText: "나는 INFP 해마! 이상적인 몽상가 🦭 당신의 성격 유형은?"
   },
   ENFJ: {
     name: "골든리트리버", emoji: "🐕", title: "다정한 리더",
@@ -87,7 +87,7 @@ const resultData = {
     worldRarityRank: "★★★★★ 한국 최희귀",
     compatibleTypes: ["INFP 해마 🦭", "INTP 올빼미 🦉"],
     famousExamples: ["오프라 윈프리", "버락 오바마"],
-    shareText: "나는 ENFJ 골든리트리버! 다정한 리더 🐕 당신의 MBTI는?"
+    shareText: "나는 ENFJ 골든리트리버! 다정한 리더 🐕 당신의 성격 유형은?"
   },
   ENFP: {
     name: "돌고래", emoji: "🐬", title: "자유로운 영감가",
@@ -99,7 +99,7 @@ const resultData = {
     worldRarityRank: "★★ 흔한 편",
     compatibleTypes: ["INTJ 호랑이 🐯", "INFJ 판다 🐼"],
     famousExamples: ["로빈 윌리엄스", "엘렌 드제너러스"],
-    shareText: "나는 ENFP 돌고래! 자유로운 영감가 🐬 당신의 MBTI는?"
+    shareText: "나는 ENFP 돌고래! 자유로운 영감가 🐬 당신의 성격 유형은?"
   },
   // ---- 관리자형 SJ ----
   ISTJ: {
@@ -112,7 +112,7 @@ const resultData = {
     worldRarityRank: "★ 가장 흔한 유형",
     compatibleTypes: ["ESFP 공작새 🦚", "ENFP 돌고래 🐬"],
     famousExamples: ["워런 버핏", "앤젤라 메르켈"],
-    shareText: "나는 ISTJ 비버! 한국인 1위 성실의 아이콘 🦫 당신의 MBTI는?"
+    shareText: "나는 ISTJ 비버! 한국인 1위 성실의 아이콘 🦫 당신의 성격 유형은?"
   },
   ISFJ: {
     name: "사슴", emoji: "🦌", title: "따뜻한 수호자",
@@ -124,7 +124,7 @@ const resultData = {
     worldRarityRank: "★ 흔한 유형",
     compatibleTypes: ["ESTP 치타 🐆", "ESFP 공작새 🦚"],
     famousExamples: ["테레사 수녀", "비욘세"],
-    shareText: "나는 ISFJ 사슴! 따뜻한 수호자 🦌 당신의 MBTI는?"
+    shareText: "나는 ISFJ 사슴! 따뜻한 수호자 🦌 당신의 성격 유형은?"
   },
   ESTJ: {
     name: "늑대", emoji: "🐺", title: "엄격한 관리자",
@@ -136,7 +136,7 @@ const resultData = {
     worldRarityRank: "★★ 보통",
     compatibleTypes: ["ISFP 나무늘보 🦥", "INFP 해마 🦭"],
     famousExamples: ["힐러리 클린턴", "산드라 오"],
-    shareText: "나는 ESTJ 늑대! 엄격한 관리자 🐺 당신의 MBTI는?"
+    shareText: "나는 ESTJ 늑대! 엄격한 관리자 🐺 당신의 성격 유형은?"
   },
   ESFJ: {
     name: "코끼리", emoji: "🐘", title: "사교적인 돌봄이",
@@ -148,7 +148,7 @@ const resultData = {
     worldRarityRank: "★ 흔한 유형",
     compatibleTypes: ["ISFP 나무늘보 🦥", "ISTP 고양이 🐱"],
     famousExamples: ["테일러 스위프트", "빌 클린턴"],
-    shareText: "나는 ESFJ 코끼리! 사교적인 돌봄이 🐘 당신의 MBTI는?"
+    shareText: "나는 ESFJ 코끼리! 사교적인 돌봄이 🐘 당신의 성격 유형은?"
   },
   // ---- 탐험가형 SP ----
   ISTP: {
@@ -161,7 +161,7 @@ const resultData = {
     worldRarityRank: "★★★ 보통",
     compatibleTypes: ["ESTJ 늑대 🐺", "ENTJ 사자 🦁"],
     famousExamples: ["클린트 이스트우드", "어윈 슈뢰딩거"],
-    shareText: "나는 ISTP 고양이! 시크한 장인 🐱 당신의 MBTI는?"
+    shareText: "나는 ISTP 고양이! 시크한 장인 🐱 당신의 성격 유형은?"
   },
   ISFP: {
     name: "나무늘보", emoji: "🦥", title: "자유로운 예술가",
@@ -173,7 +173,7 @@ const resultData = {
     worldRarityRank: "★★ 보통",
     compatibleTypes: ["ESTJ 늑대 🐺", "ESFJ 코끼리 🐘"],
     famousExamples: ["마이클 잭슨", "아비게일 브레슬린"],
-    shareText: "나는 ISFP 나무늘보! 자유로운 예술가 🦥 당신의 MBTI는?"
+    shareText: "나는 ISFP 나무늘보! 자유로운 예술가 🦥 당신의 성격 유형은?"
   },
   ESTP: {
     name: "치타", emoji: "🐆", title: "스릴 추구자",
@@ -185,7 +185,7 @@ const resultData = {
     worldRarityRank: "★★★ 보통",
     compatibleTypes: ["ISFJ 사슴 🦌", "ISTJ 비버 🦫"],
     famousExamples: ["도널드 트럼프", "어니스트 헤밍웨이"],
-    shareText: "나는 ESTP 치타! 스릴 추구자 🐆 당신의 MBTI는?"
+    shareText: "나는 ESTP 치타! 스릴 추구자 🐆 당신의 성격 유형은?"
   },
   ESFP: {
     name: "공작새", emoji: "🦚", title: "화려한 연예인",
@@ -197,7 +197,7 @@ const resultData = {
     worldRarityRank: "★★ 보통",
     compatibleTypes: ["ISTJ 비버 🦫", "ISFJ 사슴 🦌"],
     famousExamples: ["아델", "미국 마릴린 먼로"],
-    shareText: "나는 ESFP 공작새! 화려한 연예인 🦚 당신의 MBTI는?"
+    shareText: "나는 ESFP 공작새! 화려한 연예인 🦚 당신의 성격 유형은?"
   }
 };
 
@@ -252,8 +252,8 @@ function displayResult(type) {
   cl.innerHTML = r.compatibleTypes.map(function (c) { return '<span class="compat-tag">' + c + '</span>'; }).join('');
 
   // Update page meta
-  document.getElementById('pageTitle').textContent = '나는 ' + r.name + '(' + type + ')! | MBTI 동물 테스트';
-  document.getElementById('ogTitle').content = '나는 ' + type + ' ' + r.name + r.emoji + '! 당신의 MBTI는?';
+  document.getElementById('pageTitle').textContent = '나는 ' + r.name + '(' + type + ')! | 성격 유형 동물 테스트';
+  document.getElementById('ogTitle').content = '나는 ' + type + ' ' + r.name + r.emoji + '! 당신의 성격 유형은?';
   document.getElementById('ogDesc').content = r.description.slice(0, 100) + '...';
   document.getElementById('ogUrl').content = location.href;
   document.getElementById('ogImage').content = location.origin + '/assets/og-image.png';
