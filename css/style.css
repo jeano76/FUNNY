@@ -1025,13 +1025,19 @@ img { max-width: 100%; display: block; }
 }
 
 /* Language Switcher */
-.lang-dropdown {
+.lang-dropdown,
+.nav-lang-dropdown {
   position: relative;
   display: inline-flex;
   align-items: center;
   margin-left: 15px;
   flex-shrink: 0;
   z-index: 101;
+}
+
+.nav-lang-dropdown {
+  margin-left: 0;
+  padding: 0;
 }
 .lang-btn {
   background: rgba(255,255,255,0.1);
