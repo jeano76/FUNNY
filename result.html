@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">MBTI 결과 | MBTI 동물 테스트</title>
+  <meta name="description" id="pageDesc" content="나의 MBTI 결과를 확인하고 친구에게 공유해보세요!" />
+
+  <!-- OG tags - dynamically updated by result.js -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="ogTitle" content="나의 MBTI 결과 공유!" />
+  <meta property="og:description" id="ogDesc" content="나의 MBTI 결과를 확인해보세요." />
+  <meta property="og:image" id="ogImage" content="assets/og-image.png" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twTitle" content="나의 MBTI 결과!" />
+  <meta name="twitter:image" id="twImage" content="assets/og-image.png" />
+
+  <!-- Kakao SDK -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- GA_CODE_HERE -->
+  <!-- ADSENSE_CODE_HERE -->
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🐾 MBTI 동물 테스트</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="quiz.html">테스트</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="result-main">
+    <div class="container">
+
+      <!-- Ad Slot Top -->
+      <div class="ad-container ad-result-top">
+        <!-- ADSENSE_UNIT: result-top | responsive -->
+      </div>
+
+      <!-- Result Card -->
+      <div class="result-card" id="resultCard">
+        <div class="result-loading" id="resultLoading">
+          <div class="loading-spinner"></div>
+          <p>결과 분석 중...</p>
+        </div>
+        <div class="result-content" id="resultContent" style="display:none;">
+          <div class="result-type-badge" id="resultTypeBadge"></div>
+          <div class="result-animal-emoji" id="resultAnimalEmoji"></div>
+          <h1 class="result-animal-name" id="resultAnimalName"></h1>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <p class="result-group" id="resultGroup"></p>
+          <p class="result-description" id="resultDescription"></p>
+
+          <div class="result-stats">
+            <div class="stat-item">
+              <span class="stat-label">한국인 비율</span>
+              <span class="stat-value" id="statKorean"></span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">희귀도</span>
+              <span class="stat-value" id="statRarity"></span>
+            </div>
+          </div>
+
+          <div class="result-tags">
+            <h3>강점</h3>
+            <div class="tags-list" id="strengthsList"></div>
+          </div>
+
+          <div class="result-compat">
+            <h3>잘 맞는 유형</h3>
+            <div class="compat-list" id="compatList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Share Section -->
+      <div class="share-section" id="shareSection" style="display:none;">
+        <h3>친구에게 공유하기 🎉</h3>
+        <p class="share-desc">내 결과를 공유하고 친구 유형도 알아보세요!</p>
+        <div class="share-buttons">
+          <button class="share-btn kakao" id="kakaoShareBtn">
+            💬 카카오톡
+          </button>
+          <button class="share-btn twitter" id="twitterShareBtn">
+            𝕏 트위터
+          </button>
+          <button class="share-btn facebook" id="facebookShareBtn">
+            📘 페이스북
+          </button>
+          <button class="share-btn copy" id="copyLinkBtn">
+            🔗 링크 복사
+          </button>
+        </div>
+        <p class="share-hint">📸 인스타용: 결과 화면 캡처 후 스토리에 공유!</p>
+      </div>
+
+      <!-- History Section -->
+      <div class="history-section" id="historySection" style="display:none;">
+        <h3>내 MBTI 변천사</h3>
+        <div id="historyList"></div>
+      </div>
+
+      <!-- Ad Slot Bottom -->
+      <div class="ad-container ad-result-bottom">
+        <!-- ADSENSE_UNIT: result-bottom | responsive -->
+      </div>
+
+      <!-- Retry Button -->
+      <div class="result-actions" id="resultActions" style="display:none;">
+        <a href="quiz.html" class="btn-retest">다시 테스트하기 🔄</a>
+        <a href="index.html" class="btn-home">홈으로</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 MBTI 동물 테스트. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="about.html">사이트 소개</a>
+        <a href="privacy.html">개인정보 처리방침</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/result.js"></script>
+  <script src="js/share.js"></script>
+</body>
+</html>
