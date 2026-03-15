@@ -43,6 +43,7 @@
         <li><a href="index.html">홈</a></li>
         <li><a href="quiz.html">테스트 시작</a></li>
         <li><a href="compare.html">비교</a></li>
+        <li><a href="challenges.html">도전</a></li>
         <li><a href="about.html">소개</a></li>
       </ul>
     </div>
@@ -160,6 +161,7 @@
   <script src="js/share.js"></script>
   <script src="js/canvas-card.js"></script>
   <script src="js/chart.js"></script>
+  <script src="js/achievement.js"></script>
   <script>
   var _currentResultType = null;
   var _currentResultInfo = null;
@@ -190,6 +192,20 @@
               addCharacteristicChartToResult(type);
             }
           }, 500);
+
+          // 배지 확인 및 표시
+          setTimeout(function() {
+            if (typeof checkAllAchievements === 'function') {
+              var data = getMBTIData();
+              var newAchievements = checkAllAchievements(data);
+              if (newAchievements.length > 0) {
+                displayNewAchievements(newAchievements);
+              }
+              if (typeof displayAchievementsOnResultPage === 'function') {
+                displayAchievementsOnResultPage();
+              }
+            }
+          }, 800);
         }
       });
       observer.observe(badge, { childList: true, characterData: true, subtree: true });
