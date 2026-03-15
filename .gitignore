@@ -1,0 +1,18 @@
+# AI 도구 설정
+.gemini/
+.claude/
+
+# 임시 스크립트
+fix-*.py
+fix-*.sh
+
+# 개발 도구
+market-mbti-maintenance.skill
+market-mbti-maintenance/
+package_helper.cjs
+languages.json
+
+# 시스템
+.DS_Store
+Thumbs.db
+node_modules/
