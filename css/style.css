@@ -78,8 +78,8 @@ img { max-width: 100%; display: block; }
   gap: 0.8rem;
   align-items: center;
   flex-wrap: nowrap;
+  margin-left: auto;
   justify-content: flex-end;
-  flex: 1;
 }
 .nav-links li {
   white-space: nowrap;
@@ -1005,8 +1005,11 @@ img { max-width: 100%; display: block; }
 /* Language Switcher */
 .lang-dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-left: 15px;
+  flex-shrink: 0;
+  z-index: 101;
 }
 .lang-btn {
   background: rgba(255,255,255,0.1);
