@@ -11,12 +11,16 @@
         var isOpen = content.style.display === 'block';
         closeAll();
         if (!isOpen) {
+          // 버튼 위치 기반으로 드롭다운 위치 계산 (position: fixed 대응)
+          var rect = btn.getBoundingClientRect();
+          content.style.top = (rect.bottom + 5) + 'px';
+          content.style.right = Math.max(5, window.innerWidth - rect.right) + 'px';
           content.style.display = 'block';
         }
       });
     });
 
-    // 바깥 클릭 시 닫기 (click만 사용 - touchstart 제거)
+    // 바깥 클릭 시 닫기
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.nav-lang-dropdown, .lang-dropdown')) {
         closeAll();
@@ -27,6 +31,8 @@
   function closeAll() {
     document.querySelectorAll('.lang-content').forEach(function (c) {
       c.style.display = '';
+      c.style.top = '';
+      c.style.right = '';
     });
   }
 

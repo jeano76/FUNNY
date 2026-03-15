@@ -689,8 +689,13 @@ img { max-width: 100%; display: block; }
   }
 
   .lang-content {
-    min-width: 130px;
-    top: 100%;
+    position: fixed;
+    min-width: 150px;
+    top: 0; /* JS로 동적 설정 */
+    right: 10px;
+    left: auto;
+    z-index: 99999;
+    max-height: 70vh;
   }
 
   .lang-content a {
