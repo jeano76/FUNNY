@@ -344,7 +344,11 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    renderSituation(0);
+    var params = new URLSearchParams(window.location.search);
+    var startCard = parseInt(params.get('card'), 10);
+    if (isNaN(startCard) || startCard < 0 || startCard >= SITUATIONS.length) startCard = 0;
+    currentSituationIdx = startCard;
+    renderSituation(currentSituationIdx);
 
     // 터치 스와이프 지원
     document.getElementById('situationsDeck').addEventListener('touchstart', function(e) {
