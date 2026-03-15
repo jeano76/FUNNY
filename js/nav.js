@@ -7,24 +7,25 @@
       if (!btn || !content) return;
 
       btn.addEventListener('click', function (e) {
-        e.preventDefault();
         e.stopPropagation();
-        var isOpen = content.classList.contains('open');
+        var isOpen = content.style.display === 'block';
         closeAll();
         if (!isOpen) {
-          content.classList.add('open');
           content.style.display = 'block';
         }
       });
     });
 
-    document.addEventListener('click', closeAll);
-    document.addEventListener('touchstart', closeAll);
+    // 바깥 클릭 시 닫기 (click만 사용 - touchstart 제거)
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-lang-dropdown, .lang-dropdown')) {
+        closeAll();
+      }
+    });
   }
 
   function closeAll() {
     document.querySelectorAll('.lang-content').forEach(function (c) {
-      c.classList.remove('open');
       c.style.display = '';
     });
   }
