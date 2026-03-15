@@ -3,4 +3,4 @@ Allow: /
 Disallow: /result.html
 Disallow: /group.html
 
-Sitemap: https://your-site.pages.dev/sitemap.xml
+Sitemap: https://mymbti-a03.pages.dev/sitemap.xml
