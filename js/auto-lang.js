@@ -150,41 +150,11 @@
     window.location.href = newPath;
   }
 
-  // Language dropdown click toggle (for mobile)
-  function initLangDropdown() {
-    document.querySelectorAll('.nav-lang-dropdown, .lang-dropdown').forEach(function(dropdown) {
-      var btn = dropdown.querySelector('.lang-btn');
-      var content = dropdown.querySelector('.lang-content');
-      if (!btn || !content) return;
-
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var isOpen = content.style.display === 'block';
-        // Close all dropdowns first
-        document.querySelectorAll('.lang-content').forEach(function(c) {
-          c.style.display = 'none';
-        });
-        content.style.display = isOpen ? 'none' : 'block';
-      });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function() {
-      document.querySelectorAll('.lang-content').forEach(function(c) {
-        c.style.display = 'none';
-      });
-    });
-  }
-
   // Run detection on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      getDetectedLang();
-      initLangDropdown();
-    });
+    document.addEventListener('DOMContentLoaded', getDetectedLang);
   } else {
     getDetectedLang();
-    initLangDropdown();
   }
 
   // Also expose function for manual language switching
