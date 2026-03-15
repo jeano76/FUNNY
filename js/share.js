@@ -12,7 +12,7 @@ function getShareText(type, r) {
 
 // 카카오톡 공유
 function shareKakao(type, r) {
-  var KAKAO_APP_KEY = '03dcb9495e597e65a44f72df6ab02973';
+  var KAKAO_APP_KEY = '2850ea2fde730ed80b6f932c8e05d709';
   try {
     if (!window.Kakao) { alert('카카오 SDK를 불러오지 못했습니다.'); return; }
     if (!Kakao.isInitialized()) {
