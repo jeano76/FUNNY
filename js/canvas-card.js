@@ -125,7 +125,7 @@ function generateResultCard(type, resultInfo) {
   ctx.fillStyle = 'rgba(255,255,255,0.5)';
   ctx.font = '28px "Noto Sans KR", sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('🐾 mbti-animal-test.pages.dev', 540, 985);
+  ctx.fillText('🐾 stockinvestonline.com', 540, 985);
   ctx.restore();
 
   return canvas;
