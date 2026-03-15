@@ -5,7 +5,7 @@
 var SITE_URL = location.origin + location.pathname.replace('result.html', '');
 
 function getShareText(type, r) {
-  return '나는 MBTI ' + type + ' - ' + r.name + ' ' + r.emoji + '!\n'
+  return '나는 성격 유형 ' + type + ' - ' + r.name + ' ' + r.emoji + '!\n'
        + r.shareText + '\n'
        + '👉 나도 테스트하기: ' + SITE_URL;
 }
