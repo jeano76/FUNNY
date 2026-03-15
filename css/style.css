@@ -634,42 +634,57 @@ img { max-width: 100%; display: block; }
   .share-buttons { grid-template-columns: 1fr 1fr; }
 
   .nav {
-    padding: 0.4rem 0.75rem;
+    padding: 0.3rem 0.75rem;
   }
 
+  /* 모바일: 2줄 레이아웃 - 1줄: 로고, 2줄: 메뉴 */
   .nav-inner {
-    height: 56px;
+    flex-direction: column;
+    height: auto;
+    gap: 0.3rem;
+    padding: 0.3rem 0;
+    align-items: flex-start;
   }
 
   .nav-logo {
-    font-size: 0.9rem;
-    margin-right: 0.5rem;
+    font-size: 0.95rem;
+    margin-right: 0;
   }
 
   .nav-links {
-    gap: 0.3rem;
+    margin-left: 0;
+    gap: 0.2rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-links a {
-    padding: 0.3rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
+    white-space: nowrap;
   }
 
+  .nav-lang-dropdown,
   .lang-dropdown {
-    margin-left: 6px;
-    display: inline-flex;
+    flex-shrink: 0;
   }
 
   .lang-btn {
-    padding: 3px 6px;
-    font-size: 0.65rem;
-    border-radius: 15px;
-    gap: 3px;
+    padding: 3px 7px;
+    font-size: 0.7rem;
+    white-space: nowrap;
   }
 
   .lang-content {
-    min-width: 120px;
-    font-size: 0.8rem;
+    min-width: 130px;
+    top: 100%;
   }
 
   .lang-content a {
