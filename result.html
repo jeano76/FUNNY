@@ -123,6 +123,9 @@
       <div class="result-actions" id="resultActions" style="display:none;">
         <a href="quiz.html" class="btn-retest">다시 테스트하기 🔄</a>
         <a href="index.html" class="btn-home">홈으로</a>
+        <button class="share-btn copy" id="compatBtn" onclick="goToCompat()" style="border-radius:999px; font-family:inherit; font-size:.95rem;">궁합 보기 💕</button>
+        <button class="share-btn copy" id="saveImageBtn" onclick="saveResultImage()" style="border-radius:999px; font-family:inherit; font-size:.95rem;">이미지 저장 📸</button>
+        <a href="careers.html" id="careersBtn" class="btn-home">직업 궁합 💼</a>
       </div>
 
     </div>
@@ -145,5 +148,56 @@
   <script src="js/storage.js"></script>
   <script src="js/result.js"></script>
   <script src="js/share.js"></script>
+  <script src="js/canvas-card.js"></script>
+  <script>
+  var _currentResultType = null;
+  var _currentResultInfo = null;
+
+  // result.js의 displayResult 완료 후 훅 처리
+  var _origDisplayResult = typeof displayResult === 'function' ? displayResult : null;
+  document.addEventListener('DOMContentLoaded', function() {
+    // displayResult 호출 이후에 타입 저장하기 위해 MutationObserver 사용
+    var badge = document.getElementById('resultTypeBadge');
+    if (badge) {
+      var observer = new MutationObserver(function() {
+        var type = badge.textContent.trim();
+        if (type && type.length === 4) {
+          _currentResultType = type;
+          _currentResultInfo = window.resultData && window.resultData[type] ? window.resultData[type] : null;
+          // 버튼 링크 업데이트
+          var compatBtn = document.getElementById('compatBtn');
+          if (compatBtn) {
+            compatBtn.setAttribute('data-type', type);
+          }
+          var careersBtn = document.getElementById('careersBtn');
+          if (careersBtn) {
+            careersBtn.href = 'careers.html?type=' + type;
+          }
+        }
+      });
+      observer.observe(badge, { childList: true, characterData: true, subtree: true });
+    }
+  });
+
+  function goToCompat() {
+    var type = _currentResultType || (document.getElementById('resultTypeBadge') ? document.getElementById('resultTypeBadge').textContent.trim() : null);
+    if (type) {
+      window.location.href = 'compat.html?me=' + type;
+    } else {
+      window.location.href = 'compat.html';
+    }
+  }
+
+  function saveResultImage() {
+    var type = _currentResultType || (document.getElementById('resultTypeBadge') ? document.getElementById('resultTypeBadge').textContent.trim() : null);
+    if (!type) { showToast('결과를 먼저 확인해주세요.'); return; }
+    var info = (window.resultData && window.resultData[type]) ? window.resultData[type] : { emoji:'🐾', name:type, title:'', strengths:[] };
+    showToast('이미지 생성 중... 📸');
+    setTimeout(function() {
+      downloadResultCard(type, info);
+      showToast('이미지 저장 완료! 📸');
+    }, 100);
+  }
+  </script>
 </body>
 </html>
