@@ -50,7 +50,7 @@ function saveMBTIResult(type, scores) {
 }
 
 function clearMBTIData() {
-  if (confirm('저장된 모든 MBTI 기록을 삭제할까요?')) {
+  if (confirm('저장된 모든 성격 유형 기록을 삭제할까요?')) {
     localStorage.removeItem(STORAGE_KEY);
     location.reload();
   }

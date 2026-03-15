@@ -151,7 +151,7 @@ function downloadResultCard(type, resultInfo) {
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'MBTI_' + type + '_' + resultInfo.name + '.png';
+    a.download = 'PersonalityType_' + type + '_' + resultInfo.name + '.png';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

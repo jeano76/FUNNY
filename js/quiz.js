@@ -1,5 +1,5 @@
 /* ===========================
-   quiz.js - MBTI 퀴즈 로직
+   quiz.js - 성격 유형 퀴즈 로직
    =========================== */
 
 const quizData = [
@@ -262,7 +262,7 @@ function prevQuestion() {
 }
 
 function finishQuiz() {
-  // Calculate MBTI
+  // Calculate Personality Type
   const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
   Object.values(answers).forEach(function (axisAnswers) {
     axisAnswers.forEach(function (s) { if (s) scores[s]++; });
