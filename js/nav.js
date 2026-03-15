@@ -6,12 +6,14 @@
       var content = dropdown.querySelector('.lang-content');
       if (!btn || !content) return;
 
+      // 포탈: body에 직접 붙여 nav의 backdrop-filter/stacking context에서 탈출
+      document.body.appendChild(content);
+
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var isOpen = content.style.display === 'block';
         closeAll();
         if (!isOpen) {
-          // 버튼 위치 기반으로 드롭다운 위치 계산 (position: fixed 대응)
           var rect = btn.getBoundingClientRect();
           content.style.top = (rect.bottom + 5) + 'px';
           content.style.right = Math.max(5, window.innerWidth - rect.right) + 'px';
@@ -20,9 +22,9 @@
       });
     });
 
-    // 바깥 클릭 시 닫기
+    // 바깥 클릭 시 닫기 (.lang-content 클릭은 닫지 않음 - 링크 클릭 허용)
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('.nav-lang-dropdown, .lang-dropdown')) {
+      if (!e.target.closest('.nav-lang-dropdown, .lang-dropdown, .lang-content')) {
         closeAll();
       }
     });

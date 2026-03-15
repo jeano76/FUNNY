@@ -689,13 +689,7 @@ img { max-width: 100%; display: block; }
   }
 
   .lang-content {
-    position: fixed;
-    min-width: 150px;
-    top: 0; /* JS로 동적 설정 */
-    right: 10px;
-    left: auto;
-    z-index: 99999;
-    max-height: 70vh;
+    min-width: 140px;
   }
 
   .lang-content a {
@@ -1082,15 +1076,13 @@ img { max-width: 100%; display: block; }
 }
 .lang-content {
   display: none;
-  position: absolute;
-  right: 0;
+  position: fixed; /* JS가 top/right 설정 - backdrop-filter 컨텍스트 탈출 */
   background-color: white;
-  min-width: 140px;
+  min-width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
+  z-index: 99999;
   border-radius: 8px;
-  margin-top: 5px;
-  max-height: 300px;
+  max-height: 70vh;
   overflow-y: auto;
 }
 .lang-content a {
@@ -1104,12 +1096,7 @@ img { max-width: 100%; display: block; }
 .lang-content a:hover {
   background-color: #f1f1f1;
 }
-.lang-dropdown:hover .lang-content,
-.nav-lang-dropdown:hover .lang-content,
-.lang-dropdown:focus-within .lang-content,
-.nav-lang-dropdown:focus-within .lang-content {
-  display: block;
-}
+/* hover/focus-within 제거 - nav.js JS 클릭 핸들러로 통일 */
 /* RTL support for Arabic */
 [dir="rtl"] {
   text-align: right;
