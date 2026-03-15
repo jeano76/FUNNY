@@ -643,12 +643,14 @@ img { max-width: 100%; display: block; }
     height: auto;
     gap: 0.3rem;
     padding: 0.3rem 0;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .nav-logo {
     font-size: 0.95rem;
     margin-right: 0;
+    text-align: center;
+    width: 100%;
   }
 
   .nav-links {
