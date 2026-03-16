@@ -1835,13 +1835,4 @@ const TRANSLATIONS = {
 // Export to window for use by i18n-complete.js
 if (typeof window !== 'undefined') {
   window.TRANSLATIONS = TRANSLATIONS;
-  console.log('[translations.js] Exported TRANSLATIONS with languages:', Object.keys(TRANSLATIONS));
-
-  // Also set translations if i18n is already loaded
-  if (window.i18n) {
-    console.log('[translations.js] i18n already loaded, setting translations');
-    window.i18n.setTranslations(TRANSLATIONS);
-  } else {
-    console.log('[translations.js] i18n not yet loaded, will be set by i18n-complete.js');
-  }
 }
