@@ -7,43 +7,37 @@
 (function() {
     // --- Configuration ---
     const langToDir = {
-        'ko': 'ko', 'en': 'en', 'ja': 'jp', 'zh': 'zh', 'zh-hans': 'zh', 'zh-hant': 'zh',
+        'ko': 'ko', 'en': 'en', 'ja': 'jp', 'jp': 'jp', 'zh': 'zh', 'zh-hans': 'zh', 'zh-hant': 'zh',
         'es': 'es', 'de': 'de', 'fr': 'fr', 'ru': 'ru', 'pt': 'pt', 'id': 'id',
         'hi': 'hi', 'vi': 'vi', 'th': 'th', 'tr': 'tr', 'it': 'it', 'nl': 'nl',
         'ar': 'ar', 'mn': 'mn', 'la': 'la'
     };
     const validDirs = [...new Set(Object.values(langToDir))];
 
-    // --- Core Functions ---
-
     /**
      * Parses the window location to determine the current language directory and page file.
-     * This version is more robust in handling paths like /en/ or /about.html.
-     * @returns {{dir: string, page: string}}
      */
     function parseLocation() {
         const path = window.location.pathname;
         let segments = path.split('/').filter(Boolean);
 
-        let currentDir = 'ko';
-        let pageName = 'index.html'; // Default page
+        let currentDir = 'ko'; // Root
+        let pageName = 'index.html';
 
         if (segments.length > 0) {
+            // First segment might be a language dir
             if (validDirs.includes(segments[0])) {
-                currentDir = segments.shift();
+                currentDir = segments[0];
+                segments.shift(); // Remove the lang dir segment
             }
         }
 
+        // The last segment should be the page
         if (segments.length > 0) {
-            pageName = segments[segments.length - 1];
-        } else if (currentDir !== 'ko') {
-            // Path was /en/ or similar, so page is index.html
-            pageName = 'index.html';
-        }
-        
-        // Ensure pageName always has .html for consistency, unless it's a directory.
-        if (!pageName.includes('.html')) {
-            pageName = 'index.html';
+            const last = segments[segments.length - 1];
+            if (last.includes('.html')) {
+                pageName = last;
+            }
         }
 
         return { dir: currentDir, page: pageName };
@@ -53,13 +47,19 @@
      * Redirects the browser to the correct language version of a given page.
      */
     function redirectTo(targetDir, targetPage) {
-        const targetPath = targetDir === 'ko' ? `/${targetPage}` : `/${targetDir}/${targetPage}`;
+        const targetPath = (targetDir === 'ko') 
+            ? '/' + targetPage 
+            : '/' + targetDir + '/' + targetPage;
+        
         const currentPath = window.location.pathname;
+        
+        // Normalize paths for comparison
+        const normCurrent = currentPath === '/' ? '/index.html' : currentPath;
+        const normTarget = targetPath === '/' ? '/index.html' : targetPath;
 
-        if (currentPath === targetPath || (targetPath === '/index.html' && currentPath === '/')) {
-            return;
+        if (normCurrent !== normTarget) {
+            window.location.href = targetPath;
         }
-        window.location.href = targetPath;
     }
 
     /**
