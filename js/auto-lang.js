@@ -1,190 +1,124 @@
 /**
- * Auto Language Detection & Redirect
- * Priority: Browser Language > IP-based Country > Default (English)
+ * Auto Language Detection & Redirection Script
+ *
+ * This script handles language persistence across pages.
+ *
+ * 1.  It determines the current page's language and file name from the URL.
+ * 2.  It checks localStorage for a user-selected language.
+ * 3.  If the stored language doesn't match the current page's language, it redirects to the correct language version of the same page.
+ * 4.  If no language is stored, it attempts to auto-detect based on browser settings.
+ * 5.  Provides a global `window.switchLanguage` function for manual language changes.
  */
-
 (function() {
-  // Language mappings
-  const langMap = {
-    'ko': 'ko',
-    'en': 'en',
-    'ja': 'jp',
-    'zh': 'zh',
-    'zh-hans': 'zh',
-    'zh-hant': 'zh',
-    'es': 'es',
-    'de': 'de',
-    'fr': 'fr',
-    'ru': 'ru',
-    'pt': 'pt',
-    'id': 'id',
-    'hi': 'hi',
-    'vi': 'vi',
-    'th': 'th',
-    'tr': 'tr',
-    'it': 'it',
-    'nl': 'nl',
-    'ar': 'ar',
-    'mn': 'mn',
-    'la': 'la'
-  };
+    // --- Configuration ---
+    const langMap = {
+        'ko': 'ko', 'en': 'en', 'ja': 'jp', 'zh': 'zh', 'zh-hans': 'zh', 'zh-hant': 'zh',
+        'es': 'es', 'de': 'de', 'fr': 'fr', 'ru': 'ru', 'pt': 'pt', 'id': 'id',
+        'hi': 'hi', 'vi': 'vi', 'th': 'th', 'tr': 'tr', 'it': 'it', 'nl': 'nl',
+        'ar': 'ar', 'mn': 'mn', 'la': 'la'
+    };
+    const supportedLangs = Object.keys(langMap);
 
-  // Country to language mapping (GeoIP based)
-  const countryLangMap = {
-    'KR': 'ko',
-    'US': 'en',
-    'GB': 'en',
-    'AU': 'en',
-    'CA': 'en',
-    'IE': 'en',
-    'NZ': 'en',
-    'SG': 'en',
-    'JP': 'jp',
-    'CN': 'zh',
-    'TW': 'zh',
-    'HK': 'zh',
-    'MO': 'zh',
-    'ES': 'es',
-    'MX': 'es',
-    'AR': 'es',
-    'CO': 'es',
-    'PE': 'es',
-    'VE': 'es',
-    'CL': 'es',
-    'DE': 'de',
-    'AT': 'de',
-    'CH': 'de',
-    'FR': 'fr',
-    'BE': 'fr',
-    'LU': 'fr',
-    'RU': 'ru',
-    'PT': 'pt',
-    'BR': 'pt',
-    'ID': 'id',
-    'IN': 'hi',
-    'VN': 'vi',
-    'TH': 'th',
-    'TR': 'tr',
-    'IT': 'it',
-    'NL': 'nl',
-    'AE': 'ar',
-    'SA': 'ar',
-    'EG': 'ar',
-    'MN': 'mn'
-  };
+    // --- Core Functions ---
 
-  function getDetectedLang() {
-    const currentPath = window.location.pathname;
-    const pathSegments = currentPath.split('/').filter(Boolean);
-    const supportedLangs = Object.values(langMap);
-    let currentLang = 'ko'; // Default
+    /**
+     * Parses the window location to determine the current language and page file.
+     * @returns {{lang: string, page: string}}
+     */
+    function parseLocation() {
+        const path = window.location.pathname;
+        const segments = path.split('/').filter(Boolean);
 
-    if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[0])) {
-      currentLang = pathSegments[0];
-    }
+        let currentLang = 'ko'; // Default language is Korean (at root)
+        let pageName = 'index.html';
 
-    // Check if language is already selected by user
-    const savedLang = localStorage.getItem('selectedLang');
-    if (savedLang) {
-      if (savedLang !== currentLang) {
-        performRedirect(savedLang);
-      }
-      return null;
-    }
-
-    // Step 1: Try browser language
-    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    const browserLangCode = browserLang.split('-')[0];
-
-    let detected = null;
-    if (langMap[browserLang]) {
-      detected = langMap[browserLang];
-    } else if (langMap[browserLangCode]) {
-      detected = langMap[browserLangCode];
-    }
-
-    if (detected && detected !== currentLang) {
-      performRedirect(detected);
-      return detected;
-    }
-
-    // Step 2: Try IP-based country detection
-    return getIPBasedLang();
-  }
-
-  function getIPBasedLang() {
-    const currentPath = window.location.pathname;
-    const pathSegments = currentPath.split('/').filter(Boolean);
-    const supportedLangs = Object.values(langMap);
-    let currentLang = 'ko';
-    if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[0])) {
-      currentLang = pathSegments[0];
-    }
-
-    // Use ip-api.com (free tier available)
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        const country = data.country_code;
-        const detectedLang = countryLangMap[country] || 'en';
-
-        // Only redirect if different from current and not Korean (if we are at root)
-        if (detectedLang !== currentLang) {
-          if (currentLang === 'ko' && detectedLang === 'en') {
-             // If default is Korean and detected is English, maybe don't force if they haven't picked
-             return;
-          }
-          performRedirect(detectedLang);
+        if (segments.length > 0) {
+            // Check if the first segment is a known language code
+            if (supportedLangs.includes(segments[0])) {
+                currentLang = segments.shift(); // e.g., 'en'. Segments is now the rest of the path.
+            }
         }
-      })
-      .catch(error => {
-        console.log('Could not detect language from IP:', error);
-      });
 
-    return null;
-  }
+        if (segments.length > 0) {
+            // After potentially removing lang, the last part should be the page
+            const lastSegment = segments[segments.length - 1];
+            if (lastSegment.includes('.html')) {
+                pageName = lastSegment;
+            }
+        }
+        // If segments is empty, it means we are at a root like / or /en/, so index.html is correct.
+        
+        return { lang: currentLang, page: pageName };
+    }
 
-  function performRedirect(langCode) {
-    const currentPath = window.location.pathname;
-    const pathSegments = currentPath.split('/').filter(Boolean);
-    const supportedLangs = Object.values(langMap);
-    
-    let pageName = 'index.html';
-    
-    // Extract page name: check the last segment
-    if (pathSegments.length > 0) {
-        const lastSegment = pathSegments[pathSegments.length - 1];
-        if (lastSegment.includes('.html')) {
-            pageName = lastSegment;
+    /**
+     * Redirects the browser to the correct language version of a given page.
+     * @param {string} targetLang - The language code to redirect to (e.g., 'en').
+     * @param {string} targetPage - The page file to redirect to (e.g., 'about.html').
+     */
+    function redirectTo(targetLang, targetPage) {
+        const targetPath = targetLang === 'ko'
+            ? `/${targetPage}`
+            : `/${targetLang}/${targetPage}`;
+        
+        // Avoid redundant redirects, especially for / vs /index.html
+        if (window.location.pathname !== targetPath) {
+            // Handle root index case
+            if (targetPath === '/index.html' && window.location.pathname === '/') {
+                return;
+            }
+            window.location.href = targetPath;
         }
     }
 
-    let newPath;
-    if (langCode === 'ko') {
-      newPath = `/${pageName}`;
-    } else {
-      newPath = `/${langCode}/${pageName}`;
+    /**
+     * Main logic run on every page load.
+     */
+    function initialize() {
+        const { lang: currentLang, page: currentPage } = parseLocation();
+        const savedLang = localStorage.getItem('selectedLang');
+
+        if (savedLang) {
+            // User has a saved preference. Enforce it.
+            if (savedLang !== currentLang) {
+                redirectTo(savedLang, currentPage);
+            }
+        } else {
+            // No saved preference, try to auto-detect from browser.
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            const browserLangCode = browserLang.split('-')[0];
+            const detectedLang = langMap[browserLang] || langMap[browserLangCode];
+
+            if (detectedLang && detectedLang !== currentLang) {
+                // We have a detected language that is different.
+                // We'll redirect, but also save it so we don't need to detect next time.
+                localStorage.setItem('selectedLang', detectedLang);
+                redirectTo(detectedLang, currentPage);
+            }
+        }
     }
-    
-    // Normalize index.html to / for root if it's index.html
-    const normalizedCurrent = (currentPath === '/' || currentPath === '/index.html') ? '/index.html' : currentPath;
-    const normalizedNew = (newPath === '/' || newPath === '/index.html') ? '/index.html' : newPath;
 
-    if (normalizedCurrent !== normalizedNew) {
-        window.location.href = newPath;
-    }
-  }
+    // --- Global Function ---
 
-  // Run detection on page load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', getDetectedLang);
-  } else {
-    getDetectedLang();
-  }
+    /**
+     * Sets the language preference and triggers a redirection.
+     * Exposed on the window object for nav.js to use.
+     * @param {string} langCode - The language code to switch to.
+     */
+    window.switchLanguage = function(langCode) {
+        if (!langCode || !supportedLangs.includes(langCode)) {
+            console.error('Invalid language code provided to switchLanguage:', langCode);
+            return;
+        }
+        
+        localStorage.setItem('selectedLang', langCode);
 
-  // Also expose function for manual language switching
-  window.switchLanguage = function(langCode) {
-    localStorage.setItem('selectedLang', langCode);
-    performRedirect(langCode);
-  };
+        // We need to know which page we are on to redirect correctly.
+        const { page: currentPage } = parseLocation();
+        redirectTo(langCode, currentPage);
+    };
+
+    // --- Execution ---
+    initialize();
+
 })();

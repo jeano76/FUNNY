@@ -21,33 +21,28 @@
         }
       });
 
-      // 언어 링크 클릭 이벤트 핸들러 추가
-      content.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          var href = this.getAttribute('href');
-          var langCode = '';
+      // 언어 링크 클릭 이벤트 핸들러를 더 단순하고 명확하게 수정
+      content.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function(e) {
+              e.preventDefault();
+              const href = this.getAttribute('href');
+              let langCode = 'ko'; // 기본값은 한국어
 
-          // href에서 언어 코드 추출 (예: "en/index.html" -> "en", "../jp/index.html" -> "jp", "index.html" -> "ko")
-          if (href.indexOf('index.html') !== -1) {
-            var parts = href.split('/');
-            if (parts.length >= 2) {
-              // "en/index.html" 또는 "../en/index.html"
-              langCode = parts[parts.length - 2];
-              if (langCode === '..') langCode = 'ko'; // root case
-            } else {
-              // "index.html"
-              langCode = 'ko';
-            }
-          }
+              // href에서 언어 코드를 찾습니다. (e.g., 'en/', 'jp/')
+              const match = href.match(/\b(en|jp|zh|es|de|fr|ru|pt|id|hi|vi|th|tr|it|nl|ar|mn|la)\b/);
 
-          if (langCode && typeof window.switchLanguage === 'function') {
-            window.switchLanguage(langCode);
-          } else {
-            // fallback
-            window.location.href = href;
-          }
-        });
+              if (match) {
+                  langCode = match[1];
+              }
+
+              if (typeof window.switchLanguage === 'function') {
+                  window.switchLanguage(langCode);
+              } else {
+                  // Fallback in case switchLanguage is not defined
+                  console.error('switchLanguage function not found.');
+                  window.location.href = href;
+              }
+          });
       });
     });
 
