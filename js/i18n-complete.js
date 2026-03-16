@@ -190,12 +190,21 @@ window.i18n = (function() {
 // 자동 초기화 (필요시)
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('[i18n] DOMContentLoaded - checking translations');
     if (typeof window.TRANSLATIONS !== 'undefined') {
+      console.log('[i18n] TRANSLATIONS found, initializing');
       window.i18n.setTranslations(window.TRANSLATIONS);
       window.i18n.init();
+      console.log('[i18n] Initialized with language:', window.i18n.getLanguage());
+    } else {
+      console.warn('[i18n] TRANSLATIONS not found on DOMContentLoaded');
     }
   });
 } else if (typeof window.TRANSLATIONS !== 'undefined') {
+  console.log('[i18n] Document already loaded - initializing immediately');
   window.i18n.setTranslations(window.TRANSLATIONS);
   window.i18n.init();
+  console.log('[i18n] Initialized with language:', window.i18n.getLanguage());
+} else {
+  console.warn('[i18n] Document already loaded but TRANSLATIONS not found');
 }
