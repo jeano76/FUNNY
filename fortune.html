@@ -77,16 +77,16 @@
       <!-- 날짜 헤더 -->
       <div class="fortune-header result-card" style="text-align:center; margin-bottom:1.5rem;">
         <div style="font-size:2.5rem; margin-bottom:.5rem;">🔮</div>
-        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">오늘의 성격 유형 운세</h1>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;" data-i18n="fortune.mainTitle">오늘의 성격 유형 운세</h1>
         <p class="fortune-date" id="fortuneDate" style="color:var(--text-mute); font-size:.9rem;"></p>
         <p style="color:var(--text-mute); font-size:.85rem; margin-top:.3rem;">* 재미로 보는 운세입니다. 매일 자정에 업데이트됩니다.</p>
       </div>
 
       <!-- 유형 선택 -->
       <div class="result-card" style="margin-bottom:1.5rem; text-align:center;">
-        <p style="margin-bottom:.8rem; font-weight:700;">내 성격 유형 유형 선택</p>
+        <p style="margin-bottom:.8rem; font-weight:700;" data-i18n="fortune.selectLabel">내 성격 유형 유형 선택</p>
         <select id="fortuneTypeSelect" class="compat-select" onchange="renderFortune(this.value)" style="width:100%; max-width:300px; margin:0 auto; display:block;">
-          <option value="">-- 유형 선택 --</option>
+          <option value="" data-i18n="fortune.selectPlaceholder">-- 유형 선택 --</option>
         </select>
         <p style="font-size:.82rem; color:var(--text-mute); margin-top:.6rem;" id="savedTypeHint"></p>
       </div>
@@ -108,19 +108,19 @@
             </div>
             <div class="fortune-score-item">
               <span class="fortune-score-icon">💞</span>
-              <span class="fortune-score-label">대인운</span>
+              <span class="fortune-score-label" data-i18n="fortune.loveLabel">대인운</span>
               <div class="fortune-stars" id="fortunePeople"></div>
               <p class="fortune-score-desc" id="fortunePeopleDesc"></p>
             </div>
             <div class="fortune-score-item">
               <span class="fortune-score-icon">💼</span>
-              <span class="fortune-score-label">업무운</span>
+              <span class="fortune-score-label" data-i18n="fortune.workLabel">업무운</span>
               <div class="fortune-stars" id="fortuneWork"></div>
               <p class="fortune-score-desc" id="fortuneWorkDesc"></p>
             </div>
             <div class="fortune-score-item">
               <span class="fortune-score-icon">💰</span>
-              <span class="fortune-score-label">재물운</span>
+              <span class="fortune-score-label" data-i18n="fortune.moneyLabel">재물운</span>
               <div class="fortune-stars" id="fortuneMoney"></div>
               <p class="fortune-score-desc" id="fortuneMoneyDesc"></p>
             </div>

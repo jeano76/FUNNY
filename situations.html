@@ -77,8 +77,8 @@
       <!-- 헤더 -->
       <div style="text-align:center; padding:1.5rem 0 1rem;">
         <div style="font-size:2.5rem; margin-bottom:.5rem;">🃏</div>
-        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">성격 유형 상황 카드</h1>
-        <p style="color:var(--text-mute); font-size:.9rem;">이 상황에서 성격 유형별 반응은? 👉 카드를 넘겨보세요!</p>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;" data-i18n="situations.mainTitle">성격 유형 상황 카드</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;" data-i18n="situations.subtitle">이 상황에서 성격 유형별 반응은? 👉 카드를 넘겨보세요!</p>
         <div style="font-size:.85rem; color:var(--text-mute); margin-top:.3rem;">
           <span id="situationCounter">1 / 12</span>
         </div>
@@ -93,9 +93,9 @@
 
       <!-- 네비게이션 -->
       <div class="situations-nav">
-        <button class="situations-nav-btn" id="situationsPrev" onclick="prevSituation()">◀ 이전</button>
+        <button class="situations-nav-btn" id="situationsPrev" onclick="prevSituation()" data-i18n="situations.prevButton">◀ 이전</button>
         <div class="situations-dots" id="situationsDots"></div>
-        <button class="situations-nav-btn" id="situationsNext" onclick="nextSituation()">다음 ▶</button>
+        <button class="situations-nav-btn" id="situationsNext" onclick="nextSituation()" data-i18n="situations.nextButton">다음 ▶</button>
       </div>
 
       <!-- 스와이프 힌트 -->

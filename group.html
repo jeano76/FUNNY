@@ -77,21 +77,21 @@
       <!-- 헤더 -->
       <div style="text-align:center; padding:1.5rem 0 1rem;">
         <div style="font-size:2.5rem; margin-bottom:.5rem;">👥</div>
-        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">그룹 성격 유형 테스트</h1>
-        <p style="color:var(--text-mute); font-size:.9rem;">그룹 코드를 만들고 친구들과 성격 유형를 공유하세요!</p>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;" data-i18n="group.mainTitle">그룹 성격 유형 테스트</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;" data-i18n="group.subtitle">그룹 코드를 만들고 친구들과 성격 유형를 공유하세요!</p>
       </div>
 
       <!-- 그룹 생성/입력 -->
       <div class="result-card" id="groupSetupCard" style="margin-bottom:1.5rem;">
         <div class="group-tabs">
-          <button class="group-tab-btn active" id="tabCreate" onclick="switchTab('create')">그룹 만들기</button>
-          <button class="group-tab-btn" id="tabJoin" onclick="switchTab('join')">그룹 참여하기</button>
+          <button class="group-tab-btn active" id="tabCreate" onclick="switchTab('create')" data-i18n="group.createTab">그룹 만들기</button>
+          <button class="group-tab-btn" id="tabJoin" onclick="switchTab('join')" data-i18n="group.joinTab">그룹 참여하기</button>
         </div>
 
         <!-- 그룹 만들기 -->
         <div id="panelCreate">
-          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;">그룹 이름을 입력하고 코드를 생성하세요.</p>
-          <input type="text" id="groupNameInput" class="group-input" placeholder="그룹 이름 (예: 우리반, 회사팀)" maxlength="20" />
+          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;" data-i18n="group.setupTitle">그룹 이름을 입력하고 코드를 생성하세요.</p>
+          <input type="text" id="groupNameInput" class="group-input" placeholder="그룹 이름 (예: 우리반, 회사팀)" data-i18n="group.groupNameLabel" maxlength="20" />
           <button class="btn-start" onclick="createGroup()" style="width:100%; margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; font-size:1rem; padding:.8rem;">
             그룹 코드 생성 🎲
           </button>
