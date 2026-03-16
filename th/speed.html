@@ -32,13 +32,13 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <a href="index.html" class="nav-logo" data-i18n="nav.logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">홈</a></li>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
         <li><a href="quiz.html">일반 테스트</a></li>
-        <li><a href="about.html">소개</a></li>
+        <li><a href="about.html" data-i18n="nav.about">소개</a></li>
         <li class="nav-lang-dropdown">
-          <button class="lang-btn" type="button">🌐 Language ▾</button>
+          <button class="lang-btn" type="button" data-i18n="nav.language">🌐 Language ▾</button>
           <div class="lang-content">
             <a href="index.html">한국어 (KO)</a>
             <a href="en/index.html">English (EN)</a>
@@ -152,14 +152,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
       <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
-        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
-        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+        <span data-i18n="footer.disclaimer">본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.</span>
       </div>
       <nav class="footer-nav">
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보 처리방침</a>
+        <a href="about.html" data-i18n="footer.about">사이트 소개</a>
+        <a href="privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
@@ -413,6 +413,6 @@
       window.i18n.init();
     }
   </script>
-  <script src="/js/nav.js?v=2.1"></script>
+  <script src="/js/i18n-complete.js?v=2.1"></script>
 </body>
 </html>

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>성격 유형 궁합 매칭 | 성격 유형 동물 테스트</title>
-  <meta name="description" content="두 성격 유형 유형의 궁합을 알아보세요! 점수와 함께 상세한 궁합 설명을 확인할 수 있습니다." />
+  <title data-i18n="compat.title">성격 유형 궁합 매칭 | 성격 유형 동물 테스트</title>
+  <meta name="description" data-i18n="compat.metaDescription" content="두 성격 유형 유형의 궁합을 알아보세요! 점수와 함께 상세한 궁합 설명을 확인할 수 있습니다." />
   <meta name="keywords" content="성격 유형 궁합, 성격 유형 매칭, 성격 유형 연애, 성격 유형 친구 궁합" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="성격 유형 궁합 매칭 | 성격 유형 동물 테스트" />
-  <meta property="og:description" content="두 성격 유형 유형의 궁합 점수와 상세 설명을 확인해보세요!" />
+  <meta property="og:title" data-i18n="compat.ogTitle" content="성격 유형 궁합 매칭 | 성격 유형 동물 테스트" />
+  <meta property="og:description" data-i18n="compat.ogDescription" content="두 성격 유형 유형의 궁합 점수와 상세 설명을 확인해보세요!" />
   <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,14 +32,14 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <a href="index.html" class="nav-logo" data-i18n="nav.logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">홈</a></li>
-        <li><a href="quiz.html">테스트 시작</a></li>
-        <li><a href="compat-chart.html">궁합표</a></li>
-        <li><a href="about.html">소개</a></li>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
+        <li><a href="quiz.html" data-i18n="nav.test">테스트 시작</a></li>
+        <li><a href="compat-chart.html" data-i18n="nav.compatChart">궁합표</a></li>
+        <li><a href="about.html" data-i18n="nav.about">소개</a></li>
         <li class="nav-lang-dropdown">
-          <button class="lang-btn" type="button">🌐 Language ▾</button>
+          <button class="lang-btn" type="button" data-i18n="nav.language">🌐 Language ▾</button>
           <div class="lang-content">
             <a href="index.html">한국어 (KO)</a>
             <a href="en/index.html">English (EN)</a>
@@ -73,16 +73,16 @@
 
       <!-- 헤더 -->
       <div class="compat-header" id="compatHeader">
-        <h1 class="compat-main-title">💕 성격 유형 궁합 매칭</h1>
-        <p class="compat-main-desc">두 유형의 궁합 점수와 상세 설명을 확인해보세요</p>
+        <h1 class="compat-main-title" data-i18n="compat.mainTitle">💕 성격 유형 궁합 매칭</h1>
+        <p class="compat-main-desc" data-i18n="compat.mainDesc">두 유형의 궁합 점수와 상세 설명을 확인해보세요</p>
       </div>
 
       <!-- 친구 링크 공유 배너 (me만 있을 때) -->
       <div class="compat-share-banner" id="compatShareBanner" style="display:none;">
         <div class="compat-share-inner">
           <div class="compat-share-me" id="compatShareMe"></div>
-          <p>친구에게 링크를 공유하면 자동으로 궁합 결과가 나와요!</p>
-          <button class="btn-compat-share" id="copyCompatLink">🔗 친구 링크 공유하기</button>
+          <p data-i18n="compat.shareBannerMsg">친구에게 링크를 공유하면 자동으로 궁합 결과가 나와요!</p>
+          <button class="btn-compat-share" id="copyCompatLink" data-i18n="compat.shareButton">🔗 친구 링크 공유하기</button>
         </div>
       </div>
 
@@ -96,40 +96,40 @@
         <div class="compat-score-wrap">
           <div class="compat-score-circle" id="compatScoreCircle">
             <span class="compat-score-num" id="compatScoreNum">0</span>
-            <span class="compat-score-label">궁합 점수</span>
+            <span class="compat-score-label" data-i18n="compat.compatScore">궁합 점수</span>
           </div>
         </div>
         <div class="compat-grade" id="compatGrade"></div>
         <p class="compat-desc" id="compatDesc"></p>
         <div class="compat-advice-box" id="compatAdviceBox">
-          <h3>💡 관계 조언</h3>
+          <h3 data-i18n="compat.relationAdvice">💡 관계 조언</h3>
           <p id="compatAdvice"></p>
         </div>
         <div class="compat-actions">
-          <a href="quiz.html" class="btn-retest">테스트 다시 하기 🔄</a>
-          <a href="compat-chart.html" class="btn-home">전체 궁합표 보기</a>
+          <a href="quiz.html" class="btn-retest" data-i18n="compat.retestButton">테스트 다시 하기 🔄</a>
+          <a href="compat-chart.html" class="btn-home" data-i18n="compat.compatChartButton">전체 궁합표 보기</a>
         </div>
       </div>
 
       <!-- 드롭다운 선택기 -->
       <div class="result-card compat-selector" id="compatSelector">
-        <h2 class="section-title" style="margin-bottom:1.5rem;">직접 유형 선택하기</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem;" data-i18n="compat.selectTitle">직접 유형 선택하기</h2>
         <div class="compat-dropdowns">
           <div class="compat-dropdown-wrap">
-            <label>나의 유형</label>
+            <label data-i18n="compat.myType">나의 유형</label>
             <select id="selectA" class="compat-select">
-              <option value="">-- 선택 --</option>
+              <option value="" data-i18n="compat.selectOption">-- 선택 --</option>
             </select>
           </div>
-          <div class="compat-dropdown-vs">VS</div>
+          <div class="compat-dropdown-vs" data-i18n="compat.vs">VS</div>
           <div class="compat-dropdown-wrap">
-            <label>상대방 유형</label>
+            <label data-i18n="compat.partnerType">상대방 유형</label>
             <select id="selectB" class="compat-select">
-              <option value="">-- 선택 --</option>
+              <option value="" data-i18n="compat.selectOption">-- 선택 --</option>
             </select>
           </div>
         </div>
-        <button class="btn-start btn-compat-check" id="checkCompatBtn" onclick="checkCompatFromDropdown()">궁합 확인하기 💕</button>
+        <button class="btn-start btn-compat-check" id="checkCompatBtn" onclick="checkCompatFromDropdown()" data-i18n="compat.checkButton">궁합 확인하기 💕</button>
       </div>
 
       <div class="ad-container"><!-- ADSENSE_UNIT: compat-bottom | responsive --></div>
@@ -142,14 +142,13 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
       <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
-        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
-        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+        <span data-i18n="footer.disclaimer">본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요. MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.</span>
       </div>
       <nav class="footer-nav">
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보 처리방침</a>
+        <a href="about.html" data-i18n="footer.about">사이트 소개</a>
+        <a href="privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
@@ -388,7 +387,10 @@
   function checkCompatFromDropdown() {
     var typeA = document.getElementById('selectA').value;
     var typeB = document.getElementById('selectB').value;
-    if (!typeA || !typeB) { showToast('두 유형을 모두 선택해주세요!'); return; }
+    if (!typeA || !typeB) {
+      showToast(window.i18n ? window.i18n.t('compat.selectBothTypes') : '두 유형을 모두 선택해주세요!');
+      return;
+    }
     renderCompatResult(typeA, typeB);
   }
 
@@ -429,9 +431,10 @@
 
       document.getElementById('copyCompatLink').onclick = function() {
         var shareUrl = location.origin + location.pathname + '?me=' + me + '&friend=ENFP';
+        var successMsg = window.i18n ? window.i18n.t('compat.shareLink') : '친구에게 보낼 링크가 복사됐어요! 📋';
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(location.origin + location.pathname + '?me=ENFP&friend=' + me)
-            .then(function() { showToast('친구에게 보낼 링크가 복사됐어요! 📋'); });
+            .then(function() { showToast(successMsg); });
         } else {
           showToast('링크: ' + location.origin + location.pathname + '?me=ENFP&friend=' + me);
         }

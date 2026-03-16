@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾</title>
-  <meta name="description" content="마트 쇼핑, 여행, 카톡 답장... 일상 속 나의 행동으로 성격 유형을 알아보세요! 16가지 동물 캐릭터로 결과를 확인하고 친구와 공유하세요." />
+  <title data-i18n="index.title">나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾</title>
+  <meta name="description" data-i18n="index.metaDescription" content="마트 쇼핑, 여행, 카톡 답장... 일상 속 나의 행동으로 성격 유형을 알아보세요! 16가지 동물 캐릭터로 결과를 확인하고 친구와 공유하세요." />
   <meta name="keywords" content="성격 유형 테스트, 16 Personalities, 성격 검사, 동물 성격, 성격 궁합, 무료 테스트" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾" />
-  <meta property="og:description" content="일상 속 행동으로 알아보는 나의 성격 유형! 16가지 동물 캐릭터 결과를 친구와 공유해보세요." />
+  <meta property="og:title" data-i18n="index.ogTitle" content="나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾" />
+  <meta property="og:description" data-i18n="index.ogDescription" content="일상 속 행동으로 알아보는 나의 성격 유형! 16가지 동물 캐릭터 결과를 친구와 공유해보세요." />
   <meta property="og:image" content="https://stockinvestonline.com/assets/og-image.png" />
   <meta property="og:url" content="https://stockinvestonline.com/" />
   <meta property="og:site_name" content="16가지 성격 유형 동물 테스트" />
@@ -43,15 +43,15 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <a href="index.html" class="nav-logo" data-i18n="nav.logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">홈</a></li>
-        <li><a href="quiz.html">테스트 시작</a></li>
-        <li><a href="compare.html">비교</a></li>
-        <li><a href="challenges.html">도전</a></li>
-        <li><a href="about.html">소개</a></li>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
+        <li><a href="quiz.html" data-i18n="nav.test">테스트 시작</a></li>
+        <li><a href="compare.html" data-i18n="nav.compare">비교</a></li>
+        <li><a href="challenges.html" data-i18n="nav.challenges">도전</a></li>
+        <li><a href="about.html" data-i18n="nav.about">소개</a></li>
         <li class="nav-lang-dropdown">
-          <button class="lang-btn" type="button">🌐 Language ▾</button>
+          <button class="lang-btn" type="button" data-i18n="nav.language">🌐 Language ▾</button>
           <div class="lang-content">
             <a href="index.html">한국어 (KO)</a>
             <a href="en/index.html">English (EN)</a>
@@ -82,17 +82,17 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-animals">🐯 🦁 🐬 🦋 🦁 🐘 🐱 🦅</div>
-      <h1 class="hero-title">나는 어떤 동물일까?</h1>
+      <h1 class="hero-title" data-i18n="index.heroTitle">나는 어떤 동물일까?</h1>
       <p class="hero-subtitle">
-        마트 쇼핑, 여행 계획, 카톡 답장 속도...<br />
-        <strong>일상 속 나의 행동</strong>으로 당신의 성격 유형을 알아보세요!
+        <span data-i18n="index.heroSubtitleText">마트 쇼핑, 여행 계획, 카톡 답장 속도...</span><br />
+        <strong data-i18n="index.heroSubtitleBold">일상 속 나의 행동</strong><span data-i18n="index.heroSubtitleEnd">으로 당신의 성격 유형을 알아보세요!</span>
       </p>
       <div class="hero-badges">
-        <span class="badge">⏱ 약 3분</span>
-        <span class="badge">📱 모바일 최적화</span>
-        <span class="badge">🆓 무료</span>
+        <span class="badge" data-i18n="index.badgeTime">⏱ 약 3분</span>
+        <span class="badge" data-i18n="index.badgeMobile">📱 모바일 최적화</span>
+        <span class="badge" data-i18n="index.badgeFree">🆓 무료</span>
       </div>
-      <a href="quiz.html" class="btn-start" id="startBtn">
+      <a href="quiz.html" class="btn-start" id="startBtn" data-i18n="index.startButton">
         테스트 시작하기 →
       </a>
     </div>
@@ -103,8 +103,8 @@
     <div class="banner-inner">
       <span id="returningMsg"></span>
       <div class="banner-btns">
-        <a href="quiz.html" class="btn-retest">다시 테스트</a>
-        <a href="result.html" class="btn-viewresult" id="viewResultBtn">내 결과 보기</a>
+        <a href="quiz.html" class="btn-retest" data-i18n="index.retestButton">다시 테스트</a>
+        <a href="result.html" class="btn-viewresult" id="viewResultBtn" data-i18n="index.viewResultButton">내 결과 보기</a>
       </div>
     </div>
   </div>
@@ -112,55 +112,55 @@
   <!-- Popular Features Section -->
   <section class="popular-features">
     <div class="container">
-      <h2 class="section-title">🔥 인기 기능</h2>
+      <h2 class="section-title" data-i18n="index.popularTitle">🔥 인기 기능</h2>
       <div class="popular-grid">
         <a href="compat.html" class="popular-card">
           <div class="popular-card-icon">💕</div>
-          <h3>궁합 매칭</h3>
-          <p>두 성격 유형의 궁합 점수를 확인해보세요!</p>
-          <span class="popular-badge">인기</span>
+          <h3 data-i18n="index.compat1Title">궁합 매칭</h3>
+          <p data-i18n="index.compat1Desc">두 성격 유형의 궁합 점수를 확인해보세요!</p>
+          <span class="popular-badge" data-i18n="index.badgePopular">인기</span>
         </a>
         <a href="speed.html" class="popular-card">
           <div class="popular-card-icon">⚡</div>
-          <h3>속도 본능 모드</h3>
-          <p>3초 타이머! 본능으로 선택하는 성격 유형</p>
-          <span class="popular-badge popular-badge-new">신규</span>
+          <h3 data-i18n="index.speedTitle">속도 본능 모드</h3>
+          <p data-i18n="index.speedDesc">3초 타이머! 본능으로 선택하는 성격 유형</p>
+          <span class="popular-badge popular-badge-new" data-i18n="index.badgeNew">신규</span>
         </a>
         <a href="fortune.html" class="popular-card">
           <div class="popular-card-icon">🔮</div>
-          <h3>오늘의 운세</h3>
-          <p>총운·대인운·업무운·재물운 매일 업데이트</p>
-          <span class="popular-badge">매일</span>
+          <h3 data-i18n="index.fortuneTitle">오늘의 운세</h3>
+          <p data-i18n="index.fortuneDesc">총운·대인운·업무운·재물운 매일 업데이트</p>
+          <span class="popular-badge" data-i18n="index.badgeDaily">매일</span>
         </a>
         <a href="careers.html" class="popular-card">
           <div class="popular-card-icon">💼</div>
-          <h3>직업 궁합</h3>
-          <p>내 성격 유형에 맞는 추천 직업 Top 5</p>
-          <span class="popular-badge">추천</span>
+          <h3 data-i18n="index.careersTitle">직업 궁합</h3>
+          <p data-i18n="index.careersDesc">내 성격 유형에 맞는 추천 직업 Top 5</p>
+          <span class="popular-badge" data-i18n="index.badgeRecommend">추천</span>
         </a>
         <a href="situations.html" class="popular-card">
           <div class="popular-card-icon">🃏</div>
-          <h3>상황 카드</h3>
-          <p>이 상황에서 유형별 반응은? 공감 100%!</p>
-          <span class="popular-badge popular-badge-fun">재미</span>
+          <h3 data-i18n="index.situationsTitle">상황 카드</h3>
+          <p data-i18n="index.situationsDesc">이 상황에서 유형별 반응은? 공감 100%!</p>
+          <span class="popular-badge popular-badge-fun" data-i18n="index.badgeFun">재미</span>
         </a>
         <a href="compat-chart.html" class="popular-card">
           <div class="popular-card-icon">🗓️</div>
-          <h3>16×16 궁합표</h3>
-          <p>모든 성격 조합의 궁합을 한눈에 확인!</p>
-          <span class="popular-badge">전체</span>
+          <h3 data-i18n="index.compatChartTitle">16×16 궁합표</h3>
+          <p data-i18n="index.compatChartDesc">모든 성격 조합의 궁합을 한눈에 확인!</p>
+          <span class="popular-badge" data-i18n="index.badgeAll">전체</span>
         </a>
         <a href="group.html" class="popular-card">
           <div class="popular-card-icon">👥</div>
-          <h3>그룹 테스트</h3>
-          <p>친구들과 결과를 공유하고 분포를 확인!</p>
-          <span class="popular-badge popular-badge-new">신규</span>
+          <h3 data-i18n="index.groupTitle">그룹 테스트</h3>
+          <p data-i18n="index.groupDesc">친구들과 결과를 공유하고 분포를 확인!</p>
+          <span class="popular-badge popular-badge-new" data-i18n="index.badgeNew">신규</span>
         </a>
         <a href="quiz.html" class="popular-card popular-card-highlight">
           <div class="popular-card-icon">🐾</div>
-          <h3>성격 테스트 시작</h3>
-          <p>나는 어떤 동물? 지금 바로 알아보세요!</p>
-          <span class="popular-badge popular-badge-go">시작 →</span>
+          <h3 data-i18n="index.quizTitle">성격 테스트 시작</h3>
+          <p data-i18n="index.quizDesc">나는 어떤 동물? 지금 바로 알아보세요!</p>
+          <span class="popular-badge popular-badge-go" data-i18n="index.badgeStart">시작 →</span>
         </a>
       </div>
     </div>
@@ -169,27 +169,27 @@
   <!-- Features Section -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">이런 게 궁금하다면?</h2>
+      <h2 class="section-title" data-i18n="index.featuresTitle">이런 게 궁금하다면?</h2>
       <div class="features-grid">
         <a href="situations.html?card=2" class="feature-card">
           <div class="feature-icon">🛒</div>
-          <h3>마트에서 나의 모습</h3>
-          <p>리스트파 vs 충동구매파, 당신은 어느 쪽?</p>
+          <h3 data-i18n="index.feature1Title">마트에서 나의 모습</h3>
+          <p data-i18n="index.feature1Desc">리스트파 vs 충동구매파, 당신은 어느 쪽?</p>
         </a>
         <a href="situations.html?card=1" class="feature-card">
           <div class="feature-icon">✈️</div>
-          <h3>여행 스타일</h3>
-          <p>철저한 계획파 vs 즉흥 여행파, 내 유형은?</p>
+          <h3 data-i18n="index.feature2Title">여행 스타일</h3>
+          <p data-i18n="index.feature2Desc">철저한 계획파 vs 즉흥 여행파, 내 유형은?</p>
         </a>
         <a href="situations.html?card=0" class="feature-card">
           <div class="feature-icon">💬</div>
-          <h3>카톡 답장 스타일</h3>
-          <p>즉답파 vs 읽씹파, 성격 유형으로 알아보는 소통 방식</p>
+          <h3 data-i18n="index.feature3Title">카톡 답장 스타일</h3>
+          <p data-i18n="index.feature3Desc">즉답파 vs 읽씹파, 성격 유형으로 알아보는 소통 방식</p>
         </a>
         <a href="quiz.html" class="feature-card">
           <div class="feature-icon">🐾</div>
-          <h3>16가지 동물 결과</h3>
-          <p>호랑이, 돌고래, 골든리트리버... 나는 어떤 동물?</p>
+          <h3 data-i18n="index.feature4Title">16가지 동물 결과</h3>
+          <p data-i18n="index.feature4Desc">호랑이, 돌고래, 골든리트리버... 나는 어떤 동물?</p>
         </a>
       </div>
     </div>
@@ -198,7 +198,7 @@
   <!-- 성격 유형 Types Preview -->
   <section class="types-preview">
     <div class="container">
-      <h2 class="section-title">16가지 성격 동물 유형</h2>
+      <h2 class="section-title" data-i18n="index.typesTitle">16가지 성격 동물 유형</h2>
       <div class="types-grid">
         <div class="type-item" data-group="nt"><span>🐯</span><small>INTJ</small></div>
         <div class="type-item" data-group="nt"><span>🦉</span><small>INTP</small></div>
@@ -217,7 +217,7 @@
         <div class="type-item" data-group="sp"><span>🐆</span><small>ESTP</small></div>
         <div class="type-item" data-group="sp"><span>🦚</span><small>ESFP</small></div>
       </div>
-      <a href="quiz.html" class="btn-start btn-center">내 유형 알아보기 →</a>
+      <a href="quiz.html" class="btn-start btn-center" data-i18n="index.discoverButton">내 유형 알아보기 →</a>
     </div>
   </section>
 
@@ -229,14 +229,13 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
       <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
-        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
-        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+        <span data-i18n="footer.disclaimer">본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요. MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.</span>
       </div>
       <nav class="footer-nav">
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보 처리방침</a>
+        <a href="about.html" data-i18n="footer.about">사이트 소개</a>
+        <a href="privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
@@ -263,6 +262,6 @@
       window.i18n.init();
     }
   </script>
-  <script src="/js/nav.js?v=2.1"></script>
+  <script src="/js/i18n-complete.js?v=2.1"></script>
 </body>
 </html>

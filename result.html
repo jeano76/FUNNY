@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">성격 유형 결과 | 성격 유형 동물 테스트</title>
-  <meta name="description" id="pageDesc" content="나의 성격 유형 결과를 확인하고 친구에게 공유해보세요!" />
+  <title id="pageTitle" data-i18n="result.title">성격 유형 결과 | 성격 유형 동물 테스트</title>
+  <meta name="description" id="pageDesc" data-i18n="result.metaDescription" content="나의 성격 유형 결과를 확인하고 친구에게 공유해보세요!" />
 
   <!-- OG tags - dynamically updated by result.js -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" id="ogTitle" content="나의 성격 유형 결과 공유!" />
-  <meta property="og:description" id="ogDesc" content="나의 성격 유형 결과를 확인해보세요." />
+  <meta property="og:title" id="ogTitle" data-i18n="result.ogTitle" content="나의 성격 유형 결과 공유!" />
+  <meta property="og:description" id="ogDesc" data-i18n="result.ogDescription" content="나의 성격 유형 결과를 확인해보세요." />
   <meta property="og:image" id="ogImage" content="https://stockinvestonline.com/assets/og-image.png" />
   <meta property="og:url" id="ogUrl" content="" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -38,15 +38,15 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <a href="index.html" class="nav-logo" data-i18n="nav.logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">홈</a></li>
-        <li><a href="quiz.html">테스트 시작</a></li>
-        <li><a href="compare.html">비교</a></li>
-        <li><a href="challenges.html">도전</a></li>
-        <li><a href="about.html">소개</a></li>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
+        <li><a href="quiz.html" data-i18n="nav.test">테스트 시작</a></li>
+        <li><a href="compare.html" data-i18n="nav.compare">비교</a></li>
+        <li><a href="challenges.html" data-i18n="nav.challenges">도전</a></li>
+        <li><a href="about.html" data-i18n="nav.about">소개</a></li>
         <li class="nav-lang-dropdown">
-          <button class="lang-btn" type="button">🌐 Language ▾</button>
+          <button class="lang-btn" type="button" data-i18n="nav.language">🌐 Language ▾</button>
           <div class="lang-content">
             <a href="index.html">한국어 (KO)</a>
             <a href="en/index.html">English (EN)</a>
@@ -263,6 +263,6 @@
       window.i18n.init();
     }
   </script>
-  <script src="/js/nav.js?v=2.1"></script>
+  <script src="/js/i18n-complete.js?v=2.1"></script>
 </body>
 </html>

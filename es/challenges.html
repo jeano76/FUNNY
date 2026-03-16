@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>일일 도전 - 성격 유형 동물 테스트</title>
+  <title data-i18n="challenges.title">일일 도전 - 성격 유형 동물 테스트</title>
   <meta name="description" content="당신의 성격에 맞는 일일 도전 미션을 완료하고 배지를 수집하세요!" />
   <meta property="og:title" content="일일 도전 - 성격 유형 동물 테스트">
   <meta property="og:description" content="매일 새로운 도전을 완료하고 포인트를 얻으세요">
@@ -306,15 +306,15 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🐾 성격 유형 동물 테스트</a>
+      <a href="index.html" class="nav-logo" data-i18n="nav.logo">🐾 성격 유형 동물 테스트</a>
       <ul class="nav-links">
-        <li><a href="index.html">홈</a></li>
-        <li><a href="quiz.html">테스트 시작</a></li>
-        <li><a href="compare.html">비교</a></li>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
+        <li><a href="quiz.html" data-i18n="nav.test">테스트 시작</a></li>
+        <li><a href="compare.html" data-i18n="nav.compare">비교</a></li>
         <li><a href="challenges.html" class="active">도전</a></li>
-        <li><a href="about.html">소개</a></li>
+        <li><a href="about.html" data-i18n="nav.about">소개</a></li>
         <li class="nav-lang-dropdown">
-          <button class="lang-btn" type="button">🌐 Language ▾</button>
+          <button class="lang-btn" type="button" data-i18n="nav.language">🌐 Language ▾</button>
           <div class="lang-content">
             <a href="index.html">한국어 (KO)</a>
             <a href="en/index.html">English (EN)</a>
@@ -393,10 +393,10 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
       <nav class="footer-nav">
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보 처리방침</a>
+        <a href="about.html" data-i18n="footer.about">사이트 소개</a>
+        <a href="privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
@@ -416,6 +416,6 @@
       window.i18n.init();
     }
   </script>
-  <script src="/js/nav.js?v=2.1"></script>
+  <script src="/js/i18n-complete.js?v=2.1"></script>
 </body>
 </html>
