@@ -200,10 +200,17 @@ const TRANSLATIONS = {
 
     // ========== speed.html ==========
     speed: {
-      title: '스피드 모드 | 빠른 성격 테스트',
-      metaDescription: '1분만에 끝내는 빠른 성격 테스트!',
-      ogTitle: '스피드 모드',
-      ogDescription: '빠르게 성격 유형을 알아보세요.'
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ 속도 본능 모드',
+      speedSubtitle: '"본능으로 선택한 결과가 진짜 성격 유형!"',
+      speedDescription: '각 문항마다 3초 안에 선택해야 합니다. 시간이 초과되면 자동으로 중립 처리됩니다. 생각하지 말고 본능대로 선택하세요!',
+      timerRule: '⏱ 문항당 3초 타이머',
+      questionCountRule: '🎯 총 20문항',
+      timeoutRule: '⚡ 시간 초과 = 중립',
+      startButton: '본능 테스트 시작 ⚡'
     },
 
     // ========== group.html ==========
@@ -443,7 +450,14 @@ const TRANSLATIONS = {
       title: 'Speed Mode | Quick Personality Test',
       metaDescription: 'Finish a quick personality test in just 1 minute!',
       ogTitle: 'Speed Mode',
-      ogDescription: 'Discover your personality quickly.'
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Speed Instinct Mode',
+      speedSubtitle: '"Your instinctive choice is your true personality type!"',
+      speedDescription: 'You must choose within 3 seconds for each question. If time runs out, it will be treated as neutral. Don\'t think—choose by instinct!',
+      timerRule: '⏱ 3-second timer per question',
+      questionCountRule: '🎯 20 questions total',
+      timeoutRule: '⚡ Timeout = Neutral',
+      startButton: 'Start Instinct Test ⚡'
     },
     group: {
       title: 'Group Test | Test with Friends',
@@ -675,10 +689,17 @@ const TRANSLATIONS = {
       ogDescription: '今日の運勢を確認しましょう。'
     },
     speed: {
-      title: 'スピードモード | 高速性格テスト',
-      metaDescription: 'わずか1分で完了する高速性格テスト！',
-      ogTitle: 'スピードモード',
-      ogDescription: '素早く性格タイプを発見しましょう。'
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ 速度本能モード',
+      speedSubtitle: '"本能で選んだ結果があなたの本当の性格タイプです!"',
+      speedDescription: '各質問で3秒以内に選択する必要があります。時間制限を超えた場合は自動的にニュートラルになります。考えずに本能で選んでください！',
+      timerRule: '⏱ 質問ごとに3秒タイマー',
+      questionCountRule: '🎯 合計20問',
+      timeoutRule: '⚡ タイムアウト = ニュートラル',
+      startButton: '本能テスト開始 ⚡'
     },
     group: {
       title: 'グループテスト | 友達と一緒にテスト',
@@ -898,10 +919,17 @@ const TRANSLATIONS = {
       ogDescription: '查看你的每日运势。'
     },
     speed: {
-      title: '速度模式 | 快速性格测试',
-      metaDescription: '仅需1分钟即可完成快速性格测试！',
-      ogTitle: '速度模式',
-      ogDescription: '快速发现你的性格。'
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ 速度本能模式',
+      speedSubtitle: '"你的直觉选择就是你真正的性格类型！"',
+      speedDescription: '您必须在3秒内为每个问题选择答案。如果时间不足，将自动处理为中立。不要思考——凭直觉选择！',
+      timerRule: '⏱ 每个问题3秒计时器',
+      questionCountRule: '🎯 总共20个问题',
+      timeoutRule: '⚡ 超时 = 中立',
+      startButton: '开始本能测试 ⚡'
     },
     group: {
       title: '小组测试 | 与朋友一起测试',
@@ -1010,7 +1038,22 @@ const TRANSLATIONS = {
       joinTab: 'Unirse al Grupo',
       groupNameLabel: 'Nombre del Grupo (ej: Nuestra Clase, Equipo de Trabajo)',
       generateCode: 'Generar Código de Grupo 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Modo Instinto Rápido',
+      speedSubtitle: '"¡Tu elección instintiva es tu verdadero tipo de personalidad!"',
+      speedDescription: 'Debes elegir dentro de 3 segundos para cada pregunta. Si se agota el tiempo, se tratará como neutral. ¡No pienses, elige por instinto!',
+      timerRule: '⏱ Temporizador de 3 segundos por pregunta',
+      questionCountRule: '🎯 20 preguntas en total',
+      timeoutRule: '⚡ Tiempo agotado = Neutral',
+      startButton: 'Comenzar prueba instintiva ⚡'
+    },
   },
 
   de: {
@@ -1083,7 +1126,22 @@ const TRANSLATIONS = {
       joinTab: 'Gruppe Beitreten',
       groupNameLabel: 'Gruppenname (z.B. Unsere Klasse, Arbeitsteam)',
       generateCode: 'Gruppencode Generieren 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Speed-Instinkt-Modus',
+      speedSubtitle: '"Deine instinktive Wahl ist dein wahrer Persönlichkeitstyp!"',
+      speedDescription: 'Sie müssen sich innerhalb von 3 Sekunden für jede Frage entscheiden. Wenn die Zeit abläuft, wird sie als neutral behandelt. Denken Sie nicht – wählen Sie nach Instinkt!',
+      timerRule: '⏱ 3-Sekunden-Timer pro Frage',
+      questionCountRule: '🎯 Insgesamt 20 Fragen',
+      timeoutRule: '⚡ Zeitüberschreitung = Neutral',
+      startButton: 'Instinkttest starten ⚡'
+    },
   },
 
   fr: {
@@ -1156,6 +1214,21 @@ const TRANSLATIONS = {
       joinTab: 'Rejoindre le Groupe',
       groupNameLabel: 'Nom du Groupe (ex: Notre Classe, Équipe de Travail)',
       generateCode: 'Générer le Code de Groupe 🎲'
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Mode Instinct Rapide',
+      speedSubtitle: '"Votre choix instinctif est votre vrai type de personnalité !"',
+      speedDescription: 'Vous devez choisir dans les 3 secondes pour chaque question. Si le temps s\'écoule, cela sera traité comme neutre. Ne réfléchissez pas – choisissez par instinct !',
+      timerRule: '⏱ Minuteur de 3 secondes par question',
+      questionCountRule: '🎯 20 questions au total',
+      timeoutRule: '⚡ Dépassement du délai = Neutre',
+      startButton: 'Commencer le test d\'instinct ⚡'
     }
   },
 
@@ -1229,7 +1302,22 @@ const TRANSLATIONS = {
       joinTab: 'Присоединиться к Группе',
       groupNameLabel: 'Название группы (например: Наш класс, Рабочая команда)',
       generateCode: 'Генерировать Код Группы 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Режим Быстрого Инстинкта',
+      speedSubtitle: '"Ваш инстинктивный выбор — это ваш истинный тип личности!"',
+      speedDescription: 'Вы должны выбрать в течение 3 секунд для каждого вопроса. Если время истечет, это будет рассматриваться как нейтральное. Не думайте — выбирайте по инстинкту!',
+      timerRule: '⏱ Таймер 3 секунды на вопрос',
+      questionCountRule: '🎯 Всего 20 вопросов',
+      timeoutRule: '⚡ Истечение времени = Нейтральное',
+      startButton: 'Начать тест инстинкта ⚡'
+    },
   },
 
   pt: {
@@ -1302,7 +1390,22 @@ const TRANSLATIONS = {
       joinTab: 'Entrar no Grupo',
       groupNameLabel: 'Nome do Grupo (ex: Nossa Classe, Equipe de Trabalho)',
       generateCode: 'Gerar Código de Grupo 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Modo Instinto Rápido',
+      speedSubtitle: '"Sua escolha instintiva é seu verdadeiro tipo de personalidade!"',
+      speedDescription: 'Você deve escolher dentro de 3 segundos para cada pergunta. Se o tempo acabar, será tratado como neutro. Não pense – escolha por instinto!',
+      timerRule: '⏱ Temporizador de 3 segundos por pergunta',
+      questionCountRule: '🎯 20 perguntas no total',
+      timeoutRule: '⚡ Tempo esgotado = Neutro',
+      startButton: 'Iniciar teste instintivo ⚡'
+    },
   },
 
   id: {
@@ -1375,7 +1478,22 @@ const TRANSLATIONS = {
       joinTab: 'Bergabung dengan Grup',
       groupNameLabel: 'Nama Grup (mis: Kelas Kami, Tim Kerja)',
       generateCode: 'Hasilkan Kode Grup 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Mode Instink Cepat',
+      speedSubtitle: '"Pilihan instinktif Anda adalah tipe kepribadian sejati Anda!"',
+      speedDescription: 'Anda harus memilih dalam 3 detik untuk setiap pertanyaan. Jika waktu habis, akan diperlakukan sebagai netral. Jangan berpikir – pilih berdasarkan instink!',
+      timerRule: '⏱ Timer 3 detik per pertanyaan',
+      questionCountRule: '🎯 20 pertanyaan total',
+      timeoutRule: '⚡ Waktu Habis = Netral',
+      startButton: 'Mulai Tes Instink ⚡'
+    },
   },
 
   hi: {
@@ -1448,7 +1566,22 @@ const TRANSLATIONS = {
       joinTab: 'समूह में शामिल हों',
       groupNameLabel: 'समूह का नाम (उदा: हमारी कक्षा, कार्य दल)',
       generateCode: 'समूह कोड जेनरेट करें 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ तेजी प्रवृत्ति मोड',
+      speedSubtitle: '"आपकी सहज पसंद आपकी सच्ची व्यक्तित्व प्रकार है!"',
+      speedDescription: 'आपको प्रत्येक प्रश्न के लिए 3 सेकंड के भीतर चुनना चाहिए। यदि समय समाप्त हो जाता है, तो इसे तटस्थ माना जाएगा। सोचें नहीं – प्रवृत्ति द्वारा चुनें!',
+      timerRule: '⏱ प्रति प्रश्न 3 सेकंड टाइमर',
+      questionCountRule: '🎯 कुल 20 प्रश्न',
+      timeoutRule: '⚡ समय समाप्त = तटस्थ',
+      startButton: 'सहज परीक्षा शुरू करें ⚡'
+    },
   },
 
   vi: {
@@ -1521,7 +1654,22 @@ const TRANSLATIONS = {
       joinTab: 'Tham Gia Nhóm',
       groupNameLabel: 'Tên Nhóm (ví dụ: Lớp Của Chúng Tôi, Đội Làm Việc)',
       generateCode: 'Tạo Mã Nhóm 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Chế Độ Bản Năng Nhanh',
+      speedSubtitle: '"Lựa chọn bản năng của bạn là loại tính cách thực sự của bạn!"',
+      speedDescription: 'Bạn phải chọn trong vòng 3 giây cho mỗi câu hỏi. Nếu hết thời gian, nó sẽ được coi là trung lập. Đừng suy nghĩ – chọn theo bản năng!',
+      timerRule: '⏱ Bộ hẹn giờ 3 giây cho mỗi câu hỏi',
+      questionCountRule: '🎯 Tổng cộng 20 câu hỏi',
+      timeoutRule: '⚡ Hết thời gian = Trung lập',
+      startButton: 'Bắt đầu kiểm tra bản năng ⚡'
+    },
   },
 
   th: {
@@ -1594,7 +1742,22 @@ const TRANSLATIONS = {
       joinTab: 'เข้าร่วมกลุ่ม',
       groupNameLabel: 'ชื่อกลุ่ม (เช่น ชั้นเรียน ทีมงาน)',
       generateCode: 'สร้างรหัสกลุ่ม 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ โหมดสัญชาตญาณเร็ว',
+      speedSubtitle: '"ตัวเลือกของคุณตามสัญชาตญาณคือประเภทบุคลิกภาพที่แท้จริงของคุณ!"',
+      speedDescription: 'คุณต้องเลือกภายใน 3 วินาทีสำหรับแต่ละคำถาม หากหมดเวลา จะถูกปฏิบัติว่าเป็นกลาง อย่าคิด – เลือกตามสัญชาตญาณ!',
+      timerRule: '⏱ ตัวจับเวลา 3 วินาทีต่อคำถาม',
+      questionCountRule: '🎯 รวม 20 คำถาม',
+      timeoutRule: '⚡ หมดเวลา = กลาง',
+      startButton: 'เริ่มการทดสอบสัญชาตญาณ ⚡'
+    },
   },
 
   tr: {
@@ -1667,7 +1830,22 @@ const TRANSLATIONS = {
       joinTab: 'Gruba Katıl',
       groupNameLabel: 'Grup Adı (ör: Sınıfımız, İş Ekibi)',
       generateCode: 'Grup Kodunu Oluştur 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Hızlı Sezgi Modu',
+      speedSubtitle: '"Sezgileriniz tarafından yapılan seçiminiz gerçek kişilik tipinizdir!"',
+      speedDescription: 'Her soru için 3 saniye içinde seçim yapmalısınız. Süre biterse nötr olarak işlem görür. Düşünmeyin – sezgilerinizle seçin!',
+      timerRule: '⏱ Soru başına 3 saniye zamanlayıcı',
+      questionCountRule: '🎯 Toplam 20 soru',
+      timeoutRule: '⚡ Zaman Aşımı = Nötr',
+      startButton: 'Sezgi Testini Başlat ⚡'
+    },
   },
 
   it: {
@@ -1740,7 +1918,22 @@ const TRANSLATIONS = {
       joinTab: 'Unisciti al Gruppo',
       groupNameLabel: 'Nome Gruppo (es: Nostra Classe, Team di Lavoro)',
       generateCode: 'Genera Codice di Gruppo 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Modalità Istinto Veloce',
+      speedSubtitle: '"La tua scelta istintiva è il tuo vero tipo di personalità!"',
+      speedDescription: 'Devi scegliere entro 3 secondi per ogni domanda. Se il tempo scade, sarà trattato come neutrale. Non pensare – scegli per istinto!',
+      timerRule: '⏱ Timer di 3 secondi per domanda',
+      questionCountRule: '🎯 20 domande totali',
+      timeoutRule: '⚡ Scadenza tempo = Neutrale',
+      startButton: 'Avvia test istinto ⚡'
+    },
   },
 
   nl: {
@@ -1813,7 +2006,22 @@ const TRANSLATIONS = {
       joinTab: 'Groep Toetreden',
       groupNameLabel: 'Groepsnaam (bijv: Onze Klas, Werkteam)',
       generateCode: 'Groepscode Genereren 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Snelle Instinct Modus',
+      speedSubtitle: '"Uw instinctieve keuze is uw ware persoonlijkheidstype!"',
+      speedDescription: 'U moet binnen 3 seconden kiezen voor elke vraag. Als de tijd verstrijkt, wordt het als neutraal behandeld. Denk niet – kies op instinct!',
+      timerRule: '⏱ 3-secondetimer per vraag',
+      questionCountRule: '🎯 20 vragen totaal',
+      timeoutRule: '⚡ Tijd verstreken = Neutraal',
+      startButton: 'Instincttest starten ⚡'
+    },
   },
 
   ar: {
@@ -1886,7 +2094,22 @@ const TRANSLATIONS = {
       joinTab: 'الانضمام إلى المجموعة',
       groupNameLabel: 'اسم المجموعة (مثال: فصلنا، فريق العمل)',
       generateCode: 'إنشاء رمز المجموعة 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ وضع الحدس السريع',
+      speedSubtitle: '"اختيارك الحدسي هو نوع شخصيتك الحقيقي!"',
+      speedDescription: 'يجب أن تختار في غضون 3 ثوان لكل سؤال. إذا انتهت المهلة الزمنية، سيتم التعامل معها على أنها محايدة. لا تفكر - اختر بحدسك!',
+      timerRule: '⏱ مؤقت 3 ثوان لكل سؤال',
+      questionCountRule: '🎯 إجمالي 20 سؤال',
+      timeoutRule: '⚡ انتهاء المهلة = محايد',
+      startButton: 'ابدأ اختبار الحدس ⚡'
+    },
   },
 
   mn: {
@@ -1959,7 +2182,22 @@ const TRANSLATIONS = {
       joinTab: 'Групп руу нэгдэх',
       groupNameLabel: 'Групп нэр (жишээлбэл: Манай анги, Ажлын баг)',
       generateCode: 'Групп кодыг үүсгэх 🎲'
-    }
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Хурдан Ухамсрын Горим',
+      speedSubtitle: '"Таны ухамсрын сонголт нь таны жинхэнэ хувь заснаас юм!"',
+      speedDescription: 'Та асуулт бүрийн хувьд 3 секундын дотор сонгох ёстой. Хугацаа дууссан бол төрөлхийн хэмжээнд оролцсон гэж үзнэ. Бодолцохгүй байгаль сонголоо хийнэ!',
+      timerRule: '⏱ Асуулт бүрт 3 секундын хэмжээний таймер',
+      questionCountRule: '🎯 Нийт 20 асуулт',
+      timeoutRule: '⚡ Хугацаа дууссан = Төрөлхий',
+      startButton: 'Ухамсрын тест эхлүүлэх ⚡'
+    },
   },
 
   la: {
@@ -2032,6 +2270,21 @@ const TRANSLATIONS = {
       joinTab: 'Ades Coetui',
       groupNameLabel: 'Nomen Coetus (exempli: Nostra Schola, Coetus Operae)',
       generateCode: 'Genera Codiculum Coetus 🎲'
+    },
+
+    // ========== speed.html ==========
+    speed: {
+      title: 'Speed Mode | Quick Personality Test',
+      metaDescription: 'Finish a quick personality test in just 1 minute!',
+      ogTitle: 'Speed Mode',
+      ogDescription: 'Discover your personality quickly.',
+      mainTitle: '⚡ Modus Instinctus Celeris',
+      speedSubtitle: '"Quod instinctu elegisti est verum genus tuae personalitatis!"',
+      speedDescription: 'Debes eligere intra 3 secundas pro quaestione. Si tempus defluit, tractabitur ut neutrum. Noli cogitare – instinctu elige!',
+      timerRule: '⏱ Horlogium 3 secundorum per quaestionem',
+      questionCountRule: '🎯 20 quaestiones totales',
+      timeoutRule: '⚡ Tempus finitum = Neutrum',
+      startButton: 'Incipe probationem instinctus ⚡'
     }
   }
 };
