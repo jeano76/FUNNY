@@ -1830,7 +1830,6 @@ const TRANSLATIONS = {
       shareLink: 'Nexum copia! 📋'
     }
   }
-}
 };
 
 // Export to window for use by i18n-complete.js
