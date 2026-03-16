@@ -63,9 +63,16 @@
       return;
     }
 
-    // 2. 일반 내부 링크 클릭 시: 현재 저장된 언어를 강제로 유지
+    // 2. 일반 내부 링크 클릭 시: 상대경로는 그대로, 절대경로만 현재 언어로 유지
     const savedLang = localStorage.getItem(LANG_KEY);
-    if (savedLang && savedLang !== 'ko') {
+
+    // 상대경로(../, ./)는 브라우저 기본 동작 유지
+    if (href.startsWith('..') || href.startsWith('.')) {
+      return;
+    }
+
+    // 절대경로(/로 시작)만 언어 변환 적용
+    if (savedLang && savedLang !== 'ko' && href.startsWith('/')) {
       e.preventDefault();
       // 순수 파일명만 추출
       const pageName = href.split('/').pop() || 'index.html';
