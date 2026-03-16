@@ -3,97 +3,96 @@
  *
  * This script handles language persistence across pages.
  *
- * 1.  It determines the current page's language and file name from the URL.
- * 2.  It checks localStorage for a user-selected language.
- * 3.  If the stored language doesn't match the current page's language, it redirects to the correct language version of the same page.
- * 4.  If no language is stored, it attempts to auto-detect based on browser settings.
+ * 1.  It determines the current page's language directory from the URL.
+ * 2.  It checks localStorage for a user-selected language directory (e.g., 'en', 'jp').
+ * 3.  If the stored directory doesn't match the current one, it redirects to the correct language version of the same page.
+ * 4.  If no language is stored, it attempts to auto-detect from browser settings.
  * 5.  Provides a global `window.switchLanguage` function for manual language changes.
  */
 (function() {
     // --- Configuration ---
-    const langMap = {
+    // Maps browser language codes to the website's directory names.
+    const langToDir = {
         'ko': 'ko', 'en': 'en', 'ja': 'jp', 'zh': 'zh', 'zh-hans': 'zh', 'zh-hant': 'zh',
         'es': 'es', 'de': 'de', 'fr': 'fr', 'ru': 'ru', 'pt': 'pt', 'id': 'id',
         'hi': 'hi', 'vi': 'vi', 'th': 'th', 'tr': 'tr', 'it': 'it', 'nl': 'nl',
         'ar': 'ar', 'mn': 'mn', 'la': 'la'
     };
-    const supportedLangs = Object.keys(langMap);
+    // Create a definitive list of valid language directory names from the map.
+    const validDirs = [...new Set(Object.values(langToDir))];
 
     // --- Core Functions ---
 
     /**
-     * Parses the window location to determine the current language and page file.
-     * @returns {{lang: string, page: string}}
+     * Parses the window location to determine the current language directory and page file.
+     * @returns {{dir: string, page: string}}
      */
     function parseLocation() {
         const path = window.location.pathname;
         const segments = path.split('/').filter(Boolean);
 
-        let currentLang = 'ko'; // Default language is Korean (at root)
+        let currentDir = 'ko'; // Default directory is 'ko' (root)
         let pageName = 'index.html';
 
         if (segments.length > 0) {
-            // Check if the first segment is a known language code
-            if (supportedLangs.includes(segments[0])) {
-                currentLang = segments.shift(); // e.g., 'en'. Segments is now the rest of the path.
+            // Check if the first segment is a known language directory.
+            if (validDirs.includes(segments[0])) {
+                currentDir = segments.shift(); // It is. Set dir and remove it from segments.
             }
         }
 
         if (segments.length > 0) {
-            // After potentially removing lang, the last part should be the page
+            // After potentially removing the lang dir, the last part is the page.
             const lastSegment = segments[segments.length - 1];
             if (lastSegment.includes('.html')) {
                 pageName = lastSegment;
             }
         }
-        // If segments is empty, it means we are at a root like / or /en/, so index.html is correct.
-        
-        return { lang: currentLang, page: pageName };
+        // If segments is empty, we are at a root like / or /en/, so index.html is the correct pageName.
+        return { dir: currentDir, page: pageName };
     }
 
     /**
      * Redirects the browser to the correct language version of a given page.
-     * @param {string} targetLang - The language code to redirect to (e.g., 'en').
+     * @param {string} targetDir - The language directory to redirect to (e.g., 'jp').
      * @param {string} targetPage - The page file to redirect to (e.g., 'about.html').
      */
-    function redirectTo(targetLang, targetPage) {
-        const targetPath = targetLang === 'ko'
+    function redirectTo(targetDir, targetPage) {
+        const targetPath = targetDir === 'ko'
             ? `/${targetPage}`
-            : `/${targetLang}/${targetPage}`;
+            : `/${targetDir}/${targetPage}`;
         
-        // Avoid redundant redirects, especially for / vs /index.html
-        if (window.location.pathname !== targetPath) {
-            // Handle root index case
-            if (targetPath === '/index.html' && window.location.pathname === '/') {
-                return;
-            }
-            window.location.href = targetPath;
+        const currentPath = window.location.pathname;
+
+        // Avoid redundant redirects, e.g. from / to /index.html
+        if (currentPath === targetPath || (targetPath === '/index.html' && currentPath === '/')) {
+            return;
         }
+        window.location.href = targetPath;
     }
 
     /**
      * Main logic run on every page load.
      */
     function initialize() {
-        const { lang: currentLang, page: currentPage } = parseLocation();
-        const savedLang = localStorage.getItem('selectedLang');
+        const { dir: currentDir, page: currentPage } = parseLocation();
+        const savedDir = localStorage.getItem('selectedLangDir');
 
-        if (savedLang) {
-            // User has a saved preference. Enforce it.
-            if (savedLang !== currentLang) {
-                redirectTo(savedLang, currentPage);
+        if (savedDir) {
+            // A language has been explicitly selected before. Enforce it.
+            if (savedDir !== currentDir) {
+                redirectTo(savedDir, currentPage);
             }
         } else {
-            // No saved preference, try to auto-detect from browser.
+            // No selection exists. Try to auto-detect from browser settings.
             const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            const browserLangCode = browserLang.split('-')[0];
-            const detectedLang = langMap[browserLang] || langMap[browserLangCode];
+            const detectedDir = langToDir[browserLang] || langToDir[browserLang.split('-')[0]];
 
-            if (detectedLang && detectedLang !== currentLang) {
-                // We have a detected language that is different.
-                // We'll redirect, but also save it so we don't need to detect next time.
-                localStorage.setItem('selectedLang', detectedLang);
-                redirectTo(detectedLang, currentPage);
+            if (detectedDir && detectedDir !== currentDir) {
+                // We have a detected language that is different from the current page's language.
+                // Redirect and save the preference so we don't need to detect next time.
+                localStorage.setItem('selectedLangDir', detectedDir);
+                redirectTo(detectedDir, currentPage);
             }
         }
     }
@@ -102,20 +101,19 @@
 
     /**
      * Sets the language preference and triggers a redirection.
-     * Exposed on the window object for nav.js to use.
-     * @param {string} langCode - The language code to switch to.
+     * The code passed to this function must be a valid directory name ('en', 'jp', etc.).
+     * @param {string} langDir - The language directory to switch to.
      */
-    window.switchLanguage = function(langCode) {
-        if (!langCode || !supportedLangs.includes(langCode)) {
-            console.error('Invalid language code provided to switchLanguage:', langCode);
+    window.switchLanguage = function(langDir) {
+        if (!langDir || !validDirs.includes(langDir)) {
+            console.error('Invalid language directory provided to switchLanguage:', langDir);
             return;
         }
         
-        localStorage.setItem('selectedLang', langCode);
+        localStorage.setItem('selectedLangDir', langDir);
 
-        // We need to know which page we are on to redirect correctly.
         const { page: currentPage } = parseLocation();
-        redirectTo(langCode, currentPage);
+        redirectTo(langDir, currentPage);
     };
 
     // --- Execution ---
