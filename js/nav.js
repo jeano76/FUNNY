@@ -1,5 +1,7 @@
 (function () {
   const LANG_KEY = 'mbti_site_lang';
+  let allButtons = [];
+  let allContents = [];
 
   // 언어 선택 드롭다운 초기화
   function initDropdown() {
@@ -8,31 +10,41 @@
       const content = dropdown.querySelector('.lang-content');
       if (!btn || !content) return;
 
+      allButtons.push(btn);
+      allContents.push(content);
+
+      // Move content to body for fixed positioning
       document.body.appendChild(content);
 
+      // Button click handler
       btn.addEventListener('click', function (e) {
+        e.preventDefault();
         e.stopPropagation();
         const isOpen = content.style.display === 'block';
         closeAll();
         if (!isOpen) {
           const rect = btn.getBoundingClientRect();
           content.style.top = (rect.bottom + 5) + 'px';
-          content.style.right = Math.max(5, window.innerWidth - rect.right) + 'px';
+          content.style.left = (rect.left) + 'px';
           content.style.display = 'block';
         }
       });
     });
 
+    // Global click handler to close dropdown
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('.nav-lang-dropdown, .lang-dropdown, .lang-content')) {
+      const isInButton = allButtons.some(btn => btn.contains(e.target));
+      const isInContent = allContents.some(content => content.contains(e.target));
+
+      if (!isInButton && !isInContent) {
         closeAll();
       }
     });
   }
 
   function closeAll() {
-    document.querySelectorAll('.lang-content').forEach(function (c) {
-      c.style.display = '';
+    allContents.forEach(function (c) {
+      c.style.display = 'none';
     });
   }
 
