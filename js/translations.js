@@ -1833,7 +1833,12 @@ const TRANSLATIONS = {
 }
 };
 
-// 초기화
-if (typeof window !== 'undefined' && window.i18n) {
-  window.i18n.setTranslations(TRANSLATIONS);
+// Export to window for use by i18n-complete.js
+if (typeof window !== 'undefined') {
+  window.TRANSLATIONS = TRANSLATIONS;
+
+  // Also set translations if i18n is already loaded
+  if (window.i18n) {
+    window.i18n.setTranslations(TRANSLATIONS);
+  }
 }
