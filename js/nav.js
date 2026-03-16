@@ -36,7 +36,7 @@
     });
   }
 
-  // 모든 링크 클릭을 가로채는 이벤트 위임
+  // 모든 링크 클릭 감시 (이벤트 위임)
   document.addEventListener('click', function(e) {
     const link = e.target.closest('a');
     if (!link) return;
@@ -44,36 +44,33 @@
     const href = link.getAttribute('href');
     if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript:')) return;
 
-    // 1. 언어 메뉴 링크 클릭 시
+    // 1. 언어 변경 메뉴 클릭 시
     if (link.closest('.lang-content')) {
       e.preventDefault();
-      let langDir = 'ko';
-      // href에서 디렉토리 추출 (예: 'en/index.html' -> 'en', 'jp/index.html' -> 'jp', '../en/index.html' -> 'en')
+      // href에서 언어 폴더명 추출
       const parts = href.split('/').filter(p => p && p !== '..');
+      let targetDir = 'ko';
       if (parts.length >= 2 && parts[parts.length - 1].includes('.html')) {
-        langDir = parts[parts.length - 2];
-      } else if (href === 'index.html' || href === '/index.html') {
-        langDir = 'ko';
+        targetDir = parts[parts.length - 2];
       }
-
+      
       if (window.switchLanguage) {
-        window.switchLanguage(langDir);
+        window.switchLanguage(targetDir);
       } else {
-        localStorage.setItem(LANG_KEY, langDir);
+        localStorage.setItem(LANG_KEY, targetDir);
         window.location.href = href;
       }
       return;
     }
 
-    // 2. 일반 메뉴 링크 클릭 시 (언어 유지)
+    // 2. 일반 내부 링크 클릭 시: 현재 저장된 언어를 강제로 유지
     const savedLang = localStorage.getItem(LANG_KEY);
     if (savedLang && savedLang !== 'ko') {
-      // 절대 경로가 아닌 경우에만 현재 언어 경로를 강제
-      if (!href.startsWith('/')) {
-        e.preventDefault();
-        const pageName = href.split('/').pop();
-        window.location.href = '/' + savedLang + '/' + (pageName.includes('.html') ? pageName : 'index.html');
-      }
+      e.preventDefault();
+      // 순수 파일명만 추출
+      const pageName = href.split('/').pop() || 'index.html';
+      const targetPath = '/' + savedLang + '/' + (pageName.includes('.html') ? pageName : 'index.html');
+      window.location.href = targetPath;
     }
   });
 
