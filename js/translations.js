@@ -211,7 +211,13 @@ const TRANSLATIONS = {
       title: '그룹 테스트 | 친구들과 함께하는 테스트',
       metaDescription: '친구들과 함께 성격 테스트를 해보세요!',
       ogTitle: '그룹 테스트',
-      ogDescription: '친구들과 함께 즐기는 성격 테스트'
+      ogDescription: '친구들과 함께 즐기는 성격 테스트',
+      mainTitle: '그룹 성격 유형 테스트',
+      subtitle: '그룹 코드를 만들고 친구들과 성격 유형를 공유하세요!',
+      createTab: '그룹 만들기',
+      joinTab: '그룹 참여하기',
+      groupNameLabel: '그룹 이름 (예: 우리반, 회사팀)',
+      generateCode: '그룹 코드 생성 🎲'
     },
 
     // ========== compat-chart.html ==========
@@ -443,7 +449,13 @@ const TRANSLATIONS = {
       title: 'Group Test | Test with Friends',
       metaDescription: 'Take the personality test together with your friends!',
       ogTitle: 'Group Test',
-      ogDescription: 'Fun personality test with friends'
+      ogDescription: 'Fun personality test with friends',
+      mainTitle: 'Group Personality Type Test',
+      subtitle: 'Create a group code and share personality types with friends!',
+      createTab: 'Create Group',
+      joinTab: 'Join Group',
+      groupNameLabel: 'Group Name (e.g., Our Class, Work Team)',
+      generateCode: 'Generate Group Code 🎲'
     },
     compatChart: {
       title: 'Compatibility Chart | View All Combinations',
@@ -672,7 +684,13 @@ const TRANSLATIONS = {
       title: 'グループテスト | 友達と一緒にテスト',
       metaDescription: '友達と一緒に性格テストをしましょう！',
       ogTitle: 'グループテスト',
-      ogDescription: '友達と一緒に楽しむ性格テスト'
+      ogDescription: '友達と一緒に楽しむ性格テスト',
+      mainTitle: 'グループ性格タイプテスト',
+      subtitle: 'グループコードを作成して、友人と性格タイプを共有しましょう！',
+      createTab: 'グループを作成',
+      joinTab: 'グループに参加',
+      groupNameLabel: 'グループ名 (例: クラス、チーム)',
+      generateCode: 'グループコード生成 🎲'
     },
     compatChart: {
       title: '相性表 | すべての組み合わせを表示',
@@ -889,7 +907,13 @@ const TRANSLATIONS = {
       title: '小组测试 | 与朋友一起测试',
       metaDescription: '与你的朋友一起进行性格测试！',
       ogTitle: '小组测试',
-      ogDescription: '与朋友一起享受有趣的性格测试'
+      ogDescription: '与朋友一起享受有趣的性格测试',
+      mainTitle: '小组性格类型测试',
+      subtitle: '创建小组代码并与朋友分享性格类型！',
+      createTab: '创建小组',
+      joinTab: '加入小组',
+      groupNameLabel: '小组名称 (例: 我们的班级、工作团队)',
+      generateCode: '生成小组代码 🎲'
     },
 
     compat: {
@@ -974,6 +998,18 @@ const TRANSLATIONS = {
       checkButton: 'Verificar compatibilidad 💕',
       selectBothTypes: '¡Por favor selecciona ambos tipos!',
       shareLink: '¡Enlace copiado! 📋'
+    },
+    group: {
+      title: 'Prueba de Tipo de Personalidad Grupal | Divertido con Amigos',
+      metaDescription: '¡Crea un código de grupo y comparte tipos de personalidad con amigos!',
+      ogTitle: 'Prueba de Tipo de Personalidad Grupal',
+      ogDescription: '¡Comparte tipos de personalidad con amigos!',
+      mainTitle: 'Prueba de Tipo de Personalidad Grupal',
+      subtitle: '¡Crea un código de grupo y comparte tipos de personalidad con amigos!',
+      createTab: 'Crear Grupo',
+      joinTab: 'Unirse al Grupo',
+      groupNameLabel: 'Nombre del Grupo (ej: Nuestra Clase, Equipo de Trabajo)',
+      generateCode: 'Generar Código de Grupo 🎲'
     }
   },
 
@@ -1035,6 +1071,18 @@ const TRANSLATIONS = {
       checkButton: 'Kompatibilität überprüfen 💕',
       selectBothTypes: 'Bitte wählen Sie beide Typen aus!',
       shareLink: 'Link kopiert! 📋'
+    },
+    group: {
+      title: 'Persönlichkeitstyp-Gruppentest | Spaß mit Freunden',
+      metaDescription: 'Erstelle einen Gruppencode und teile Persönlichkeitstypen mit Freunden!',
+      ogTitle: 'Persönlichkeitstyp-Gruppentest',
+      ogDescription: 'Teile Persönlichkeitstypen mit Freunden!',
+      mainTitle: 'Persönlichkeitstyp-Gruppentest',
+      subtitle: 'Erstelle einen Gruppencode und teile Persönlichkeitstypen mit Freunden!',
+      createTab: 'Gruppe Erstellen',
+      joinTab: 'Gruppe Beitreten',
+      groupNameLabel: 'Gruppenname (z.B. Unsere Klasse, Arbeitsteam)',
+      generateCode: 'Gruppencode Generieren 🎲'
     }
   },
 
@@ -1096,6 +1144,18 @@ const TRANSLATIONS = {
       checkButton: 'Vérifier la compatibilité 💕',
       selectBothTypes: 'Veuillez sélectionner les deux types !',
       shareLink: 'Lien copié ! 📋'
+    },
+    group: {
+      title: 'Test de Type de Personnalité de Groupe | Amusement avec Amis',
+      metaDescription: 'Créez un code de groupe et partagez les types de personnalité avec des amis!',
+      ogTitle: 'Test de Type de Personnalité de Groupe',
+      ogDescription: 'Partagez les types de personnalité avec les amis!',
+      mainTitle: 'Test de Type de Personnalité de Groupe',
+      subtitle: 'Créez un code de groupe et partagez les types de personnalité avec des amis!',
+      createTab: 'Créer un Groupe',
+      joinTab: 'Rejoindre le Groupe',
+      groupNameLabel: 'Nom du Groupe (ex: Notre Classe, Équipe de Travail)',
+      generateCode: 'Générer le Code de Groupe 🎲'
     }
   },
 
@@ -1157,6 +1217,18 @@ const TRANSLATIONS = {
       checkButton: 'Проверить совместимость 💕',
       selectBothTypes: 'Пожалуйста, выберите оба типа!',
       shareLink: 'Ссылка скопирована! 📋'
+    },
+    group: {
+      title: 'Групповой тест типа личности | Веселье с друзьями',
+      metaDescription: 'Создайте групповой код и делитесь типами личности с друзьями!',
+      ogTitle: 'Групповой тест типа личности',
+      ogDescription: 'Делитесь типами личности с друзьями!',
+      mainTitle: 'Групповой тест типа личности',
+      subtitle: 'Создайте групповой код и делитесь типами личности с друзьями!',
+      createTab: 'Создать Группу',
+      joinTab: 'Присоединиться к Группе',
+      groupNameLabel: 'Название группы (например: Наш класс, Рабочая команда)',
+      generateCode: 'Генерировать Код Группы 🎲'
     }
   },
 
@@ -1218,6 +1290,18 @@ const TRANSLATIONS = {
       checkButton: 'Verificar compatibilidade 💕',
       selectBothTypes: 'Por favor, selecione ambos os tipos!',
       shareLink: 'Link copiado! 📋'
+    },
+    group: {
+      title: 'Teste de Tipo de Personalidade em Grupo | Diversão com Amigos',
+      metaDescription: 'Crie um código de grupo e compartilhe tipos de personalidade com amigos!',
+      ogTitle: 'Teste de Tipo de Personalidade em Grupo',
+      ogDescription: 'Compartilhe tipos de personalidade com amigos!',
+      mainTitle: 'Teste de Tipo de Personalidade em Grupo',
+      subtitle: 'Crie um código de grupo e compartilhe tipos de personalidade com amigos!',
+      createTab: 'Criar Grupo',
+      joinTab: 'Entrar no Grupo',
+      groupNameLabel: 'Nome do Grupo (ex: Nossa Classe, Equipe de Trabalho)',
+      generateCode: 'Gerar Código de Grupo 🎲'
     }
   },
 
@@ -1279,6 +1363,18 @@ const TRANSLATIONS = {
       checkButton: 'Periksa kompatibilitas 💕',
       selectBothTypes: 'Silakan pilih kedua jenis!',
       shareLink: 'Tautan disalin! 📋'
+    },
+    group: {
+      title: 'Tes Tipe Kepribadian Grup | Menyenangkan dengan Teman',
+      metaDescription: 'Buat kode grup dan bagikan tipe kepribadian dengan teman!',
+      ogTitle: 'Tes Tipe Kepribadian Grup',
+      ogDescription: 'Bagikan tipe kepribadian dengan teman!',
+      mainTitle: 'Tes Tipe Kepribadian Grup',
+      subtitle: 'Buat kode grup dan bagikan tipe kepribadian dengan teman!',
+      createTab: 'Buat Grup',
+      joinTab: 'Bergabung dengan Grup',
+      groupNameLabel: 'Nama Grup (mis: Kelas Kami, Tim Kerja)',
+      generateCode: 'Hasilkan Kode Grup 🎲'
     }
   },
 
@@ -1340,6 +1436,18 @@ const TRANSLATIONS = {
       checkButton: 'अनुकूलता जांचें 💕',
       selectBothTypes: 'कृपया दोनों प्रकार चुनें!',
       shareLink: 'लिंक कॉपी हो गया! 📋'
+    },
+    group: {
+      title: 'समूह व्यक्तित्व प्रकार परीक्षण | दोस्तों के साथ मजा',
+      metaDescription: 'एक समूह कोड बनाएं और दोस्तों के साथ व्यक्तित्व प्रकार साझा करें!',
+      ogTitle: 'समूह व्यक्तित्व प्रकार परीक्षण',
+      ogDescription: 'दोस्तों के साथ व्यक्तित्व प्रकार साझा करें!',
+      mainTitle: 'समूह व्यक्तित्व प्रकार परीक्षण',
+      subtitle: 'एक समूह कोड बनाएं और दोस्तों के साथ व्यक्तित्व प्रकार साझा करें!',
+      createTab: 'समूह बनाएं',
+      joinTab: 'समूह में शामिल हों',
+      groupNameLabel: 'समूह का नाम (उदा: हमारी कक्षा, कार्य दल)',
+      generateCode: 'समूह कोड जेनरेट करें 🎲'
     }
   },
 
@@ -1401,6 +1509,18 @@ const TRANSLATIONS = {
       checkButton: 'Kiểm tra tương thích 💕',
       selectBothTypes: 'Vui lòng chọn cả hai loại!',
       shareLink: 'Đã sao chép liên kết! 📋'
+    },
+    group: {
+      title: 'Kiểm Tra Loại Tính Cách Nhóm | Vui Vẻ với Bạn Bè',
+      metaDescription: 'Tạo mã nhóm và chia sẻ loại tính cách với bạn bè!',
+      ogTitle: 'Kiểm Tra Loại Tính Cách Nhóm',
+      ogDescription: 'Chia sẻ loại tính cách với bạn bè!',
+      mainTitle: 'Kiểm Tra Loại Tính Cách Nhóm',
+      subtitle: 'Tạo mã nhóm và chia sẻ loại tính cách với bạn bè!',
+      createTab: 'Tạo Nhóm',
+      joinTab: 'Tham Gia Nhóm',
+      groupNameLabel: 'Tên Nhóm (ví dụ: Lớp Của Chúng Tôi, Đội Làm Việc)',
+      generateCode: 'Tạo Mã Nhóm 🎲'
     }
   },
 
@@ -1462,6 +1582,18 @@ const TRANSLATIONS = {
       checkButton: 'ตรวจสอบความเข้ากันได้ 💕',
       selectBothTypes: 'โปรดเลือกทั้งสองประเภท!',
       shareLink: 'คัดลอกลิงก์แล้ว! 📋'
+    },
+    group: {
+      title: 'การทดสอบประเภทบุคลิกภาพของกลุ่ม | สนุกสนานกับเพื่อน',
+      metaDescription: 'สร้างรหัสกลุ่มและแบ่งปันประเภทบุคลิกภาพกับเพื่อน!',
+      ogTitle: 'การทดสอบประเภทบุคลิกภาพของกลุ่ม',
+      ogDescription: 'แบ่งปันประเภทบุคลิกภาพกับเพื่อน!',
+      mainTitle: 'การทดสอบประเภทบุคลิกภาพของกลุ่ม',
+      subtitle: 'สร้างรหัสกลุ่มและแบ่งปันประเภทบุคลิกภาพกับเพื่อน!',
+      createTab: 'สร้างกลุ่ม',
+      joinTab: 'เข้าร่วมกลุ่ม',
+      groupNameLabel: 'ชื่อกลุ่ม (เช่น ชั้นเรียน ทีมงาน)',
+      generateCode: 'สร้างรหัสกลุ่ม 🎲'
     }
   },
 
@@ -1523,6 +1655,18 @@ const TRANSLATIONS = {
       checkButton: 'Uyumluluğu Kontrol Et 💕',
       selectBothTypes: 'Lütfen her iki türü de seçin!',
       shareLink: 'Bağlantı kopyalandı! 📋'
+    },
+    group: {
+      title: 'Grup Kişilik Tipi Testi | Arkadaşlarla Eğlence',
+      metaDescription: 'Bir grup kodu oluşturun ve kişilik türlerini arkadaşlarla paylaşın!',
+      ogTitle: 'Grup Kişilik Tipi Testi',
+      ogDescription: 'Kişilik türlerini arkadaşlarla paylaş!',
+      mainTitle: 'Grup Kişilik Tipi Testi',
+      subtitle: 'Bir grup kodu oluşturun ve kişilik türlerini arkadaşlarla paylaşın!',
+      createTab: 'Grup Oluştur',
+      joinTab: 'Gruba Katıl',
+      groupNameLabel: 'Grup Adı (ör: Sınıfımız, İş Ekibi)',
+      generateCode: 'Grup Kodunu Oluştur 🎲'
     }
   },
 
@@ -1584,6 +1728,18 @@ const TRANSLATIONS = {
       checkButton: 'Verifica compatibilità 💕',
       selectBothTypes: 'Per favore seleziona entrambi i tipi!',
       shareLink: 'Link copiato! 📋'
+    },
+    group: {
+      title: 'Test del Tipo di Personalità di Gruppo | Divertimento con Amici',
+      metaDescription: 'Crea un codice di gruppo e condividi i tipi di personalità con gli amici!',
+      ogTitle: 'Test del Tipo di Personalità di Gruppo',
+      ogDescription: 'Condividi i tipi di personalità con gli amici!',
+      mainTitle: 'Test del Tipo di Personalità di Gruppo',
+      subtitle: 'Crea un codice di gruppo e condividi i tipi di personalità con gli amici!',
+      createTab: 'Crea Gruppo',
+      joinTab: 'Unisciti al Gruppo',
+      groupNameLabel: 'Nome Gruppo (es: Nostra Classe, Team di Lavoro)',
+      generateCode: 'Genera Codice di Gruppo 🎲'
     }
   },
 
@@ -1645,6 +1801,18 @@ const TRANSLATIONS = {
       checkButton: 'Compatibiliteit controleren 💕',
       selectBothTypes: 'Selecteer alstublieft beide typen!',
       shareLink: 'Link gekopieerd! 📋'
+    },
+    group: {
+      title: 'Groepspersoonlijkheidstypetest | Plezier met Vrienden',
+      metaDescription: 'Maak een groepscode en deel persoonlijkheidstypes met vrienden!',
+      ogTitle: 'Groepspersoonlijkheidstypetest',
+      ogDescription: 'Deel persoonlijkheidstypes met vrienden!',
+      mainTitle: 'Groepspersoonlijkheidstypetest',
+      subtitle: 'Maak een groepscode en deel persoonlijkheidstypes met vrienden!',
+      createTab: 'Groep Maken',
+      joinTab: 'Groep Toetreden',
+      groupNameLabel: 'Groepsnaam (bijv: Onze Klas, Werkteam)',
+      generateCode: 'Groepscode Genereren 🎲'
     }
   },
 
@@ -1706,6 +1874,18 @@ const TRANSLATIONS = {
       checkButton: 'تحقق من التوافق 💕',
       selectBothTypes: 'يرجى تحديد كلا النوعين!',
       shareLink: 'تم نسخ الرابط! 📋'
+    },
+    group: {
+      title: 'اختبار نوع الشخصية الجماعي | المرح مع الأصدقاء',
+      metaDescription: 'قم بإنشاء رمز مجموعة وشارك أنواع الشخصية مع الأصدقاء!',
+      ogTitle: 'اختبار نوع الشخصية الجماعي',
+      ogDescription: 'شارك أنواع الشخصية مع الأصدقاء!',
+      mainTitle: 'اختبار نوع الشخصية الجماعي',
+      subtitle: 'قم بإنشاء رمز مجموعة وشارك أنواع الشخصية مع الأصدقاء!',
+      createTab: 'إنشاء مجموعة',
+      joinTab: 'الانضمام إلى المجموعة',
+      groupNameLabel: 'اسم المجموعة (مثال: فصلنا، فريق العمل)',
+      generateCode: 'إنشاء رمز المجموعة 🎲'
     }
   },
 
@@ -1767,6 +1947,18 @@ const TRANSLATIONS = {
       checkButton: 'Нийцтэй байдлыг шалгана уу 💕',
       selectBothTypes: 'Хоёр төрлийг сонгоно уу!',
       shareLink: 'Холбоос хуулсан! 📋'
+    },
+    group: {
+      title: 'Групп Хүмээний Шинжийн Төрөл Тест | Найзуудтайгаа Хөгжилтэй',
+      metaDescription: 'Групп кодыг үүсгээд нөхөрүүдийнхээ хүмээний шинжийн төрлийг хуваалцах!',
+      ogTitle: 'Групп Хүмээний Шинжийн Төрөл Тест',
+      ogDescription: 'Хүмээний шинжийн төрлийг найзуудтайгаа хуваалцах!',
+      mainTitle: 'Групп Хүмээний Шинжийн Төрөл Тест',
+      subtitle: 'Групп кодыг үүсгээд нөхөрүүдийнхээ хүмээний шинжийн төрлийг хуваалцах!',
+      createTab: 'Групп үүсгэх',
+      joinTab: 'Групп руу нэгдэх',
+      groupNameLabel: 'Групп нэр (жишээлбэл: Манай анги, Ажлын баг)',
+      generateCode: 'Групп кодыг үүсгэх 🎲'
     }
   },
 
@@ -1828,6 +2020,18 @@ const TRANSLATIONS = {
       checkButton: 'Concordantiam controla 💕',
       selectBothTypes: 'Ambos tipos elige!',
       shareLink: 'Nexum copia! 📋'
+    },
+    group: {
+      title: 'Examinatio Personae Coetus | Ludus cum Amicis',
+      metaDescription: 'Crea codiculum coetus et share personas cum amicis!',
+      ogTitle: 'Examinatio Personae Coetus',
+      ogDescription: 'Share personas cum amicis!',
+      mainTitle: 'Examinatio Personae Coetus',
+      subtitle: 'Crea codiculum coetus et share personas cum amicis!',
+      createTab: 'Crea Coetus',
+      joinTab: 'Ades Coetui',
+      groupNameLabel: 'Nomen Coetus (exempli: Nostra Schola, Coetus Operae)',
+      generateCode: 'Genera Codiculum Coetus 🎲'
     }
   }
 };
