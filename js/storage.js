@@ -43,14 +43,22 @@ function saveMBTIResult(type, scores) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch (e) {
-    console.warn('localStorage 저장 실패:', e);
+    var errMsg = 'localStorage 저장 실패:';
+    if (window.i18n) {
+      errMsg = window.i18n.t('storage.saveError') || errMsg;
+    }
+    console.warn(errMsg, e);
   }
 
   return newResult;
 }
 
 function clearMBTIData() {
-  if (confirm('저장된 모든 성격 유형 기록을 삭제할까요?')) {
+  var msg = '저장된 모든 성격 유형 기록을 삭제할까요?';
+  if (window.i18n) {
+    msg = window.i18n.t('storage.confirmDelete') || msg;
+  }
+  if (confirm(msg)) {
     localStorage.removeItem(STORAGE_KEY);
     location.reload();
   }

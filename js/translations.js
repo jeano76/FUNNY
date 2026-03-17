@@ -128,9 +128,15 @@ const TRANSLATIONS = {
       privacy: '개인정보 처리방침'
     },
 
+    storage: {
+      confirmDelete: '저장된 모든 성격 유형 기록을 삭제할까요?',
+      saveError: 'localStorage 저장 실패:'
+    },
+
     // ========== index.html ==========
     index: {
       metaDescription: '마트 쇼핑, 여행, 카톡 답장... 일상 속 나의 행동으로 성격 유형을 알아보세요! 16가지 동물 캐릭터로 결과를 확인하고 친구와 공유하세요.',
+      returningMessage: '{animal}({type}) 로 돌아왔군요! 👋',
       title: '나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾',
       ogTitle: '나의 성격 유형은? 재미있는 16가지 동물 테스트 🐾',
       ogDescription: '일상 속 행동으로 알아보는 나의 성격 유형! 16가지 동물 캐릭터 결과를 친구와 공유해보세요.',
@@ -507,8 +513,306 @@ const TRANSLATIONS = {
       ogTitle: '스피드 모드',
       ogDescription: '빠르게 성격 유형을 알아보세요.'
     }
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+      INTP: {name: "올빼미", emoji: "🦉", title: "논리적 탐구자", group: "분석형 (NT)", description: "밤에 더 명확해지는 지적 호기심의 끝판왕. 조용하지만 머릿속은 복잡한 이론으로 가득 차 있습니다. 아이디어를 탐구하고 분석하는 것을 즐기며, 불합리한 논리를 만나면 그냥 지나치지 못합니다.", strengths: ["논리적 분석", "창의적 사고", "지적 호기심", "객관성"], weaknesses: ["우유부단함", "마감 기피", "사회적 거리감"], koreanRatio: "3.3%", worldRarityRank: "★★★★ 희귀", compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"], famousExamples: ["알버트 아인슈타인", "빌 게이츠"], shareText: "나는 INTP 올빼미! 논리적 탐구자 🦉 당신의 성격 유형은?"},
+      ENTJ: {name: "사자", emoji: "🦁", title: "타고난 리더", group: "분석형 (NT)", description: "타고난 리더입니다. 무리를 이끄는 카리스마와 결단력이 돋보이는 정글의 왕 같습니다. 목표 달성을 위해 사람들을 조직하고 이끄는 것을 즐깁니다. 효율성을 중시하며 약한 모습을 보이지 않으려 합니다.", strengths: ["리더십", "결단력", "전략적 기획", "자신감"], weaknesses: ["권위주의", "감정 무시", "지나친 경쟁심"], koreanRatio: "1.8%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["INTP 올빼미 🦉", "INFP 해마 🦭"], famousExamples: ["스티브 잡스", "마가렛 대처"], shareText: "나는 ENTJ 사자! 타고난 리더 🦁 당신의 성격 유형은?"},
+      ENTP: {name: "앵무새", emoji: "🦜", title: "발명가형 토론러", group: "분석형 (NT)", description: "똑똑하고 말재주가 뛰어납니다. 새로운 자극을 좋아하며 어디서든 분위기를 주도하는 재치꾼입니다. '이렇게 하면 어떨까?' 하는 새로운 아이디어가 끊임없이 샘솟습니다. 토론을 즐기고 반론을 위한 반론도 마다하지 않습니다.", strengths: ["창의성", "언변", "빠른 적응", "아이디어 뱅크"], weaknesses: ["끈기 부족", "논쟁 집착", "실행력 부족"], koreanRatio: "3.2%", worldRarityRank: "★★★ 보통", compatibleTypes: ["INTJ 호랑이 🐯", "INFJ 판다 🐼"], famousExamples: ["레오나르도 다빈치", "벤자민 프랭클린"], shareText: "나는 ENTP 앵무새! 발명가형 토론러 🦜 당신의 성격 유형은?"},
+      INFJ: {name: "판다", emoji: "🐼", title: "신비로운 통찰자", group: "외교형 (NF) · 전 세계 가장 희귀한 유형", description: "겉은 순해 보이지만 내면은 아주 단단하고 신비롭습니다. 희귀하고 소중한 존재감을 뿜어냅니다. 사람들의 감정과 동기를 직관적으로 읽고, 세상을 더 나은 곳으로 만들고자 하는 강한 사명감을 가집니다.", strengths: ["통찰력", "공감 능력", "강한 신념", "창의성"], weaknesses: ["과도한 완벽주의", "번아웃", "혼자 짊어지기"], koreanRatio: "1.5%", worldRarityRank: "★★★★★ 전 세계 최희귀", compatibleTypes: ["ENTP 앵무새 🦜", "ENFP 돌고래 🐬"], famousExamples: ["마틴 루서 킹", "넬슨 만델라"], shareText: "나는 INFJ 판다! 전 세계 가장 희귀한 유형 🐼 당신의 성격 유형은?"},
+      INFP: {name: "해마", emoji: "🦭", title: "이상적인 몽상가", group: "외교형 (NF)", description: "섬세하고 로맨틱한 몽상가입니다. 자기만의 평화롭고 아름다운 내면 세계를 유영합니다. 진정성과 가치관을 중시하며, 불의를 참지 못하는 강한 도덕심을 가집니다. 조용하지만 내면에 불꽃이 타오릅니다.", strengths: ["공감 능력", "창의성", "진정성", "개방성"], weaknesses: ["자기비판", "현실 도피 경향", "결단력 부족"], koreanRatio: "4.4%", worldRarityRank: "★★★ 보통", compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"], famousExamples: ["윌리엄 셰익스피어", "J.K. 롤링"], shareText: "나는 INFP 해마! 이상적인 몽상가 🦭 당신의 성격 유형은?"},
+      ENFJ: {name: "골든리트리버", emoji: "🐕", title: "다정한 리더", group: "외교형 (NF)", description: "사람을 너무 좋아하고 친절합니다. 모두가 행복하길 바라며 꼬리를 흔드는 다정함이 특징입니다. 사람들에게 영감을 주고 그들의 잠재력을 이끌어내는 타고난 선생님 같은 존재입니다.", strengths: ["리더십", "공감 능력", "소통 능력", "헌신"], weaknesses: ["자기희생 과다", "타인 의존", "비판에 민감"], koreanRatio: "1.6%", worldRarityRank: "★★★★★ 한국 최희귀", compatibleTypes: ["INFP 해마 🦭", "INTP 올빼미 🦉"], famousExamples: ["오프라 윈프리", "버락 오바마"], shareText: "나는 ENFJ 골든리트리버! 다정한 리더 🐕 당신의 성격 유형은?"},
+      ENFP: {name: "돌고래", emoji: "🐬", title: "자유로운 영감가", group: "외교형 (NF)", description: "에너지가 넘치고 장난기가 많습니다. 지능이 높으면서도 주변 사람들을 즐겁게 만드는 재주가 있습니다. 새로운 가능성에 흥분하고, 사람들 사이의 연결을 소중히 여깁니다. 어디서든 분위기를 밝게 만드는 존재입니다.", strengths: ["창의성", "열정", "소통 능력", "공감"], weaknesses: ["집중력 부족", "감정 기복", "마감 취약"], koreanRatio: "5.1%", worldRarityRank: "★★ 흔한 편", compatibleTypes: ["INTJ 호랑이 🐯", "INFJ 판다 🐼"], famousExamples: ["로빈 윌리엄스", "엘렌 드제너러스"], shareText: "나는 ENFP 돌고래! 자유로운 영감가 🐬 당신의 성격 유형은?"},
+      ISTJ: {name: "비버", emoji: "🦫", title: "성실의 아이콘", group: "관리자형 (SJ) · 한국인 1위 유형", description: "설계도를 보듯 꼼꼼하게 일을 처리합니다. 규칙을 준수하고 책임감이 강한 성실의 아이콘입니다. 말보다 행동으로 보여주며, 맡은 일은 반드시 완수합니다. 신뢰할 수 있는 사람의 대명사입니다.", strengths: ["책임감", "성실함", "꼼꼼함", "신뢰성"], weaknesses: ["변화 거부", "융통성 부족", "감정 표현 서툼"], koreanRatio: "16.4%", worldRarityRank: "★ 가장 흔한 유형", compatibleTypes: ["ESFP 공작새 🦚", "ENFP 돌고래 🐬"], famousExamples: ["워런 버핏", "앤젤라 메르켈"], shareText: "나는 ISTJ 비버! 한국인 1위 성실의 아이콘 🦫 당신의 성격 유형은?"},
+      ISFJ: {name: "사슴", emoji: "🦌", title: "따뜻한 수호자", group: "관리자형 (SJ)", description: "온순하고 배려심이 깊습니다. 무리(가족, 친구)를 조용히 챙기고 보호하는 따뜻한 마음씨를 가졌습니다. 눈에 띄지 않아도 항상 주변 사람들을 위해 묵묵히 일합니다. 감사 표현을 받으면 행복해합니다.", strengths: ["배려", "헌신", "꼼꼼함", "신뢰성"], weaknesses: ["자기주장 부족", "변화 적응 느림", "자기비판"], koreanRatio: "13.8%", worldRarityRank: "★ 흔한 유형", compatibleTypes: ["ESTP 치타 🐆", "ESFP 공작새 🦚"], famousExamples: ["테레사 수녀", "비욘세"], shareText: "나는 ISFJ 사슴! 따뜻한 수호자 🦌 당신의 성격 유형은?"},
+      ESTJ: {name: "늑대", emoji: "🐺", title: "엄격한 관리자", group: "관리자형 (SJ)", description: "규율과 질서를 중시합니다. 공동체의 안녕을 위해 체계적으로 움직이며 리더십을 발휘합니다. 일에 있어서는 매우 직설적이며 효율성을 최우선으로 생각합니다. 뚜렷한 원칙과 기준이 있습니다.", strengths: ["조직력", "결단력", "리더십", "책임감"], weaknesses: ["고집", "감수성 부족", "완고함"], koreanRatio: "8.7%", worldRarityRank: "★★ 보통", compatibleTypes: ["ISFP 나무늘보 🦥", "INFP 해마 🦭"], famousExamples: ["힐러리 클린턴", "산드라 오"], shareText: "나는 ESTJ 늑대! 엄격한 관리자 🐺 당신의 성격 유형은?"},
+      ESFJ: {name: "코끼리", emoji: "🐘", title: "사교적인 돌봄이", group: "관리자형 (SJ)", description: "사회성이 매우 좋습니다. 서로 돕고 챙기는 공동체 의식이 강하며 주변의 경조사를 다 꿰고 있습니다. 사람들과의 조화를 소중히 여기며, 모든 사람이 포함되고 환영받는 분위기를 만들기 위해 노력합니다.", strengths: ["사교성", "배려", "협력", "실용성"], weaknesses: ["타인 의식 과다", "갈등 회피", "자기비판"], koreanRatio: "12.3%", worldRarityRank: "★ 흔한 유형", compatibleTypes: ["ISFP 나무늘보 🦥", "ISTP 고양이 🐱"], famousExamples: ["테일러 스위프트", "빌 클린턴"], shareText: "나는 ESFJ 코끼리! 사교적인 돌봄이 🐘 당신의 성격 유형은?"},
+      ISTP: {name: "고양이", emoji: "🐱", title: "시크한 장인", group: "탐험가형 (SP)", description: "\"나 좀 내버려 둬.\" 평소엔 시크하지만 필요할 땐 엄청난 순발력과 기술을 보여주는 효율 중시형입니다. 말보다 행동, 이론보다 실천을 중시합니다. 손으로 직접 무언가를 만들고 분해하는 것을 즐깁니다.", strengths: ["문제 해결", "기술력", "침착함", "적응력"], weaknesses: ["감정 표현 어려움", "장기 계획 싫어함", "고집"], koreanRatio: "5.4%", worldRarityRank: "★★★ 보통", compatibleTypes: ["ESTJ 늑대 🐺", "ENTJ 사자 🦁"], famousExamples: ["클린트 이스트우드", "어윈 슈뢰딩거"], shareText: "나는 ISTP 고양이! 시크한 장인 🐱 당신의 성격 유형은?"},
+      ISFP: {name: "나무늘보", emoji: "🦥", title: "자유로운 예술가", group: "탐험가형 (SP)", description: "평화로운 예술가입니다. 서두르지 않고 현재의 여유를 즐기며 자기만의 속도로 세상을 삽니다. 아름다움과 조화를 추구하며, 자신의 가치관에 맞는 삶을 사는 것이 가장 중요합니다.", strengths: ["감수성", "유연성", "충성심", "현재 집중"], weaknesses: ["계획 없음", "결단력 부족", "경쟁 회피"], koreanRatio: "8.8%", worldRarityRank: "★★ 보통", compatibleTypes: ["ESTJ 늑대 🐺", "ESFJ 코끼리 🐘"], famousExamples: ["마이클 잭슨", "아비게일 브레슬린"], shareText: "나는 ISFP 나무늘보! 자유로운 예술가 🦥 당신의 성격 유형은?"},
+      ESTP: {name: "치타", emoji: "🐆", title: "스릴 추구자", group: "탐험가형 (SP)", description: "생각보다 몸이 먼저 나가는 스타일. 스피드와 스릴을 즐기며 위기 상황에서 본능적으로 대처합니다. 현실적이고 실용적이며, 지금 이 순간을 최대한 즐기려 합니다. 액션이 없으면 지루해합니다.", strengths: ["행동력", "문제 해결", "적응력", "설득력"], weaknesses: ["충동적", "장기 계획 어려움", "감정 둔감"], koreanRatio: "4.3%", worldRarityRank: "★★★ 보통", compatibleTypes: ["ISFJ 사슴 🦌", "ISTJ 비버 🦫"], famousExamples: ["도널드 트럼프", "어니스트 헤밍웨이"], shareText: "나는 ESTP 치타! 스릴 추구자 🐆 당신의 성격 유형은?"},
+      ESFP: {name: "공작새", emoji: "🦚", title: "화려한 연예인", group: "탐험가형 (SP)", description: "화려한 무대 체질입니다. 남들의 시선을 즐기며 순간순간을 축제처럼 사는 분위기 메이커입니다. 어디서든 유쾌하고 에너제틱한 분위기를 만들어냅니다. 삶을 즐기는 방법을 누구보다 잘 압니다.", strengths: ["사교성", "즐거움", "현재 집중", "적응력"], weaknesses: ["계획 부족", "집중력 낮음", "갈등 회피"], koreanRatio: "8.5%", worldRarityRank: "★★ 보통", compatibleTypes: ["ISTJ 비버 🦫", "ISFJ 사슴 🦌"], famousExamples: ["아델", "미국 마릴린 먼로"], shareText: "나는 ESFP 공작새! 화려한 연예인 🦚 당신의 성격 유형은?"},
+    },
   },
 
+    careers: {
+      INTJ: {
+        tagline: '전략적 사고로 미래를 이끄는 리더',
+        strengths: ['전략적 사고', '목표 설정', '분석력', '의사결정'],
+        advice: 'INTJ는 독립적이고 전략적인 사고를 통해 복잡한 문제를 해결하는 능력이 뛰어납니다. 개인의 능력과 책임이 인정되는 환경에서 최고의 성과를 낼 수 있습니다.',
+        jobs: [
+          { name: '전략 컨설턴트', salary: '5,000만~1억', growth: 9, fit: 95, desc: '기업의 장기 전략 수립 및 비즈니스 최적화' },
+          { name: '데이터 과학자', salary: '4,500만~9,000만', growth: 10, fit: 93, desc: '빅데이터 분석으로 인사이트 도출' },
+          { name: '소프트웨어 아키텍트', salary: '5,000만~1억', growth: 9, fit: 92, desc: '대규모 시스템 설계 및 구조화' },
+          { name: '경영 분석가', salary: '4,000만~8,000만', growth: 8, fit: 90, desc: '비즈니스 프로세스 개선 및 최적화' },
+          { name: '제품 전략가', salary: '5,000만~1억', growth: 9, fit: 91, desc: '제품 로드맵 및 시장 전략 수립' },
+          { name: '인공지능 엔지니어', salary: '6,000만~1억5,000만', growth: 10, fit: 94, desc: 'AI/ML 모델 개발 및 최적화' }
+        ]
+      },
+    
+      INTP: {
+        tagline: '논리적 분석으로 세상의 원리를 탐구하는 사람',
+        strengths: ['논리적 사고', '문제 해결', '창의적 아이디어', '기술 이해'],
+        advice: 'INTP는 호기심이 많고 복잡한 개념을 깊이 있게 분석하는 능력이 탁월합니다. 지적 도전과 자율성이 있는 업무에서 최고의 성능을 발휘합니다.',
+        jobs: [
+          { name: '연구원', salary: '3,500만~7,000만', growth: 8, fit: 95, desc: '과학적 이론과 현상 연구' },
+          { name: '소프트웨어 개발자', salary: '4,000만~8,500만', growth: 9, fit: 94, desc: '복잡한 알고리즘 개발 및 시스템 구축' },
+          { name: '데이터 엔지니어', salary: '4,500만~9,000만', growth: 9, fit: 92, desc: '대규모 데이터 처리 시스템 개발' },
+          { name: '사이버보안 전문가', salary: '4,500만~8,500만', growth: 10, fit: 93, desc: '시스템 취약점 분석 및 보안 강화' },
+          { name: '기술 리더', salary: '5,000만~1억', growth: 8, fit: 89, desc: '기술팀 리더십 및 아키텍처 결정' },
+          { name: '수학자/통계학자', salary: '3,500만~7,000만', growth: 8, fit: 92, desc: '수학적 모델링 및 통계 분석' }
+        ]
+      },
+    
+      ENTJ: {
+        tagline: '목표 달성을 위해 모든 것을 조직하는 리더',
+        strengths: ['리더십', '전략 수립', '실행력', '의사결정'],
+        advice: 'ENTJ는 카리스마 있는 리더십과 장기적 비전으로 조직을 이끕니다. 권한과 책임이 명확한 위치에서 뛰어난 성과를 낼 수 있습니다.',
+        jobs: [
+          { name: '최고경영자 (CEO)', salary: '1억~5억+', growth: 9, fit: 98, desc: '기업의 전략 수립 및 경영' },
+          { name: '사업부장', salary: '8,000만~2억', growth: 9, fit: 97, desc: '사업부 목표 달성 및 팀 이끌기' },
+          { name: '프로젝트 매니저', salary: '5,000만~1억', growth: 8, fit: 95, desc: '대규모 프로젝트 계획 및 실행' },
+          { name: '벤처 창업가', salary: '변동적 (높음)', growth: 10, fit: 96, desc: '새로운 비즈니스 창출 및 성장' },
+          { name: '전략 이사', salary: '7,000만~1억5,000만', growth: 9, fit: 94, desc: '장기 전략 수립 및 실행' },
+          { name: '금융 임원', salary: '8,000만~2억', growth: 9, fit: 92, desc: '금융 기관의 운영 및 전략' }
+        ]
+      },
+    
+      ENTP: {
+        tagline: '새로운 가능성을 끊임없이 탐구하는 혁신가',
+        strengths: ['창의성', '문제 해결', '적응력', '설득력'],
+        advice: 'ENTP는 다양한 아이디어와 새로운 가능성에 흥미를 느낍니다. 변화와 도전이 있는 환경에서 최고의 성능을 보입니다.',
+        jobs: [
+          { name: '스타트업 창업가', salary: '변동적 (높음)', growth: 10, fit: 97, desc: '혁신적인 비즈니스 모델 개발' },
+          { name: '전략 컨설턴트', salary: '5,000만~1억', growth: 9, fit: 94, desc: '새로운 시장 기회 발굴 및 전략 수립' },
+          { name: '마케팅 이사', salary: '5,000만~1억', growth: 9, fit: 93, desc: '창의적 캠페인 기획 및 집행' },
+          { name: '기술 혁신 담당자', salary: '4,500만~8,500만', growth: 10, fit: 95, desc: '신기술 도입 및 프로세스 혁신' },
+          { name: '사업개발 담당자', salary: '4,000만~8,000만', growth: 9, fit: 92, desc: '새로운 사업 기회 발굴 및 협력' },
+          { name: '프로덕트 매니저', salary: '5,000만~9,000만', growth: 9, fit: 91, desc: '혁신적 제품 기획 및 출시' }
+        ]
+      },
+    
+      INFJ: {
+        tagline: '통찰력으로 타인과 사회를 돕는 사람',
+        strengths: ['공감 능력', '통찰력', '강한 신념', '소통 능력'],
+        advice: 'INFJ는 깊은 통찰력과 타인에 대한 이해로 의미 있는 영향을 미칩니다. 가치 있는 목표와 진정성 있는 관계가 있는 업무에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '심리 상담사', salary: '2,500만~5,000만', growth: 7, fit: 98, desc: '개인의 심리적 성장 및 치유 지원' },
+          { name: '인사담당자', salary: '3,500만~7,000만', growth: 8, fit: 96, desc: '조직 문화 발전 및 인재 육성' },
+          { name: '교육자', salary: '3,500만~6,500만', growth: 8, fit: 95, desc: '학생의 성장과 발전 지원' },
+          { name: '사회복지사', salary: '2,500만~4,500만', growth: 7, fit: 97, desc: '취약 계층 지원 및 사회 변화' },
+          { name: '코치/멘토', salary: '3,000만~6,000만', growth: 8, fit: 96, desc: '개인의 성장과 목표 달성 지원' },
+          { name: '윤리 담당자', salary: '3,500만~6,500만', growth: 8, fit: 94, desc: '조직의 윤리 기준 수립 및 준수' }
+        ]
+      },
+    
+      INFP: {
+        tagline: '열정으로 세상을 더 아름답게 만드는 창작가',
+        strengths: ['창의성', '공감', '진정성', '이상주의'],
+        advice: 'INFP는 깊은 가치관과 창의성으로 의미 있는 작업을 추구합니다. 자신의 신념을 표현할 수 있는 환경에서 최고의 성능을 발휘합니다.',
+        jobs: [
+          { name: '작가/소설가', salary: '2,000만~5,000만', growth: 7, fit: 97, desc: '창의적 글쓰기 및 세상의 이야기 표현' },
+          { name: '그래픽 디자이너', salary: '3,000만~5,500만', growth: 8, fit: 96, desc: '시각적 표현으로 감정과 메시지 전달' },
+          { name: '영화/영상 감독', salary: '3,000만~6,000만', growth: 9, fit: 95, desc: '이야기를 통한 감정 표현' },
+          { name: '사회 운동가', salary: '2,500만~4,500만', growth: 8, fit: 98, desc: '사회 정의 실현 및 변화 추구' },
+          { name: '콘텐츠 크리에이터', salary: '2,000만~5,000만+', growth: 10, fit: 94, desc: '창의적 콘텐츠 기획 및 제작' },
+          { name: '브랜드 스토리텔러', salary: '3,500만~6,000만', growth: 8, fit: 93, desc: '브랜드 이야기와 가치 전달' }
+        ]
+      },
+    
+      ENFJ: {
+        tagline: '따뜻한 리더십으로 사람들을 인도하는 사람',
+        strengths: ['리더십', '공감', '소통', '조직화'],
+        advice: 'ENFJ는 사람을 중심으로 생각하는 카리스마 있는 리더입니다. 팀을 이끌고 사람들의 성장을 도울 수 있는 위치에서 뛰어난 능력을 발휘합니다.',
+        jobs: [
+          { name: '경영진', salary: '6,000만~1억5,000만', growth: 9, fit: 96, desc: '조직 리더십 및 인재 육성' },
+          { name: '교육 관리자', salary: '4,000만~7,000만', growth: 8, fit: 97, desc: '교육 기관 운영 및 교사 지원' },
+          { name: '조직개발 컨설턴트', salary: '4,500만~8,000만', growth: 9, fit: 95, desc: '조직 문화 및 역량 개발' },
+          { name: '세일스 리더', salary: '4,500만~8,500만', growth: 9, fit: 94, desc: '영업팀 이끌기 및 목표 달성' },
+          { name: '공공 관리자', salary: '4,000만~7,000만', growth: 8, fit: 93, desc: '공공 기관 운영 및 정책 집행' },
+          { name: '갭 이어 프로그램 디렉터', salary: '3,500만~6,500만', growth: 8, fit: 96, desc: '청년 교육 및 성장 프로그램 운영' }
+        ]
+      },
+    
+      ENFP: {
+        tagline: '열정과 즐거움으로 모든 것을 매력적으로 만드는 사람',
+        strengths: ['창의성', '열정', '소통', '적응력'],
+        advice: 'ENFP는 긍정적인 에너지와 창의성으로 사람들을 영감으로 가득하게 합니다. 변화와 다양한 사람들과의 상호작용이 있는 환경에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '이벤트 플래너', salary: '3,000만~5,500만', growth: 8, fit: 97, desc: '행사 기획 및 진행으로 즐거움 창출' },
+          { name: '캠페인 크리에이티브', salary: '4,000만~7,000만', growth: 9, fit: 96, desc: '광고 캠페인 아이디어 개발' },
+          { name: '로비스트/홍보담당자', salary: '3,500만~6,500만', growth: 8, fit: 95, desc: '브랜드/기관 이미지 관리' },
+          { name: '채용담당자', salary: '3,000만~6,000만', growth: 8, fit: 94, desc: '인재 발굴 및 조직 성장 지원' },
+          { name: '엔터테인먼트 프로듀서', salary: '3,500만~7,000만', growth: 9, fit: 96, desc: '엔터테인먼트 콘텐츠 기획 및 제작' },
+          { name: '라이프 코치', salary: '3,000만~6,000만', growth: 8, fit: 95, desc: '개인의 꿈과 목표 실현 지원' }
+        ]
+      },
+    
+      ISTJ: {
+        tagline: '책임감 있게 일을 정확하게 처리하는 신뢰의 사람',
+        strengths: ['책임감', '성실함', '체계성', '신뢰성'],
+        advice: 'ISTJ는 책임감 있고 체계적이며 신뢰할 수 있는 업무 처리로 조직의 기초를 다집니다. 명확한 역할과 기준이 있는 환경에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '회계사', salary: '4,000만~7,500만', growth: 8, fit: 97, desc: '재무 관리 및 감시' },
+          { name: '감사담당자', salary: '3,500만~7,000만', growth: 8, fit: 96, desc: '조직의 재정 및 운영 감시' },
+          { name: '프로젝트 관리자', salary: '4,500만~8,000만', growth: 8, fit: 95, desc: '프로젝트 계획 및 체계적 실행' },
+          { name: '행정 관리자', salary: '3,500만~6,500만', growth: 7, fit: 94, desc: '조직 운영 및 업무 효율화' },
+          { name: '공무원', salary: '3,500만~6,500만', growth: 7, fit: 93, desc: '공공 서비스 제공 및 정책 집행' },
+          { name: '공급망 관리자', salary: '4,000만~7,500만', growth: 8, fit: 96, desc: '물류 및 공급망 최적화' }
+        ]
+      },
+    
+      ISFJ: {
+        tagline: '따뜻한 마음으로 주변을 돌보는 배려의 사람',
+        strengths: ['배려', '헌신', '체계성', '신뢰성'],
+        advice: 'ISFJ는 따뜻한 감정과 헌신으로 타인을 돕는 일에 뛰어납니다. 감사 받을 수 있는 업무와 안정적인 환경에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '간호사', salary: '3,500만~6,000만', growth: 8, fit: 98, desc: '환자 돌봄 및 건강 관리' },
+          { name: '초등학교 교사', salary: '3,500만~5,500만', growth: 7, fit: 97, desc: '아이들의 성장과 발전 지원' },
+          { name: '상담사', salary: '2,500만~5,000만', growth: 8, fit: 96, desc: '개인의 정서적 지원' },
+          { name: '행정보조', salary: '2,500만~4,500만', growth: 6, fit: 95, desc: '조직 운영 지원 및 효율화' },
+          { name: '고객 서비스 매니저', salary: '3,000만~5,500만', growth: 7, fit: 94, desc: '고객 만족도 향상' },
+          { name: '의료 사회복지사', salary: '3,000만~5,500만', growth: 8, fit: 97, desc: '환자 및 가족 지원' }
+        ]
+      },
+    
+      ESTJ: {
+        tagline: '질서를 잡고 효율을 추구하는 리더',
+        strengths: ['리더십', '조직력', '결단력', '책임감'],
+        advice: 'ESTJ는 강한 조직력과 리더십으로 팀을 효율적으로 이끕니다. 명확한 목표와 체계화된 환경에서 최고의 성능을 발휘합니다.',
+        jobs: [
+          { name: '부장/임원', salary: '6,000만~1억5,000만', growth: 9, fit: 97, desc: '조직 리더십 및 운영' },
+          { name: '품질 보증 매니저', salary: '4,500만~8,000만', growth: 8, fit: 96, desc: '제품 품질 관리 및 표준화' },
+          { name: '제조 공장장', salary: '5,000만~9,000만', growth: 8, fit: 95, desc: '생산 운영 최적화' },
+          { name: '경찰/군인', salary: '3,500만~6,500만', growth: 8, fit: 96, desc: '질서 유지 및 안전 관리' },
+          { name: '은행 지점장', salary: '5,000만~1억', growth: 8, fit: 94, desc: '금융 기관 운영 및 성과 관리' },
+          { name: '계약 관리자', salary: '4,000만~7,500만', growth: 8, fit: 93, desc: '계약 체결 및 관리' }
+        ]
+      },
+    
+      ESFJ: {
+        tagline: '따뜻함으로 사람들을 하나로 모으는 리더',
+        strengths: ['사교성', '배려', '협력', '조직력'],
+        advice: 'ESFJ는 따뜻한 태도와 사교성으로 팀의 화합을 이끕니다. 사람과의 관계가 중요한 환경에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: 'HR 담당자', salary: '3,500만~6,500만', growth: 8, fit: 97, desc: '인력 관리 및 조직문화 조성' },
+          { name: '이벤트 코디네이터', salary: '3,000만~5,500만', growth: 8, fit: 96, desc: '행사 기획 및 진행' },
+          { name: '교무주임', salary: '4,000만~6,500만', growth: 8, fit: 95, desc: '학교 운영 및 학생 지원' },
+          { name: '고객 관계 담당자', salary: '3,000만~5,500만', growth: 7, fit: 96, desc: '고객 만족도 관리' },
+          { name: '리셉셔니스트/관리자', salary: '2,500만~4,500만', growth: 6, fit: 95, desc: '응접 및 기관 이미지 관리' },
+          { name: '청소년 프로그램 담당자', salary: '3,000만~5,500만', growth: 8, fit: 97, desc: '청소년 활동 기획 및 지도' }
+        ]
+      },
+    
+      ISTP: {
+        tagline: '효율적으로 현실적 문제를 해결하는 장인',
+        strengths: ['문제 해결', '기술력', '효율성', '신뢰성'],
+        advice: 'ISTP는 실용적 기술과 논리로 문제를 해결합니다. 손으로 만드는 작업과 현실적 결과가 있는 업무에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '전자 엔지니어', salary: '4,000만~8,000만', growth: 9, fit: 96, desc: '전자 시스템 설계 및 개발' },
+          { name: '자동차 정비사', salary: '3,000만~5,500만', growth: 8, fit: 95, desc: '차량 정비 및 유지보수' },
+          { name: 'IT 지원 담당자', salary: '3,000만~5,500만', growth: 8, fit: 94, desc: '시스템 문제 해결 및 지원' },
+          { name: '기계 엔지니어', salary: '4,500만~8,500만', growth: 9, fit: 95, desc: '기계 시스템 설계' },
+          { name: '건설 감리관', salary: '4,000만~7,500만', growth: 8, fit: 93, desc: '건설 현장 감독' },
+          { name: '네트워크 관리자', salary: '4,000만~7,500만', growth: 9, fit: 95, desc: '네트워크 운영 및 보안' }
+        ]
+      },
+    
+      ISFP: {
+        tagline: '아름다움과 조화를 추구하는 예술가',
+        strengths: ['감수성', '유연성', '예술적 감각', '현재 집중'],
+        advice: 'ISFP는 아름다움과 자신의 가치관에 충실한 업무를 선호합니다. 창의적 표현과 자유도가 있는 환경에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '미술가/작가', salary: '2,000만~5,000만', growth: 8, fit: 98, desc: '예술작품 창작' },
+          { name: '그래픽 디자이너', salary: '3,000만~5,500만', growth: 8, fit: 97, desc: '시각 디자인 및 표현' },
+          { name: '패션 디자이너', salary: '3,000만~6,000만', growth: 9, fit: 98, desc: '의류 디자인 및 제작' },
+          { name: '인테리어 디자이너', salary: '3,000만~6,000만', growth: 8, fit: 97, desc: '공간 디자인 및 구성' },
+          { name: '음악 치료사', salary: '2,500만~4,500만', growth: 8, fit: 96, desc: '음악으로 사람 치유' },
+          { name: '플로리스트', salary: '2,000만~4,000만', growth: 7, fit: 97, desc: '꽃 장식 및 배치' }
+        ]
+      },
+    
+      ESTP: {
+        tagline: '행동으로 현실을 주도하는 실용가',
+        strengths: ['행동력', '문제 해결', '대담함', '적응력'],
+        advice: 'ESTP는 즉각적인 행동과 현실적 결과를 추구합니다. 빠르게 움직이는 환경과 도전적인 상황에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '영업 담당자', salary: '3,000만~6,500만', growth: 9, fit: 96, desc: '제품/서비스 판매' },
+          { name: '기업 인수합병 전문가', salary: '5,000만~1억', growth: 10, fit: 95, desc: 'M&A 거래 중개 및 실행' },
+          { name: '긴급 대응 팀', salary: '3,500만~6,000만', growth: 8, fit: 97, desc: '응급 상황 대처' },
+          { name: '마케팅 실행 담당자', salary: '3,500만~6,500만', growth: 8, fit: 94, desc: '실제 캠페인 집행' },
+          { name: '스포츠 코치', salary: '3,000만~6,000만', growth: 8, fit: 96, desc: '운동선수 훈련 및 지도' },
+          { name: '건설 현장소장', salary: '4,000만~7,500만', growth: 8, fit: 95, desc: '공사 진행 및 관리' }
+        ]
+      },
+    
+      ESFP: {
+        tagline: '즐거움을 만들고 사람을 연결하는 분위기 메이커',
+        strengths: ['사교성', '긍정성', '현장감', '유연성'],
+        advice: 'ESFP는 사람들과의 상호작용과 즉각적인 경험을 즐깁니다. 활기찬 환경과 타인과의 협력이 중요한 업무에서 최고의 성과를 냅니다.',
+        jobs: [
+          { name: '공연자/배우', salary: '2,000만~5,000만+', growth: 9, fit: 98, desc: '무대에서 감정 표현' },
+          { name: '이벤트 호스트', salary: '2,500만~5,000만', growth: 8, fit: 97, desc: '행사 진행 및 사회' },
+          { name: '판매 담당자', salary: '3,000만~6,500만', growth: 9, fit: 96, desc: '대면 판매 및 고객 관리' },
+          { name: '헬스 클럽 트레이너', salary: '2,500만~5,000만', growth: 8, fit: 97, desc: '운동 지도 및 동기부여' },
+          { name: '투어 가이드', salary: '2,000만~4,000만', growth: 7, fit: 98, desc: '여행 상품 안내 및 진행' },
+          { name: '음식점 매니저', salary: '3,000만~5,500만', growth: 8, fit: 96, desc: '고객 서비스 및 운영' }
+        ]
+      }
+    },
+    challenges: {
+      social: [
+        { id: 's1', title: '누군가와 신나는 대화하기', desc: '새로운 사람과 30분 이상 대화하기', points: 100 },
+        { id: 's2', title: '친구에게 칭찬 전하기', desc: '친구 3명에게 구체적인 칭찬하기', points: 80 },
+        { id: 's3', title: '네트워킹 활동', desc: '동호회나 모임에 참여하기', points: 120 },
+        { id: 's4', title: '팀 프로젝트 주도하기', desc: '그룹 활동에서 리더 역할하기', points: 150 },
+        { id: 's5', title: '낯선 사람과 친해지기', desc: '새로운 사람 2명과 친구가 되기', points: 100 },
+      ],
+      creativity: [
+        { id: 'c1', title: '새로운 아이디어 5개 생각하기', desc: '기발한 아이디어 5개 적어보기', points: 100 },
+        { id: 'c2', title: '창작물 만들기', desc: '그림, 음악, 글 등 창작하기', points: 150 },
+        { id: 'c3', title: '문제를 새로운 방식으로 풀기', desc: '평소와 다른 방법으로 접근해보기', points: 120 },
+        { id: 'c4', title: '일상을 예술로 만들기', desc: '사진, 디자인 등으로 표현하기', points: 130 },
+        { id: 'c5', title: '혁신적인 제안하기', desc: '개선 방안을 구체적으로 제시하기', points: 140 },
+      ],
+      logic: [
+        { id: 'l1', title: '복잡한 문제 분석하기', desc: '논리적으로 문제 해결하기', points: 120 },
+        { id: 'l2', title: '데이터 기반 결정내리기', desc: '정보를 수집해서 판단하기', points: 110 },
+        { id: 'l3', title: '전략 수립하기', desc: '장기 목표의 전략 세우기', points: 140 },
+        { id: 'l4', title: '논리 게임 풀기', desc: '추리 퀴즈나 체스 플레이하기', points: 90 },
+        { id: 'l5', title: '효율성 개선 제안', desc: '프로세스를 최적화하는 방법 찾기', points: 130 },
+      ],
+      emotional: [
+        { id: 'e1', title: '감정 일기 쓰기', desc: '오늘의 감정을 자세히 기록하기', points: 80 },
+        { id: 'e2', title: '누군가를 도와주기', desc: '도움이 필요한 사람 돕기', points: 100 },
+        { id: 'e3', title: '감정 표현하기', desc: '자신의 진정한 감정 나누기', points: 110 },
+        { id: 'e4', title: '공감 능력 키우기', desc: '타인의 입장에서 생각해보기', points: 100 },
+        { id: 'e5', title: '감정적 지원 제공', desc: '친구의 고민을 들어주기', points: 120 },
+      ],
+      adventure: [
+        { id: 'a1', title: '새로운 장소 탐험', desc: '가본 적 없는 곳 방문하기', points: 110 },
+        { id: 'a2', title: '새로운 음식 도전', desc: '처음 먹는 음식 시도하기', points: 90 },
+        { id: 'a3', title: '스포츠 활동', desc: '새로운 운동해보기', points: 120 },
+        { id: 'a4', title: '모험적 결정 내리기', desc: '평소와 다른 선택해보기', points: 130 },
+        { id: 'a5', title: '버킷리스트 하나 완료', desc: '원하던 일 하나 해보기', points: 150 },
+      ]
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+      socialButterfly: {id: 'socialButterfly', name: '사교가', desc: '다른 사람 5명의 성격 비교하기', icon: '🦋', rarity: 'uncommon'},
+      strategist: {id: 'strategist', name: '전략가', desc: 'INTJ 또는 ENTJ 유형으로 테스트', icon: '♟️', rarity: 'rare'},
+      creative: {id: 'creative', name: '창의가', desc: '창의 카테고리 도전 5개 완료', icon: '✨', rarity: 'uncommon'},
+      logician: {id: 'logician', name: '논리자', desc: '논리 카테고리 도전 5개 완료', icon: '🧠', rarity: 'uncommon'},
+      empath: {id: 'empath', name: '감정가', desc: '감정 카테고리 도전 5개 완료', icon: '💝', rarity: 'uncommon'},
+      adventurer: {id: 'adventurer', name: '모험가', desc: '모험 카테고리 도전 5개 완료', icon: '🚀', rarity: 'uncommon'},
+      dailyChampion: {id: 'dailyChampion', name: '매일의 챔피언', desc: '일일 도전을 7일 연속 완료', icon: '🏆', rarity: 'epic'},
+      pointCollector: {id: 'pointCollector', name: '포인트 수집가', desc: '도전을 통해 1000 포인트 달성', icon: '⭐', rarity: 'uncommon'},
+      masterCollector: {id: 'masterCollector', name: '마스터 수집가', desc: '도전을 통해 5000 포인트 달성', icon: '👑', rarity: 'epic'},
+      rareSpirit: {id: 'rareSpirit', name: '희귀 존재', desc: '가장 희귀한 성격 유형으로 테스트', icon: '💎', rarity: 'legendary'},
+      empathizer: {id: 'empathizer', name: '공감자', desc: 'INFP, INFJ, ENFP, 또는 ENFJ로 테스트', icon: '🤝', rarity: 'uncommon'},
+      leader: {id: 'leader', name: '리더', desc: 'ENTJ 또는 ESFJ로 테스트', icon: '👨‍💼', rarity: 'uncommon'},
+      thinker: {id: 'thinker', name: '사상가', desc: 'INTP 또는 INTJ로 테스트', icon: '🤔', rarity: 'uncommon'},
+      sharer: {id: 'sharer', name: '공유자', desc: '결과를 카카오톡 또는 SNS로 10회 이상 공유', icon: '📢', rarity: 'uncommon'},
+      completionist: {id: 'completionist', name: '완벽주의자', desc: '25개 이상의 도전 완료', icon: '✅', rarity: 'epic'},
+    },
   en: {
     typeTitles: {
       INTJ: 'Solitary Strategist',
@@ -906,6 +1210,45 @@ const TRANSLATIONS = {
       scoreLabel: 'Compatibility Score:'
     }
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   ja: {
     typeTitles: {
@@ -1306,6 +1649,45 @@ const TRANSLATIONS = {
     },
 
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   zh: {
     typeTitles: {
@@ -1636,6 +2018,45 @@ const TRANSLATIONS = {
       scoreLabel: '相性分数:'
     }
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   es: {
     typeTitles: {
@@ -1931,6 +2352,45 @@ const TRANSLATIONS = {
       startButton: 'Comenzar prueba instintiva ⚡'
     }
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   de: {
     typeTitles: {
@@ -2225,6 +2685,45 @@ const TRANSLATIONS = {
       startButton: 'Instinkttest starten ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   fr: {
     typeTitles: {
@@ -2520,6 +3019,45 @@ const TRANSLATIONS = {
       startButton: 'Commencer le test d\'instinct ⚡'
     }
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   ru: {
     typeTitles: {
@@ -2813,6 +3351,45 @@ const TRANSLATIONS = {
       startButton: 'Начать тест инстинкта ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   pt: {
     typeTitles: {
@@ -3107,6 +3684,45 @@ const TRANSLATIONS = {
       startButton: 'Iniciar teste instintivo ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   id: {
     typeTitles: {
@@ -3400,6 +4016,45 @@ const TRANSLATIONS = {
       startButton: 'Mulai Tes Instink ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   hi: {
     typeTitles: {
@@ -3693,6 +4348,45 @@ const TRANSLATIONS = {
       startButton: 'सहज परीक्षा शुरू करें ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   vi: {
     typeTitles: {
@@ -3986,6 +4680,45 @@ const TRANSLATIONS = {
       startButton: 'Bắt đầu kiểm tra bản năng ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   th: {
     typeTitles: {
@@ -4279,6 +5012,45 @@ const TRANSLATIONS = {
       startButton: 'เริ่มการทดสอบสัญชาตญาณ ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   tr: {
     typeTitles: {
@@ -4572,6 +5344,45 @@ const TRANSLATIONS = {
       startButton: 'Sezgi Testini Başlat ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   it: {
     typeTitles: {
@@ -4777,6 +5588,45 @@ const TRANSLATIONS = {
       startButton: 'Avvia test istinto ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   nl: {
     typeTitles: {
@@ -4982,6 +5832,45 @@ const TRANSLATIONS = {
       startButton: 'Instincttest starten ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   ar: {
     typeTitles: {
@@ -5187,6 +6076,45 @@ const TRANSLATIONS = {
       startButton: 'ابدأ اختبار الحدس ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   mn: {
     typeTitles: {
@@ -5392,6 +6320,45 @@ const TRANSLATIONS = {
       startButton: 'Ухамсрын тест эхлүүлэх ⚡'
     },
   },
+    personalities: {
+      INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
+    careers: {
+      title: '직업 추천 | 성격 유형별 추천 직업',
+      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요. 각 유형별 추천 직업과 설명입니다.',
+      ogTitle: '직업 추천 | 성격 유형별 추천 직업',
+      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?',
+      mainTitle: '성격 유형 직업 궁합',
+      subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
+      retestButton: '테스트 다시 하기 🔄',
+      compatButton: '궁합 보기 💕',
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
+    },
+    challenges: {
+      title: '일일 도전 및 배지 | 매일의 작은 도전',
+      metaDescription: '매일 새로운 도전을 받고 배지를 모아보세요!',
+      ogTitle: '일일 도전 및 배지',
+      ogDescription: '매일 새로운 도전을 즐겨보세요.',
+      mainTitle: '일일 도전',
+      subtitle: '당신의 성격에 맞는 도전을 완료하고 포인트와 배지를 얻으세요!',
+      totalPoints: '총 포인트',
+      todayPoints: '오늘의 포인트',
+      completedLabel: '완료한 도전',
+      filterAll: '모두',
+      socialCategory: '사교 🤝',
+      thinkCategory: '사고 🧠',
+      feelCategory: '감성 💕',
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
+    },
+    achievements: {
+      explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
+
 
   la: {
     typeTitles: {

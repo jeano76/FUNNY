@@ -2,6 +2,15 @@
    result.js - 결과 표시 로직
    =========================== */
 
+// Get personality data from i18n translations (personalities.js or translations.js)
+function getResultData() {
+  if (window.i18n && window.TRANSLATIONS) {
+    const lang = window.i18n.getCurrentLang ? window.i18n.getCurrentLang() : 'ko';
+    return window.TRANSLATIONS[lang]?.personalities || window.TRANSLATIONS.ko.personalities;
+  }
+  return {};
+}
+
 const resultData = {
   // ---- 분석형 NT ----
   INTJ: {
@@ -226,7 +235,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function displayResult(type) {
-  const r = resultData[type];
+  // Try to get data from i18n first
+  let r = null;
+  if (window.i18n && window.TRANSLATIONS) {
+    const lang = window.i18n.getCurrentLang ? window.i18n.getCurrentLang() : 'ko';
+    r = window.TRANSLATIONS[lang]?.personalities?.[type] || window.TRANSLATIONS.ko.personalities?.[type];
+  }
+
+  // Fallback to hardcoded resultData
+  if (!r) r = resultData[type];
   if (!r) return;
 
   // Hide loading, show content
@@ -234,10 +251,8 @@ function displayResult(type) {
   document.getElementById('resultContent').style.display = 'block';
 
   // Fill result card (i18n 번역 우선 사용)
-  var animalName = (window.i18n && window.i18n.t('animals.' + type) !== 'animals.' + type)
-    ? window.i18n.t('animals.' + type) : r.name;
-  var typeTitle = (window.i18n && window.i18n.t('typeTitles.' + type) !== 'typeTitles.' + type)
-    ? window.i18n.t('typeTitles.' + type) : r.title;
+  var animalName = r.name;
+  var typeTitle = r.title;
 
   document.getElementById('resultTypeBadge').textContent = type;
   document.getElementById('resultAnimalEmoji').textContent = r.emoji;
