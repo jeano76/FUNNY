@@ -15,16 +15,9 @@ window.i18n = (function() {
 
   // 현재 언어 감지 및 설정
   function detectLanguage() {
-    // 저장된 언어 확인
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved && supportedLangs.includes(saved)) {
-      currentLang = saved;
-      return;
-    }
-
-    // URL에서 언어 감지
+    // URL에서 언어 감지 (최우선 - 언어 폴더 URL이면 항상 URL 기준)
     const path = window.location.pathname;
-    const match = path.match(/\/(en|jp|ja|zh|es|de|fr|ru|pt|id|hi|vi|th|tr|it|nl|ar|mn|la)\//);
+    const match = path.match(/\/(en|jp|ja|zh|es|de|fr|ru|pt|id|hi|vi|th|tr|it|nl|ar|mn|la)(\/|$)/);
     if (match) {
       let lang = match[1];
       if (lang === 'jp') lang = 'ja'; // jp -> ja 변환
@@ -33,6 +26,13 @@ window.i18n = (function() {
         localStorage.setItem(LANG_KEY, lang);
         return;
       }
+    }
+
+    // 저장된 언어 확인 (URL에 언어 폴더 없을 때)
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved && supportedLangs.includes(saved)) {
+      currentLang = saved;
+      return;
     }
 
     // 브라우저 언어 감지
