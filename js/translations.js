@@ -1179,7 +1179,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 3-second timer per question',
       questionCountRule: '🎯 20 questions total',
       timeoutRule: '⚡ Timeout = Neutral',
-      startButton: 'Start Instinct Test ⚡'
+      startButton: 'Start Instinct Test ⚡',
+      avgTimeLabel: '⚡ Response Time: Avg',
+      instantLabel: '🎯 Instant Choice:',
+      secLabel: 'sec',
+      questionLabel: 'question',
+      fullResultButton: 'View Detailed Results 📊',
+      retryButton: 'Retry ⚡'
     },
     group: {
       title: 'Group Test | Test with Friends',
@@ -1618,7 +1624,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 質問ごとに3秒タイマー',
       questionCountRule: '🎯 合計20問',
       timeoutRule: '⚡ タイムアウト = ニュートラル',
-      startButton: '本能テスト開始 ⚡'
+      startButton: '本能テスト開始 ⚡',
+      avgTimeLabel: '⚡ 応答時間: 平均',
+      instantLabel: '🎯 即座の選択:',
+      secLabel: '秒',
+      questionLabel: '問題',
+      fullResultButton: '詳細結果を表示 📊',
+      retryButton: 'もう一度 ⚡'
     },
     group: {
       title: 'グループテスト | 友達と一緒にテスト',
@@ -1966,7 +1978,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 每个问题3秒计时器',
       questionCountRule: '🎯 总共20个问题',
       timeoutRule: '⚡ 超时 = 中立',
-      startButton: '开始本能测试 ⚡'
+      startButton: '开始本能测试 ⚡',
+      avgTimeLabel: '⚡ 响应时间: 平均',
+      instantLabel: '🎯 即时选择:',
+      secLabel: '秒',
+      questionLabel: '题目',
+      fullResultButton: '查看详细结果 📊',
+      retryButton: '重试 ⚡'
     },
     group: {
       title: '小组测试 | 与朋友一起测试',
@@ -2355,7 +2373,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Temporizador de 3 segundos por pregunta',
       questionCountRule: '🎯 20 preguntas en total',
       timeoutRule: '⚡ Tiempo agotado = Neutral',
-      startButton: 'Comenzar prueba instintiva ⚡'
+      startButton: 'Comenzar prueba instintiva ⚡',
+      avgTimeLabel: '⚡ Tiempo de Respuesta: Promedio',
+      instantLabel: '🎯 Opción Instantánea:',
+      secLabel: 'seg',
+      questionLabel: 'pregunta',
+      fullResultButton: 'Ver Resultados Detallados 📊',
+      retryButton: 'Reintentar ⚡'
     }
   },
     personalities: {
@@ -2690,7 +2714,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 3-Sekunden-Timer pro Frage',
       questionCountRule: '🎯 Insgesamt 20 Fragen',
       timeoutRule: '⚡ Zeitüberschreitung = Neutral',
-      startButton: 'Instinkttest starten ⚡'
+      startButton: 'Instinkttest starten ⚡',
+      avgTimeLabel: '⚡ Antwortzeit: Durchschnitt',
+      instantLabel: '🎯 Sofortige Auswahl:',
+      secLabel: 'Sek',
+      questionLabel: 'Frage',
+      fullResultButton: 'Detaillierte Ergebnisse anzeigen 📊',
+      retryButton: 'Wiederholen ⚡'
     },
   },
     personalities: {
@@ -3026,7 +3056,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Minuteur de 3 secondes par question',
       questionCountRule: '🎯 20 questions au total',
       timeoutRule: '⚡ Dépassement du délai = Neutre',
-      startButton: 'Commencer le test d\'instinct ⚡'
+      startButton: 'Commencer le test d\'instinct ⚡',
+      avgTimeLabel: '⚡ Temps de Réponse: Moyenne',
+      instantLabel: '🎯 Choix Instantané:',
+      secLabel: 'sec',
+      questionLabel: 'question',
+      fullResultButton: 'Voir les Résultats Détaillés 📊',
+      retryButton: 'Réessayer ⚡'
     }
   },
     personalities: {
@@ -3360,7 +3396,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Таймер 3 секунды на вопрос',
       questionCountRule: '🎯 Всего 20 вопросов',
       timeoutRule: '⚡ Истечение времени = Нейтральное',
-      startButton: 'Начать тест инстинкта ⚡'
+      startButton: 'Начать тест инстинкта ⚡',
+      avgTimeLabel: '⚡ Время ответа: Среднее',
+      instantLabel: '🎯 Мгновенный выбор:',
+      secLabel: 'сек',
+      questionLabel: 'вопрос',
+      fullResultButton: 'Просмотреть подробные результаты 📊',
+      retryButton: 'Повторить ⚡'
     },
   },
     personalities: {
@@ -3695,7 +3737,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Temporizador de 3 segundos por pergunta',
       questionCountRule: '🎯 20 perguntas no total',
       timeoutRule: '⚡ Tempo esgotado = Neutro',
-      startButton: 'Iniciar teste instintivo ⚡'
+      startButton: 'Iniciar teste instintivo ⚡',
+      avgTimeLabel: '⚡ Tempo de Resposta: Média',
+      instantLabel: '🎯 Escolha Instantânea:',
+      secLabel: 'seg',
+      questionLabel: 'pergunta',
+      fullResultButton: 'Ver Resultados Detalhados 📊',
+      retryButton: 'Tentar Novamente ⚡'
     },
   },
     personalities: {
@@ -4029,7 +4077,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Timer 3 detik per pertanyaan',
       questionCountRule: '🎯 20 pertanyaan total',
       timeoutRule: '⚡ Waktu Habis = Netral',
-      startButton: 'Mulai Tes Instink ⚡'
+      startButton: 'Mulai Tes Instink ⚡',
+      avgTimeLabel: '⚡ Waktu Respons: Rata-rata',
+      instantLabel: '🎯 Pilihan Instan:',
+      secLabel: 'detik',
+      questionLabel: 'pertanyaan',
+      fullResultButton: 'Lihat Hasil Detail 📊',
+      retryButton: 'Coba Lagi ⚡'
     },
   },
     personalities: {
@@ -4363,7 +4417,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ प्रति प्रश्न 3 सेकंड टाइमर',
       questionCountRule: '🎯 कुल 20 प्रश्न',
       timeoutRule: '⚡ समय समाप्त = तटस्थ',
-      startButton: 'सहज परीक्षा शुरू करें ⚡'
+      startButton: 'सहज परीक्षा शुरू करें ⚡',
+      avgTimeLabel: '⚡ प्रतिक्रिया समय: औसत',
+      instantLabel: '🎯 तत्काल विकल्प:',
+      secLabel: 'सेक',
+      questionLabel: 'प्रश्न',
+      fullResultButton: 'विस्तृत परिणाम देखें 📊',
+      retryButton: 'फिर से कोशिश करें ⚡'
     },
   },
     personalities: {
@@ -4697,7 +4757,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Bộ hẹn giờ 3 giây cho mỗi câu hỏi',
       questionCountRule: '🎯 Tổng cộng 20 câu hỏi',
       timeoutRule: '⚡ Hết thời gian = Trung lập',
-      startButton: 'Bắt đầu kiểm tra bản năng ⚡'
+      startButton: 'Bắt đầu kiểm tra bản năng ⚡',
+      avgTimeLabel: '⚡ Thời gian Phản ứng: Trung bình',
+      instantLabel: '🎯 Lựa chọn Tức thì:',
+      secLabel: 'giây',
+      questionLabel: 'câu hỏi',
+      fullResultButton: 'Xem Kết quả Chi tiết 📊',
+      retryButton: 'Thử lại ⚡'
     },
   },
     personalities: {
@@ -5031,7 +5097,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ ตัวจับเวลา 3 วินาทีต่อคำถาม',
       questionCountRule: '🎯 รวม 20 คำถาม',
       timeoutRule: '⚡ หมดเวลา = กลาง',
-      startButton: 'เริ่มการทดสอบสัญชาตญาณ ⚡'
+      startButton: 'เริ่มการทดสอบสัญชาตญาณ ⚡',
+      avgTimeLabel: '⚡ เวลาตอบสนอง: เฉลี่ย',
+      instantLabel: '🎯 ตัวเลือกทันที:',
+      secLabel: 'วินาที',
+      questionLabel: 'คำถาม',
+      fullResultButton: 'ดูผลลัพธ์รายละเอียด 📊',
+      retryButton: 'ลองอีกครั้ง ⚡'
     },
   },
     personalities: {
@@ -5365,7 +5437,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Soru başına 3 saniye zamanlayıcı',
       questionCountRule: '🎯 Toplam 20 soru',
       timeoutRule: '⚡ Zaman Aşımı = Nötr',
-      startButton: 'Sezgi Testini Başlat ⚡'
+      startButton: 'Sezgi Testini Başlat ⚡',
+      avgTimeLabel: '⚡ Yanıt Süresi: Ortalama',
+      instantLabel: '🎯 Anlık Seçim:',
+      secLabel: 'sn',
+      questionLabel: 'soru',
+      fullResultButton: 'Ayrıntılı Sonuçları Görüntüle 📊',
+      retryButton: 'Tekrar Dene ⚡'
     },
   },
     personalities: {
@@ -5611,7 +5689,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Timer di 3 secondi per domanda',
       questionCountRule: '🎯 20 domande totali',
       timeoutRule: '⚡ Scadenza tempo = Neutrale',
-      startButton: 'Avvia test istinto ⚡'
+      startButton: 'Avvia test istinto ⚡',
+      avgTimeLabel: '⚡ Tempo di Risposta: Media',
+      instantLabel: '🎯 Scelta Istantanea:',
+      secLabel: 'sec',
+      questionLabel: 'domanda',
+      fullResultButton: 'Visualizza Risultati Dettagliati 📊',
+      retryButton: 'Riprova ⚡'
     },
   },
     personalities: {
@@ -5857,7 +5941,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 3-secondetimer per vraag',
       questionCountRule: '🎯 20 vragen totaal',
       timeoutRule: '⚡ Tijd verstreken = Neutraal',
-      startButton: 'Instincttest starten ⚡'
+      startButton: 'Instincttest starten ⚡',
+      avgTimeLabel: '⚡ Reactietijd: Gemiddelde',
+      instantLabel: '🎯 Onmiddellijke Keuze:',
+      secLabel: 'sec',
+      questionLabel: 'vraag',
+      fullResultButton: 'Gedetailleerde Resultaten Weergeven 📊',
+      retryButton: 'Opnieuw Proberen ⚡'
     },
   },
     personalities: {
@@ -6103,7 +6193,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ مؤقت 3 ثوان لكل سؤال',
       questionCountRule: '🎯 إجمالي 20 سؤال',
       timeoutRule: '⚡ انتهاء المهلة = محايد',
-      startButton: 'ابدأ اختبار الحدس ⚡'
+      startButton: 'ابدأ اختبار الحدس ⚡',
+      avgTimeLabel: '⚡ وقت الاستجابة: المتوسط',
+      instantLabel: '🎯 الاختيار الفوري:',
+      secLabel: 'ثانية',
+      questionLabel: 'سؤال',
+      fullResultButton: 'عرض النتائج التفصيلية 📊',
+      retryButton: 'حاول مرة أخرى ⚡'
     },
   },
     personalities: {
@@ -6349,7 +6445,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Асуулт бүрт 3 секундын хэмжээний таймер',
       questionCountRule: '🎯 Нийт 20 асуулт',
       timeoutRule: '⚡ Хугацаа дууссан = Төрөлхий',
-      startButton: 'Ухамсрын тест эхлүүлэх ⚡'
+      startButton: 'Ухамсрын тест эхлүүлэх ⚡',
+      avgTimeLabel: '⚡ Хариулт өгөх хугацаа: Дундаж',
+      instantLabel: '🎯 Шуурхай Сонголт:',
+      secLabel: 'сек',
+      questionLabel: 'асуулт',
+      fullResultButton: 'Дэлгэрэнгүй Үр Дүнг Үзүүлэх 📊',
+      retryButton: 'Дахин Оролдоно уу ⚡'
     },
   },
     personalities: {
@@ -6595,7 +6697,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ Horlogium 3 secundorum per quaestionem',
       questionCountRule: '🎯 20 quaestiones totales',
       timeoutRule: '⚡ Tempus finitum = Neutrum',
-      startButton: 'Incipe probationem instinctus ⚡'
+      startButton: 'Incipe probationem instinctus ⚡',
+      avgTimeLabel: '⚡ Tempus Responsionis: Media',
+      instantLabel: '🎯 Electio Momentanea:',
+      secLabel: 'sec',
+      questionLabel: 'quaestio',
+      fullResultButton: 'Vide Eventus Plenos 📊',
+      retryButton: 'Conare Iterum ⚡'
     },
   },
 };
