@@ -5,23 +5,24 @@
 var SITE_URL = 'https://stockinvestonline.com/';
 
 function getShareText(type, r) {
-  return '나는 성격 유형 ' + type + ' - ' + r.name + ' ' + r.emoji + '!\n'
+  var aName = (window.i18n && window.i18n.t('animals.' + type) !== 'animals.' + type) ? window.i18n.t('animals.' + type) : r.name;
+  return '나는 성격 유형 ' + type + ' - ' + aName + ' ' + r.emoji + '!\n'
        + r.shareText + '\n'
-       + '👉 나도 테스트하기: ' + SITE_URL;
+       + '👉 ' + (window.i18n ? window.i18n.t('share.testMe') : '나도 테스트하기') + ': ' + SITE_URL;
 }
 
 // 카카오톡 공유
 function shareKakao(type, r) {
   var KAKAO_APP_KEY = '2850ea2fde730ed80b6f932c8e05d709';
   try {
-    if (!window.Kakao) { alert('카카오 SDK를 불러오지 못했습니다.'); return; }
+    if (!window.Kakao) { alert(window.i18n ? window.i18n.t('share.kakaoNotLoaded') : '카카오 SDK를 불러오지 못했습니다.'); return; }
     if (!Kakao.isInitialized()) {
       Kakao.init(KAKAO_APP_KEY);
     }
     Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: '나는 ' + type + ' ' + r.name + ' ' + r.emoji + '!',
+        title: type + ' ' + aName + ' ' + r.emoji,
         description: r.description.slice(0, 100) + '...',
         imageUrl: SITE_URL + 'assets/og-image.png',
         link: {
@@ -30,7 +31,7 @@ function shareKakao(type, r) {
         }
       },
       buttons: [{
-        title: '나도 테스트하기',
+        title: (window.i18n ? window.i18n.t('share.testMe') : '나도 테스트하기'),
         link: {
           mobileWebUrl: SITE_URL + 'quiz.html',
           webUrl: SITE_URL + 'quiz.html'
@@ -40,7 +41,7 @@ function shareKakao(type, r) {
   } catch (e) {
     // Fallback: 링크 복사
     copyLink(type);
-    showToast('카카오 설정 전입니다. 링크를 복사했어요! 📋');
+    showToast((window.i18n ? window.i18n.t('share.copySuccess') : '링크가 복사되었습니다! 📋'));
   }
 }
 
@@ -63,7 +64,7 @@ function copyLink(type) {
   var url = SITE_URL + 'result.html?type=' + type;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(function () {
-      showToast('링크가 복사되었습니다! 📋');
+      showToast((window.i18n ? window.i18n.t('share.copySuccess') : '링크가 복사되었습니다! 📋'));
     }).catch(function () {
       fallbackCopy(url);
     });
@@ -82,9 +83,9 @@ function fallbackCopy(text) {
   el.select();
   try {
     document.execCommand('copy');
-    showToast('링크가 복사되었습니다! 📋');
+    showToast((window.i18n ? window.i18n.t('share.copySuccess') : '링크가 복사되었습니다! 📋'));
   } catch (e) {
-    showToast('복사에 실패했습니다. URL을 직접 복사해주세요.');
+    showToast((window.i18n ? window.i18n.t('share.copyFail') : '복사에 실패했습니다. URL을 직접 복사해주세요.'));
   }
   document.body.removeChild(el);
 }

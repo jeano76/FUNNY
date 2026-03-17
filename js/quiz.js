@@ -194,13 +194,30 @@ let currentIndex = 0;
 const answers = {}; // { axis: [scores] }
 
 // --- Init ---
+function getLocalizedQuizData() {
+  if (!window.i18n || !window.i18n.t) return quizData;
+  return quizData.map(function(q) {
+    var qi = window.i18n.t('quizQuestions.q' + q.id);
+    if (!qi || qi === 'quizQuestions.q' + q.id) return q;
+    return {
+      id: q.id, axis: q.axis, emoji: q.emoji,
+      text: qi.text || q.text,
+      options: [
+        { text: qi.a1 || q.options[0].text, score: q.options[0].score },
+        { text: qi.a2 || q.options[1].text, score: q.options[1].score }
+      ]
+    };
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   renderQuestion(currentIndex);
 });
 
 function renderQuestion(index) {
-  const q = quizData[index];
-  const total = quizData.length;
+  var localizedData = getLocalizedQuizData();
+  const q = localizedData[index];
+  const total = localizedData.length;
 
   // Progress
   const pct = Math.round(((index) / total) * 100) + 5;

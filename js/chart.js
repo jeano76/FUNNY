@@ -34,11 +34,11 @@ function createCharacteristicChart(type) {
 
   // 축선과 레이블
   const dimensions = [
-    { name: '에너지', value: chars.energy, angle: 0 },
-    { name: '정보수집', value: chars.information, angle: 72 },
-    { name: '의사결정', value: chars.decision, angle: 144 },
-    { name: '계획성', value: chars.planning, angle: 216 },
-    { name: '강도', value: chars.intensity, angle: 288 }
+    { name: (window.i18n ? window.i18n.t('chart.energy') : '에너지'), value: chars.energy, angle: 0 },
+    { name: (window.i18n ? window.i18n.t('chart.information') : '정보수집'), value: chars.information, angle: 72 },
+    { name: (window.i18n ? window.i18n.t('chart.decision') : '의사결정'), value: chars.decision, angle: 144 },
+    { name: (window.i18n ? window.i18n.t('chart.planning') : '계획성'), value: chars.planning, angle: 216 },
+    { name: (window.i18n ? window.i18n.t('chart.intensity') : '강도'), value: chars.intensity, angle: 288 }
   ];
 
   // 축선 그리기
@@ -168,11 +168,11 @@ function getIntensityScore(type) {
 function createCharacteristicBars(type) {
   const chars = getCharacteristics(type);
   const dimensions = [
-    { name: '에너지', value: chars.energy },
-    { name: '정보수집', value: chars.information },
-    { name: '의사결정', value: chars.decision },
-    { name: '계획성', value: chars.planning },
-    { name: '강도', value: chars.intensity }
+    { name: (window.i18n ? window.i18n.t('chart.energy') : '에너지'), value: chars.energy },
+    { name: (window.i18n ? window.i18n.t('chart.information') : '정보수집'), value: chars.information },
+    { name: (window.i18n ? window.i18n.t('chart.decision') : '의사결정'), value: chars.decision },
+    { name: (window.i18n ? window.i18n.t('chart.planning') : '계획성'), value: chars.planning },
+    { name: (window.i18n ? window.i18n.t('chart.intensity') : '강도'), value: chars.intensity }
   ];
 
   const container = document.createElement('div');
@@ -219,7 +219,7 @@ function addCharacteristicChartToResult(type) {
 
   const title = document.createElement('h3');
   title.style.cssText = 'text-align: center; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: #333;';
-  title.textContent = '성격 특성 분석';
+  title.textContent = (window.i18n ? window.i18n.t('chart.title') : '성격 특성 분석');
   section.appendChild(title);
 
   // 차트 선택 (레이더 또는 막대)
