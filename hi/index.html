@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -253,8 +253,13 @@
         const banner = document.getElementById('returningBanner');
         const msg = document.getElementById('returningMsg');
         const viewBtn = document.getElementById('viewResultBtn');
-        msg.textContent = `${data.currentResult.animal}(${data.currentResult.type}) 로 돌아왔군요! 👋`;
-        viewBtn.href = `result.html?type=${data.currentResult.type}`;
+        const animalName = typeof data.currentResult.animal === 'string'
+          ? data.currentResult.animal
+          : (data.currentResult.animal?.name || getAnimalName(data.currentResult.type));
+        var defaultMsg = animalName + '(' + data.currentResult.type + ') 로 돌아왔군요! 👋';
+        var i18nMsg = (window.i18n) ? window.i18n.t('index.returningMessage') : null;
+        msg.textContent = i18nMsg ? i18nMsg.replace('{animal}', animalName).replace('{type}', data.currentResult.type) : defaultMsg;
+        viewBtn.href = 'result.html?type=' + data.currentResult.type;
         banner.style.display = 'block';
       }
     });
