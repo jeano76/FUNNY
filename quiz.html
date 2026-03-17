@@ -116,7 +116,8 @@
   <script src="/js/quiz.js"></script>
   <script src="/js/storage.js"></script>
   <script>
-    if (window.i18n) {
+    if (window.i18n && window.TRANSLATIONS) {
+      window.i18n.setTranslations(window.TRANSLATIONS);
       window.i18n.init();
     }
   </script>
