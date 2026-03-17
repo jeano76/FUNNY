@@ -104,6 +104,19 @@ Mobile-first responsive approach. No external CSS frameworks.
   - Detects browser language preference
   - Version: 2.0 (includes forced link rewriting for language context)
   - Loaded early in HEAD (v=2.0 cache buster)
+  - Defines `window.switchLanguage(langDir)` used by nav.js
+
+- **translations.js** (large) - All translation data for 19 languages
+  - `window.TRANSLATIONS` object with keys: ko, en, ja, zh, es, de, fr, ru, pt, id, hi, vi, th, tr, it, nl, ar, mn, la
+  - Contains: personalities, careers, challenges, achievements, nav, footer, all page strings
+  - Current version: v=1.2 — **bump version on every edit** to bust browser cache
+  - **CRITICAL**: Each language section must be properly closed with `}`. Run `node --check js/translations.js` after editing.
+
+- **i18n-complete.js** - Translation engine
+  - `window.i18n.t('key.subkey')` for JS usage
+  - `data-i18n="key.subkey"` attribute for HTML elements
+  - Auto-initializes via setTimeout; also called explicitly with `window.i18n.init()`
+  - Current version: v=1.2
 
 **Feature Modules:**
 
@@ -114,6 +127,10 @@ Mobile-first responsive approach. No external CSS frameworks.
 - **careers.js** (23.3 KB) - Job recommendation system
 - **canvas-card.js** (4.5 KB) - Generate shareable result images
 - **nav.js** (2.7 KB) - Navigation behavior and language switcher
+  - Current version: v=2.3
+  - Language links use direct click handlers (not event delegation)
+  - Calls `window.switchLanguage(langDir)` defined in auto-lang.js
+  - Moves `.lang-content` to `document.body` for fixed positioning
 
 ### Key Data Structures
 
@@ -219,10 +236,16 @@ Results are stored with keys that can be checked in browser DevTools → Applica
 Script tags use version cache busters to bust browser caches on updates:
 
 ```html
-<script src="/js/auto-lang.js?v=2.0"></script>  <!-- Increment on changes -->
+<script src="/js/auto-lang.js?v=2.0"></script>      <!-- auto-lang: v2.0 -->
+<script src="/js/translations.js?v=1.2"></script>   <!-- translations: v1.2 -->
+<script src="/js/i18n-complete.js?v=1.2"></script>  <!-- i18n-complete: v1.2 -->
+<script src="/js/nav.js?v=2.3"></script>            <!-- nav: v2.3 -->
 ```
 
-Update the version number when making meaningful changes to JS files.
+**Always increment the version number** when making meaningful changes to JS files, then run a find+replace across all 266+ HTML files:
+```bash
+find . -name "*.html" | xargs sed -i 's/translations\.js?v=X\.X/translations.js?v=X.Y/g'
+```
 
 ### Metadata & SEO
 
@@ -286,7 +309,7 @@ No automated test framework. Manual testing approach:
 
 Cloudflare Pages has per-file limits. Current files are well within limits:
 
-- Largest JS: result.js (17.6 KB) ✅
+- Largest JS: translations.js (~200 KB) ✅
 - Largest HTML: careers.html (30.4 KB) ✅
 - CSS: unified style.css (large combined file but single request)
 
@@ -316,6 +339,13 @@ No IE11 support. Uses modern CSS (Grid, Flexbox, CSS variables, etc).
 - **Phase 2**: Multi-language support, auto-detection, SEO
 - **Phase 3**: AdSense integration, Cloudflare deployment
 - **Phase 4**: SNS sharing (Kakao, Twitter, Facebook)
-- **Phase 5**: Term updates ("MBTI" → "성격 유형" in Korean UI)
+- **Phase 5**: Full i18n — all text migrated to translations.js (personalities, careers, challenges, achievements, nav, footer, all pages)
+
+### Known Issues Fixed
+- `translations.js` syntax error: each language section (en~la) was missing 2 closing `}` (for `achievements:{}` and the language block itself). Fixed 2026-03-17.
+- `lang-btn` was invisible (white text on white nav). Fixed in css/style.css.
+- Language folder pages had wrong `<html lang="ko">`. Fixed for all 18 folders.
+- `compare.html` in all language folders had outdated single-line footer. Fixed.
+- `body { overflow-x: hidden }` breaks `position:fixed` dropdown — use only on `html`.
 
 See `/home/hyuckjoolee/.claude/projects/-home-hyuckjoolee-marketMBTI/memory/` for phase completion details.
