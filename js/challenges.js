@@ -51,7 +51,7 @@ function loadChallengeProgress() {
   const data = getMBTIData();
   if (!data.challengeProgress) {
     data.challengeProgress = {};
-    saveMBTIResult(data);
+    saveMBTIData(data);
   }
 }
 
@@ -148,7 +148,7 @@ function completeChallenge(challengeId) {
   if (!data.todayPoints[today]) data.todayPoints[today] = 0;
   data.todayPoints[today] += challenge.points;
 
-  saveMBTIResult(data);
+  saveMBTIData(data);
 
   // UI 업데이트
   showToast('🎉 도전 완료! +' + challenge.points + ' 포인트');

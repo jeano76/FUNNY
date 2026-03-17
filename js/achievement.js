@@ -255,7 +255,7 @@ function checkAllAchievements(data) {
   }
 
   if (newAchievements.length > 0) {
-    saveMBTIResult(data);
+    saveMBTIData(data);
   }
 
   return newAchievements;

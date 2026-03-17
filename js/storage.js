@@ -8,7 +8,20 @@ function getMBTIData() {
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return createEmptyData();
-    return JSON.parse(raw);
+    var data = JSON.parse(raw);
+    
+    // Fix corrupted currentResult if it's an object instead of a string type
+    if (data.currentResult && typeof data.currentResult.type === 'object') {
+      console.warn('Corrupted MBTI data detected, attempting to repair...');
+      // Try to find a valid type string in the object or fallback
+      var fallbackType = 'INTJ'; // Default fallback
+      if (data.history && data.history.length > 0 && typeof data.history[0].type === 'string') {
+        data.currentResult = data.history[0];
+      } else {
+        data.currentResult = null; // Clear if unrepairable
+      }
+    }
+    return data;
   } catch (e) {
     return createEmptyData();
   }
@@ -19,11 +32,28 @@ function createEmptyData() {
     currentResult: null,
     history: [],
     visitCount: 0,
-    firstVisit: new Date().toISOString()
+    firstVisit: new Date().toISOString(),
+    totalPoints: 0,
+    challengeProgress: {},
+    todayPoints: {},
+    achievements: {}
   };
 }
 
+function saveMBTIData(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn('localStorage 저장 실패:', e);
+  }
+}
+
 function saveMBTIResult(type, scores) {
+  if (typeof type === 'object' && type !== null && !scores) {
+    // Legacy support or accidental object passing - redirect to saveMBTIData
+    console.warn('saveMBTIResult called with object, redirecting to saveMBTIData');
+    return saveMBTIData(type);
+  }
   var data = getMBTIData();
   var newResult = {
     type: type,
