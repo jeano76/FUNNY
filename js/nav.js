@@ -13,6 +13,29 @@
       allButtons.push(btn);
       allContents.push(content);
 
+      // 언어 링크에 직접 클릭 핸들러 등록 (이벤트 위임보다 안정적)
+      content.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var href = link.getAttribute('href') || '';
+          var parts = href.split('/').filter(function(p) { return p && p !== '..'; });
+          var targetDir = 'ko';
+          if (parts.length >= 2 && parts[parts.length - 1].indexOf('.html') !== -1) {
+            targetDir = parts[parts.length - 2];
+          } else if (parts.length === 1 && parts[0].indexOf('.html') === -1) {
+            targetDir = parts[0];
+          }
+          closeAll();
+          if (window.switchLanguage) {
+            window.switchLanguage(targetDir);
+          } else {
+            localStorage.setItem(LANG_KEY, targetDir);
+            window.location.href = href;
+          }
+        });
+      });
+
       // Move content to body for fixed positioning
       document.body.appendChild(content);
 
@@ -20,12 +43,18 @@
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        const isOpen = content.style.display === 'block';
+        var isOpen = content.style.display === 'block';
         closeAll();
         if (!isOpen) {
-          const rect = btn.getBoundingClientRect();
+          var rect = btn.getBoundingClientRect();
           content.style.top = (rect.bottom + 5) + 'px';
-          content.style.left = (rect.left) + 'px';
+          // 오른쪽 화면 밖으로 나가지 않도록 조정
+          var left = rect.left;
+          var dropWidth = content.offsetWidth || 160;
+          if (left + dropWidth > window.innerWidth) {
+            left = window.innerWidth - dropWidth - 8;
+          }
+          content.style.left = Math.max(8, left) + 'px';
           content.style.display = 'block';
         }
       });
@@ -33,8 +62,8 @@
 
     // Global click handler to close dropdown
     document.addEventListener('click', function (e) {
-      const isInButton = allButtons.some(btn => btn.contains(e.target));
-      const isInContent = allContents.some(content => content.contains(e.target));
+      var isInButton = allButtons.some(function(btn) { return btn.contains(e.target); });
+      var isInContent = allContents.some(function(content) { return content.contains(e.target); });
 
       if (!isInButton && !isInContent) {
         closeAll();
@@ -48,47 +77,26 @@
     });
   }
 
-  // 모든 링크 클릭 감시 (이벤트 위임)
+  // 일반 내부 링크 클릭 시 언어 컨텍스트 유지 (절대경로만)
   document.addEventListener('click', function(e) {
-    const link = e.target.closest('a');
+    var link = e.target.closest ? e.target.closest('a') : null;
     if (!link) return;
 
-    const href = link.getAttribute('href');
+    var href = link.getAttribute('href');
     if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript:')) return;
 
-    // 1. 언어 변경 메뉴 클릭 시
-    if (link.closest('.lang-content')) {
-      e.preventDefault();
-      // href에서 언어 폴더명 추출
-      const parts = href.split('/').filter(p => p && p !== '..');
-      let targetDir = 'ko';
-      if (parts.length >= 2 && parts[parts.length - 1].includes('.html')) {
-        targetDir = parts[parts.length - 2];
-      }
-      
-      if (window.switchLanguage) {
-        window.switchLanguage(targetDir);
-      } else {
-        localStorage.setItem(LANG_KEY, targetDir);
-        window.location.href = href;
-      }
-      return;
-    }
+    // 언어 드롭다운 링크는 위에서 직접 처리됨 - 여기서는 스킵
+    if (link.closest('.lang-content')) return;
 
-    // 2. 일반 내부 링크 클릭 시: 상대경로는 그대로, 절대경로만 현재 언어로 유지
-    const savedLang = localStorage.getItem(LANG_KEY);
+    // 상대경로는 브라우저 기본 동작 유지
+    if (href.startsWith('..') || href.startsWith('.')) return;
 
-    // 상대경로(../, ./)는 브라우저 기본 동작 유지
-    if (href.startsWith('..') || href.startsWith('.')) {
-      return;
-    }
-
-    // 절대경로(/로 시작)만 언어 변환 적용
+    // 절대경로(/로 시작)만 현재 언어로 변환
+    var savedLang = localStorage.getItem(LANG_KEY);
     if (savedLang && savedLang !== 'ko' && href.startsWith('/')) {
       e.preventDefault();
-      // 순수 파일명만 추출
-      const pageName = href.split('/').pop() || 'index.html';
-      const targetPath = '/' + savedLang + '/' + (pageName.includes('.html') ? pageName : 'index.html');
+      var pageName = href.split('/').pop() || 'index.html';
+      var targetPath = '/' + savedLang + '/' + (pageName.indexOf('.html') !== -1 ? pageName : 'index.html');
       window.location.href = targetPath;
     }
   });
