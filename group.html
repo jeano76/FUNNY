@@ -99,10 +99,10 @@
 
         <!-- 그룹 참여하기 -->
         <div id="panelJoin" style="display:none;">
-          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;">친구에게 받은 그룹 코드를 입력하세요.</p>
+          <p style="color:var(--text-mute); font-size:.9rem; margin-bottom:1rem;" data-i18n="group.joinTitle">친구에게 받은 그룹 코드를 입력하세요.</p>
           <input type="text" id="groupCodeInput" class="group-input" placeholder="그룹 코드 입력 (예: ABC123)" maxlength="8" style="text-transform:uppercase;" />
           <button class="btn-start" onclick="joinGroup()" style="width:100%; margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; font-size:1rem; padding:.8rem;">
-            그룹 참여하기 →
+            <span data-i18n="group.joinButton">그룹 참여하기 →</span>
           </button>
         </div>
       </div>
@@ -113,24 +113,24 @@
           <div>
             <h2 class="group-info-name" id="groupInfoName"></h2>
             <div class="group-info-code-wrap">
-              <span style="font-size:.85rem; color:var(--text-mute);">그룹 코드: </span>
+              <span style="font-size:.85rem; color:var(--text-mute);" data-i18n="group.groupCodeLabel">그룹 코드: </span>
               <span class="group-code-display" id="groupCodeDisplay"></span>
             </div>
           </div>
-          <button class="group-share-btn" id="copyGroupLinkBtn" onclick="copyGroupLink()">링크 복사 🔗</button>
+          <button class="group-share-btn" id="copyGroupLinkBtn" onclick="copyGroupLink()" data-i18n="group.copyLinkButton">링크 복사 🔗</button>
         </div>
 
         <!-- 내 유형 등록 -->
         <div class="group-my-type-wrap" id="groupMyTypeWrap">
-          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:.8rem;">내 성격 유형 등록하기</h3>
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:.8rem;" data-i18n="group.registerTitle">내 성격 유형 등록하기</h3>
           <div style="display:flex; gap:.8rem; align-items:center; flex-wrap:wrap;">
             <select id="groupMyTypeSelect" class="compat-select" style="flex:1; min-width:160px;">
-              <option value="">-- 내 성격 유형 선택 --</option>
+              <option value="" data-i18n="group.selectTypePlaceholder">-- 내 성격 유형 선택 --</option>
             </select>
             <input type="text" id="groupNicknameInput" class="group-input" placeholder="닉네임" maxlength="10" style="flex:1; min-width:120px;" />
           </div>
           <button class="btn-retest" onclick="addMyResult()" style="margin-top:.8rem; border:none; cursor:pointer; font-family:inherit; width:100%;">
-            결과 등록하기 ✅
+            <span data-i18n="group.registerButton">결과 등록하기 ✅</span>
           </button>
         </div>
       </div>
@@ -138,23 +138,23 @@
       <!-- 그룹 결과 -->
       <div id="groupResultSection" style="display:none;">
         <div class="result-card" style="margin-bottom:1.5rem;">
-          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📊 그룹 성격 유형 분포</h2>
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;" data-i18n="group.distributionTitle">📊 그룹 성격 유형 분포</h2>
           <div id="groupMemberList"></div>
         </div>
 
         <div class="result-card" style="margin-bottom:1.5rem;">
-          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;">📈 유형별 분포 차트</h2>
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1.2rem;" data-i18n="group.chartTitle">📈 유형별 분포 차트</h2>
           <div id="groupChart"></div>
         </div>
 
         <div class="result-card" style="margin-bottom:1.5rem;">
-          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1rem;">🏷️ 그룹 특성 분석</h2>
+          <h2 style="font-size:1.1rem; font-weight:900; margin-bottom:1rem;" data-i18n="group.analysisTitle">🏷️ 그룹 특성 분석</h2>
           <div id="groupAnalysis"></div>
         </div>
 
         <div style="display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-          <button class="btn-retest" onclick="copyGroupLink()" style="border:none; cursor:pointer; font-family:inherit; flex:1;">친구 초대 링크 📤</button>
-          <button class="btn-home" onclick="clearGroup()" style="border:none; cursor:pointer; font-family:inherit; flex:1;">그룹 초기화 🗑️</button>
+          <button class="btn-retest" onclick="copyGroupLink()" style="border:none; cursor:pointer; font-family:inherit; flex:1;" data-i18n="group.inviteButton">친구 초대 링크 📤</button>
+          <button class="btn-home" onclick="clearGroup()" style="border:none; cursor:pointer; font-family:inherit; flex:1;" data-i18n="group.resetButton">그룹 초기화 🗑️</button>
         </div>
       </div>
 

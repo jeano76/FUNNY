@@ -370,10 +370,10 @@
       <div class="challenges-filter">
         <button class="filter-btn active" onclick="filterChallenges('all')" data-i18n="challenges.filterAll">모두</button>
         <button class="filter-btn" onclick="filterChallenges('social')" data-i18n="challenges.socialCategory">사교 🤝</button>
-        <button class="filter-btn" onclick="filterChallenges('creativity')">창의 ✨</button>
-        <button class="filter-btn" onclick="filterChallenges('logic')">논리 🧠</button>
-        <button class="filter-btn" onclick="filterChallenges('emotional')">감정 💝</button>
-        <button class="filter-btn" onclick="filterChallenges('adventure')">모험 🚀</button>
+        <button class="filter-btn" onclick="filterChallenges('creativity')" data-i18n="challenges.creativityCategory">창의 ✨</button>
+        <button class="filter-btn" onclick="filterChallenges('logic')" data-i18n="challenges.logicCategory">논리 🧠</button>
+        <button class="filter-btn" onclick="filterChallenges('emotional')" data-i18n="challenges.emotionCategory">감정 💝</button>
+        <button class="filter-btn" onclick="filterChallenges('adventure')" data-i18n="challenges.adventureCategory">모험 🚀</button>
       </div>
 
       <div class="challenges-grid" id="challengesGrid">
@@ -382,7 +382,7 @@
 
       <div class="weekly-leaderboard">
         <div class="leaderboard-title">
-          🏆 주간 랭킹
+          <span data-i18n="challenges.weeklyRanking">🏆 주간 랭킹</span>
         </div>
         <div class="leaderboard-list" id="leaderboardList">
           <!-- Leaderboard items injected by JS -->

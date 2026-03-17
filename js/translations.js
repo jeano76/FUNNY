@@ -179,7 +179,9 @@ const TRANSLATIONS = {
       subtitle: '내 성격 유형에 맞는 추천 직업 Top 5를 확인하세요!',
       retestButton: '테스트 다시 하기 🔄',
       compatButton: '궁합 보기 💕',
-      topJobs: '추천 직업 Top 5'
+      topJobs: '추천 직업 Top 5',
+      workStrengthLabel: '💡 업무 강점',
+      careerAdviceLabel: '📌 커리어 조언',
     },
 
     // ========== compare.html ==========
@@ -206,7 +208,8 @@ const TRANSLATIONS = {
       subtitle: '이 상황에서 성격 유형별 반응은? 👉 카드를 넘겨보세요!',
       nextButton: '다음 ▶',
       prevButton: '◀ 이전',
-      selectTypeLabel: '유형 선택'
+      selectTypeLabel: '유형 선택',
+      swipeHint: '← 스와이프 또는 버튼으로 넘기세요',
     },
 
     // ========== challenges.html ==========
@@ -224,7 +227,12 @@ const TRANSLATIONS = {
       socialCategory: '사교 🤝',
       thinkCategory: '사고 🧠',
       feelCategory: '감성 💕',
-      actionCategory: '행동 ⚡'
+      actionCategory: '행동 ⚡',
+      creativityCategory: '창의 ✨',
+      logicCategory: '논리 🧠',
+      emotionCategory: '감정 💝',
+      adventureCategory: '모험 🚀',
+      weeklyRanking: '🏆 주간 랭킹',
     },
 
     // ========== about.html ==========
@@ -299,7 +307,16 @@ const TRANSLATIONS = {
       changesHeading: '정책 변경',
       changesText: '본 정책은 예고 없이 변경될 수 있습니다. 변경 사항은 이 페이지에 게시됩니다.',
       contactHeading: '문의',
-      contactText: '개인정보 처리방침에 대한 문의가 있으시면 이메일로 연락주세요.'
+      contactText: '개인정보 처리방침에 대한 문의가 있으시면 이메일로 연락주세요.',
+      storedInfo: '단, 아래의 방식으로 일부 정보가 저장될 수 있습니다:',
+      cookieHeading: '2. 쿠키 사용',
+      cookiePurpose: '사이트는 다음과 같은 목적으로 쿠키를 사용합니다:',
+      cookieDisable: '브라우저 설정에서 쿠키를 비활성화할 수 있으나, 일부 기능이 제한될 수 있습니다.',
+      adsenseHeading: '3. 제3자 광고 서비스 (Google AdSense)',
+      localDataHeading: '4. 로컬 데이터 저장',
+      securityHeading: '5. 데이터 보안',
+      externalLinksHeading: '6. 링크된 외부 사이트',
+      policyChangeHeading: '7. 방침 변경',
     },
 
     // ========== fortune.html ==========
@@ -314,7 +331,9 @@ const TRANSLATIONS = {
       workLabel: '업무운',
       moneyLabel: '재물운',
       healthLabel: '건강운',
-      adviceLabel: '오늘의 조언'
+      adviceLabel: '오늘의 조언',
+      totalFortuneLabel: '총운',
+      quoteLabel: '💬 오늘의 한마디',
     },
 
     // ========== speed.html ==========
@@ -329,7 +348,13 @@ const TRANSLATIONS = {
       timerRule: '⏱ 문항당 3초 타이머',
       questionCountRule: '🎯 총 20문항',
       timeoutRule: '⚡ 시간 초과 = 중립',
-      startButton: '본능 테스트 시작 ⚡'
+      startButton: '본능 테스트 시작 ⚡',
+      avgTimeLabel: '⚡ 응답 시간: 평균',
+      instantLabel: '🎯 즉시 선택:',
+      secLabel: '초',
+      questionLabel: '문항',
+      fullResultButton: '상세 결과 보기 📊',
+      retryButton: '다시 하기 ⚡',
     },
 
     // ========== group.html ==========
@@ -349,7 +374,17 @@ const TRANSLATIONS = {
       codeLabel: '그룹 코드',
       joinButton: '그룹 참여하기 →',
       memberLabel: '멤버',
-      resultTitle: '그룹 결과'
+      resultTitle: '그룹 결과',
+      groupCodeLabel: '그룹 코드:',
+      copyLinkButton: '링크 복사 🔗',
+      registerTitle: '내 성격 유형 등록하기',
+      selectTypePlaceholder: '-- 내 성격 유형 선택 --',
+      registerButton: '결과 등록하기 ✅',
+      distributionTitle: '📊 그룹 성격 유형 분포',
+      chartTitle: '📈 유형별 분포 차트',
+      analysisTitle: '🏷️ 그룹 특성 분석',
+      inviteButton: '친구 초대 링크 📤',
+      resetButton: '그룹 초기화 🗑️',
     },
 
     // ========== compat-chart.html ==========
@@ -361,7 +396,14 @@ const TRANSLATIONS = {
       mainTitle: '성격 유형 16×16 전체 궁합표',
       subtitle: '셀을 클릭하면 상세 궁합을 확인할 수 있어요!',
       highlightLabel: '내 유형 하이라이트:',
-      scoreLabel: '궁합 점수:'
+      scoreLabel: '궁합 점수:',
+      legend90: '90+ 천생연분',
+      legend80: '80-89 환상 궁합',
+      legend70: '70-79 좋은 인연',
+      legend60: '60-69 보통',
+      legend50: '50-59 노력 필요',
+      legendBelow50: '50 미만 도전적',
+      clickHint: '* 셀 클릭 시 상세 궁합 페이지로 이동합니다.',
     },
 
     // ========== Additional pages (stub entries for complete i18n support) ==========
@@ -655,7 +697,16 @@ const TRANSLATIONS = {
       changesHeading: 'Policy Changes',
       changesText: 'This policy may change without notice. Updates will be posted on this page.',
       contactHeading: 'Contact Us',
-      contactText: 'If you have questions about this privacy policy, please contact us via email.'
+      contactText: 'If you have questions about this privacy policy, please contact us via email.',
+      storedInfo: 'However, some information may be stored in the following ways:',
+      cookieHeading: '2. Cookie Usage',
+      cookiePurpose: 'The site uses cookies for the following purposes:',
+      cookieDisable: 'You can disable cookies in browser settings, but some features may be limited.',
+      adsenseHeading: '3. Third-Party Advertising (Google AdSense)',
+      localDataHeading: '4. Local Data Storage',
+      securityHeading: '5. Data Security',
+      externalLinksHeading: '6. External Linked Sites',
+      policyChangeHeading: '7. Policy Changes',
     },
     fortune: {
       title: 'Daily Fortune | Your Personality\'s Daily Fortune',
@@ -982,7 +1033,16 @@ const TRANSLATIONS = {
       changesHeading: 'ポリシーの変更',
       changesText: 'このポリシーは予告なく変更される場合があります。更新はこのページに掲載されます。',
       contactHeading: 'お問い合わせ',
-      contactText: 'このプライバシーポリシーについてご質問がある場合はメールでお問い合わせください。'
+      contactText: 'このプライバシーポリシーについてご質問がある場合はメールでお問い合わせください。',
+      storedInfo: 'ただし、以下の方法で一部の情報が保存される場合があります：',
+      cookieHeading: '2. Cookieの使用',
+      cookiePurpose: 'サイトは以下の目的でCookieを使用します：',
+      cookieDisable: 'ブラウザ設定でCookieを無効にできますが、一部の機能が制限される場合があります。',
+      adsenseHeading: '3. 第三者広告サービス（Google AdSense）',
+      localDataHeading: '4. ローカルデータの保存',
+      securityHeading: '5. データセキュリティ',
+      externalLinksHeading: '6. 外部リンクサイト',
+      policyChangeHeading: '7. 方針の変更',
     },
     fortune: {
       title: '日の運勢 | 性格別の今日の運勢',
@@ -1166,7 +1226,16 @@ const TRANSLATIONS = {
       title: '隐私政策 | 个性动物测试',
       metaDescription: '查看我们的隐私和个人数据保护政策。',
       ogTitle: '隐私政策',
-      ogDescription: '隐私政策'
+      ogDescription: '隐私政策',
+      storedInfo: '但是，可能会通过以下方式存储部分信息：',
+      cookieHeading: '2. Cookie使用',
+      cookiePurpose: '本网站出于以下目的使用Cookie：',
+      cookieDisable: '您可以在浏览器设置中禁用Cookie，但某些功能可能会受到限制。',
+      adsenseHeading: '3. 第三方广告服务（Google AdSense）',
+      localDataHeading: '4. 本地数据存储',
+      securityHeading: '5. 数据安全',
+      externalLinksHeading: '6. 外部链接网站',
+      policyChangeHeading: '7. 政策变更',
     },
 
     careers: {

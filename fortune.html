@@ -79,7 +79,7 @@
         <div style="font-size:2.5rem; margin-bottom:.5rem;">🔮</div>
         <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;" data-i18n="fortune.mainTitle">오늘의 성격 유형 운세</h1>
         <p class="fortune-date" id="fortuneDate" style="color:var(--text-mute); font-size:.9rem;"></p>
-        <p style="color:var(--text-mute); font-size:.85rem; margin-top:.3rem;">* 재미로 보는 운세입니다. 매일 자정에 업데이트됩니다.</p>
+        <p style="color:var(--text-mute); font-size:.85rem; margin-top:.3rem;" data-i18n="fortune.disclaimer">* 재미로 보는 운세입니다. 매일 자정에 업데이트됩니다.</p>
       </div>
 
       <!-- 유형 선택 -->
@@ -102,7 +102,7 @@
           <div class="fortune-scores-grid">
             <div class="fortune-score-item">
               <span class="fortune-score-icon">⭐</span>
-              <span class="fortune-score-label">총운</span>
+              <span class="fortune-score-label" data-i18n="fortune.totalFortuneLabel">총운</span>
               <div class="fortune-stars" id="fortuneTotal"></div>
               <p class="fortune-score-desc" id="fortuneTotalDesc"></p>
             </div>
@@ -127,7 +127,7 @@
           </div>
 
           <div class="fortune-word-box" id="fortuneWordBox">
-            <h3 style="font-size:1rem; font-weight:900; margin-bottom:.5rem;">💬 오늘의 한마디</h3>
+            <h3 style="font-size:1rem; font-weight:900; margin-bottom:.5rem;" data-i18n="fortune.quoteLabel">💬 오늘의 한마디</h3>
             <p id="fortuneWord" style="font-size:1.05rem; line-height:1.8;"></p>
           </div>
 
@@ -139,8 +139,8 @@
         </div>
 
         <div class="result-actions" style="display:flex; justify-content:center; flex-wrap:wrap; gap:.8rem; margin-bottom:2rem;">
-          <a href="quiz.html" class="btn-retest">테스트 시작하기 🎯</a>
-          <a href="compat.html" class="btn-home">궁합 보기 💕</a>
+          <a href="quiz.html" class="btn-retest" data-i18n="fortune.startButton">테스트 시작하기 🎯</a>
+          <a href="compat.html" class="btn-home" data-i18n="fortune.compatButton">궁합 보기 💕</a>
         </div>
       </div>
 

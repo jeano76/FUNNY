@@ -128,19 +128,19 @@
       <!-- 결과 화면 -->
       <div class="speed-result-wrap" id="speedResultWrap" style="display:none;">
         <div class="result-card" style="text-align:center;">
-          <div style="font-size:2rem; margin-bottom:.5rem;">⚡ 본능 결과</div>
+          <div style="font-size:2rem; margin-bottom:.5rem;" data-i18n="speed.resultTitle">⚡ 본능 결과</div>
           <div class="result-type-badge" id="speedResultType" style="margin-bottom:1rem;"></div>
           <div class="result-animal-emoji" id="speedResultEmoji"></div>
           <h2 class="result-animal-name" id="speedResultName"></h2>
           <p class="result-title" id="speedResultTitle"></p>
           <p style="color:var(--text-mute); font-size:.9rem; margin:1rem 0;">
-            ⚡ 응답 시간: 평균 <strong id="speedAvgTime"></strong>초<br>
-            🎯 즉시 선택: <strong id="speedInstantCount"></strong>문항
+            <span data-i18n="speed.avgTimeLabel">⚡ 응답 시간: 평균</span> <strong id="speedAvgTime"></strong><span data-i18n="speed.secLabel">초</span><br>
+            <span data-i18n="speed.instantLabel">🎯 즉시 선택:</span> <strong id="speedInstantCount"></strong><span data-i18n="speed.questionLabel">문항</span>
           </p>
           <div class="speed-answer-summary" id="speedAnswerSummary"></div>
           <div class="result-actions" style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center;">
-            <a href="result.html" id="speedViewFullResult" class="btn-retest">상세 결과 보기 📊</a>
-            <button onclick="resetSpeedQuiz()" class="btn-home" style="border:none; cursor:pointer; font-family:inherit;">다시 하기 ⚡</button>
+            <a href="result.html" id="speedViewFullResult" class="btn-retest" data-i18n="speed.fullResultButton">상세 결과 보기 📊</a>
+            <button onclick="resetSpeedQuiz()" class="btn-home" style="border:none; cursor:pointer; font-family:inherit;" data-i18n="speed.retryButton">다시 하기 ⚡</button>
             <a href="quiz.html" class="btn-home" data-i18n="nav.test">일반 테스트</a>
           </div>
         </div>
