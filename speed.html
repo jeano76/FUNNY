@@ -413,6 +413,12 @@
     document.getElementById('speedResultWrap').scrollIntoView({ behavior:'smooth', block:'start' });
   }
   </script>
+  <script>
+    if (window.i18n && window.TRANSLATIONS) {
+      window.i18n.setTranslations(window.TRANSLATIONS);
+      window.i18n.init();
+    }
+  </script>
   <script src="/js/nav.js?v=2.3"></script>
 </body>
 </html>
