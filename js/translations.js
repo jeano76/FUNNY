@@ -512,7 +512,7 @@ const TRANSLATIONS = {
       metaDescription: '1분만에 끝내는 빠른 성격 테스트!',
       ogTitle: '스피드 모드',
       ogDescription: '빠르게 성격 유형을 알아보세요.'
-    }
+    },
     personalities: {
       INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
       INTP: {name: "올빼미", emoji: "🦉", title: "논리적 탐구자", group: "분석형 (NT)", description: "밤에 더 명확해지는 지적 호기심의 끝판왕. 조용하지만 머릿속은 복잡한 이론으로 가득 차 있습니다. 아이디어를 탐구하고 분석하는 것을 즐기며, 불합리한 논리를 만나면 그냥 지나치지 못합니다.", strengths: ["논리적 분석", "창의적 사고", "지적 호기심", "객관성"], weaknesses: ["우유부단함", "마감 기피", "사회적 거리감"], koreanRatio: "3.3%", worldRarityRank: "★★★★ 희귀", compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"], famousExamples: ["알버트 아인슈타인", "빌 게이츠"], shareText: "나는 INTP 올빼미! 논리적 탐구자 🦉 당신의 성격 유형은?"},
@@ -1250,6 +1250,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   ja: {
     typeTitles: {
       INTJ: '孤独な戦略家',
@@ -1689,6 +1691,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   zh: {
     typeTitles: {
       INTJ: '孤独的战略家',
@@ -2058,6 +2062,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   es: {
     typeTitles: {
       INTJ: 'Estratega Solitario',
@@ -2392,6 +2398,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   de: {
     typeTitles: {
       INTJ: 'Einsamer Stratege',
@@ -2725,6 +2733,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   fr: {
     typeTitles: {
       INTJ: 'Stratège Solitaire',
@@ -3059,6 +3069,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   ru: {
     typeTitles: {
       INTJ: 'Одинокий стратег',
@@ -3391,6 +3403,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   pt: {
     typeTitles: {
       INTJ: 'Estrategista Solitário',
@@ -3724,6 +3738,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   id: {
     typeTitles: {
       INTJ: 'Ahli Strategi',
@@ -4056,6 +4072,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   hi: {
     typeTitles: {
       INTJ: 'एकाकी रणनीतिकार',
@@ -4388,6 +4406,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   vi: {
     typeTitles: {
       INTJ: 'Chiến lược gia cô đơn',
@@ -4720,6 +4740,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   th: {
     typeTitles: {
       INTJ: 'นักยุทธศาสตร์ผู้โดดเดี่ยว',
@@ -5052,6 +5074,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   tr: {
     typeTitles: {
       INTJ: 'Yalnız Stratejist',
@@ -5384,6 +5408,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   it: {
     typeTitles: {
       INTJ: 'Stratega Solitario',
@@ -5628,6 +5654,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   nl: {
     typeTitles: {
       INTJ: 'Eenzame Strateeg',
@@ -5872,6 +5900,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   ar: {
     typeTitles: {
       INTJ: 'المخطط المنعزل',
@@ -6116,6 +6146,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   mn: {
     typeTitles: {
       INTJ: 'Ганцаарчилсан стратегч',
@@ -6360,6 +6392,8 @@ const TRANSLATIONS = {
       explorer: {id: 'explorer', name: '탐험가', desc: '모든 16가지 성격 유형 테스트 완료', icon: '🗺️', rarity: 'rare'},
 
 
+    },
+  },
   la: {
     typeTitles: {
       INTJ: 'Strategus Solitarius',
@@ -6562,8 +6596,8 @@ const TRANSLATIONS = {
       questionCountRule: '🎯 20 quaestiones totales',
       timeoutRule: '⚡ Tempus finitum = Neutrum',
       startButton: 'Incipe probationem instinctus ⚡'
-    }
-  }
+    },
+  },
 };
 
 // Export to window for use by i18n-complete.js
