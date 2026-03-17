@@ -235,22 +235,46 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function displayResult(type) {
-  // Try to get data from i18n first
+  // Always use ko.personalities as base, then overlay language-specific translations
   let r = null;
+  let lang = 'ko';
   if (window.i18n && window.TRANSLATIONS) {
-    const lang = window.i18n.getCurrentLang ? window.i18n.getCurrentLang() : 'ko';
-    r = window.TRANSLATIONS[lang]?.personalities?.[type] || window.TRANSLATIONS.ko.personalities?.[type];
+    lang = window.i18n.getCurrentLang ? window.i18n.getCurrentLang() : 'ko';
+    // Base: always Korean personality data
+    r = (window.TRANSLATIONS.ko && window.TRANSLATIONS.ko.personalities && window.TRANSLATIONS.ko.personalities[type])
+      ? Object.assign({}, window.TRANSLATIONS.ko.personalities[type])
+      : null;
+    // Overlay: translated animal name and type title from language section
+    if (r && lang !== 'ko' && window.TRANSLATIONS[lang]) {
+      const langData = window.TRANSLATIONS[lang];
+      if (langData.animals && langData.animals[type]) r.name = langData.animals[type];
+      if (langData.typeTitles && langData.typeTitles[type]) r.title = langData.typeTitles[type];
+    }
   }
 
   // Fallback to hardcoded resultData
   if (!r) r = resultData[type];
   if (!r) return;
 
+  // Set translated labels for share/action buttons (have IDs, may have been set before i18n ran)
+  var rT = (window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang].result) || {};
+  var setLabel = function(id, key) {
+    var el = document.getElementById(id);
+    if (el && rT[key]) el.textContent = rT[key];
+  };
+  setLabel('kakaoShareBtn', 'kakaoShare');
+  setLabel('twitterShareBtn', 'twitterShare');
+  setLabel('facebookShareBtn', 'facebookShare');
+  setLabel('copyLinkBtn', 'copyLink');
+  setLabel('compatBtn', 'compatButton');
+  setLabel('saveImageBtn', 'saveImageButton');
+  setLabel('careersBtn', 'careersButton');
+
   // Hide loading, show content
   document.getElementById('resultLoading').style.display = 'none';
   document.getElementById('resultContent').style.display = 'block';
 
-  // Fill result card (i18n 번역 우선 사용)
+  // Fill result card
   var animalName = r.name;
   var typeTitle = r.title;
 

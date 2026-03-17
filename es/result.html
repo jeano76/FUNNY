@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -89,7 +89,7 @@
       <div class="result-card" id="resultCard">
         <div class="result-loading" id="resultLoading">
           <div class="loading-spinner"></div>
-          <p>결과 분석 중...</p>
+          <p data-i18n="result.analyzing">결과 분석 중...</p>
         </div>
         <div class="result-content" id="resultContent" style="display:none;">
           <div class="result-type-badge" id="resultTypeBadge"></div>
@@ -101,22 +101,22 @@
 
           <div class="result-stats">
             <div class="stat-item">
-              <span class="stat-label">한국인 비율</span>
+              <span class="stat-label" data-i18n="result.koreanRatioLabel">한국인 비율</span>
               <span class="stat-value" id="statKorean"></span>
             </div>
             <div class="stat-item">
-              <span class="stat-label">희귀도</span>
+              <span class="stat-label" data-i18n="result.rarityLabel">희귀도</span>
               <span class="stat-value" id="statRarity"></span>
             </div>
           </div>
 
           <div class="result-tags">
-            <h3>강점</h3>
+            <h3 data-i18n="result.strengthsTitle">강점</h3>
             <div class="tags-list" id="strengthsList"></div>
           </div>
 
           <div class="result-compat">
-            <h3>잘 맞는 유형</h3>
+            <h3 data-i18n="result.compatibleTypesTitle">잘 맞는 유형</h3>
             <div class="compat-list" id="compatList"></div>
           </div>
         </div>
@@ -124,28 +124,28 @@
 
       <!-- Share Section -->
       <div class="share-section" id="shareSection" style="display:none;">
-        <h3>친구에게 공유하기 🎉</h3>
-        <p class="share-desc">내 결과를 공유하고 친구 유형도 알아보세요!</p>
+        <h3 data-i18n="result.shareHeading">친구에게 공유하기 🎉</h3>
+        <p class="share-desc" data-i18n="result.shareDesc">내 결과를 공유하고 친구 유형도 알아보세요!</p>
         <div class="share-buttons">
-          <button class="share-btn kakao" id="kakaoShareBtn">
+          <button class="share-btn kakao" id="kakaoShareBtn" data-i18n="result.kakaoShare">
             💬 카카오톡
           </button>
-          <button class="share-btn twitter" id="twitterShareBtn">
+          <button class="share-btn twitter" id="twitterShareBtn" data-i18n="result.twitterShare">
             𝕏 트위터
           </button>
-          <button class="share-btn facebook" id="facebookShareBtn">
+          <button class="share-btn facebook" id="facebookShareBtn" data-i18n="result.facebookShare">
             📘 페이스북
           </button>
-          <button class="share-btn copy" id="copyLinkBtn">
+          <button class="share-btn copy" id="copyLinkBtn" data-i18n="result.copyLink">
             🔗 링크 복사
           </button>
         </div>
-        <p class="share-hint">📸 인스타용: 결과 화면 캡처 후 스토리에 공유!</p>
+        <p class="share-hint" data-i18n="result.instagramHint">📸 인스타용: 결과 화면 캡처 후 스토리에 공유!</p>
       </div>
 
       <!-- History Section -->
       <div class="history-section" id="historySection" style="display:none;">
-        <h3>내 성격 유형 변천사</h3>
+        <h3 data-i18n="result.historyTitle">내 성격 유형 변천사</h3>
         <div id="historyList"></div>
       </div>
 
@@ -156,11 +156,11 @@
 
       <!-- Retry Button -->
       <div class="result-actions" id="resultActions" style="display:none;">
-        <a href="quiz.html" class="btn-retest">다시 테스트하기 🔄</a>
-        <a href="index.html" class="btn-home">홈으로</a>
-        <button class="share-btn copy" id="compatBtn" onclick="goToCompat()" style="border-radius:999px; font-family:inherit; font-size:.95rem;">궁합 보기 💕</button>
-        <button class="share-btn copy" id="saveImageBtn" onclick="saveResultImage()" style="border-radius:999px; font-family:inherit; font-size:.95rem;">이미지 저장 📸</button>
-        <a href="careers.html" id="careersBtn" class="btn-home">직업 궁합 💼</a>
+        <a href="quiz.html" class="btn-retest" data-i18n="result.retestButton">다시 테스트하기 🔄</a>
+        <a href="index.html" class="btn-home" data-i18n="result.homeButton">홈으로</a>
+        <button class="share-btn copy" id="compatBtn" onclick="goToCompat()" style="border-radius:999px; font-family:inherit; font-size:.95rem;" data-i18n="result.compatButton">궁합 보기 💕</button>
+        <button class="share-btn copy" id="saveImageBtn" onclick="saveResultImage()" style="border-radius:999px; font-family:inherit; font-size:.95rem;" data-i18n="result.saveImageButton">이미지 저장 📸</button>
+        <a href="careers.html" id="careersBtn" class="btn-home" data-i18n="result.careersButton">직업 궁합 💼</a>
       </div>
 
     </div>
@@ -172,14 +172,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 성격 유형 동물 테스트. All rights reserved.</p>
       <div class="disclaimer" style="font-size: 0.8rem; color: #666; margin-top: 10px; line-height: 1.4;">
-        본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
-        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.
+        <span data-i18n="footer.disclaimer">본 서비스는 공식 성격 유형 검사와 무관하며, 결과는 재미로만 즐겨주세요.<br>
+        MBTI®는 The Myers & Briggs Foundation의 등록 상표이며, 본 서비스는 해당 재단과 관련이 없습니다.</span>
       </div>
       <nav class="footer-nav">
-        <a href="about.html">사이트 소개</a>
-        <a href="privacy.html">개인정보 처리방침</a>
+        <a href="about.html" data-i18n="footer.about">사이트 소개</a>
+        <a href="privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
       </nav>
     </div>
   </footer>
