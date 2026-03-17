@@ -58,6 +58,10 @@ function clearMBTIData() {
 
 // Animal name map (sync with result.js)
 function getAnimalName(type) {
+  // i18n이 로드된 경우 번역된 이름 반환
+  if (window.i18n && window.i18n.t('animals.' + type) !== 'animals.' + type) {
+    return window.i18n.t('animals.' + type);
+  }
   var map = {
     INTJ:'호랑이', INTP:'올빼미', ENTJ:'사자', ENTP:'앵무새',
     INFJ:'판다',  INFP:'해마',   ENFJ:'골든리트리버', ENFP:'돌고래',

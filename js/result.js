@@ -233,11 +233,16 @@ function displayResult(type) {
   document.getElementById('resultLoading').style.display = 'none';
   document.getElementById('resultContent').style.display = 'block';
 
-  // Fill result card
+  // Fill result card (i18n 번역 우선 사용)
+  var animalName = (window.i18n && window.i18n.t('animals.' + type) !== 'animals.' + type)
+    ? window.i18n.t('animals.' + type) : r.name;
+  var typeTitle = (window.i18n && window.i18n.t('typeTitles.' + type) !== 'typeTitles.' + type)
+    ? window.i18n.t('typeTitles.' + type) : r.title;
+
   document.getElementById('resultTypeBadge').textContent = type;
   document.getElementById('resultAnimalEmoji').textContent = r.emoji;
-  document.getElementById('resultAnimalName').textContent = r.name;
-  document.getElementById('resultTitle').textContent = r.title;
+  document.getElementById('resultAnimalName').textContent = animalName;
+  document.getElementById('resultTitle').textContent = typeTitle;
   document.getElementById('resultGroup').textContent = r.group;
   document.getElementById('resultDescription').textContent = r.description;
   document.getElementById('statKorean').textContent = r.koreanRatio;
@@ -252,8 +257,8 @@ function displayResult(type) {
   cl.innerHTML = r.compatibleTypes.map(function (c) { return '<span class="compat-tag">' + c + '</span>'; }).join('');
 
   // Update page meta
-  document.getElementById('pageTitle').textContent = '나는 ' + r.name + '(' + type + ')! | 성격 유형 동물 테스트';
-  document.getElementById('ogTitle').content = '나는 ' + type + ' ' + r.name + r.emoji + '! 당신의 성격 유형은?';
+  document.getElementById('pageTitle').textContent = type + ' ' + animalName + r.emoji;
+  document.getElementById('ogTitle').content = type + ' ' + animalName + r.emoji;
   document.getElementById('ogDesc').content = r.description.slice(0, 100) + '...';
   document.getElementById('ogUrl').content = location.href;
   document.getElementById('ogImage').content = location.origin + '/assets/og-image.png';

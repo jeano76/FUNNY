@@ -374,13 +374,16 @@
 
     var animal = ANIMAL_MAP[type] || type;
     var parts = animal.split(' ');
-    var animalName = parts[0];
     var animalEmoji = parts[1] || '';
+    var animalName = (window.i18n && window.i18n.t('animals.' + type) !== 'animals.' + type)
+      ? window.i18n.t('animals.' + type) : parts[0];
+    var typeTitle = (window.i18n && window.i18n.t('typeTitles.' + type) !== 'typeTitles.' + type)
+      ? window.i18n.t('typeTitles.' + type) : (TITLE_MAP[type] || '');
 
     document.getElementById('speedResultType').textContent = type;
     document.getElementById('speedResultEmoji').textContent = animalEmoji;
     document.getElementById('speedResultName').textContent = animalName;
-    document.getElementById('speedResultTitle').textContent = TITLE_MAP[type] || '';
+    document.getElementById('speedResultTitle').textContent = typeTitle;
 
     var avgTime = responseTimes.reduce(function(a,b){return a+b;},0) / responseTimes.length;
     document.getElementById('speedAvgTime').textContent = avgTime.toFixed(1);
