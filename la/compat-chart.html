@@ -109,27 +109,27 @@
       <!-- 헤더 -->
       <div style="text-align:center; padding:1.5rem 0 1rem;">
         <div style="font-size:2.5rem; margin-bottom:.5rem;">🗓️</div>
-        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;">성격 유형 16×16 전체 궁합표</h1>
-        <p style="color:var(--text-mute); font-size:.9rem;">셀을 클릭하면 상세 궁합을 확인할 수 있어요!</p>
+        <h1 style="font-size:1.6rem; font-weight:900; color:var(--primary); margin-bottom:.3rem;" data-i18n="compatChart.mainTitle">성격 유형 16×16 전체 궁합표</h1>
+        <p style="color:var(--text-mute); font-size:.9rem;" data-i18n="compatChart.subtitle">셀을 클릭하면 상세 궁합을 확인할 수 있어요!</p>
       </div>
 
       <!-- 내 유형 선택 (하이라이트용) -->
       <div style="display:flex; align-items:center; gap:.8rem; margin-bottom:1rem; flex-wrap:wrap;">
-        <span style="font-size:.9rem; font-weight:700;">내 유형 하이라이트:</span>
+        <span style="font-size:.9rem; font-weight:700;" data-i18n="compatChart.highlightLabel">내 유형 하이라이트:</span>
         <select id="highlightSelect" class="compat-select" onchange="setHighlight(this.value)" style="max-width:200px;">
-          <option value="">-- 선택 없음 --</option>
+          <option value="" data-i18n="compatChart.noSelection">-- 선택 없음 --</option>
         </select>
       </div>
 
       <!-- 범례 -->
       <div class="compat-legend">
-        <span style="font-weight:700; font-size:.85rem;">궁합 점수:</span>
-        <div class="legend-item"><div class="legend-dot" style="background:#FF6584;"></div>90+ 천생연분</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#6C63FF;"></div>80-89 환상 궁합</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#43B89C;"></div>70-79 좋은 인연</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#F9A826;"></div>60-69 보통</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#F97316;"></div>50-59 노력 필요</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#EF4444;"></div>50 미만 도전적</div>
+        <span style="font-weight:700; font-size:.85rem;" data-i18n="compatChart.scoreLabel">궁합 점수:</span>
+        <div class="legend-item"><div class="legend-dot" style="background:#FF6584;"></div><span data-i18n="compatChart.legend90">90+ 천생연분</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6C63FF;"></div><span data-i18n="compatChart.legend80">80-89 환상 궁합</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#43B89C;"></div><span data-i18n="compatChart.legend70">70-79 좋은 인연</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F9A826;"></div><span data-i18n="compatChart.legend60">60-69 보통</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F97316;"></div><span data-i18n="compatChart.legend50">50-59 노력 필요</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#EF4444;"></div><span data-i18n="compatChart.legendBelow50">50 미만 도전적</span></div>
       </div>
 
       <!-- 궁합표 -->
@@ -139,11 +139,11 @@
         </table>
       </div>
 
-      <p style="font-size:.8rem; color:var(--text-mute); margin-top:.5rem; text-align:center;">* 셀 클릭 시 상세 궁합 페이지로 이동합니다.</p>
+      <p style="font-size:.8rem; color:var(--text-mute); margin-top:.5rem; text-align:center;" data-i18n="compatChart.clickHint">* 셀 클릭 시 상세 궁합 페이지로 이동합니다.</p>
 
       <div class="result-actions" style="display:flex; justify-content:center; flex-wrap:wrap; gap:.8rem; margin:1.5rem 0;">
-        <a href="../compat.html" class="btn-retest">1:1 궁합 보기 💕</a>
-        <a href="../quiz.html" class="btn-home">테스트 시작하기</a>
+        <a href="../compat.html" class="btn-retest" data-i18n="compatChart.compatButton">1:1 궁합 보기 💕</a>
+        <a href="../quiz.html" class="btn-home" data-i18n="compatChart.startButton">테스트 시작하기</a>
       </div>
 
       <div class="ad-container"><!-- ADSENSE_UNIT: compat-chart-bottom | responsive --></div>
