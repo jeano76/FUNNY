@@ -404,6 +404,7 @@ const TRANSLATIONS = {
       legend50: '50-59 노력 필요',
       legendBelow50: '50 미만 도전적',
       clickHint: '* 셀 클릭 시 상세 궁합 페이지로 이동합니다.',
+      noSelection: '-- 선택 없음 --',
     },
 
     // ========== Additional pages (stub entries for complete i18n support) ==========
@@ -793,7 +794,8 @@ const TRANSLATIONS = {
       dutch: 'Nederlands (NL)',
       arabic: 'العربية (AR)',
       mongolian: 'Монгол (MN)',
-      latin: 'Latina (LA)'
+      latin: 'Latina (LA)',
+      noSelection: '-- No Selection --',
     },
     footer: {
       copyright: '© 2026 性格動物テスト. All rights reserved.',
@@ -1096,7 +1098,8 @@ const TRANSLATIONS = {
       mainTitle: '性格タイプ 16×16 全相性表',
       subtitle: 'セルをクリックして詳細な相性を確認しましょう！',
       highlightLabel: '自分のタイプをハイライト:',
-      scoreLabel: '相性スコア:'
+      scoreLabel: '相性スコア:',
+      noSelection: '-- 選択なし --',
     },
 
   },
@@ -1399,7 +1402,8 @@ const TRANSLATIONS = {
       dutch: 'Nederlands (NL)',
       arabic: 'العربية (AR)',
       mongolian: 'Монгол (MN)',
-      latin: 'Latina (LA)'
+      latin: 'Latina (LA)',
+      noSelection: '-- 未选择 --',
     },
     footer: {
       copyright: '© 2026 Prueba de Personalidad Animal. Todos los derechos reservados.',
@@ -1543,7 +1547,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tabla Completa de Compatibilidad 16×16 de Tipos de Personalidad',
       subtitle: '¡Haz clic en una celda para ver la compatibilidad detallada!',
       highlightLabel: 'Resaltar mi tipo:',
-      scoreLabel: 'Puntuación de compatibilidad:'
+      scoreLabel: 'Puntuación de compatibilidad:',
+      noSelection: '-- Sin selección --',
     },
     situations: {
       title: 'Reacciones Situacionales | Patrones de Comportamiento por Tipo',
@@ -1776,7 +1781,8 @@ const TRANSLATIONS = {
       mainTitle: 'Persönlichkeitstyp 16×16 Vollständige Kompatibilitätstabelle',
       subtitle: 'Klicke auf eine Zelle, um die detaillierte Kompatibilität zu sehen!',
       highlightLabel: 'Meinen Typ hervorheben:',
-      scoreLabel: 'Kompatibilitätspunktzahl:'
+      scoreLabel: 'Kompatibilitätspunktzahl:',
+      noSelection: '-- Keine Auswahl --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -2008,7 +2014,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tableau Complet de Compatibilité 16×16 des Types de Personnalité',
       subtitle: 'Cliquez sur une cellule pour voir la compatibilité détaillée!',
       highlightLabel: 'Mettre en évidence mon type:',
-      scoreLabel: 'Score de compatibilité:'
+      scoreLabel: 'Score de compatibilité:',
+      noSelection: '-- Aucune sélection --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -2240,7 +2247,8 @@ const TRANSLATIONS = {
       mainTitle: 'Полная Таблица Совместимости Типов Личности 16×16',
       subtitle: 'Нажмите на ячейку, чтобы увидеть подробную совместимость!',
       highlightLabel: 'Выделить мой тип:',
-      scoreLabel: 'Оценка совместимости:'
+      scoreLabel: 'Оценка совместимости:',
+      noSelection: '-- Нет выбора --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -2471,7 +2479,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tabela Completa de Compatibilidade de Tipos de Personalidade 16×16',
       subtitle: 'Clique em uma célula para ver a compatibilidade detalhada!',
       highlightLabel: 'Destacar meu tipo:',
-      scoreLabel: 'Pontuação de compatibilidade:'
+      scoreLabel: 'Pontuação de compatibilidade:',
+      noSelection: '-- Sem seleção --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -2703,7 +2712,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tabel Kompatibilitas Lengkap Tipe Kepribadian 16×16',
       subtitle: 'Klik sel untuk melihat kompatibilitas detail!',
       highlightLabel: 'Sorot tipe saya:',
-      scoreLabel: 'Skor Kompatibilitas:'
+      scoreLabel: 'Skor Kompatibilitas:',
+      noSelection: '-- Tidak ada pilihan --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -2934,7 +2944,8 @@ const TRANSLATIONS = {
       mainTitle: 'व्यक्तित्व प्रकार 16×16 पूर्ण संगतता चार्ट',
       subtitle: 'विस्तृत संगतता देखने के लिए किसी सेल पर क्लिक करें!',
       highlightLabel: 'मेरा प्रकार हाइलाइट करें:',
-      scoreLabel: 'संगतता स्कोर:'
+      scoreLabel: 'संगतता स्कोर:',
+      noSelection: '-- कोई चयन नहीं --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -3165,7 +3176,8 @@ const TRANSLATIONS = {
       mainTitle: 'Bảng Tương Thích Đầy Đủ Loại Tính Cách 16×16',
       subtitle: 'Nhấp vào ô để xem tương thích chi tiết!',
       highlightLabel: 'Đánh dấu loại của tôi:',
-      scoreLabel: 'Điểm Tương Thích:'
+      scoreLabel: 'Điểm Tương Thích:',
+      noSelection: '-- Không chọn --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -3396,7 +3408,8 @@ const TRANSLATIONS = {
       mainTitle: 'ตารางความเข้ากันได้ครบถ้วน 16×16 ประเภทบุคลิกภาพ',
       subtitle: 'คลิกที่เซลล์เพื่อดูความเข้ากันได้โดยละเอียด!',
       highlightLabel: 'เน้นประเภทของฉัน:',
-      scoreLabel: 'คะแนนความเข้ากันได้:'
+      scoreLabel: 'คะแนนความเข้ากันได้:',
+      noSelection: '-- ไม่เลือก --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -3627,7 +3640,8 @@ const TRANSLATIONS = {
       mainTitle: 'Kişilik Tipi 16×16 Tam Uyumluluk Tablosu',
       subtitle: 'Ayrıntılı uyumluluğu görmek için bir hücreye tıklayın!',
       highlightLabel: 'Tipimi Vurgula:',
-      scoreLabel: 'Uyumluluk Puanı:'
+      scoreLabel: 'Uyumluluk Puanı:',
+      noSelection: '-- Seçim yok --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -3770,7 +3784,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tabella Completa di Compatibilità dei Tipi di Personalità 16×16',
       subtitle: 'Fai clic su una cella per vedere la compatibilità dettagliata!',
       highlightLabel: 'Evidenzia il mio tipo:',
-      scoreLabel: 'Punteggio di compatibilità:'
+      scoreLabel: 'Punteggio di compatibilità:',
+      noSelection: '-- Nessuna selezione --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -3913,7 +3928,8 @@ const TRANSLATIONS = {
       mainTitle: 'Persoonlijkheidstype 16×16 Volledige Compatibiliteitstabel',
       subtitle: 'Klik op een cel om de gedetailleerde compatibiliteit te zien!',
       highlightLabel: 'Mijn type markeren:',
-      scoreLabel: 'Compatibiliteitsscore:'
+      scoreLabel: 'Compatibiliteitsscore:',
+      noSelection: '-- Geen selectie --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -4056,7 +4072,8 @@ const TRANSLATIONS = {
       mainTitle: 'جدول التوافق الكامل 16×16 لأنواع الشخصية',
       subtitle: 'انقر على خلية لرؤية التوافق التفصيلي!',
       highlightLabel: 'تمييز نوعي:',
-      scoreLabel: 'درجة التوافق:'
+      scoreLabel: 'درجة التوافق:',
+      noSelection: '-- لا يوجد اختيار --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -4199,7 +4216,8 @@ const TRANSLATIONS = {
       mainTitle: 'Хүмээний Шинжийн Төрөл 16×16 Бүрэн Нийцлийн Хүснэгт',
       subtitle: 'Нарийвчилсан нийцлийг харахын тулд нүд дээр дарна уу!',
       highlightLabel: 'Миний төрлийг тодруулах:',
-      scoreLabel: 'Нийцлийн Оноо:'
+      scoreLabel: 'Нийцлийн Оноо:',
+      noSelection: '-- Сонголт байхгүй --',
     },
     situations: {
       title: 'Situational Reactions',
@@ -4342,7 +4360,8 @@ const TRANSLATIONS = {
       mainTitle: 'Tabula Concordantiae Plena 16×16 Generum Personalitatis',
       subtitle: 'Preme cellulam ut concordantiam detaillatam videas!',
       highlightLabel: 'Meum genus illustra:',
-      scoreLabel: 'Gradus concordantiae:'
+      scoreLabel: 'Gradus concordantiae:',
+      noSelection: '-- Nullus Delectus --',
     },
     situations: {
       title: 'Situational Reactions',
