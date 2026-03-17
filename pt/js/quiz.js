@@ -7,184 +7,184 @@ const quizData = [
   {
     id: 1, axis: "EI",
     emoji: "🎉",
-    text: "오랜만에 주말이 생겼다! 나는 주로...",
+    text: "Após muito tempo, você finalmente tem um fim de semana livre! Você geralmente...",
     options: [
-      { text: "친구들에게 연락해서 약속을 잡는다", score: "E" },
-      { text: "아무 계획 없이 집에서 충전하는 시간을 즐긴다", score: "I" }
+      { text: "Entra em contato com amigos para agendar um encontro", score: "E" },
+      { text: "Aprecia o tempo para descansar e recarregar em casa", score: "I" }
     ]
   },
   {
     id: 2, axis: "EI",
     emoji: "🎤",
-    text: "처음 만나는 모임에서 나는...",
+    text: "Em uma reunião com pessoas novas, você...",
     options: [
-      { text: "먼저 말을 걸고 금방 친해진다", score: "E" },
-      { text: "자리를 파악하며 천천히 대화에 참여한다", score: "I" }
+      { text: "Inicia a conversa e faz amigos rapidamente", score: "E" },
+      { text: "Observa o ambiente e participa gradualmente", score: "I" }
     ]
   },
   {
     id: 3, axis: "EI",
     emoji: "😪",
-    text: "긴 하루를 보낸 후 에너지를 충전하는 방법은?",
+    text: "Após um longo dia, como você recarrega sua energia?",
     options: [
-      { text: "친구나 가족과 수다를 떨며 스트레스를 푼다", score: "E" },
-      { text: "혼자만의 공간에서 조용히 쉰다", score: "I" }
+      { text: "Conversando com amigos e família para aliviar o estresse", score: "E" },
+      { text: "Descansando em um espaço tranquilo e silencioso", score: "I" }
     ]
   },
   {
     id: 4, axis: "EI",
     emoji: "📞",
-    text: "카카오톡에 메시지가 쌓여있다. 나의 반응은?",
+    text: "Você tem muitas mensagens acumuladas no WhatsApp. Sua reação é...",
     options: [
-      { text: "바로바로 답장하면서 대화를 이어간다", score: "E" },
-      { text: "나중에 한꺼번에 확인하고 간결하게 답한다", score: "I" }
+      { text: "Responder rapidamente mantendo a conversa fluindo", score: "E" },
+      { text: "Verificar depois e responder de forma concisa", score: "I" }
     ]
   },
   {
     id: 5, axis: "EI",
     emoji: "🎓",
-    text: "새로운 것을 배울 때 효율이 높은 방법은?",
+    text: "Ao aprender algo novo, qual é a forma mais eficiente para você?",
     options: [
-      { text: "친구들과 함께 토론하며 배운다", score: "E" },
-      { text: "혼자 조용히 집중해서 공부한다", score: "I" }
+      { text: "Discutindo com outros e aprendendo juntos", score: "E" },
+      { text: "Estudando sozinho em um ambiente concentrado", score: "I" }
     ]
   },
   // ---- S / N 축 ----
   {
     id: 6, axis: "SN",
     emoji: "✈️",
-    text: "여행 계획을 세울 때 나는...",
+    text: "Ao planejar uma viagem, você...",
     options: [
-      { text: "맛집, 명소 등 구체적인 일정을 꼼꼼히 짠다", score: "S" },
-      { text: "큰 방향만 정하고 현장에서 즉흥적으로 결정한다", score: "N" }
+      { text: "Planeja detalhes como hotéis, transporte e restaurantes com cuidado", score: "S" },
+      { text: "Define apenas a direção geral e decide no local", score: "N" }
     ]
   },
   {
     id: 7, axis: "SN",
     emoji: "📱",
-    text: "새 스마트폰을 살 때 가장 중요하게 보는 것은?",
+    text: "Ao comprar um smartphone novo, o mais importante para você é...",
     options: [
-      { text: "배터리, 카메라 화소 등 구체적인 스펙", score: "S" },
-      { text: "'이 폰으로 어떤 생활을 하게 될까' 하는 전체적인 느낌", score: "N" }
+      { text: "Especificações técnicas como bateria e câmera", score: "S" },
+      { text: "Como você se sentirá usando o telefone no dia a dia", score: "N" }
     ]
   },
   {
     id: 8, axis: "SN",
     emoji: "💭",
-    text: "멍 때릴 때 내 머릿속은 주로...",
+    text: "Quando você está distraído, em que está pensando?",
     options: [
-      { text: "오늘 먹은 것, 해야 할 일 등 현실적인 생각들", score: "S" },
-      { text: "전혀 엉뚱한 상상이나 아이디어들이 떠오른다", score: "N" }
+      { text: "Em coisas práticas do dia a dia que preciso fazer", score: "S" },
+      { text: "Em ideias criativas e imaginações aleatórias", score: "N" }
     ]
   },
   {
     id: 9, axis: "SN",
     emoji: "📖",
-    text: "소설책을 읽을 때 나는...",
+    text: "Ao ler um romance, você...",
     options: [
-      { text: "이야기 줄거리와 사건 전개에 집중한다", score: "S" },
-      { text: "행간의 의미, 상징, 작가의 의도를 생각한다", score: "N" }
+      { text: "Se concentra na trama e no desenvolvimento dos eventos", score: "S" },
+      { text: "Pensa sobre simbolismo, significados ocultos e intenção do autor", score: "N" }
     ]
   },
   {
     id: 10, axis: "SN",
     emoji: "🔧",
-    text: "새 가전제품을 구입했다. 나는...",
+    text: "Você comprou um novo eletrodoméstico. Você...",
     options: [
-      { text: "설명서를 꼼꼼히 읽고 순서대로 따른다", score: "S" },
-      { text: "일단 켜보고 직접 사용하면서 익힌다", score: "N" }
+      { text: "Lê o manual cuidadosamente e segue as instruções", score: "S" },
+      { text: "Experimenta e aprende enquanto usa", score: "N" }
     ]
   },
   // ---- T / F 축 ----
   {
     id: 11, axis: "TF",
     emoji: "😢",
-    text: "친구가 힘들다고 고민을 털어놓는다. 나는...",
+    text: "Um amigo desabafa seus problemas para você. Você...",
     options: [
-      { text: "문제의 원인을 파악하고 해결책을 제시한다", score: "T" },
-      { text: "일단 충분히 공감하고 감정을 받아준다", score: "F" }
+      { text: "Identifica a causa e sugere soluções práticas", score: "T" },
+      { text: "Primeiro oferece suporte emocional e compreensão", score: "F" }
     ]
   },
   {
     id: 12, axis: "TF",
     emoji: "⚖️",
-    text: "팀 프로젝트에서 의견 충돌이 생겼다. 나는...",
+    text: "Em um projeto em equipe, surge um conflito de opiniões. Você...",
     options: [
-      { text: "데이터와 논리로 옳고 그름을 따진다", score: "T" },
-      { text: "모두가 납득하고 화합할 수 있는 방향을 찾는다", score: "F" }
+      { text: "Usa dados e lógica para determinar o que está certo", score: "T" },
+      { text: "Procura uma solução que todos possam aceitar", score: "F" }
     ]
   },
   {
     id: 13, axis: "TF",
     emoji: "🎬",
-    text: "영화를 보고 나서 친구와 대화할 때 나는...",
+    text: "Depois de assistir um filme com amigos, você...",
     options: [
-      { text: "스토리의 허점이나 논리적 오류를 지적한다", score: "T" },
-      { text: "인물의 감정선과 감동 포인트를 이야기한다", score: "F" }
+      { text: "Aponta inconsistências ou erros lógicos", score: "T" },
+      { text: "Discute sobre as emoções e impacto emocional do filme", score: "F" }
     ]
   },
   {
     id: 14, axis: "TF",
     emoji: "📝",
-    text: "후배나 친구에게 피드백을 줄 때 나는...",
+    text: "Ao dar feedback a um colega, você...",
     options: [
-      { text: "감정보다 객관적인 사실과 개선점을 말한다", score: "T" },
-      { text: "기분이 상하지 않도록 장점을 먼저 말하고 조심스럽게 단점을 이야기한다", score: "F" }
+      { text: "Foca em fatos objetivos e melhorias necessárias", score: "T" },
+      { text: "Menciona pontos positivos primeiro para não magoar", score: "F" }
     ]
   },
   {
     id: 15, axis: "TF",
     emoji: "🚗",
-    text: "운전 중 앞차가 너무 느리게 달린다. 나는...",
+    text: "Você está dirigindo e o carro à frente está muito lento. Você...",
     options: [
-      { text: "'앞에 사고가 났나? 초보운전인가?' 하며 이유를 추론한다", score: "T" },
-      { text: "답답한 마음에 짜증이 올라오거나 앞차 운전자가 걱정된다", score: "F" }
+      { text: "Pensa em razões lógicas como trânsito ou motorista novo", score: "T" },
+      { text: "Sente frustração ou preocupação com o motorista", score: "F" }
     ]
   },
   // ---- J / P 축 ----
   {
     id: 16, axis: "JP",
     emoji: "🗓️",
-    text: "친구들과 여행을 계획할 때 나는...",
+    text: "Ao planejar uma viagem com amigos, você...",
     options: [
-      { text: "숙소, 이동수단, 식당을 미리 예약해야 마음이 편하다", score: "J" },
-      { text: "대략적인 방향만 잡고 가서 결정하는 게 더 재밌다", score: "P" }
+      { text: "Prefere reservar hotéis, transporte e restaurantes com antecedência", score: "J" },
+      { text: "Gosta de deixar as decisões para fazer no local", score: "P" }
     ]
   },
   {
     id: 17, axis: "JP",
     emoji: "📚",
-    text: "과제나 업무 마감일이 2주 뒤다. 나는...",
+    text: "Você tem um trabalho ou projeto com prazo em 2 semanas. Você...",
     options: [
-      { text: "지금 바로 계획을 세우고 조금씩 진행한다", score: "J" },
-      { text: "마감이 다가올수록 집중력이 올라간다 (벼락치기형)", score: "P" }
+      { text: "Faz um plano agora e trabalha gradualmente", score: "J" },
+      { text: "Trabalha melhor quando o prazo se aproxima", score: "P" }
     ]
   },
   {
     id: 18, axis: "JP",
     emoji: "🛒",
-    text: "마트에서 쇼핑할 때 나는...",
+    text: "Ao fazer compras no supermercado, você...",
     options: [
-      { text: "미리 적어온 리스트대로만 사고 나온다", score: "J" },
-      { text: "'1+1', '한정수량' 문구를 보면 일단 담고 본다", score: "P" }
+      { text: "Compra apenas o que está na lista planejada", score: "J" },
+      { text: "Vê promoções e compra impulsivamente", score: "P" }
     ]
   },
   {
     id: 19, axis: "JP",
     emoji: "🍽️",
-    text: "1시간 이상 웨이팅이 있는 맛집 앞에서 나는...",
+    text: "Há um restaurante famoso com fila de mais de 1 hora. Você...",
     options: [
-      { text: "기다렸다가 먹는다. 왔으니까 먹어야지", score: "J" },
-      { text: "근처 다른 맛있는 곳을 찾아보자", score: "P" }
+      { text: "Espera porque decidiu que quer comer lá", score: "J" },
+      { text: "Procura outro lugar interessante próximo", score: "P" }
     ]
   },
   {
     id: 20, axis: "JP",
     emoji: "🗃️",
-    text: "내 방(책상)의 상태는?",
+    text: "Como é seu quarto ou mesa de trabalho?",
     options: [
-      { text: "물건마다 자리가 있고 대체로 정돈되어 있다", score: "J" },
-      { text: "어디 뭐가 있는지 나는 알지만 남이 보면 복잡해 보일 수 있다", score: "P" }
+      { text: "Cada coisa tem seu lugar e está bem organizado", score: "J" },
+      { text: "Parece bagunçado para outros, mas você sabe onde tudo está", score: "P" }
     ]
   }
 ];
