@@ -1,0 +1,281 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.3, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39', 'Packages': {'pytest': '7.4.3', 'pluggy': '1.6.0'}, 'Plugins': {'xdist': '3.5.0', 'html': '4.1.1', 'metadata': '3.1.1'}}
+rootdir: /home/hyuckjoolee/marketMBTI
+configfile: pytest.ini
+plugins: xdist-3.5.0, html-4.1.1, metadata-3.1.1
+collecting ... collected 30 items
+
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_ko_index_nav_links_with_validation /bin/sh: 1: google-chrome: not found
+/bin/sh: 1: google-chrome-stable: not found
+/bin/sh: 1: google-chrome-beta: not found
+/bin/sh: 1: google-chrome-dev: not found
+/bin/sh: 1: google-chrome: not found
+/bin/sh: 1: google-chrome-stable: not found
+/bin/sh: 1: google-chrome-beta: not found
+/bin/sh: 1: google-chrome-dev: not found
+WebDriver Manager failed: 'NoneType' object has no attribute 'split'
+System chromedriver failed: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+Manual chromedriver failed: WebDriver.__init__() got multiple values for argument 'options'
+ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_en_index_nav_links_with_validation ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[ko] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[en] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[ja] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[zh] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[es] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[de] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[fr] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[ru] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[pt] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[id] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[hi] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[vi] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[th] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[tr] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[it] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[nl] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[ar] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[mn] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_switch_with_validation[la] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_ko_quiz_nav_links_with_validation ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_en_quiz_nav_links_with_validation ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_mismatch_auto_redirect[en-ko] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_mismatch_auto_redirect[en-ja] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_mismatch_auto_redirect[ko-en] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_mismatch_auto_redirect[fr-de] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_lang_mismatch_auto_redirect[zh-ru] ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_language_consistency_on_all_pages_ko ERROR
+tests/test_integrated_navigation_validation.py::TestIntegratedNavigation::test_language_consistency_on_all_pages_en ERROR
+
+==================================== ERRORS ====================================
+_ ERROR at setup of TestIntegratedNavigation.test_ko_index_nav_links_with_validation _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+------------------------------ Captured log setup ------------------------------
+INFO     WDM:logger.py:11 ====== WebDriver manager ======
+INFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+_ ERROR at setup of TestIntegratedNavigation.test_en_index_nav_links_with_validation _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+_ ERROR at setup of TestIntegratedNavigation.test_lang_switch_with_validation[ko] _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+_ ERROR at setup of TestIntegratedNavigation.test_lang_switch_with_validation[en] _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+_ ERROR at setup of TestIntegratedNavigation.test_lang_switch_with_validation[ja] _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+_ ERROR at setup of TestIntegratedNavigation.test_lang_switch_with_validation[zh] _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())
+../.local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+../.local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+../.local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+../.local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+E   AttributeError: 'NoneType' object has no attribute 'split'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:77: in driver
+    driver = webdriver.Chrome(options=chrome_options)
+../.local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py:45: in __init__
+    super().__init__(
+../.local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py:53: in __init__
+    self.service.start()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:102: in start
+    self.assert_process_still_running()
+../.local/lib/python3.12/site-packages/selenium/webdriver/common/service.py:115: in assert_process_still_running
+    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
+E   selenium.common.exceptions.WebDriverException: Message: Service /home/hyuckjoolee/.cache/selenium/chromedriver/linux64/146.0.7680.80/chromedriver unexpectedly exited. Status code was: 127
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:87: in driver
+    driver = webdriver.Chrome(chromedriver_path, options=chrome_options)
+E   TypeError: WebDriver.__init__() got multiple values for argument 'options'
+
+During handling of the above exception, another exception occurred:
+tests/conftest.py:90: in driver
+    raise RuntimeError("Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.")
+E   RuntimeError: Failed to initialize WebDriver. Please ensure Chrome/Chromium and ChromeDriver are properly installed.
+_ ERROR at setup of TestIntegratedNavigation.test_lang_switch_with_validation[es] _
+tests/conftest.py:71: in driver
+    service = Service(ChromeDriverManager().install())

@@ -1,0 +1,16 @@
+# Test artifacts
+screenshots/
+report.html
+.pytest_cache/
+__pycache__/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
