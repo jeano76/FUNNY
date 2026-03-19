@@ -7783,6 +7783,45 @@ const TRANSLATIONS = {
       q20: { text: 'Status mei cubiculi (mensa) est?', a1: 'Omnia locum habent et generaliter ordinata sunt', a2: 'Ubi omnia sit scio, sed aliis inordinatum videri potest' },
     },
 
+    quiz: {
+      metaDescription: 'Sume examinationem personalitatis cum 20 fabulis verae vitae. Tuum typum personalitatis nunc discere!',
+      title: 'Examinatio Personalitatis in Progressu | Examinatio Personalitatis Animalis',
+      ogTitle: 'Examinatio Personalitatis in Progressu',
+      ogDescription: 'Analyza personalitatis tuae cum 20 quaestionibus situationalibus.',
+      loading: 'Onerandis...',
+      progress: 'Progressus',
+      questionOf: 'Quaestio',
+      previousButton: '← Prior'
+    },
+
+    result: {
+      title: 'Eventus Personalitatis Tuae | Examinatio Personalitatis Animalis',
+      metaDescription: 'Eventum personalitatis tuae videre cum explicatione detenta, fortitudinibus et exemplis famosissimis.',
+      ogTitle: 'Eventus Personalitatis Tuae',
+      ogDescription: 'Typum personalitatis tuae discere! Concordantiam et consilium laboris videre.',
+      analyzing: 'Eventum analiticum...',
+      koreanRatioLabel: 'Proportio in Corea',
+      rarityLabel: 'Raritas',
+      strengthsTitle: 'Fortitudines',
+      compatibleTypesTitle: 'Typi Concordantes',
+      shareHeading: 'Cum Amicis Commun 🎉',
+      shareDesc: 'Eventum tuum commun et typos tuorum amicorum discere!',
+      kakaoShare: '💬 KakaoTalk',
+      twitterShare: '𝕏 Twitter',
+      facebookShare: '📘 Facebook',
+      copyLink: '🔗 Nexum Copia',
+      instagramHint: '📸 Pro Instagram: Imago scrinii et cum tua fabula commun!',
+      historyTitle: 'Mihi Historia Typorum Personalitatis',
+      retestButton: 'Probare Iterum 🔄',
+      homeButton: 'Adi Domum',
+      compatButton: 'Concordantiam Controla 💕',
+      saveImageButton: 'Imaginem Salva 📸',
+      careersButton: 'Concordantia Laboris 💼',
+      copyLinkSuccess: 'Nexum copia! Cum amicis commun! 📋',
+      imageGenerating: 'Imago generandi... 📸',
+      imageSaved: 'Imago salva! 📸'
+    },
+
     index: {
       metaDescription: 'Discover your personality type through everyday situations! Get your animal character and share with friends.',
       title: 'What\'s My Personality? Fun 16 Animal Personality Test 🐾',
