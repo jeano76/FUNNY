@@ -3,6 +3,7 @@ import subprocess
 import time
 import os
 import sys
+import socket
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -14,16 +15,37 @@ sys.path.insert(0, os.path.dirname(__file__))
 SCREENSHOTS_DIR = Path(__file__).parent / "screenshots"
 
 
+def is_port_in_use(port=8000):
+    """Check if a port is in use."""
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(("127.0.0.1", port))
+        return False
+    except OSError:
+        return True
+
+
 @pytest.fixture(scope="session", autouse=True)
 def start_local_server():
-    """Start local HTTP server on port 8000 for tests."""
+    """Start local HTTP server on port 8000 for tests, or use existing server."""
     cwd = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     print("\n" + "="*70)
-    print("Starting local HTTP server on port 8000")
+    print("Setting up local HTTP server on port 8000")
     print(f"Working directory: {cwd}")
     print("="*70)
 
+    server_process = None
+
+    # Check if server is already running
+    if is_port_in_use(8000):
+        print("✓ HTTP server already running on http://127.0.0.1:8000")
+        print("="*70 + "\n")
+        yield
+        return
+
+    # Start new server
+    print("Starting new HTTP server...")
     server_process = subprocess.Popen(
         ["python3", "-m", "http.server", "8000", "--bind", "127.0.0.1"],
         cwd=cwd,
@@ -48,14 +70,15 @@ def start_local_server():
 
     yield
 
-    # Cleanup
-    try:
-        server_process.terminate()
-        server_process.wait(timeout=5)
-        print("\n✓ HTTP server stopped")
-    except subprocess.TimeoutExpired:
-        server_process.kill()
-        print("\n✓ HTTP server killed")
+    # Cleanup (only if we started the server)
+    if server_process:
+        try:
+            server_process.terminate()
+            server_process.wait(timeout=5)
+            print("\n✓ HTTP server stopped")
+        except subprocess.TimeoutExpired:
+            server_process.kill()
+            print("\n✓ HTTP server killed")
 
 
 @pytest.fixture(scope="session")
