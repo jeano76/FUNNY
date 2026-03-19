@@ -1,0 +1,508 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.3, pluggy-1.6.0
+rootdir: /home/hyuckjoolee/marketMBTI
+configfile: pytest.ini
+plugins: xdist-3.5.0, html-4.1.1, metadata-3.1.1
+collected 1659 items
+
+tests/test_all_languages_full.py 
+======================================================================
+Starting local HTTP server on port 8000
+Working directory: /home/hyuckjoolee/marketMBTI
+======================================================================
+✓ HTTP server started successfully on http://127.0.0.1:8000
+======================================================================
+
+..........................................................................................................................................................................................................................................................................s.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.sssssssssssss.ssssssssssssF
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[ko-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[ko-compare.html]_failure.png
+................................................................F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[de-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[de-compare.html]_failure.png
+........F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[fr-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[fr-compare.html]_failure.png
+..........................................................................................................F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[it-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[it-compare.html]_failure.png
+........F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[nl-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[nl-compare.html]_failure.png
+........F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[ar-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[ar-compare.html]_failure.png
+........F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[mn-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[mn-compare.html]_failure.png
+........F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[la-index.html]_failure.png
+....F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_untranslated_i18n_keys[la-compare.html]_failure.png
+...............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ko-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[en-compat.html]_failure.png
+.............................F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[es-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[de-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[fr-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ru-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[pt-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[id-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-about.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-privacy.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-careers.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-situations.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-fortune.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-challenges.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-group.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-speed.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-compat.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[hi-compat-chart.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-about.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-privacy.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-careers.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-situations.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-fortune.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-challenges.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-group.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[vi-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-about.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-privacy.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-careers.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-situations.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-fortune.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-challenges.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-group.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-speed.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[th-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[tr-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[it-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[nl-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[ar-index.html]_failure.png
+.............F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-about.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-compare.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[mn-compat.html]_failure.png
+.F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-index.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-quiz.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-result.html]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-about.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-careers.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-challenges.html]_failure.png
+..F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_horizontal_scroll[la-compat.html]_failure.png
+.................................................F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[ko]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[zh]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[fr]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[id]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[th]_failure.png
+F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_result_page_loads[nl]_failure.png
+...F
+Screenshot saved: /home/hyuckjoolee/marketMBTI/tests/screenshots/test_no_javascript_errors_failure.png
+
+✓ HTTP server stopped
+
+
+=============================== warnings summary ===============================
+../.local/lib/python3.12/site-packages/_pytest/config/__init__.py:1373
+  /home/hyuckjoolee/.local/lib/python3.12/site-packages/_pytest/config/__init__.py:1373: PytestConfigWarning: Unknown config option: timeout
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[ko-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[ko-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[de-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[de-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[fr-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[fr-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[it-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[it-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[nl-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[nl-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[ar-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[ar-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[mn-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[mn-compare.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[la-index.html]
+FAILED tests/test_all_languages_full.py::TestFullTranslationCoverage::test_no_untranslated_i18n_keys[la-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ko-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[en-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[es-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[de-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[fr-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ru-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[pt-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[id-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-privacy.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-situations.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-fortune.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-group.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-speed.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[hi-compat-chart.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-privacy.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-situations.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-fortune.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-group.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[vi-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-privacy.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-situations.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-fortune.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-group.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-speed.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[th-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[tr-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[it-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[nl-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[ar-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-compare.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[mn-compat.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-index.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-quiz.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-result.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-about.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-careers.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-challenges.html]
+FAILED tests/test_all_languages_full.py::TestLayoutAllLanguages::test_no_horizontal_scroll[la-compat.html]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[ko]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[zh]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[fr]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[id]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[th]
+FAILED tests/test_all_languages_full.py::TestQuizFlowAllLanguages::test_result_page_loads[nl]
+FAILED tests/test_all_languages_full.py::TestSpecialCases::test_no_javascript_errors
+==== 160 failed, 1265 passed, 234 skipped, 1 warning in 1423.83s (0:23:43) =====
