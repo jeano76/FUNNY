@@ -49,6 +49,20 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
+/* --- RTL Language Support --- */
+html[lang="ar"],
+html[lang="mn"],
+html[lang="la"] {
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] body,
+html[lang="mn"] body,
+html[lang="la"] body {
+  overflow-x: hidden;
+  text-align: right;
+}
+
 /* --- Nav --- */
 .nav {
   position: sticky; top: 0; z-index: 100;
