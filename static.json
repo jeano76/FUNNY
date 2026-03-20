@@ -1,0 +1,6 @@
+{
+  "root": ".",
+  "routing": {
+    "ignore": "/.git/**"
+  }
+}
