@@ -1,5 +1,12 @@
 (function () {
   const LANG_KEY = 'mbti_site_lang';
+  // Maps lang code (stored in localStorage) → folder directory
+  const langCodeToDir = {
+    'ko': '', 'en': 'en', 'ja': 'jp', 'jp': 'jp', 'zh': 'zh',
+    'es': 'es', 'de': 'de', 'fr': 'fr', 'ru': 'ru', 'pt': 'pt',
+    'id': 'id', 'hi': 'hi', 'vi': 'vi', 'th': 'th', 'tr': 'tr',
+    'it': 'it', 'nl': 'nl', 'ar': 'ar', 'mn': 'mn', 'la': 'la'
+  };
   let allButtons = [];
   let allContents = [];
 
@@ -94,10 +101,13 @@
     // 절대경로(/로 시작)만 현재 언어로 변환
     var savedLang = localStorage.getItem(LANG_KEY);
     if (savedLang && savedLang !== 'ko' && href.startsWith('/')) {
-      e.preventDefault();
-      var pageName = href.split('/').pop() || 'index.html';
-      var targetPath = '/' + savedLang + '/' + (pageName.indexOf('.html') !== -1 ? pageName : 'index.html');
-      window.location.href = targetPath;
+      var langDir = langCodeToDir[savedLang];
+      if (langDir) {
+        e.preventDefault();
+        var pageName = href.split('/').pop() || 'index.html';
+        var targetPath = '/' + langDir + '/' + (pageName.indexOf('.html') !== -1 ? pageName : 'index.html');
+        window.location.href = targetPath;
+      }
     }
   });
 
