@@ -308,6 +308,70 @@ class TestLangSwitchNavigation:
 
         assert not missing, f"Missing language options in dropdown: {missing}"
 
+    @pytest.mark.parametrize("lang,page", [
+        ("ko", "challenges.html"),
+        ("ko", "compare.html"),
+        ("en", "challenges.html"),
+        ("en", "compare.html"),
+        ("ja", "challenges.html"),
+        ("ja", "compare.html"),
+        ("de", "challenges.html"),
+    ])
+    def test_pages_no_unwanted_redirect(self, driver, lang, page):
+        """challenges.html and compare.html should NOT redirect to quiz.html when no result data."""
+        page_obj = BasePage(driver)
+        folder = LANG_TO_DIR[lang]
+        url = f"{BASE_URL}/{folder}/{page}" if folder else f"{BASE_URL}/{page}"
+
+        driver.get(f"{BASE_URL}/index.html")
+        driver.execute_script("localStorage.clear();")
+        driver.execute_script(f"localStorage.setItem('mbti_site_lang', '{lang}');")
+        driver.get(url)
+        page_obj.wait_for_element_visible(By.TAG_NAME, "body")
+        import time; time.sleep(0.5)
+
+        current_url = driver.current_url
+        assert page in current_url, (
+            f"[{lang}] {page} unexpectedly redirected to: {current_url}"
+        )
+
+    @pytest.mark.parametrize("lang", ["ko", "en", "ja", "zh", "de", "fr"])
+    def test_nav_links_work_after_lang_switch(self, driver, lang):
+        """After switching to a language, nav links should navigate to correct pages."""
+        page_obj = BasePage(driver)
+        setup_page(driver, lang)
+
+        folder = LANG_TO_DIR[lang]
+
+        nav_targets = {
+            "nav.home": "index.html",
+            "nav.test": "quiz.html",
+            "nav.compare": "compare.html",
+            "nav.about": "about.html",
+        }
+
+        failures = []
+        for i18n_key, page in nav_targets.items():
+            # Go back to start page each time
+            setup_page(driver, lang)
+            start_url = driver.current_url
+
+            try:
+                link = driver.find_element(By.CSS_SELECTOR, f"a[data-i18n='{i18n_key}']")
+            except Exception:
+                failures.append(f"Missing link {i18n_key}")
+                continue
+
+            driver.execute_script("arguments[0].click()", link)
+            import time; time.sleep(0.8)
+
+            expected_path = f"{folder}/{page}" if folder else page
+            final_url = driver.current_url
+            if expected_path not in final_url:
+                failures.append(f"{i18n_key}: expected *{expected_path}* got {final_url}")
+
+        assert not failures, f"[{lang}] Nav link failures:\n" + "\n".join(failures)
+
     @pytest.mark.parametrize("page", ["index.html", "quiz.html", "about.html", "privacy.html"])
     def test_lang_switch_preserves_page(self, driver, page):
         """Switching language on a specific page stays on same page (not index.html)."""

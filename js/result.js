@@ -212,6 +212,9 @@ const resultData = {
 
 // --- Init ---
 document.addEventListener('DOMContentLoaded', function () {
+  // Only run result page logic when actually on result.html
+  if (!window.location.pathname.endsWith('result.html')) return;
+
   const params = new URLSearchParams(location.search);
   const type = params.get('type');
 

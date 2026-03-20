@@ -212,6 +212,8 @@ const resultData = {
 
 // --- Init ---
 document.addEventListener('DOMContentLoaded', function () {
+  if (!window.location.pathname.endsWith('result.html')) return;
+
   const params = new URLSearchParams(location.search);
   const type = params.get('type');
 
