@@ -16,3 +16,9 @@ languages.json
 .DS_Store
 Thumbs.db
 node_modules/
+
+# Python 개발
+venv/
+__pycache__/
+*.py[cod]
+.env
