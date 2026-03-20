@@ -185,6 +185,12 @@ class TestI18n:
         """Test <html lang=''> attribute is correct."""
         page_obj = BasePage(driver)
 
+        # Set localStorage to prevent auto-lang.js from redirecting
+        try:
+            driver.execute_script(f"localStorage.setItem('mbti_site_lang', '{lang}');")
+        except Exception:
+            pass
+
         # Build URL
         if lang == "ko":
             url = f"{BASE_URL}/index.html"
@@ -208,6 +214,11 @@ class TestI18n:
         untranslated_summary = {}
 
         for page in ROOT_PAGES:
+            # Clear language setting to ensure Korean pages load in Korean
+            try:
+                driver.execute_script("localStorage.setItem('mbti_site_lang', 'ko');")
+            except Exception:
+                pass
             driver.get(f"{BASE_URL}/{page}")
             page_obj.wait_for_element_visible(By.TAG_NAME, "body")
 

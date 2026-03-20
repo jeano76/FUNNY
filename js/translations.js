@@ -353,7 +353,9 @@ const TRANSLATIONS = {
       policyOriginal: '본 사이트의 모든 콘텐츠는 직접 제작한 오리지널 콘텐츠입니다.',
       policyReference: '성격 유형 이론은 공개된 학문적 자료를 참고하였습니다.',
       policyReproduction: '무단 복제 및 재배포를 금지합니다.',
-      policyAds: '사이트 내 광고는 Google AdSense를 통해 제공됩니다.'
+      policyAds: '사이트 내 광고는 Google AdSense를 통해 제공됩니다.',
+      contactHeading: '문의하기 (Contact Us)',
+      contactDesc: '사이트 이용 중 문의사항이나 건의사항이 있으시면 아래 이메일로 연락해 주세요.',
     },
 
     // ========== privacy.html ==========
@@ -390,7 +392,8 @@ const TRANSLATIONS = {
       cookiesText: '본 서비스는 필수 쿠키만 사용합니다. 선택적 쿠키는 브라우저 설정에서 거부할 수 있습니다.',
       changesHeading: '정책 변경',
       changesText: '본 정책은 예고 없이 변경될 수 있습니다. 변경 사항은 이 페이지에 게시됩니다.',
-      contactHeading: '문의',
+      contactHeading: '8. 문의하기 (Contact Us)',
+      contactDesc: '개인정보 처리방침에 관한 문의사항이 있으시면 아래 이메일로 연락해 주세요.',
       contactText: '개인정보 처리방침에 대한 문의가 있으시면 이메일로 연락주세요.',
       storedInfo: '단, 아래의 방식으로 일부 정보가 저장될 수 있습니다:',
       cookieHeading: '2. 쿠키 사용',
@@ -418,6 +421,8 @@ const TRANSLATIONS = {
       adviceLabel: '오늘의 조언',
       totalFortuneLabel: '총운',
       quoteLabel: '💬 오늘의 한마디',
+      disclaimer: '* 재미로 보는 운세입니다. 매일 자정에 업데이트됩니다.',
+      selectPlaceholder: '-- 유형 선택 --',
     },
 
     // ========== speed.html ==========
@@ -493,19 +498,6 @@ const TRANSLATIONS = {
       startButton: '테스트 시작하기',
     },
 
-    // ========== Additional pages (stub entries for complete i18n support) ==========
-    careers: {
-      title: '직업 추천 | 성격 유형별 추천 직업',
-      metaDescription: '당신의 성격 유형에 어울리는 직업을 찾아보세요.',
-      ogTitle: '직업 추천',
-      ogDescription: '당신의 성격 유형에 맞는 직업은 무엇일까요?'
-    },
-    speed: {
-      title: '스피드 모드 | 빠른 성격 테스트',
-      metaDescription: '1분만에 끝내는 빠른 성격 테스트!',
-      ogTitle: '스피드 모드',
-      ogDescription: '빠르게 성격 유형을 알아보세요.'
-    },
     personalities: {
       INTJ: {name: "호랑이", emoji: "🐯", title: "고독한 전략가", group: "분석형 (NT) · 가장 희귀한 유형 중 하나", description: "독립심이 강하고 전략적인 당신. 혼자만의 영역을 중시하며 목표를 향해 치밀하게 움직입니다. 겉으로는 차가워 보이지만, 내면에는 강렬한 비전과 의지가 숨어있습니다. 비효율적인 것을 참지 못하고, 항상 더 나은 방법을 생각합니다.", strengths: ["전략적 사고", "독립심", "결단력", "목표 집중"], weaknesses: ["완벽주의", "고집스러움", "감정 표현 어려움"], koreanRatio: "2.1%", worldRarityRank: "★★★★★ 최희귀", compatibleTypes: ["ENFP 돌고래 🐬", "ENTP 앵무새 🦜"], famousExamples: ["일론 머스크", "니체", "아이작 뉴턴"], shareText: "나는 INTJ 호랑이! 고독한 전략가 🐯 당신의 성격 유형은?"},
       INTP: {name: "올빼미", emoji: "🦉", title: "논리적 탐구자", group: "분석형 (NT)", description: "밤에 더 명확해지는 지적 호기심의 끝판왕. 조용하지만 머릿속은 복잡한 이론으로 가득 차 있습니다. 아이디어를 탐구하고 분석하는 것을 즐기며, 불합리한 논리를 만나면 그냥 지나치지 못합니다.", strengths: ["논리적 분석", "창의적 사고", "지적 호기심", "객관성"], weaknesses: ["우유부단함", "마감 기피", "사회적 거리감"], koreanRatio: "3.3%", worldRarityRank: "★★★★ 희귀", compatibleTypes: ["ENTJ 사자 🦁", "ENFJ 골든리트리버 🐕"], famousExamples: ["알버트 아인슈타인", "빌 게이츠"], shareText: "나는 INTP 올빼미! 논리적 탐구자 🦉 당신의 성격 유형은?"},
@@ -1104,7 +1096,9 @@ const TRANSLATIONS = {
       policyOriginal: 'All content on this site is original and created by us.',
       policyReference: 'Personality type theory is based on publicly available academic resources.',
       policyReproduction: 'Unauthorized reproduction and redistribution are prohibited.',
-      policyAds: 'Advertisements on this site are provided by Google AdSense.'
+      policyAds: 'Advertisements on this site are provided by Google AdSense.',
+      contactHeading: 'Contact Us',
+      contactDesc: 'If you have any questions or suggestions, please contact us at the email below.',
     },
     privacy: {
       title: 'Privacy Policy | Personality Animal Test',
@@ -1139,7 +1133,8 @@ const TRANSLATIONS = {
       cookiesText: 'We use only essential cookies. You can disable optional cookies in your browser settings.',
       changesHeading: 'Policy Changes',
       changesText: 'This policy may change without notice. Updates will be posted on this page.',
-      contactHeading: 'Contact Us',
+      contactHeading: '8. Contact Us',
+      contactDesc: 'If you have any questions about our privacy policy, please contact us at the email below.',
       contactText: 'If you have questions about this privacy policy, please contact us via email.',
       storedInfo: 'However, some information may be stored in the following ways:',
       cookieHeading: '2. Cookie Usage',
@@ -2647,6 +2642,28 @@ const TRANSLATIONS = {
     },
     compat: {
       title: 'Persönlichkeitskompatibilität | Persönlichkeits-Tiertest',
+      metaDescription: 'Überprüfen Sie die Kompatibilität zwischen zwei Persönlichkeitstypen mit detaillierter Erklärung und Punktzahl.',
+      ogTitle: 'Persönlichkeitskompatibilität | Persönlichkeits-Tiertest',
+      ogDescription: 'Sehen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen!',
+      mainTitle: 'Persönlichkeitskompatibilität',
+      subtitle: 'Überprüfen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen',
+      shareHint: 'Teilen Sie den Link mit einem Freund, um automatisch Kompatibilitätsergebnisse zu erhalten!',
+      mainDesc: 'Überprüfen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen',
+      shareBannerMsg: 'Teilen Sie den Link mit einem Freund, um automatisch Kompatibilitätsergebnisse zu erhalten!',
+      shareButton: '🔗 Freundeslink teilen',
+      compatScore: 'Kompatibilitätspunktzahl',
+      relationAdvice: '💡 Beziehungsratschlag',
+      retestButton: 'Test wiederholen 🔄',
+      compatChartButton: 'Vollständige Kompatibilitätstabelle anzeigen',
+      selectTitle: 'Typen direkt auswählen',
+      myType: 'Mein Typ',
+      partnerType: 'Partnertyp',
+      selectOption: '-- Auswählen --',
+      vs: 'VS',
+      checkButton: 'Kompatibilität überprüfen 💕',
+      selectBothTypes: 'Bitte wählen Sie beide Typen aus!',
+      shareLink: 'Link kopiert! 📋'
+    },
     index: {
       metaDescription: 'Entdecke deinen Persönlichkeitstyp durch Alltagssituationen! Erhalte dein Tier-Ergebnis und teile es mit Freunden.',
       title: 'Was ist meine Persönlichkeit? Lustiger 16-Tiere-Test 🐾',
@@ -2735,29 +2752,6 @@ const TRANSLATIONS = {
       compareButton: 'Vergleichen 💕',
       compatScore: 'Kompatibilitätspunktzahl',
       vs: 'VS'
-    },
-
-      metaDescription: 'Überprüfen Sie die Kompatibilität zwischen zwei Persönlichkeitstypen mit detaillierter Erklärung und Punktzahl.',
-      ogTitle: 'Persönlichkeitskompatibilität | Persönlichkeits-Tiertest',
-      ogDescription: 'Sehen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen!',
-      mainTitle: 'Persönlichkeitskompatibilität',
-      subtitle: 'Überprüfen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen',
-      shareHint: 'Teilen Sie den Link mit einem Freund, um automatisch Kompatibilitätsergebnisse zu erhalten!',
-      mainDesc: 'Überprüfen Sie die Kompatibilitätspunktzahl und detaillierte Erklärung zwischen zwei Typen',
-      shareBannerMsg: 'Teilen Sie den Link mit einem Freund, um automatisch Kompatibilitätsergebnisse zu erhalten!',
-      shareButton: '🔗 Freundeslink teilen',
-      compatScore: 'Kompatibilitätspunktzahl',
-      relationAdvice: '💡 Beziehungsratschlag',
-      retestButton: 'Test wiederholen 🔄',
-      compatChartButton: 'Vollständige Kompatibilitätstabelle anzeigen',
-      selectTitle: 'Typen direkt auswählen',
-      myType: 'Mein Typ',
-      partnerType: 'Partnertyp',
-      selectOption: '-- Auswählen --',
-      vs: 'VS',
-      checkButton: 'Kompatibilität überprüfen 💕',
-      selectBothTypes: 'Bitte wählen Sie beide Typen aus!',
-      shareLink: 'Link kopiert! 📋'
     },
     group: {
       title: 'Persönlichkeitstyp-Gruppentest | Spaß mit Freunden',
@@ -3034,6 +3028,29 @@ const TRANSLATIONS = {
       privacy: 'Politique de confidentialité'
     },
     compat: {
+      title: 'Compatibilité des Personnalités | Test de Personnalité Animale',
+      metaDescription: 'Vérifiez la compatibilité entre deux types de personnalité avec explication détaillée et score.',
+      ogTitle: 'Compatibilité des Personnalités | Test de Personnalité Animale',
+      ogDescription: 'Consultez le score de compatibilité et l\'explication détaillée entre deux types !',
+      mainTitle: 'Compatibilité des Personnalités',
+      subtitle: 'Vérifiez le score de compatibilité et l\'explication détaillée entre deux types',
+      shareHint: 'Partagez le lien avec un ami pour obtenir automatiquement les résultats de compatibilité!',
+      mainDesc: 'Vérifiez le score de compatibilité et l\'explication détaillée entre deux types',
+      shareBannerMsg: 'Partagez le lien avec un ami pour obtenir automatiquement les résultats de compatibilité !',
+      shareButton: '🔗 Partager le lien ami',
+      compatScore: 'Score de compatibilité',
+      relationAdvice: '💡 Conseil de relation',
+      retestButton: 'Recommencer le test 🔄',
+      compatChartButton: 'Afficher le tableau de compatibilité complet',
+      selectTitle: 'Sélectionner les types directement',
+      myType: 'Mon type',
+      partnerType: 'Type de partenaire',
+      selectOption: '-- Sélectionner --',
+      vs: 'VS',
+      checkButton: 'Vérifier la compatibilité 💕',
+      selectBothTypes: 'Veuillez sélectionner les deux types !',
+      shareLink: 'Lien copié ! 📋'
+    },
     index: {
       metaDescription: 'Découvrez votre type de personnalité à travers des situations quotidiennes! Obtenez votre personnage animal et partagez-le avec vos amis.',
       title: 'Quelle est ma personnalité? Amusant test des 16 animaux 🐾',
@@ -3122,30 +3139,6 @@ const TRANSLATIONS = {
       compareButton: 'Comparer 💕',
       compatScore: 'Score de compatibilité',
       vs: 'VS'
-    },
-
-      title: 'Compatibilité des Personnalités | Test de Personnalité Animale',
-      metaDescription: 'Vérifiez la compatibilité entre deux types de personnalité avec explication détaillée et score.',
-      ogTitle: 'Compatibilité des Personnalités | Test de Personnalité Animale',
-      ogDescription: 'Consultez le score de compatibilité et l\'explication détaillée entre deux types !',
-      mainTitle: 'Compatibilité des Personnalités',
-      subtitle: 'Vérifiez le score de compatibilité et l\'explication détaillée entre deux types',
-      shareHint: 'Partagez le lien avec un ami pour obtenir automatiquement les résultats de compatibilité!',
-      mainDesc: 'Vérifiez le score de compatibilité et l\'explication détaillée entre deux types',
-      shareBannerMsg: 'Partagez le lien avec un ami pour obtenir automatiquement les résultats de compatibilité !',
-      shareButton: '🔗 Partager le lien ami',
-      compatScore: 'Score de compatibilité',
-      relationAdvice: '💡 Conseil de relation',
-      retestButton: 'Recommencer le test 🔄',
-      compatChartButton: 'Afficher le tableau de compatibilité complet',
-      selectTitle: 'Sélectionner les types directement',
-      myType: 'Mon type',
-      partnerType: 'Type de partenaire',
-      selectOption: '-- Sélectionner --',
-      vs: 'VS',
-      checkButton: 'Vérifier la compatibilité 💕',
-      selectBothTypes: 'Veuillez sélectionner les deux types !',
-      shareLink: 'Lien copié ! 📋'
     },
     group: {
       title: 'Test de Type de Personnalité de Groupe | Amusement avec Amis',
