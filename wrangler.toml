@@ -1,8 +1,6 @@
-name = "marketMBTI"
-type = "javascript"
+name = "market-mbti"
 compatibility_date = "2024-01-01"
 
 [build]
 # 정적 파일만 배포 - npm install 실행 안 함
 command = ""
-cwd = "."
