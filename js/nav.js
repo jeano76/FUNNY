@@ -19,12 +19,12 @@
           e.preventDefault();
           e.stopPropagation();
           var href = link.getAttribute('href') || '';
-          var parts = href.split('/').filter(function(p) { return p && p !== '..'; });
+          // href에서 언어 디렉토리 추출
+          // ../en/index.html → 'en', en/index.html → 'en', ../index.html → 'ko'
           var targetDir = 'ko';
-          if (parts.length >= 2 && parts[parts.length - 1].indexOf('.html') !== -1) {
-            targetDir = parts[parts.length - 2];
-          } else if (parts.length === 1 && parts[0].indexOf('.html') === -1) {
-            targetDir = parts[0];
+          var match = href.match(/(?:^|\/)(en|jp|zh|es|de|fr|ru|pt|id|hi|vi|th|tr|it|nl|ar|mn|la)\/[^/]+\.html$/);
+          if (match) {
+            targetDir = match[1];
           }
           closeAll();
           if (window.switchLanguage) {

@@ -37,10 +37,14 @@
 
     // 전역 함수 등록
     window.switchLanguage = function(langDir) {
+        if (langDir === 'ko' || langDir === '') {
+            localStorage.setItem(LANG_KEY, 'ko');
+            window.location.href = '/' + pageName;
+            return;
+        }
         if (langDir && validDirs.includes(langDir)) {
             localStorage.setItem(LANG_KEY, langDir);
-            const targetPath = (langDir === 'ko') ? '/' + pageName : '/' + langDir + '/' + pageName;
-            window.location.href = targetPath;
+            window.location.href = '/' + langDir + '/' + pageName;
         }
     };
 })();
